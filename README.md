@@ -1,4 +1,3 @@
-[![Build and deploy](https://github.com/Depok-Kita/depkit-fe/actions/workflows/deploy.yml/badge.svg)](https://github.com/Educare-Fasilkom/flying-dutchman-frontend/actions/workflows/deploy.yml)
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
