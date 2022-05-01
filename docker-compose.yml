@@ -1,0 +1,10 @@
+version: "3"
+services:
+  # Comment the following block if you're in Windows
+  # To run strapi, simply do "yarn develop" in its directory
+  depkit-fe:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    restart: always
