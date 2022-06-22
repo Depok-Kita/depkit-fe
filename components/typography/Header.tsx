@@ -11,7 +11,7 @@ export const Header = ({ className, preset, children }: HeaderProps) => {
     <h1
       className={`${
         preset === "decorative"
-          ? "font-dimbo tracking-[0.03em] text-[4rem]"
+          ? "font-jakarta-sans tracking-[0.03em] text-[4rem] decorative"
           : preset === "h1"
           ? "font-jakarta-sans font-bold text-[4rem]"
           : preset === "h2"
