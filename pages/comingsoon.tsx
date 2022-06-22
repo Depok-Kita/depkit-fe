@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import React from "react";
-import Image from "next/image";
 import { Button } from "@chakra-ui/react";
 
 const ComingSoon: NextPage = () => {
