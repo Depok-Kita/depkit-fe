@@ -32,6 +32,9 @@ module.exports = {
         mustard: "#F7D76A",
       },
     },
+    fontFamily: {
+      "jakarta-sans": ["Plus Jakarta Sans", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [],
