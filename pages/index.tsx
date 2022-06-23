@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Button } from "@chakra-ui/react";
+import { Button } from "@components";
 
 const Home: NextPage = () => {
   return (
@@ -11,7 +11,15 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="text-9xl text-powder">Depok Kita</div>
-      <Button colorScheme={"mustard"}>TESSSSS</Button>
+      <Button preset="primaryDark" disabled>
+        haha
+      </Button>
+      <Button preset="primaryLight">haha</Button>
+
+      <Button preset="tertiaryDark">haha</Button>
+      <Button preset="tertiaryLight">haha</Button>
+
+      {/* <Button colorScheme={"mustard"}>TESSSSS</Button> */}
     </div>
   );
 };
