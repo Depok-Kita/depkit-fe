@@ -23,6 +23,7 @@
       "@icons/*": ["public/assets/icons/*"],
       "@images/*": ["public/assets/images/*"],
       "@models": ["models"],
+      "@styles/*": ["styles/*"],
       "@pages/*": ["pages/*"]
     }
   },
