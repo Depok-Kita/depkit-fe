@@ -1,6 +1,6 @@
 import React from "react";
 import { BUTTON_PRESETS } from "./Button.presets";
-
+import { Header } from "@components";
 type ButtonProps = {
   className?: string;
 
@@ -52,7 +52,8 @@ export const Button = ({
       {...props}
     >
       {leftIcon ? <>{leftIcon}</> : null}
-      {children}
+      <Header preset="h6">{children}</Header>
+
       {rightIcon ? <>{rightIcon} </> : null}
     </button>
   );
