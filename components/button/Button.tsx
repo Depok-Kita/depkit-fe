@@ -19,7 +19,9 @@ type ButtonProps = {
     | "secondaryDark"
     | "secondaryLight"
     | "tertiaryDark"
-    | "tertiaryLight";
+    | "tertiaryLight"
+    | "linkDark"
+    | "linkLight";
 
   children?: React.ReactNode;
   [props: string]: any;
