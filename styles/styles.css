@@ -21,6 +21,6 @@ a {
   box-sizing: border-box;
 }
 
-h1 {
+.decorative {
   font-feature-settings: "ss01" on;
 }
