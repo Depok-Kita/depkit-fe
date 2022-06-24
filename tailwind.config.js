@@ -34,6 +34,8 @@ module.exports = {
     },
     fontFamily: {
       "jakarta-sans": ["Plus Jakarta Sans", "sans-serif"],
+      bold: ["Plus Jakarta Sans Bold", "sans-serif"],
+      semibold: ["Plus Jakarta Sans SemiBold", "sans-serif"],
     },
     extend: {},
   },
