@@ -1,7 +1,6 @@
 import React from "react";
 import type { NextPage } from "next";
-import { Button } from "@components/button";
-import { Header } from "@components";
+import { Header, Button } from "@components";
 import Link from "next/link";
 
 const Arutala: NextPage = () => {
