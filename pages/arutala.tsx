@@ -2,6 +2,7 @@ import React from "react";
 import type { NextPage } from "next";
 import { Button } from "@components/button";
 import { Header } from "@components";
+import Link from "next/link";
 
 const Arutala: NextPage = () => {
   return (
@@ -31,14 +32,18 @@ const Arutala: NextPage = () => {
           <Button preset="primaryDark">Button</Button>
           <Button preset="secondaryLight">Button</Button>
           <Button preset="tertiaryDark">Button</Button>
-          <Button preset="linkDark">Button</Button>
+          <Link href={"https://www.google.com"} passHref>
+            <Button preset="linkDark">Button</Button>
+          </Link>
         </div>
 
         <div className="flex justify-center items-center bg-denim-dark gap-4 p-6 min-w-[75%] mx-auto rounded-3xl">
           <Button preset="primaryLight">Button</Button>
           <Button preset="secondaryDark">Button</Button>
           <Button preset="tertiaryLight">Button</Button>
-          <Button preset="linkLight">Button</Button>
+          <Link href={"https://www.google.com"} passHref>
+            <Button preset="linkLight">Button</Button>
+          </Link>
         </div>
         <div className="flex justify-center items-center gap-4 p-6 mx-auto">
           <Button preset="primaryDark" disabled>
@@ -50,9 +55,11 @@ const Arutala: NextPage = () => {
           <Button preset="tertiaryDark" disabled>
             Button
           </Button>
-          <Button preset="linkDark" disabled>
-            Button
-          </Button>
+          <Link href={"https://www.google.com"} passHref>
+            <Button preset="linkDark" disabled>
+              Button
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
