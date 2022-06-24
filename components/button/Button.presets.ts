@@ -40,8 +40,7 @@ export const BUTTON_PRESETS: ButtonPresetProps = {
     hover: "hover:bg-powder/60",
     text: "text-totalwhite",
     borderColor: "border-powder active:border-powder/0",
-    disabled:
-      "disabled:border-grey disabled:text-grey disabled:bg-denim-dark disabled:hover:bg-transparent",
+    disabled: "disabled:border-grey disabled:text-grey disabled:bg-denim-dark",
   },
   secondaryLight: {
     border: "rounded-lg",
@@ -50,8 +49,7 @@ export const BUTTON_PRESETS: ButtonPresetProps = {
     hover: "hover:bg-denim-light/40",
     text: "text-denim-dark",
     borderColor: "border-denim-light active:border-denim-light/0",
-    disabled:
-      "disabled:border-grey disabled:text-grey disabled:bg-totalwhite disabled:hover:bg-transparent",
+    disabled: "disabled:border-grey disabled:text-grey disabled:bg-totalwhite",
   },
   tertiaryDark: {
     border: "rounded-lg",
