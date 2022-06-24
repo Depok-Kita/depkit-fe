@@ -53,8 +53,7 @@ export const Button = ({
     >
       {leftIcon ? <>{leftIcon}</> : null}
       <Header preset="h6">{children}</Header>
-
-      {rightIcon ? <>{rightIcon} </> : null}
+      {rightIcon ? <>{rightIcon}</> : null}
     </button>
   );
 };
