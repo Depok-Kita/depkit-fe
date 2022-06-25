@@ -357,6 +357,7 @@ function TextFieldSection() {
   const [hasLeftIcon, setHasLeftIcon] = useState(false);
   const [hasRightIcon, setHasRightIcon] = useState(false);
   const errorMessage = "This is error message";
+  const rightIcon = <ArrowDownIcon className="w-4 h-4" color="gray.300" />;
   const inputElement = (
     <InputField
       type="text"
@@ -371,13 +372,21 @@ function TextFieldSection() {
           <SearchIcon className="w-4 h-4" color="gray.300" />
         ) : undefined
       }
-      rightIcon={
-        hasRightIcon ? (
-          <ArrowDownIcon className="w-4 h-4" color="gray.300" />
-        ) : undefined
-      }
+      rightIcon={hasRightIcon ? rightIcon : undefined}
       className="pb-2"
     />
+  );
+  const selectElement = (
+    <SelectField
+      label={hasLabel ? "Select Label" : ""}
+      isDisabled={isDisabled}
+      isError={isError}
+      errorMessage={errorMessage}
+      rightIcon={hasRightIcon ? rightIcon : undefined}
+    >
+      <option value="opt1">Option 1</option>
+      <option value="opt2">Option 2</option>
+    </SelectField>
   );
   return (
     <div className="flex flex-col bg-totalwhite w-[85%] mx-auto rounded-3xl p-10 shadow-lg shadow-[#ADD1E2]">
@@ -408,6 +417,7 @@ function TextFieldSection() {
         <div className="pt-4 flex flex-col ">
           {inputElement}
           {inputElement}
+          {selectElement}
         </div>
       </div>
     </div>
