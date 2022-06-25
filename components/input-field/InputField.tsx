@@ -8,8 +8,9 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 
+// field contains label & input element
 type InputFieldProps = {
-  className?: string;
+  className?: string; // className of field
 
   type: "text" | "number" | "password" | "email"; // input type
   name?: string; // field name, ex. firstname, password

@@ -5,17 +5,15 @@ import {
   Select,
 } from "@chakra-ui/react";
 
-// type SelectOption = {
-//   value?: string; // value element option
-//   label?: string; // string yg ditampilkan di element option
-// };
-
+// field contains label & input element
 type SelectFieldProps = {
-  //options: [SelectOption];
-  label?: string; // label field
+  className?: string; // field className
+  name?: string; // name of <select> element
+  label?: string;
   placeholder?: string;
+  value?: string | number; // value of <select> element
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
-  children: React.ReactNode; // option elements
+  children: React.ReactNode; // option elements, ex. <option value="opt1">Option 1<option/>
 
   isDisabled?: boolean;
   isError?: boolean;
@@ -27,7 +25,7 @@ type SelectFieldProps = {
 
 export const SelectField = (props: SelectFieldProps) => {
   return (
-    <FormControl isInvalid={props.isError}>
+    <FormControl isInvalid={props.isError} className={props.className}>
       <FormLabel>{props.label}</FormLabel>
       <Select
         placeholder={props.placeholder}
@@ -36,6 +34,7 @@ export const SelectField = (props: SelectFieldProps) => {
         className="cursor-pointer"
         icon={props.rightIcon}
         iconSize="17"
+        value={props.value}
       >
         {props.children}
       </Select>
