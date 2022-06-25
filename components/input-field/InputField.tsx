@@ -35,7 +35,12 @@ export const InputField = (props: InputFieldProps) => {
       <FormLabel htmlFor={props.name}>{props.label}</FormLabel>
       <InputGroup>
         {props.leftIcon && (
-          <InputLeftElement pointerEvents="none" children={props.leftIcon} />
+          <InputLeftElement
+            pointerEvents="none"
+            children={
+              <Icon isDisabled={props.isDisabled}>{props.leftIcon}</Icon>
+            }
+          />
         )}
         <Input
           type={props.type}
@@ -47,7 +52,12 @@ export const InputField = (props: InputFieldProps) => {
           className="hover:border-cerulean"
         />
         {props.rightIcon && (
-          <InputRightElement pointerEvents="none" children={props.rightIcon} />
+          <InputRightElement
+            pointerEvents="none"
+            children={
+              <Icon isDisabled={props.isDisabled}>{props.rightIcon}</Icon>
+            }
+          />
         )}
       </InputGroup>
 
@@ -57,3 +67,14 @@ export const InputField = (props: InputFieldProps) => {
     </FormControl>
   );
 };
+
+type IconPropsType = {
+  isDisabled?: boolean;
+  children: React.ReactNode;
+};
+
+function Icon(props: IconPropsType) {
+  return (
+    <div className={props.isDisabled ? "opacity-40" : ""}>{props.children}</div>
+  );
+}
