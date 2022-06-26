@@ -1,13 +1,12 @@
 import {
   FormControl,
-  FormLabel,
   FormErrorMessage,
   Input,
   InputGroup,
   InputLeftElement,
   InputRightElement,
 } from "@chakra-ui/react";
-
+import { FormLabel } from "./FormLabel";
 // field contains label & input element
 type InputFieldProps = {
   className?: string; // className of field
@@ -49,7 +48,7 @@ export const InputField = (props: InputFieldProps) => {
           placeholder={props.placeholder}
           onChange={props.onChange}
           isDisabled={props.isDisabled}
-          className="hover:border-cerulean"
+          className="font-jakarta-sans hover:border-cerulean"
         />
         {props.rightIcon && (
           <InputRightElement

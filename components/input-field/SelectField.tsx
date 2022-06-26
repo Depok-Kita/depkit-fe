@@ -1,9 +1,5 @@
-import {
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Select,
-} from "@chakra-ui/react";
+import { FormControl, FormErrorMessage, Select } from "@chakra-ui/react";
+import { FormLabel } from "./FormLabel";
 
 // field contains label & input element
 type SelectFieldProps = {
@@ -26,12 +22,14 @@ type SelectFieldProps = {
 export const SelectField = (props: SelectFieldProps) => {
   return (
     <FormControl isInvalid={props.isError} className={props.className}>
-      <FormLabel>{props.label}</FormLabel>
+      <FormLabel className="font-jakarta-sans text-denim-dark">
+        {props.label}
+      </FormLabel>
       <Select
         placeholder={props.placeholder}
         onChange={props.onChange}
         isDisabled={props.isDisabled}
-        className="cursor-pointer"
+        className="cursor-pointer font-jakarta-sans"
         icon={props.rightIcon}
         iconSize="17"
         value={props.value}

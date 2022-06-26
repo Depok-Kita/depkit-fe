@@ -8,8 +8,8 @@ import {
   SearchIcon,
   ArrowDownIcon,
 } from "@heroicons/react/outline";
-import { InputField, SelectField } from "@components/input-field";
-import { Checkbox, FormControl, FormLabel, Stack } from "@chakra-ui/react";
+import { InputField, SelectField, FormLabel } from "@components/input-field";
+import { Checkbox, FormControl, Stack } from "@chakra-ui/react";
 
 const Arutala: NextPage = () => {
   return (
