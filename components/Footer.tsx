@@ -5,6 +5,20 @@ import IconLinkedin from "@icons/ic_linkedin.svg";
 import IconTwitter from "@icons/ic_twitter.svg";
 import IconFacebook from "@icons/ic_facebook.svg";
 import { Header, Body } from "@components/typography";
+import NextLink from "next/link";
+
+type LinkProps = {
+  href: string;
+  children: React.ReactNode;
+};
+/** custom styled NextLink*/
+const Link = ({ href, children }: LinkProps) => {
+  return (
+    <NextLink className=" " href={href}>
+      <span className="cursor-pointer hover:text-cerulean">{children}</span>
+    </NextLink>
+  );
+};
 
 export const Footer = () => {
   return (
@@ -34,16 +48,24 @@ export const Footer = () => {
 
         <div className="flex flex-col lg:flex-row justify-between gap-4 px-4">
           <div className="hidden md:flex md:flex-col lg:flex-row gap-4 lg:gap-[4vw] content-center">
-            <div>Tentang Kami</div>
-            <div>Struktur Organisasi</div>
-            <div>Galeri</div>
-            <div>Kontak</div>
+            <Link href="">Tentang Kami</Link>
+            <Link href="">Struktur Organisasi</Link>
+            <Link href="">Galeri</Link>
+            <Link href="">Kontak</Link>
           </div>
           <div className="flex justify-center gap-4">
-            <IconInstagram />
-            <IconLinkedin />
-            <IconTwitter />
-            <IconFacebook />
+            <Link href="/">
+              <IconInstagram />
+            </Link>
+            <Link href="/">
+              <IconLinkedin />
+            </Link>
+            <Link href="/">
+              <IconTwitter />
+            </Link>
+            <Link href="/">
+              <IconFacebook />
+            </Link>
           </div>
         </div>
       </div>
