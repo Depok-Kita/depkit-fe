@@ -2,8 +2,6 @@ import Image from "next/image";
 import logo from "@images/depkit-logo-2.png";
 import IconInstagram from "@icons/ic_instagram.svg";
 import IconLinkedin from "@icons/ic_linkedin.svg";
-import IconTwitter from "@icons/ic_twitter.svg";
-import IconFacebook from "@icons/ic_facebook.svg";
 import { Header, Body } from "@components/typography";
 import NextLink from "next/link";
 
@@ -54,17 +52,11 @@ export const Footer = () => {
             <Link href="">Kontak</Link>
           </div>
           <div className="flex justify-center gap-4">
-            <Link href="/">
+            <Link href="https://www.instagram.com/depokkita.ui/">
               <IconInstagram />
             </Link>
-            <Link href="/">
+            <Link href="https://www.linkedin.com/in/depok-kita-4b8312243">
               <IconLinkedin />
-            </Link>
-            <Link href="/">
-              <IconTwitter />
-            </Link>
-            <Link href="/">
-              <IconFacebook />
             </Link>
           </div>
         </div>
