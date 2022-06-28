@@ -28,7 +28,7 @@ export const Header = ({
           ? "font-jakarta-sans font-bold text-[1.25rem]"
           : "font-jakarta-sans font-bold text-[1rem]"
       }
-      ${decorative ? "tracking-[0.03em] text-[4rem] decorative" : ""}
+      ${decorative ? "tracking-[0.03em] decorative" : ""}
       ${className}`}
     >
       {children}
