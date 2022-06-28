@@ -37,6 +37,11 @@ module.exports = {
       bold: ["Plus Jakarta Sans Bold", "sans-serif"],
       semibold: ["Plus Jakarta Sans SemiBold", "sans-serif"],
     },
+    screens: {
+      mobile: "360px",
+      tablet: "768px",
+      desktop: "1280px",
+    },
     extend: {},
   },
   plugins: [],
