@@ -18,7 +18,7 @@ const ComingSoon: NextPage = () => {
         />
         <div className="flex flex-col gap-8 tablet:gap-10 desktop:gap-[66px]">
           <Header
-            preset="decorative"
+            preset="h4"
             className="text-center tablet:scale-100 tablet:text-[52px] desktop:text-[64px]"
           >
             Coming Soon!
