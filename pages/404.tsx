@@ -2,8 +2,8 @@ import { Body, Button, Header } from "@components";
 import { useRouter } from "next/router";
 import Cone from "@images/cone.png";
 import Image from "next/image";
-
-export default function Custom404() {
+import type { NextPage } from "next";
+const Custom404: NextPage = () => {
   const router = useRouter();
   return (
     <div className="bg-powder-light px-10 py-5 min-h-screen flex justify-center">
@@ -38,4 +38,5 @@ export default function Custom404() {
       </div>
     </div>
   );
-}
+};
+export default Custom404;
