@@ -29,7 +29,11 @@ const Arutala: NextPage = () => {
             <Body preset="p2" className="text-denim-dark">
               4 rem
             </Body>
-            <Header preset="decorative" className="text-denim-dark col-span-3">
+            <Header
+              preset="h1"
+              className="text-denim-dark col-span-3"
+              decorative
+            >
               Lorem Ipsum.
             </Header>
           </div>
