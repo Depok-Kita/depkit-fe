@@ -34,7 +34,7 @@ export const Footer = () => {
           Depok Kita
         </Header>
         <Body preset="p2" className="mb-6">
-          <span className="hidden md:inline">
+          <span className="hidden tablet:inline">
             Sebuah program pengabdian masyarakat berbasis Community Service di
             Depok. <br />
           </span>
@@ -44,8 +44,8 @@ export const Footer = () => {
           <div className="w-full h-[1px] bg-cerulean mb-6"></div>
         </div>
 
-        <div className="flex flex-col lg:flex-row justify-between gap-4 px-4">
-          <div className="hidden md:flex md:flex-col lg:flex-row gap-4 lg:gap-[4vw] content-center">
+        <div className="flex flex-col desktop:flex-row justify-between gap-4 px-4">
+          <div className="hidden tablet:flex tablet:flex-col desktop:flex-row gap-4 desktop:gap-[4vw] content-center">
             <Link href="">Tentang Kami</Link>
             <Link href="">Struktur Organisasi</Link>
             <Link href="">Galeri</Link>
