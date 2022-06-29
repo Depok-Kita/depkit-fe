@@ -2,10 +2,9 @@ import type { NextPage } from "next";
 import React from "react";
 import Image from "next/image";
 import { Header, Button } from "@components";
-import Link from "next/link";
 import { useWindowSize } from "@hooks";
 
-const ComingSoon: NextPage = () => {
+export const ComingSoon: NextPage = () => {
   const { width } = useWindowSize();
   return (
     <div className="bg-powder-light min-h-screen flex justify-center items-center">
@@ -23,18 +22,15 @@ const ComingSoon: NextPage = () => {
           >
             Coming Soon!
           </Header>
-          <Link href={"/"} passHref>
-            <Button
-              preset="primaryDark"
-              className="mx-auto scale-100 tablet:scale-150"
-            >
-              Kembali
-            </Button>
-          </Link>
+          <Button
+            preset="primaryDark"
+            className="mx-auto scale-100 tablet:scale-150"
+            onClick={() => history.back()}
+          >
+            Kembali
+          </Button>
         </div>
       </div>
     </div>
   );
 };
-
-export default ComingSoon;
