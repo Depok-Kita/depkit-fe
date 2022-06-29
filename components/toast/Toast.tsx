@@ -13,15 +13,7 @@ type ToastProps = {
   leftIcon?: React.SVGAttributes<SVGElement>;
   rightIcon?: React.SVGAttributes<SVGElement>;
 
-  preset:
-    | "primaryDark"
-    | "primaryLight"
-    | "secondaryDark"
-    | "secondaryLight"
-    | "tertiaryDark"
-    | "tertiaryLight"
-    | "linkDark"
-    | "linkLight";
+  preset: "error" | "warning" | "success" | "info";
 
   children?: React.ReactNode;
   [props: string]: any;
@@ -38,6 +30,7 @@ export const Toast = ({
   ...props
 }: ToastProps) => {
   return (
+    // using div (soon)
     <button
       className={`transition-all flex justify-center items-center gap-2 
       ${TOAST_PRESETS[preset].text} md:text-base text-sm font-semibold 

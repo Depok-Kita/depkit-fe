@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       </Head>
       <div className="text-9xl text-powder">Depok Kita</div>
       <Button colorScheme={"mustard"}>TESSSSS</Button>
-      <Toast color="error">MENCOBA</Toast>
+      <Toast>MENCOBA</Toast>
     </div>
   );
 };
