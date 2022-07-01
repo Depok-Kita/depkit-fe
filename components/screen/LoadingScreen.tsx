@@ -1,30 +1,23 @@
 import PaperPlane from "@images/paper-plane.svg";
 import Cloud from "@images/cloud.svg";
-import { Header } from "@components";
 export const LoadingScreen = () => {
   return (
-    <div className="overflow-x-hidden mt-20">
+    <div className="overflow-x-hidden mobile:mt-[15%] tablet:mt-[30%] desktop:mt-[5%] w-full">
       <div className="flex justify-center">
-        <Cloud className="animate-slide-out-right absolute mt-36 mr-64 w-20 " />
-        <Cloud className="animate-slide-out-left absolute ml-80 w-20 mt-10" />
+        <Cloud className="animate-slide-out-right absolute mobile:mt-40 tablet:mt-40 desktop:mt-44 mobile:mr-32 tablet:mr-56 desktop:mr-64 mobile:w-10 tablet:w-20 " />
+        <Cloud className="animate-slide-out-left absolute mobile:ml-40 tablet:ml-72 desktop:ml-80 mobile:w-10 tablet:w-20 mt-10" />
       </div>
 
-      <div className="plane-container absolute inset-x-0 top-[10rem]">
-        <PaperPlane />
+      <div className="plane-container absolute inset-x-0 top-[10rem] flex justify-center">
+        <PaperPlane className="mobile:w-32 mobile:h-1/3 tablet:w-52 table:h-52 flex" />
       </div>
-      <div className="flex justify-center absolute inset-x-0 top-[21rem] ">
-        {/* <Header preset="h4" className="top-[20rem] absolute">
-          Memuat
-        </Header> */}
+      <div className="flex justify-center absolute inset-x-0 mobile:top-[21rem] tablet:top-[23rem] ">
         <div className="">
-          <div className="circle "></div>
-          <div className="circle "></div>
-          <div className="circle "></div>
+          <div className="circle absolute mobile:left-[34%] tablet:left-[43%] desktop:left-[45%]  "></div>
+          <div className="circle absolute mobile:left-[43%] tablet:left-[47%] desktop:left-[48%] "></div>
+          <div className="circle absolute mobile:left-[52%] tablet:left-[51%]"></div>
         </div>
       </div>
-      {/* <div className="loader absolute top-[24rem]">
-        <div className="loaderBar"></div>
-      </div> */}
     </div>
   );
 };

@@ -56,7 +56,7 @@ module.exports = {
             opacity: "1",
           },
           to: {
-            transform: "translateX(300px)",
+            transform: "translateX(300%)",
             opacity: "0",
           },
         },
@@ -66,7 +66,7 @@ module.exports = {
             opacity: "1",
           },
           to: {
-            transform: "translateX(-300px)",
+            transform: "translateX(-300%)",
             opacity: "0",
           },
         },

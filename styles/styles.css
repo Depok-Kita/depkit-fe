@@ -163,10 +163,10 @@ a {
 .circle {
   width: 20px;
   height: 20px;
-  position: absolute;
+
   border-radius: 50%;
   margin-left: 20px;
-  left: 45%;
+
   background-color: #213456;
   transform-origin: 50%;
   animation: circle 0.5s alternate infinite ease;
@@ -189,10 +189,8 @@ a {
   }
 }
 .circle:nth-child(2) {
-  left: 48%;
   animation-delay: 0.2s;
 }
 .circle:nth-child(3) {
-  left: 51%;
   animation-delay: 0.3s;
 }
