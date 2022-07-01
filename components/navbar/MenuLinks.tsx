@@ -1,4 +1,12 @@
-import { Box, Stack, Button, Link, Divider, Spacer } from "@chakra-ui/react";
+import {
+  Box,
+  Stack,
+  Button,
+  Link,
+  Divider,
+  Spacer,
+  ChakraProvider,
+} from "@chakra-ui/react";
 import { MenuItem } from "./MenuItem";
 import { Header, Body } from "@components/typography";
 
@@ -29,38 +37,55 @@ export const MenuLinks = ({ isOpen }: any) => {
     return (
       <>
         <MenuItem to="/about">
-          <Link _hover={{ textColor: "#88BFE8" }}>
-            <Divider />
+          <Link
+            fontFamily={"Plus Jakarta Sans"}
+            _hover={{ textColor: "#88BFE8" }}
+          >
+            <Divider borderColor={"#88BFE8"} />
             <br />
             Tentang Kami
           </Link>
         </MenuItem>
         <MenuItem to="/fesrak">
-          <Link _hover={{ textColor: "#88BFE8" }}>
-            <Divider />
+          <Link
+            fontFamily={"Plus Jakarta Sans"}
+            _hover={{ textColor: "#88BFE8" }}
+          >
+            <Divider borderColor={"#88BFE8"} />
             <br />
             Festival Rakyat
           </Link>
         </MenuItem>
         <MenuItem to="/donation">
-          <Link _hover={{ textColor: "#88BFE8" }}>
-            <Divider />
+          <Link
+            fontFamily={"Plus Jakarta Sans"}
+            _hover={{ textColor: "#88BFE8" }}
+          >
+            <Divider borderColor={"#88BFE8"} />
             <br />
             Donasi
           </Link>
         </MenuItem>
         <MenuItem to="/gallery">
-          <Link _hover={{ textColor: "#88BFE8" }}>
-            <Divider />
+          <Link
+            fontFamily={"Plus Jakarta Sans"}
+            _hover={{ textColor: "#88BFE8" }}
+          >
+            <Divider borderColor={"#88BFE8"} />
             <br />
             Galeri
           </Link>
         </MenuItem>
         <MenuItem to="/contact">
-          <Link _hover={{ textColor: "#88BFE8" }}>
-            <Divider />
+          <Link
+            fontFamily={"Plus Jakarta Sans"}
+            _hover={{ textColor: "#88BFE8" }}
+          >
+            <Divider borderColor={"#88BFE8"} />
             <br />
             Kontak
+            <br />
+            <br />
           </Link>
         </MenuItem>
       </>
