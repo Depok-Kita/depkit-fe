@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Button } from "@chakra-ui/react";
-import { Toast } from "../components/toast/Toast";
+import { Card } from "../components/card/Card";
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +13,8 @@ const Home: NextPage = () => {
       </Head>
       <div className="text-9xl text-powder">Depok Kita</div>
       <Button colorScheme={"mustard"}>TESSSSS</Button>
-      <Toast>MENCOBA</Toast>
+
+      <Card preset="xl-dark">MENCOBA</Card>
     </div>
   );
 };

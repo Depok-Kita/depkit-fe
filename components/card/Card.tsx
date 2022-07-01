@@ -1,7 +1,7 @@
 import React from "react";
-import { TOAST_PRESETS } from "./Toast.presets";
+import { CARD_PRESETS } from "./Card.presets";
 import { Header } from "@components";
-type ToastProps = {
+type CardProps = {
   className?: string;
 
   to?: string;
@@ -13,13 +13,23 @@ type ToastProps = {
   leftIcon?: React.SVGAttributes<SVGElement>;
   rightIcon?: React.SVGAttributes<SVGElement>;
 
-  preset: "error" | "warning" | "success" | "info";
+  preset:
+    | "xl-dark"
+    | "xl-light"
+    | "l-dark"
+    | "l-light"
+    | "m-dark"
+    | "m-light"
+    | "s-dark"
+    | "s-light"
+    | "xs-dark"
+    | "xs-light";
 
   children?: React.ReactNode;
   [props: string]: any;
 };
 
-export const Toast = ({
+export const Card = ({
   children,
   className,
   preset,
@@ -28,19 +38,19 @@ export const Toast = ({
   leftIcon,
   rightIcon,
   ...props
-}: ToastProps) => {
+}: CardProps) => {
   return (
     // using div (soon)
     <button
       className={`transition-all flex justify-center items-center gap-2 
-      ${TOAST_PRESETS[preset].text} md:text-base text-sm font-semibold 
-      ${TOAST_PRESETS[preset].border} 
-      ${border ? border : TOAST_PRESETS[preset].borderWidth} 
-      ${border ? border : TOAST_PRESETS[preset].borderColor} 
-      ${TOAST_PRESETS[preset].hover} 
-      ${TOAST_PRESETS[preset].color} 
+      ${CARD_PRESETS[preset].text} md:text-base text-sm font-semibold 
+      ${CARD_PRESETS[preset].border} 
+      ${border ? border : CARD_PRESETS[preset].borderWidth} 
+      ${border ? border : CARD_PRESETS[preset].borderColor} 
+      ${CARD_PRESETS[preset].hover} 
+      ${CARD_PRESETS[preset].color} 
       ${padding ? padding : "py-3 px-5"} 
-      ${TOAST_PRESETS[preset].disabled} 
+      ${CARD_PRESETS[preset].disabled} 
       ${className}`}
       {...props}
     >
