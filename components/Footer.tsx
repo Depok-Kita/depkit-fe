@@ -1,10 +1,8 @@
 import Image from "next/image";
 import logo from "@images/depkit-logo-2.png";
-import IconInstagram from "@icons/ic_instagram.svg";
-import IconLinkedin from "@icons/ic_linkedin.svg";
-import IconTiktok from "@icons/ic_tiktok.svg";
 import { Header, Body } from "@components/typography";
 import NextLink from "next/link";
+import { NAV_ROUTES, SOCIAL_MEDIA } from "@constants";
 
 type LinkProps = {
   href: string;
@@ -47,21 +45,18 @@ export const Footer = () => {
 
         <div className="flex flex-col desktop:flex-row justify-between gap-4 px-4">
           <div className="hidden tablet:flex tablet:flex-col desktop:flex-row gap-4 desktop:gap-[4vw] content-center">
-            <Link href="">Tentang Kami</Link>
-            <Link href="">Struktur Organisasi</Link>
-            <Link href="">Galeri</Link>
-            <Link href="">Kontak</Link>
+            {NAV_ROUTES.map((route) => (
+              <Link key={route.name} href={route.url}>
+                {route.name}
+              </Link>
+            ))}
           </div>
           <div className="flex justify-center gap-4">
-            <Link href="https://www.instagram.com/depokkita.ui/">
-              <IconInstagram />
-            </Link>
-            <Link href="https://www.linkedin.com/in/depok-kita-4b8312243">
-              <IconLinkedin />
-            </Link>
-            <Link href="https://vt.tiktok.com/ZSdwXk2da/">
-              <IconTiktok />
-            </Link>
+            {SOCIAL_MEDIA.map((social) => (
+              <Link key={social.name} href={social.url}>
+                {social.icon}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
