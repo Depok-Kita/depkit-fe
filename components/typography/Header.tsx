@@ -4,15 +4,19 @@ type HeaderProps = {
   className?: string;
   preset: "decorative" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "h7";
   children: ReactNode;
+  decorative?: boolean;
 };
 
-export const Header = ({ className, preset, children }: HeaderProps) => {
+export const Header = ({
+  className,
+  preset,
+  children,
+  decorative,
+}: HeaderProps) => {
   return (
     <h1
       className={`${
-        preset === "decorative"
-          ? "font-jakarta-sans tracking-[0.03em] text-[4rem] decorative font-bold"
-          : preset === "h1"
+        preset === "h1"
           ? "font-jakarta-sans font-bold text-[4rem]"
           : preset === "h2"
           ? "font-jakarta-sans font-bold text-[3rem]"
@@ -23,7 +27,9 @@ export const Header = ({ className, preset, children }: HeaderProps) => {
           : preset === "h5"
           ? "font-jakarta-sans font-bold text-[1.25rem]"
           : "font-jakarta-sans font-bold text-[1rem]"
-      } ${className}`}
+      }
+      ${decorative ? "tracking-[0.03em] decorative" : ""}
+      ${className}`}
     >
       {children}
     </h1>
