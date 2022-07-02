@@ -2,6 +2,7 @@ import Image from "next/image";
 import logo from "@images/depkit-logo-2.png";
 import IconInstagram from "@icons/ic_instagram.svg";
 import IconLinkedin from "@icons/ic_linkedin.svg";
+import IconTiktok from "@icons/ic_tiktok.svg";
 import { Header, Body } from "@components/typography";
 import NextLink from "next/link";
 
@@ -57,6 +58,9 @@ export const Footer = () => {
             </Link>
             <Link href="https://www.linkedin.com/in/depok-kita-4b8312243">
               <IconLinkedin />
+            </Link>
+            <Link href="https://vt.tiktok.com/ZSdwXk2da/">
+              <IconTiktok />
             </Link>
           </div>
         </div>
