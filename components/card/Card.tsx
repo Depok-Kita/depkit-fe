@@ -1,7 +1,9 @@
 import React from "react";
 import { CARD_PRESETS } from "./Card.presets";
 import { Header } from "@components";
-import { Box } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
+import { InboxIcon } from "@heroicons/react/outline";
+
 type CardProps = {
   className?: string;
 
@@ -10,8 +12,7 @@ type CardProps = {
   padding?: string;
   border?: string;
 
-  leftIcon?: React.SVGAttributes<SVGElement>;
-  rightIcon?: React.SVGAttributes<SVGElement>;
+  vertical?: boolean;
 
   preset:
     | "xl-dark"
@@ -35,8 +36,7 @@ export const Card = ({
   preset,
   padding,
   border,
-  leftIcon,
-  rightIcon,
+  vertical,
   ...props
 }: CardProps) => {
   return (
@@ -56,9 +56,14 @@ export const Card = ({
       ${className}`}
       {...props}
     >
-      {leftIcon ? <>{leftIcon}</> : null}
-      <Header preset={CARD_PRESETS[preset].font}>{children}</Header>
-      {rightIcon ? <>{rightIcon}</> : null}
+      <VStack alignItems="start">
+        <Box>
+          <InboxIcon className="w-6 h-6" />
+        </Box>
+        <Box>
+          <Header preset={CARD_PRESETS[preset].font}>{children}</Header>
+        </Box>
+      </VStack>
     </Box>
   );
 };

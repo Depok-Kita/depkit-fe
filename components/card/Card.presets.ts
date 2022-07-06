@@ -1,6 +1,3 @@
-import React from "react";
-import { InboxIcon } from "@heroicons/react/outline";
-
 type CardStyleProps = {
   text: string;
   font: string;
@@ -10,6 +7,7 @@ type CardStyleProps = {
   bgGradient: string;
   width: string;
   height: string;
+  vertical: boolean;
 };
 
 type CardPresetProps = {
@@ -27,7 +25,7 @@ export const CARD_PRESETS: CardPresetProps = {
     bgGradient: "linear(to-b, #213356, #0C182F)",
     width: "40%",
     height: "200px",
-    image: <InboxIcon />,
+    vertical: false,
   },
   "xl-light": {
     font: "h4",
@@ -39,6 +37,7 @@ export const CARD_PRESETS: CardPresetProps = {
     bgGradient: "linear(to-b, #FFFFFF, #F2FAFE)",
     width: "40%",
     height: "200px",
+    vertical: false,
   },
   "l-dark": {
     font: "h4",
@@ -49,6 +48,7 @@ export const CARD_PRESETS: CardPresetProps = {
     bgGradient: "linear(to-b, #213356, #0C182F)",
     width: "20%",
     height: "400px",
+    vertical: true,
   },
   "l-light": {
     font: "h4",
@@ -59,6 +59,7 @@ export const CARD_PRESETS: CardPresetProps = {
     bgGradient: "linear(to-b, #FFFFFF, #F2FAFE)",
     width: "20%",
     height: "400px",
+    vertical: true,
   },
   "m-dark": {
     font: "h5",
@@ -70,6 +71,7 @@ export const CARD_PRESETS: CardPresetProps = {
     bgGradient: "linear(to-b, #213356, #0C182F)",
     width: "15%",
     height: "350px",
+    vertical: true,
   },
   "m-light": {
     font: "h5",
@@ -81,6 +83,7 @@ export const CARD_PRESETS: CardPresetProps = {
     bgGradient: "linear(to-b, #FFFFFF, #F2FAFE)",
     width: "15%",
     height: "350px",
+    vertical: true,
   },
   "s-dark": {
     font: "h5",
@@ -91,6 +94,7 @@ export const CARD_PRESETS: CardPresetProps = {
     bgGradient: "linear(to-b, #213356, #0C182F)",
     width: "35%",
     height: "150px",
+    vertical: false,
   },
   "s-light": {
     font: "h5",
@@ -101,6 +105,7 @@ export const CARD_PRESETS: CardPresetProps = {
     bgGradient: "linear(to-b, #FFFFFF, #F2FAFE)",
     width: "35%",
     height: "150px",
+    vertical: false,
   },
   "xs-dark": {
     font: "h6",
@@ -112,6 +117,7 @@ export const CARD_PRESETS: CardPresetProps = {
     bgGradient: "linear(to-b, #213356, #0C182F)",
     width: "10%",
     height: "250px",
+    vertical: true,
   },
   "xs-light": {
     font: "h6",
@@ -123,5 +129,6 @@ export const CARD_PRESETS: CardPresetProps = {
     bgGradient: "linear(to-b, #FFFFFF, #F2FAFE)",
     width: "10%",
     height: "250px",
+    vertical: true,
   },
 };
