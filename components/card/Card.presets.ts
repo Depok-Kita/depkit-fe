@@ -1,11 +1,15 @@
+import React from "react";
+import { InboxIcon } from "@heroicons/react/outline";
+
 type CardStyleProps = {
-  color: string;
   text: string;
+  font: string;
   border: string;
-  borderWidth: string;
-  borderColor: string;
   hover: string;
   disabled: string;
+  bgGradient: string;
+  width: string;
+  height: string;
 };
 
 type CardPresetProps = {
@@ -14,99 +18,110 @@ type CardPresetProps = {
 
 export const CARD_PRESETS: CardPresetProps = {
   "xl-dark": {
+    font: "h4",
     border: "rounded-3xl",
-    borderWidth: "border-2  ",
-    color: "bg-danger-dark active:bg-danger-light",
     hover: "hover:shadow-xl shadow-dark-danger",
     text: "text-totalwhite",
-    borderColor: "border-danger-dark active:border-danger-dark/0",
     disabled:
       "disabled:bg-grey-soft  disabled:border-grey-soft disabled:text-grey disabled:hover:shadow-none",
+    bgGradient: "linear(to-b, #213356, #0C182F)",
+    width: "40%",
+    height: "200px",
+    image: <InboxIcon />,
   },
   "xl-light": {
+    font: "h4",
     border: "rounded-3xl",
-    borderWidth: "border-2",
-    color: "bg-totalwhite active:bg-powder",
     hover: "hover:shadow-lg hover:shadow-powder",
-    text: "text-dark-denim",
-    borderColor: "border-totalwhite active:border-totalwhite/0",
+    text: "text-denim-dark",
     disabled:
       "disabled:bg-grey-soft  disabled:border-grey-soft disabled:text-grey disabled:hover:shadow-none",
+    bgGradient: "linear(to-b, #FFFFFF, #F2FAFE)",
+    width: "40%",
+    height: "200px",
   },
   "l-dark": {
+    font: "h4",
     border: "rounded-3xl",
-    borderWidth: "border-2",
-    color: "bg-transparent active:bg-powder/60",
     hover: "hover:bg-powder/60",
     text: "text-totalwhite",
-    borderColor: "border-powder active:border-powder/0",
     disabled: "disabled:border-grey disabled:text-grey disabled:bg-denim-dark",
+    bgGradient: "linear(to-b, #213356, #0C182F)",
+    width: "20%",
+    height: "400px",
   },
   "l-light": {
+    font: "h4",
     border: "rounded-3xl",
-    borderWidth: "border-2",
-    color: "bg-transparent active:bg-denim-light/40",
     hover: "hover:bg-denim-light/40",
     text: "text-denim-dark",
-    borderColor: "border-denim-light active:border-denim-light/0",
     disabled: "disabled:border-grey disabled:text-grey disabled:bg-totalwhite",
+    bgGradient: "linear(to-b, #FFFFFF, #F2FAFE)",
+    width: "20%",
+    height: "400px",
   },
   "m-dark": {
+    font: "h5",
     border: "rounded-3xl",
-    borderWidth: "border-2  ",
-    color: "bg-danger-dark active:bg-danger-light",
     hover: "hover:shadow-xl shadow-dark-danger",
     text: "text-totalwhite",
-    borderColor: "border-danger-dark active:border-danger-dark/0",
     disabled:
       "disabled:bg-grey-soft  disabled:border-grey-soft disabled:text-grey disabled:hover:shadow-none",
+    bgGradient: "linear(to-b, #213356, #0C182F)",
+    width: "15%",
+    height: "350px",
   },
   "m-light": {
+    font: "h5",
     border: "rounded-3xl",
-    borderWidth: "border-2",
-    color: "bg-totalwhite active:bg-powder",
     hover: "hover:shadow-lg hover:shadow-powder",
     text: "text-dark-denim",
-    borderColor: "border-totalwhite active:border-totalwhite/0",
     disabled:
       "disabled:bg-grey-soft  disabled:border-grey-soft disabled:text-grey disabled:hover:shadow-none",
+    bgGradient: "linear(to-b, #FFFFFF, #F2FAFE)",
+    width: "15%",
+    height: "350px",
   },
   "s-dark": {
+    font: "h5",
     border: "rounded-3xl",
-    borderWidth: "border-2",
-    color: "bg-transparent active:bg-powder/60",
     hover: "hover:bg-powder/60",
     text: "text-totalwhite",
-    borderColor: "border-powder active:border-powder/0",
     disabled: "disabled:border-grey disabled:text-grey disabled:bg-denim-dark",
+    bgGradient: "linear(to-b, #213356, #0C182F)",
+    width: "35%",
+    height: "150px",
   },
   "s-light": {
+    font: "h5",
     border: "rounded-3xl",
-    borderWidth: "border-2",
-    color: "bg-transparent active:bg-denim-light/40",
     hover: "hover:bg-denim-light/40",
     text: "text-denim-dark",
-    borderColor: "border-denim-light active:border-denim-light/0",
     disabled: "disabled:border-grey disabled:text-grey disabled:bg-totalwhite",
+    bgGradient: "linear(to-b, #FFFFFF, #F2FAFE)",
+    width: "35%",
+    height: "150px",
   },
   "xs-dark": {
+    font: "h6",
     border: "rounded-3xl",
-    borderWidth: "border-2  ",
-    color: "bg-danger-dark active:bg-danger-light",
     hover: "hover:shadow-xl shadow-dark-danger",
     text: "text-totalwhite",
-    borderColor: "border-danger-dark active:border-danger-dark/0",
     disabled:
       "disabled:bg-grey-soft  disabled:border-grey-soft disabled:text-grey disabled:hover:shadow-none",
+    bgGradient: "linear(to-b, #213356, #0C182F)",
+    width: "10%",
+    height: "250px",
   },
   "xs-light": {
+    font: "h6",
     border: "rounded-3xl",
-    borderWidth: "border-2",
-    color: "bg-totalwhite active:bg-powder",
     hover: "hover:shadow-lg hover:shadow-powder",
     text: "text-dark-denim",
-    borderColor: "border-totalwhite active:border-totalwhite/0",
     disabled:
       "disabled:bg-grey-soft  disabled:border-grey-soft disabled:text-grey disabled:hover:shadow-none",
+    bgGradient: "linear(to-b, #FFFFFF, #F2FAFE)",
+    width: "10%",
+    height: "250px",
   },
 };

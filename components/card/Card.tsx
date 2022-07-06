@@ -1,11 +1,11 @@
 import React from "react";
 import { CARD_PRESETS } from "./Card.presets";
 import { Header } from "@components";
+import { Box } from "@chakra-ui/react";
 type CardProps = {
   className?: string;
 
   to?: string;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 
   padding?: string;
   border?: string;
@@ -41,22 +41,24 @@ export const Card = ({
 }: CardProps) => {
   return (
     // using div (soon)
-    <button
+    <Box
+      w={CARD_PRESETS[preset].width}
+      h={CARD_PRESETS[preset].height}
+      pb="14"
+      px="10"
+      bgGradient={CARD_PRESETS[preset].bgGradient}
       className={`transition-all flex justify-center items-center gap-2 
       ${CARD_PRESETS[preset].text} md:text-base text-sm font-semibold 
       ${CARD_PRESETS[preset].border} 
-      ${border ? border : CARD_PRESETS[preset].borderWidth} 
-      ${border ? border : CARD_PRESETS[preset].borderColor} 
       ${CARD_PRESETS[preset].hover} 
-      ${CARD_PRESETS[preset].color} 
       ${padding ? padding : "py-3 px-5"} 
       ${CARD_PRESETS[preset].disabled} 
       ${className}`}
       {...props}
     >
       {leftIcon ? <>{leftIcon}</> : null}
-      <Header preset="h6">{children}</Header>
+      <Header preset={CARD_PRESETS[preset].font}>{children}</Header>
       {rightIcon ? <>{rightIcon}</> : null}
-    </button>
+    </Box>
   );
 };

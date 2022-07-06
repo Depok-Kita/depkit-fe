@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     colors: {
+      danger: {
+        light: "#DB4333",
+        dark: "#DB4333",
+      },
       denim: {
         light: "#213456",
         dark: "#0C182F",
