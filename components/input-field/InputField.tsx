@@ -34,12 +34,9 @@ export const InputField = (props: InputFieldProps) => {
       <FormLabel htmlFor={props.name}>{props.label}</FormLabel>
       <InputGroup>
         {props.leftIcon && (
-          <InputLeftElement
-            pointerEvents="none"
-            children={
-              <Icon isDisabled={props.isDisabled}>{props.leftIcon}</Icon>
-            }
-          />
+          <InputLeftElement pointerEvents="none">
+            <Icon isDisabled={props.isDisabled}>{props.leftIcon}</Icon>
+          </InputLeftElement>
         )}
         <Input
           type={props.type}
@@ -51,12 +48,9 @@ export const InputField = (props: InputFieldProps) => {
           className="font-jakarta-sans hover:border-cerulean"
         />
         {props.rightIcon && (
-          <InputRightElement
-            pointerEvents="none"
-            children={
-              <Icon isDisabled={props.isDisabled}>{props.rightIcon}</Icon>
-            }
-          />
+          <InputRightElement pointerEvents="none">
+            <Icon isDisabled={props.isDisabled}>{props.rightIcon}</Icon>
+          </InputRightElement>
         )}
       </InputGroup>
 
