@@ -37,7 +37,41 @@ module.exports = {
       bold: ["Plus Jakarta Sans Bold", "sans-serif"],
       semibold: ["Plus Jakarta Sans SemiBold", "sans-serif"],
     },
-    extend: {},
+    screens: {
+      mobile: "360px",
+      tablet: "768px",
+      desktop: "1280px",
+    },
+    extend: {
+      animation: {
+        "slide-out-right":
+          "slide-out-right 2s cubic-bezier(0.550, 0.085, 0.680, 0.530)  infinite both",
+        "slide-out-left":
+          "slide-out-left 2s cubic-bezier(0.550, 0.085, 0.680, 0.530)  infinite both",
+      },
+      keyframes: {
+        "slide-out-right": {
+          "0%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+          to: {
+            transform: "translateX(300%)",
+            opacity: "0",
+          },
+        },
+        "slide-out-left": {
+          "0%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+          to: {
+            transform: "translateX(-300%)",
+            opacity: "0",
+          },
+        },
+      },
+    },
   },
   plugins: [],
 };
