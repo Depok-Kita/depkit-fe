@@ -5,6 +5,18 @@ module.exports = {
   ],
   theme: {
     colors: {
+      danger: {
+        light: "#DB4333",
+        dark: "#DB4333",
+      },
+      warning: {
+        light: "#EEC800",
+        dark: "#EEC800",
+      },
+      success: {
+        light: "#81D38A",
+        dark: "#81D38A",
+      },
       denim: {
         light: "#213456",
         dark: "#0C182F",

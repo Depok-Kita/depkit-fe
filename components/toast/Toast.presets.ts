@@ -6,6 +6,7 @@ type ToastStyleProps = {
   borderColor: string;
   hover: string;
   disabled: string;
+  image: string;
 };
 
 type ToastPresetProps = {
@@ -14,41 +15,49 @@ type ToastPresetProps = {
 
 export const TOAST_PRESETS: ToastPresetProps = {
   error: {
-    border: "rounded-lg",
-    borderWidth: "border-2",
-    color: "bg-denim-dark active:bg-denim-light",
-    hover: "hover:shadow-xl shadow-dark-denim",
-    text: "text-totalwhite",
-    borderColor: "border-denim-dark active:border-denim-dark/0",
+    border: "rounded-3xl",
+    borderWidth: "border-2  ",
+    color: "bg-danger-dark active:bg-danger-light bg-opacity-20",
+    hover: "hover:shadow-xl hover:shadow-danger-dark",
+    text: "text-danger-dark",
+    borderColor: "border-danger-dark active:border-danger-dark",
     disabled:
       "disabled:bg-grey-soft  disabled:border-grey-soft disabled:text-grey disabled:hover:shadow-none",
+    image:
+      '<svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.0759 6.13231L25.2307 23.6774H4.92104L15.0759 6.13231ZM15.0759 0.751465L0.241455 26.3745H29.9103L15.0759 0.751465ZM16.4244 19.6316H13.7273V22.3288H16.4244V19.6316ZM16.4244 11.5401H13.7273V16.9345H16.4244V11.5401Z" fill="#DB4333"/></svg>',
   },
   warning: {
-    border: "rounded-lg",
+    border: "rounded-3xl",
     borderWidth: "border-2",
-    color: "bg-totalwhite active:bg-powder",
-    hover: "hover:shadow-lg hover:shadow-powder",
-    text: "text-dark-denim",
-    borderColor: "border-totalwhite active:border-totalwhite/0",
+    color: "bg-warning-dark active:bg-warning-light bg-opacity-20",
+    hover: "hover:shadow-xl hover:shadow-warning-dark",
+    text: "text-warning-dark",
+    borderColor: "border-warning-dark active:border-warning-dark",
     disabled:
       "disabled:bg-grey-soft  disabled:border-grey-soft disabled:text-grey disabled:hover:shadow-none",
+    image:
+      '<svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.0759 6.13231L25.2307 23.6774H4.92104L15.0759 6.13231ZM15.0759 0.751465L0.241455 26.3745H29.9103L15.0759 0.751465ZM16.4244 19.6316H13.7273V22.3288H16.4244V19.6316ZM16.4244 11.5401H13.7273V16.9345H16.4244V11.5401Z" fill="#DB4333"/></svg>',
   },
   success: {
-    border: "rounded-lg",
+    border: "rounded-3xl",
     borderWidth: "border-2",
-    color: "bg-transparent active:bg-powder/60",
-    hover: "hover:bg-powder/60",
-    text: "text-totalwhite",
-    borderColor: "border-powder active:border-powder/0",
+    color: "bg-success-dark active:bg-success-dark bg-opacity-20",
+    hover: "hover:shadow-xl hover:shadow-success-dark",
+    text: "text-success-dark",
+    borderColor: "border-success-dark active:border-success-dark",
     disabled: "disabled:border-grey disabled:text-grey disabled:bg-denim-dark",
+    image:
+      '<svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.0759 6.13231L25.2307 23.6774H4.92104L15.0759 6.13231ZM15.0759 0.751465L0.241455 26.3745H29.9103L15.0759 0.751465ZM16.4244 19.6316H13.7273V22.3288H16.4244V19.6316ZM16.4244 11.5401H13.7273V16.9345H16.4244V11.5401Z" fill="#DB4333"/></svg>',
   },
   info: {
-    border: "rounded-lg",
+    border: "rounded-3xl",
     borderWidth: "border-2",
-    color: "bg-transparent active:bg-denim-light/40",
-    hover: "hover:bg-denim-light/40",
-    text: "text-denim-dark",
-    borderColor: "border-denim-light active:border-denim-light/0",
+    color: "bg-cerulean active:bg-cerulean bg-opacity-20",
+    hover: "hover:shadow-xl hover:shadow-cerulean",
+    text: "text-cerulean",
+    borderColor: "border-cerulean active:border-cerulean",
     disabled: "disabled:border-grey disabled:text-grey disabled:bg-totalwhite",
+    image:
+      '<svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.0759 6.13231L25.2307 23.6774H4.92104L15.0759 6.13231ZM15.0759 0.751465L0.241455 26.3745H29.9103L15.0759 0.751465ZM16.4244 19.6316H13.7273V22.3288H16.4244V19.6316ZM16.4244 11.5401H13.7273V16.9345H16.4244V11.5401Z" fill="#DB4333"/></svg>',
   },
 };

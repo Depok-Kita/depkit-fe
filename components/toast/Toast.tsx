@@ -1,6 +1,7 @@
 import React from "react";
 import { TOAST_PRESETS } from "./Toast.presets";
 import { Header } from "@components";
+
 type ToastProps = {
   className?: string;
 
@@ -44,9 +45,17 @@ export const Toast = ({
       ${className}`}
       {...props}
     >
+      {/* ICON */}
+      <img src={TOAST_PRESETS[preset].image} />
+
       {leftIcon ? <>{leftIcon}</> : null}
-      <Header preset="h6">{children}</Header>
+      <Header preset="h6" className="px-24">
+        {children}
+      </Header>
       {rightIcon ? <>{rightIcon}</> : null}
+
+      {/* CLOSE */}
+      <img src={TOAST_PRESETS[preset].image} />
     </button>
   );
 };
