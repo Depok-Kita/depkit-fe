@@ -3,7 +3,15 @@
 @tailwind utilities;
 @font-face {
   font-family: "Plus Jakarta Sans";
-  src: url(/assets/font/PlusJakartaSans-Regular.ttf) format("woff");
+  src: url(/assets/font/PlusJakartaSans-Regular.woff) format("woff");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans Bold";
+  src: url(/assets/font/PlusJakartaSans-Bold.woff) format("woff");
+}
+@font-face {
+  font-family: "Plus Jakarta Sans SemiBold";
+  src: url(/assets/font/PlusJakartaSans-SemiBold.woff) format("woff");
 }
 html,
 body {
@@ -21,6 +29,6 @@ a {
   box-sizing: border-box;
 }
 
-h1 {
+.decorative {
   font-feature-settings: "ss01" on;
 }
