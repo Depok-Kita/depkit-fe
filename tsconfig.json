@@ -24,7 +24,9 @@
       "@images/*": ["public/assets/images/*"],
       "@models": ["models"],
       "@styles/*": ["styles/*"],
-      "@pages/*": ["pages/*"]
+      "@pages/*": ["pages/*"],
+      "@hooks": ["components/hooks"],
+      "@hooks/*": ["components/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
