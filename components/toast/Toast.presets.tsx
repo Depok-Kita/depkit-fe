@@ -1,3 +1,11 @@
+import React from "react";
+import {
+  ExclamationIcon,
+  ExclamationCircleIcon,
+  CheckCircleIcon,
+  InformationCircleIcon,
+} from "@heroicons/react/outline";
+
 type ToastStyleProps = {
   color: string;
   text: string;
@@ -6,7 +14,7 @@ type ToastStyleProps = {
   borderColor: string;
   hover: string;
   disabled: string;
-  image: string;
+  image: React.SVGAttributes<SVGElement>;
 };
 
 type ToastPresetProps = {
@@ -23,8 +31,7 @@ export const TOAST_PRESETS: ToastPresetProps = {
     borderColor: "border-danger-dark active:border-danger-dark",
     disabled:
       "disabled:bg-grey-soft  disabled:border-grey-soft disabled:text-grey disabled:hover:shadow-none",
-    image:
-      '<svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.0759 6.13231L25.2307 23.6774H4.92104L15.0759 6.13231ZM15.0759 0.751465L0.241455 26.3745H29.9103L15.0759 0.751465ZM16.4244 19.6316H13.7273V22.3288H16.4244V19.6316ZM16.4244 11.5401H13.7273V16.9345H16.4244V11.5401Z" fill="#DB4333"/></svg>',
+    image: <ExclamationIcon className="w-6 h-6" />,
   },
   warning: {
     border: "rounded-3xl",
@@ -35,8 +42,7 @@ export const TOAST_PRESETS: ToastPresetProps = {
     borderColor: "border-warning-dark active:border-warning-dark",
     disabled:
       "disabled:bg-grey-soft  disabled:border-grey-soft disabled:text-grey disabled:hover:shadow-none",
-    image:
-      '<svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.0759 6.13231L25.2307 23.6774H4.92104L15.0759 6.13231ZM15.0759 0.751465L0.241455 26.3745H29.9103L15.0759 0.751465ZM16.4244 19.6316H13.7273V22.3288H16.4244V19.6316ZM16.4244 11.5401H13.7273V16.9345H16.4244V11.5401Z" fill="#DB4333"/></svg>',
+    image: <ExclamationCircleIcon className="w-6 h-6" />,
   },
   success: {
     border: "rounded-3xl",
@@ -46,8 +52,7 @@ export const TOAST_PRESETS: ToastPresetProps = {
     text: "text-success-dark",
     borderColor: "border-success-dark active:border-success-dark",
     disabled: "disabled:border-grey disabled:text-grey disabled:bg-denim-dark",
-    image:
-      '<svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.0759 6.13231L25.2307 23.6774H4.92104L15.0759 6.13231ZM15.0759 0.751465L0.241455 26.3745H29.9103L15.0759 0.751465ZM16.4244 19.6316H13.7273V22.3288H16.4244V19.6316ZM16.4244 11.5401H13.7273V16.9345H16.4244V11.5401Z" fill="#DB4333"/></svg>',
+    image: <CheckCircleIcon className="w-6 h-6" />,
   },
   info: {
     border: "rounded-3xl",
@@ -57,7 +62,23 @@ export const TOAST_PRESETS: ToastPresetProps = {
     text: "text-cerulean",
     borderColor: "border-cerulean active:border-cerulean",
     disabled: "disabled:border-grey disabled:text-grey disabled:bg-totalwhite",
-    image:
-      '<svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.0759 6.13231L25.2307 23.6774H4.92104L15.0759 6.13231ZM15.0759 0.751465L0.241455 26.3745H29.9103L15.0759 0.751465ZM16.4244 19.6316H13.7273V22.3288H16.4244V19.6316ZM16.4244 11.5401H13.7273V16.9345H16.4244V11.5401Z" fill="#DB4333"/></svg>',
+    image: <InformationCircleIcon className="w-6 h-6" />,
+  },
+};
+
+type ToastToggleProps = {
+  visibility: string;
+};
+
+type ToastActiveProps = {
+  [key: string]: ToastToggleProps;
+};
+
+export const TOAST_TOGGLE: ToastActiveProps = {
+  on: {
+    visibility: "visible",
+  },
+  off: {
+    visibility: "invisible",
   },
 };

@@ -4,3 +4,4 @@ export * from "./typography";
 export * from "./Footer";
 export * from "./hooks";
 export * from "./comingsoon";
+export * from "./toast";
