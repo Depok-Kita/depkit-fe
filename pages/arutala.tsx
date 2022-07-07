@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { NextPage } from "next";
-import { Body, Button, Header } from "@components";
+import { Body, Button, Header, Card } from "@components";
 import Link from "next/link";
 import {
   ChevronRightIcon,
@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/outline";
 import { InputField, SelectField, FormLabel } from "@components/input-field";
 import { Checkbox, FormControl, Stack } from "@chakra-ui/react";
+import { ChevronUpIcon } from "@heroicons/react/outline";
 
 const Arutala: NextPage = () => {
   return (
@@ -350,6 +351,32 @@ const Arutala: NextPage = () => {
         </div>
       </div>
       <TextFieldSection />
+      <div className="flex gap-10">
+        <Card
+          preset="dark"
+          vertical={false}
+          className="w-full h-72"
+          icon={<ChevronUpIcon className="w-5 h-5" />}
+        >
+          to Receive means to be given, presented with, or paid (something).
+        </Card>
+        <Card
+          preset="dark"
+          vertical={false}
+          className="w-full h-72"
+          icon={<ChevronUpIcon className="w-5 h-5" />}
+        >
+          to Receive means to be given, presented with, or paid (something).
+        </Card>
+        <Card
+          preset="light"
+          vertical={false}
+          className="w-full h-72"
+          icon={<ChevronUpIcon className="w-5 h-5" />}
+        >
+          to Receive means to be given, presented with, or paid (something).
+        </Card>
+      </div>
     </div>
   );
 };
