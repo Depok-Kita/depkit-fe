@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import type { NextPage } from "next";
 import { Body, Button, Header } from "@components";
 import Link from "next/link";
-import { ChevronRightIcon, PlusCircleIcon } from "@heroicons/react/outline";
+import {
+  ChevronRightIcon,
+  PlusCircleIcon,
+  SearchIcon,
+  ArrowDownIcon,
+} from "@heroicons/react/outline";
+import { InputField, SelectField, FormLabel } from "@components/input-field";
+import { Checkbox, FormControl, Stack } from "@chakra-ui/react";
 
 const Arutala: NextPage = () => {
   return (
@@ -342,8 +349,83 @@ const Arutala: NextPage = () => {
           </Link>
         </div>
       </div>
+      <TextFieldSection />
     </div>
   );
 };
+
+function TextFieldSection() {
+  const [hasLabel, setHasLabel] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [hasLeftIcon, setHasLeftIcon] = useState(false);
+  const [hasRightIcon, setHasRightIcon] = useState(false);
+  const errorMessage = "This is error message";
+  const rightIcon = <ArrowDownIcon className="w-4 h-4" color="gray.300" />;
+  const inputElement = (
+    <InputField
+      type="text"
+      //value={"value"}
+      placeholder="Enter input"
+      label={hasLabel ? "Label" : ""}
+      isDisabled={isDisabled}
+      isError={isError}
+      errorMessage={errorMessage}
+      leftIcon={
+        hasLeftIcon ? (
+          <SearchIcon className="w-4 h-4" color="gray.300" />
+        ) : undefined
+      }
+      rightIcon={hasRightIcon ? rightIcon : undefined}
+      className="pb-2"
+    />
+  );
+  const selectElement = (
+    <SelectField
+      label={hasLabel ? "Select Label" : ""}
+      isDisabled={isDisabled}
+      isError={isError}
+      errorMessage={errorMessage}
+      rightIcon={hasRightIcon ? rightIcon : undefined}
+    >
+      <option value="opt1">Option 1</option>
+      <option value="opt2">Option 2</option>
+    </SelectField>
+  );
+  return (
+    <div className="flex flex-col bg-totalwhite w-[85%] mx-auto rounded-3xl p-10 shadow-lg shadow-[#ADD1E2]">
+      <Header preset="h2" className="text-center text-denim-dark">
+        TextField
+      </Header>
+      <FormControl>
+        <FormLabel>Setting</FormLabel>
+        <Stack spacing={5} direction="row">
+          <Checkbox onChange={(e) => setHasLabel(e.target.checked)}>
+            Label
+          </Checkbox>
+          <Checkbox onChange={(e) => setIsDisabled(e.target.checked)}>
+            Disabled
+          </Checkbox>
+          <Checkbox onChange={(e) => setIsError(e.target.checked)}>
+            Error
+          </Checkbox>
+          <Checkbox onChange={(e) => setHasLeftIcon(e.target.checked)}>
+            Left Icon
+          </Checkbox>
+          <Checkbox onChange={(e) => setHasRightIcon(e.target.checked)}>
+            Right Icon
+          </Checkbox>
+        </Stack>
+      </FormControl>
+      <div>
+        <div className="pt-4 flex flex-col ">
+          {inputElement}
+          {inputElement}
+          {selectElement}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default Arutala;
