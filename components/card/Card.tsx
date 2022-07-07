@@ -11,7 +11,6 @@ type CardProps = {
   padding?: string;
   preset: "dark" | "light";
   children?: React.ReactNode;
-  [props: string]: any;
 };
 
 export const Card = ({
@@ -20,7 +19,6 @@ export const Card = ({
   preset,
   padding,
   icon,
-  ...props
 }: CardProps) => {
   const { width } = useWindowSize();
   return (
@@ -35,7 +33,6 @@ export const Card = ({
       } 
       ${padding ? padding : "p-10"}
       ${className}`}
-      {...props}
     >
       <VStack alignItems="start">
         {icon ? <>{icon}</> : null}

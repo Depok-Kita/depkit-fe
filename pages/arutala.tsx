@@ -354,7 +354,6 @@ const Arutala: NextPage = () => {
       <div className="flex gap-10">
         <Card
           preset="dark"
-          vertical={false}
           className="w-full h-72"
           icon={<ChevronUpIcon className="w-5 h-5" />}
         >
@@ -362,7 +361,6 @@ const Arutala: NextPage = () => {
         </Card>
         <Card
           preset="dark"
-          vertical={false}
           className="w-full h-72"
           icon={<ChevronUpIcon className="w-5 h-5" />}
         >
@@ -370,7 +368,6 @@ const Arutala: NextPage = () => {
         </Card>
         <Card
           preset="light"
-          vertical={false}
           className="w-full h-72"
           icon={<ChevronUpIcon className="w-5 h-5" />}
         >
