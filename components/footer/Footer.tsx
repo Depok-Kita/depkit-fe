@@ -12,7 +12,9 @@ type LinkProps = {
 const Link = ({ href, children }: LinkProps) => {
   return (
     <NextLink className=" " href={href}>
-      <a className="cursor-pointer hover:text-cerulean">{children}</a>
+      <a className="cursor-pointer hover:text-cerulean">
+        <Body preset="p2">{children}</Body>
+      </a>
     </NextLink>
   );
 };

@@ -1,10 +1,9 @@
-import type { NextPage } from "next";
 import React from "react";
 import Image from "next/image";
 import { Header, Button } from "@components";
 import { useWindowSize } from "@hooks";
 
-export const ComingSoon: NextPage = () => {
+export const ComingSoon = () => {
   const { width } = useWindowSize();
   return (
     <div className="bg-powder-light min-h-screen flex justify-center items-center">
