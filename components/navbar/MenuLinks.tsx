@@ -1,111 +1,34 @@
-import {
-  Box,
-  Stack,
-  Button,
-  Link,
-  Divider,
-  Spacer,
-  ChakraProvider,
-} from "@chakra-ui/react";
-import { MenuItem } from "./MenuItem";
-import { Header, Body } from "@components/typography";
+import { Divider, Box, Stack } from "@chakra-ui/react";
+import Link from "next/link";
+import { menus } from "./constant";
+import { v4 as uuid } from "uuid";
+import { Button } from "@components";
 
 export const MenuLinks = ({ isOpen }: any) => {
-  const normalMenuItems = () => {
-    return (
-      <>
-        <MenuItem to="/about">
-          <Link _hover={{ textColor: "#88BFE8" }}>Tentang Kami</Link>
-        </MenuItem>
-        <MenuItem to="/fesrak">
-          <Link _hover={{ textColor: "#88BFE8" }}>Festival Rakyat</Link>
-        </MenuItem>
-        <MenuItem to="/donation">
-          <Link _hover={{ textColor: "#88BFE8" }}>Donasi</Link>
-        </MenuItem>
-        <MenuItem to="/gallery">
-          <Link _hover={{ textColor: "#88BFE8" }}>Galeri</Link>
-        </MenuItem>
-        <MenuItem to="/contact">
-          <Link _hover={{ textColor: "#88BFE8" }}>Kontak</Link>
-        </MenuItem>
-      </>
-    );
-  };
-
-  const underlinedMenuItems = () => {
-    return (
-      <>
-        <MenuItem to="/about">
-          <Link
-            fontFamily={"Plus Jakarta Sans"}
-            _hover={{ textColor: "#88BFE8" }}
-          >
-            <Divider borderColor={"#88BFE8"} />
-            <br />
-            Tentang Kami
-          </Link>
-        </MenuItem>
-        <MenuItem to="/fesrak">
-          <Link
-            fontFamily={"Plus Jakarta Sans"}
-            _hover={{ textColor: "#88BFE8" }}
-          >
-            <Divider borderColor={"#88BFE8"} />
-            <br />
-            Festival Rakyat
-          </Link>
-        </MenuItem>
-        <MenuItem to="/donation">
-          <Link
-            fontFamily={"Plus Jakarta Sans"}
-            _hover={{ textColor: "#88BFE8" }}
-          >
-            <Divider borderColor={"#88BFE8"} />
-            <br />
-            Donasi
-          </Link>
-        </MenuItem>
-        <MenuItem to="/gallery">
-          <Link
-            fontFamily={"Plus Jakarta Sans"}
-            _hover={{ textColor: "#88BFE8" }}
-          >
-            <Divider borderColor={"#88BFE8"} />
-            <br />
-            Galeri
-          </Link>
-        </MenuItem>
-        <MenuItem to="/contact">
-          <Link
-            fontFamily={"Plus Jakarta Sans"}
-            _hover={{ textColor: "#88BFE8" }}
-          >
-            <Divider borderColor={"#88BFE8"} />
-            <br />
-            Kontak
-            <br />
-            <br />
-          </Link>
-        </MenuItem>
-      </>
-    );
-  };
-
   return (
     <Box
-      display={{ base: isOpen ? "block" : "none", md: "block" }}
       flexBasis={{ base: "100%", md: "auto" }}
+      className={`${isOpen ? "block" : "hidden"} tablet:block`}
     >
       <Stack
-        spacing={[8, 8, 8, 32]}
-        // align="center"
         justify={["center", "space-between", "flex-end", "flex-end"]}
         direction={["column", "column", "row", "row"]}
         pt={[4, 4, 0, 0]}
         mr={[0, 0, 0, 8]}
+        className="gap-0 tablet:gap-8 desktop:gap-[85px] w-full"
       >
-        {isOpen ? underlinedMenuItems() : normalMenuItems()}
+        {menus.map(({ label, url }) => {
+          return (
+            <Link href={url} key={uuid()}>
+              <div>
+                {isOpen && (
+                  <Divider borderColor={"#88BFE8"} className="tablet:hidden" />
+                )}
+                <Button preset="tertiaryDark">{label}</Button>
+              </div>
+            </Link>
+          );
+        })}
       </Stack>
     </Box>
   );
