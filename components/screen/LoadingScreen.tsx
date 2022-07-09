@@ -6,7 +6,7 @@ type LoadingScreenProps = {
 export const LoadingScreen = ({ className }: LoadingScreenProps) => {
   return (
     <div
-      className={`overflow-x-hidden mobile:mt-[15%] tablet:mt-[30%] desktop:mt-[5%] w-full ${className}`}
+      className={`overflow-x-hidden mobile:mt-[15%] tablet:mt-[30%] desktop:mt-[5%] w-full ${className} h-screen bg-totalwhite`}
     >
       <div className="flex justify-center">
         <Cloud className="animate-slide-out-right absolute mobile:mt-40 tablet:mt-40 desktop:mt-44 mobile:mr-32 tablet:mr-56 desktop:mr-64 mobile:w-10 tablet:w-20 " />

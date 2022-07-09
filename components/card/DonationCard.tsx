@@ -5,23 +5,12 @@ import { KitaBisa } from "@models";
 import DonationAccent from "@images/donation-accent.svg";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import { useWindowSize } from "@hooks";
-export const DonationCard = () => {
+
+type DonationCardProps = {
+  kitabisa?: KitaBisa;
+};
+export const DonationCard = ({ kitabisa }: DonationCardProps) => {
   const { width } = useWindowSize();
-  const [kitabisa, setKitaBisa] = useState<KitaBisa>();
-  const [kitaBisaLoading, setKitaBisaLoading] = useState(true);
-
-  useEffect(() => {
-    axios.get("/api/kitabisa").then((response) => {
-      setKitaBisa(response.data);
-      setKitaBisaLoading(false);
-    });
-  }, []);
-
-  if (kitaBisaLoading) {
-    // return <LoadingScreen className="w-screen h-screen" />;
-    return <p>loading...</p>;
-  }
-
   const rupiah = (number: number) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
@@ -32,7 +21,14 @@ export const DonationCard = () => {
   };
   const donationPercentage = kitabisa
     ? ((kitabisa.donation * 100) / kitabisa.donation_target).toFixed(2) + "%"
-    : 0;
+    : "0%";
+
+  const today: any = new Date();
+  const end: any = new Date("2022-11-19");
+  const diffMs = end - today; // milliseconds between now & Christmas
+  const diffDays = Math.floor(diffMs / 86400000); // days
+  const diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+  const diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
 
   return (
     <div className="w-full h-full bg-denim-dark rounded-3xl shadow-denim-light shadow-lg flex flex-col desktop:pb-10 tablet:pb-6 mobile:pb-3 ">
@@ -50,7 +46,7 @@ export const DonationCard = () => {
               preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h5"}
               className="text-black"
             >
-              {kitabisa?.days_remaining}
+              {diffDays}
             </Header>
             <Body
               preset={width >= 1280 ? "p2" : "p3"}
@@ -70,7 +66,7 @@ export const DonationCard = () => {
               preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h5"}
               className="text-black"
             >
-              13
+              {diffHrs}
             </Header>
             <Body
               preset={width >= 1280 ? "p2" : "p3"}
@@ -91,7 +87,7 @@ export const DonationCard = () => {
               preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h5"}
               className="text-black"
             >
-              14
+              {diffMins}
             </Header>
             <Body
               preset={width >= 1280 ? "p2" : "p3"}
@@ -120,7 +116,8 @@ export const DonationCard = () => {
         <div className="w-full mt-5">
           <div className="tablet:mx-8 mobile:mx-2 h-7 bg-totalwhite rounded-full">
             <div
-              className={`h-7 w-[${donationPercentage}] bg-cerulean rounded-full`}
+              className={`h-7 bg-cerulean rounded-full`}
+              style={{ width: `${donationPercentage}` }}
             ></div>
           </div>
         </div>

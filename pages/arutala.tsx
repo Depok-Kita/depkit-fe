@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import type { NextPage } from "next";
-import { Body, Button, Header, Card, DonationCard } from "@components";
+import {
+  Body,
+  Button,
+  Header,
+  Card,
+  DonationCard,
+  LoadingScreen,
+} from "@components";
+import axios from "axios";
+import { KitaBisa } from "@models";
 import Link from "next/link";
 import {
   ChevronRightIcon,
@@ -13,6 +22,19 @@ import { Checkbox, FormControl, Stack } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@heroicons/react/outline";
 
 const Arutala: NextPage = () => {
+  const [kitabisa, setKitaBisa] = useState<KitaBisa>();
+  const [kitaBisaLoading, setKitaBisaLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get("/api/kitabisa").then((response) => {
+      setKitaBisa(response.data);
+      setKitaBisaLoading(false);
+    });
+  }, []);
+
+  if (kitaBisaLoading) {
+    return <LoadingScreen className=" h-screen bg-totalwhite" />;
+  }
   return (
     <div className="flex flex-col gap-12 p-10 bg-powder min-h-screen">
       <Header preset="decorative" className="text-center text-denim-dark">
@@ -375,7 +397,7 @@ const Arutala: NextPage = () => {
         </Card>
       </div>
       <div>
-        <DonationCard />
+        <DonationCard kitabisa={kitabisa} />
       </div>
     </div>
   );
