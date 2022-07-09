@@ -1,4 +1,4 @@
-export * from "./Navbar";
+export * from "./navbar/Navbar";
 export * from "./button";
 export * from "./typography";
 export * from "./footer/Footer";
