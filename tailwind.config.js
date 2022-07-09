@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     colors: {
+      danger: {
+        light: "#DB4333",
+        dark: "#DB4333",
+      },
       denim: {
         light: "#213456",
         dark: "#0C182F",
@@ -42,7 +46,36 @@ module.exports = {
       tablet: "768px",
       desktop: "1280px",
     },
-    extend: {},
+    extend: {
+      animation: {
+        "slide-out-right":
+          "slide-out-right 2s cubic-bezier(0.550, 0.085, 0.680, 0.530)  infinite both",
+        "slide-out-left":
+          "slide-out-left 2s cubic-bezier(0.550, 0.085, 0.680, 0.530)  infinite both",
+      },
+      keyframes: {
+        "slide-out-right": {
+          "0%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+          to: {
+            transform: "translateX(300%)",
+            opacity: "0",
+          },
+        },
+        "slide-out-left": {
+          "0%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+          to: {
+            transform: "translateX(-300%)",
+            opacity: "0",
+          },
+        },
+      },
+    },
   },
   plugins: [],
 };
