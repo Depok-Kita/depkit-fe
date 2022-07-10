@@ -4,22 +4,10 @@ type Route = {
 };
 
 export const NAV_ROUTES: Route[] = [
-  {
-    url: "",
-    name: "Tentang Kami",
-  },
-  {
-    url: "",
-    name: "Struktur Organisasi",
-  },
-  {
-    url: "",
-    name: "Galeri",
-  },
-  {
-    url: "",
-    name: "Kontak",
-  },
+  { name: "Grand Launching", url: "/grandlaunching" },
+  { name: "Donasi", url: "/donasi" },
+  { name: "Donor Darah", url: "/donordarah" },
+  { name: "Sponsor", url: "/sponsor" },
 ];
 
 export default NAV_ROUTES;
