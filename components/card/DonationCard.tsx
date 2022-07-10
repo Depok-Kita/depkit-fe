@@ -39,8 +39,8 @@ export const DonationCard = () => {
   const diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
 
   return (
-    <div className="w-full h-full bg-denim-dark rounded-3xl shadow-denim-light shadow-lg flex flex-col desktop:pb-10 tablet:pb-6 mobile:pb-3 ">
-      <div className="desktop:h-60 tablet:h-36 mobile:h-24  bg-totalwhite rounded-2xl tablet:mt-8 tablet:mx-8 desktop:mb-10 tablet:mb-5 mobile:mt-2 mobile:mx-2 mobile:mb-3 flex flex-col items-center gap-2 justify-center relative">
+    <div className="w-full h-full bg-denim-dark rounded-[9.5px] tablet:rounded-[20px] dekstop:rounded-3xl shadow-denim-light shadow-lg flex flex-col p-1 tablet:p-0 desktop:pb-10 tablet:pb-6 mobile:pb-3">
+      <div className="desktop:h-60 tablet:h-36 mobile:h-24  bg-totalwhite rounded-[5.5px] tablet:rounded-[11.6px] dekstop:rounded-2xl tablet:mt-8 tablet:mx-8 desktop:mb-10 tablet:mb-5 mobile:mt-2 mobile:mx-2 mobile:mb-3 flex flex-col items-center gap-2 justify-center relative">
         <Skeleton
           isLoaded={kitaBisaLoading}
           rounded="2xl"

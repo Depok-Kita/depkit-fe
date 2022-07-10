@@ -34,7 +34,7 @@ export const DonasiHero = () => {
         </Button>
         <ArrowDownIcon className="w-8 text-cerulean animate-bounce mx-auto cursor-pointer" />
       </div>
-      <DonationAccent className="absolute -bottom-4 left-0 w-44 -z-0" />
+      <DonationAccent className="absolute -bottom-4 left-0 w-44 z-0" />
     </div>
   );
 };
