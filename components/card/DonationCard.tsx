@@ -6,6 +6,7 @@ import { Skeleton } from "@chakra-ui/react";
 import DonationAccent from "@images/donation-accent.svg";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import { useWindowSize } from "@hooks";
+import Link from "next/link";
 
 export const DonationCard = () => {
   const { width } = useWindowSize();
@@ -149,14 +150,16 @@ export const DonationCard = () => {
           rounded="full"
           className="mt-7 h-16"
         >
-          <Button
-            preset="primaryLight"
-            rightIcon={
-              <ChevronRightIcon className="fill-denim-light w-5 h-5 " />
-            }
-          >
-            Donasi Sekarang
-          </Button>
+          <Link href={"/donasi"}>
+            <Button
+              preset="primaryLight"
+              rightIcon={
+                <ChevronRightIcon className="fill-denim-light w-5 h-5 " />
+              }
+            >
+              Donasi Sekarang
+            </Button>
+          </Link>
         </Skeleton>
       </div>
     </div>
