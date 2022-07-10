@@ -6,7 +6,7 @@ import {
   DepkitProfile,
   Journal,
   NilaiSection,
-} from "@components/landing";
+} from "@components/modules/landing";
 
 /** Add space between content and page edge */
 const ContentBox = () => {};
