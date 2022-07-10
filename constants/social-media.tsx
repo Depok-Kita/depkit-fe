@@ -16,7 +16,7 @@ export const SOCIAL_MEDIA: SocialMedia[] = [
   },
   {
     name: "Linkedin",
-    url: "https://www.linkedin.com/in/depok-kita-4b8312243",
+    url: "https://www.linkedin.com/company/depok-kita/",
     icon: <IconLinkedin />,
   },
   {
