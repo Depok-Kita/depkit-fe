@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
 import type { NextPage } from "next";
-import {
-  Body,
-  Button,
-  Header,
-  Card,
-  DonationCard,
-  LoadingScreen,
-} from "@components";
-import axios from "axios";
-import { KitaBisa } from "@models";
+import { Body, Button, Header, Card, DonationCard, Toast } from "@components";
+
 import Link from "next/link";
 import {
   ChevronRightIcon,
@@ -22,22 +14,26 @@ import { Checkbox, FormControl, Stack } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@heroicons/react/outline";
 
 const Arutala: NextPage = () => {
-  const [kitabisa, setKitaBisa] = useState<KitaBisa>();
-  const [kitaBisaLoading, setKitaBisaLoading] = useState(true);
+  const errorToast = Toast({
+    preset: "error",
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  });
+  const warningToast = Toast({
+    preset: "warning",
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  });
+  const successToast = Toast({
+    preset: "success",
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  });
+  const infoToast = Toast({
+    preset: "info",
+    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  });
 
-  useEffect(() => {
-    axios.get("/api/kitabisa").then((response) => {
-      setKitaBisa(response.data);
-      setKitaBisaLoading(false);
-    });
-  }, []);
-
-  if (kitaBisaLoading) {
-    return <LoadingScreen className=" h-screen bg-totalwhite" />;
-  }
   return (
     <div className="flex flex-col gap-12 p-10 bg-powder min-h-screen">
-      <Header preset="decorative" className="text-center text-denim-dark">
+      <Header preset="h1" className="text-center text-denim-dark" decorative>
         ARUTALA
       </Header>
       <div className="flex flex-col bg-denim-dark w-[85%] mx-auto rounded-3xl p-10 gap-8 shadow-lg shadow-[#ADD1E2]">
@@ -372,6 +368,43 @@ const Arutala: NextPage = () => {
           </Link>
         </div>
       </div>
+
+      <div className="flex flex-col bg-totalwhite w-[85%] mx-auto rounded-3xl p-10 shadow-lg shadow-[#ADD1E2]">
+        <Header preset="h2" className="text-center text-denim-dark">
+          Toast
+        </Header>
+        <div className="flex justify-center gap-8 p-3">
+          <Button
+            preset="primaryDark"
+            onClick={() => errorToast()}
+            className="bg-danger-light"
+          >
+            Error
+          </Button>
+          <Button
+            preset="primaryDark"
+            onClick={() => warningToast()}
+            className="bg-warning-light"
+          >
+            Warning
+          </Button>
+          <Button
+            preset="primaryDark"
+            onClick={() => successToast()}
+            className="bg-success-light"
+          >
+            Success
+          </Button>
+          <Button
+            preset="primaryDark"
+            onClick={() => infoToast()}
+            className="bg-cerulean"
+          >
+            Info
+          </Button>
+        </div>
+      </div>
+
       <TextFieldSection />
       <div className="flex gap-10">
         <Card
@@ -397,7 +430,7 @@ const Arutala: NextPage = () => {
         </Card>
       </div>
       <div>
-        <DonationCard kitabisa={kitabisa} />
+        <DonationCard />
       </div>
     </div>
   );
