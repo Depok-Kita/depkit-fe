@@ -8,11 +8,11 @@ type BodyProps = {
 
 export const Body = ({ className, children, preset }: BodyProps) => {
   // if preset contains b
-  const semiBold = preset.includes("b") ? "font-semibold" : "";
+  const semiBold = preset.includes("b") ? "font-semibold" : "font-jakarta-sans";
   const presetFinal = preset.includes("b") ? preset.replace("b", "p") : preset;
   return (
     <p
-      className={`font-jakarta-sans ${
+      className={`${
         presetFinal === "p1"
           ? "text-[1.5rem]"
           : presetFinal === "p2"
