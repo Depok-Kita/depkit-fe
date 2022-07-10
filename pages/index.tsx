@@ -6,6 +6,7 @@ import {
   DepkitProfile,
   Journal,
   NilaiSection,
+  SectionTitle,
 } from "@components/modules/landing";
 
 /** Add space between content and page edge */
@@ -22,10 +23,16 @@ const Home: NextPage = () => {
         <Carousel />
         <DepkitProfile />
         <Journal />
-        <div className="px-[10%] py-8">
-          <DonationCard />
+        <div className="px-[10%] py-8 text-center space-y-8">
+          <div>
+            <SectionTitle>Donasi</SectionTitle>
+            <DonationCard />
+          </div>
+          <div>
+            <SectionTitle>Nilai Kami</SectionTitle>
+            <NilaiSection />
+          </div>
         </div>
-        <NilaiSection />
       </div>
     </div>
   );
