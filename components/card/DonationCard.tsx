@@ -14,7 +14,7 @@ export const DonationCard = () => {
   useEffect(() => {
     axios.get("/api/kitabisa").then((response) => {
       setKitaBisa(response.data);
-      setKitaBisaLoading(false);
+      setKitaBisaLoading(true);
     });
   }, []);
 
