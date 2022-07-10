@@ -32,7 +32,7 @@ const Arutala: NextPage = () => {
   });
 
   return (
-    <div className="flex flex-col gap-12 p-10 bg-powder min-h-screen">
+    <div className="flex flex-col gap-12 p-10 py-24 bg-powder min-h-screen">
       <Header preset="h1" className="text-center text-denim-dark" decorative>
         ARUTALA
       </Header>

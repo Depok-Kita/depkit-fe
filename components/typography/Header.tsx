@@ -17,16 +17,16 @@ export const Header = ({
     <h1
       className={`${
         preset === "h1"
-          ? "font-jakarta-sans font-bold text-[4rem]"
+          ? "font-bold text-[4rem]"
           : preset === "h2"
-          ? "font-jakarta-sans font-bold text-[3rem]"
+          ? "font-bold text-[3rem]"
           : preset === "h3"
-          ? "font-jakarta-sans font-bold text-[2rem]"
+          ? "font-bold text-[2rem]"
           : preset === "h4"
-          ? "font-jakarta-sans font-bold text-[1.5rem]"
+          ? "font-bold text-[1.5rem]"
           : preset === "h5"
-          ? "font-jakarta-sans font-bold text-[1.25rem]"
-          : "font-jakarta-sans font-bold text-[1rem]"
+          ? "font-bold text-[1.25rem]"
+          : "font-bold text-[1rem]"
       }
       ${decorative ? "tracking-[0.03em] decorative" : ""}
       ${className}`}
