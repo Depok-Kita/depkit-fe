@@ -4,8 +4,15 @@ const themeConfig: ThemeConfig = {
   initialColorMode: "light",
   useSystemColorMode: false,
 };
+
 const theme = extendTheme({
   themeConfig,
+
+  // MERUBAH WARNA SHADOW
+  shadows: {
+    bluelight: "0px 5px 10px rgba(218, 235, 243, 0.7)",
+    cerulean: "0px 5px 10px rgba(0, 123, 167, 0.7)",
+  },
 
   colors: {
     denim: {
