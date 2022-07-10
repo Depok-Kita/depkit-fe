@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import type { NextPage } from "next";
-import { Body, Button, Header, Card, Toast } from "@components";
+import { Body, Button, Header, Card, DonationCard, Toast } from "@components";
+
 import Link from "next/link";
 import {
   ChevronRightIcon,
@@ -427,6 +428,9 @@ const Arutala: NextPage = () => {
         >
           to Receive means to be given, presented with, or paid (something).
         </Card>
+      </div>
+      <div>
+        <DonationCard />
       </div>
     </div>
   );
