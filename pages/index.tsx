@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Header } from "@components";
+import { DonationCard, Header } from "@components";
 import {
   Carousel,
   DepkitProfile,
@@ -22,8 +22,8 @@ const Home: NextPage = () => {
         <Carousel />
         <DepkitProfile />
         <Journal />
-        <div className="bg-denim-dark py-20 text-white text-center">
-          <Header preset="h2">Beragam Aksi Untuk Wujudkan Asa</Header>
+        <div className="px-[10%] py-8">
+          <DonationCard />
         </div>
         <NilaiSection />
       </div>
