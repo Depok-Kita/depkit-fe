@@ -9,7 +9,7 @@ import { useWindowSize } from "@hooks";
 export const DonasiContactPerson = () => {
   const { width } = useWindowSize();
   return (
-    <div className="bg-denim-light p-8 tablet:p-16 space-y-[14px] tablet:space-y-[30px]">
+    <div className="bg-denim-light p-8 tablet:p-16 desktop:px-[380px] space-y-[14px] tablet:space-y-[30px]">
       <Body preset={width >= 768 ? "p1" : "p3"} className="text-powder">
         Dengan menyisihkan sedikit rezeki yang kita miliki, kita dapat
         berkontribusi besar dan bermanfaat bagi warga binaan. Jika ada
@@ -34,7 +34,7 @@ export const DonasiContactPerson = () => {
         {DONASI_CONTACT_PERSON.map((person) => (
           <Card
             preset="light"
-            className="font-jakarta-sans p-4 rounded-[5px]"
+            className="font-jakarta-sans p-4 rounded-[5px] tablet:rounded-[11px] desktop:rounded-[20px]"
             key={uuid()}
           >
             <Body

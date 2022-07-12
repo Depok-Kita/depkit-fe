@@ -1,4 +1,4 @@
-import { Card, Body } from "@components";
+import { Card, Body, Toast } from "@components";
 import { DocumentDuplicateIcon } from "@heroicons/react/outline";
 import React from "react";
 import { TRANSFER_PERSON } from "@constants";
@@ -7,12 +7,16 @@ import { useWindowSize } from "@hooks";
 
 export const DonasiTransfer = () => {
   const { width } = useWindowSize();
+  const copiedToast = Toast({
+    preset: "info",
+    message: "Nomor telah disalin",
+  });
   return (
     <div className="flex items-center gap-[14px] justify-evenly">
       {TRANSFER_PERSON.map((person) => (
         <Card
           preset="light"
-          className="font-jakarta-sans p-4 rounded-[5px]"
+          className="font-jakarta-sans p-4 desktop:p-7 rounded-[5px] tablet:rounded-[11px] desktop:rounded-[20px]"
           key={uuid()}
         >
           <Body
@@ -28,7 +32,14 @@ export const DonasiTransfer = () => {
             >
               {person.number}
             </Body>
-            <DocumentDuplicateIcon width={width >= 768 ? 20 : 10} />
+            <DocumentDuplicateIcon
+              width={width >= 768 ? 20 : 10}
+              onClick={() => {
+                navigator.clipboard.writeText(person.number);
+                copiedToast();
+              }}
+              className="cursor-pointer"
+            />
           </div>
           <Body
             preset="p3"

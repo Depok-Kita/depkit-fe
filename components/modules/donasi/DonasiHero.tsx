@@ -1,19 +1,25 @@
 import React from "react";
 import HeroImg from "@images/donation-hero-illustration.svg";
+import HeroImgDesktop from "@images/donation-hero-illustration-desktop.svg";
 import DonationAccent from "@images/donation-accent-1.svg";
-import { Header, Button } from "@components";
+import { Header, Button, useWindowSize } from "@components";
 import { ArrowDownIcon, ChevronRightIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
 export const DonasiHero = () => {
+  const { width } = useWindowSize();
   return (
-    <div className="relative bg-powder-light p-[13px] flex flex-col justify-center items-center min-h-screen tablet:gap-14">
-      <HeroImg className="w-[350px] tablet:w-[550px]" />
+    <div className="relative bg-powder-light p-[13px] flex flex-col justify-center items-center min-h-screen tablet:gap-14 desktop:gap-40 desktop:flex-row-reverse">
+      {width < 1280 ? (
+        <HeroImg className="w-[350px] tablet:w-[550px]" />
+      ) : (
+        <HeroImgDesktop className="w-[600px]" />
+      )}
       <div className="space-y-7 tablet:space-y-10">
         <div className="space-y-2 tablet:space-y-3">
           <Header
             preset="h2"
-            className="text-denim-dark text-center leading-[1.2]"
+            className="text-denim-dark text-center desktop:text-left leading-[1.2]"
           >
             Open Donation
             <br />
@@ -21,7 +27,7 @@ export const DonasiHero = () => {
           </Header>
           <Header
             preset="h1"
-            className="text-cerulean text-center leading-[1.2]"
+            className="text-cerulean text-center desktop:text-left leading-[1.2]"
           >
             Rp10.000!
           </Header>
@@ -29,7 +35,7 @@ export const DonasiHero = () => {
         <Button
           preset="primaryDark"
           rightIcon={<ChevronRightIcon width={20} />}
-          className="mx-auto"
+          className="mx-auto desktop:mx-0"
           onClick={() => {
             window.open("https://kitabisa.com/campaign/donasiuntukkampunglio");
           }}
@@ -37,7 +43,7 @@ export const DonasiHero = () => {
           Donasi Sekarang
         </Button>
         <ArrowDownIcon
-          className="w-8 tablet:w-12 text-cerulean animate-bounce mx-auto cursor-pointer"
+          className="w-8 tablet:w-12 text-cerulean animate-bounce mx-auto cursor-pointer desktop:hidden"
           onClick={() => {
             const offset =
               document.getElementById("donation-poster")?.offsetTop;
