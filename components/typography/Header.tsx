@@ -26,7 +26,9 @@ export const Header = ({
           ? "font-bold text-[1.5rem]"
           : preset === "h5"
           ? "font-bold text-[1.25rem]"
-          : "font-bold text-[1rem]"
+          : preset === "h6"
+          ? "font-bold text-[1rem]"
+          : "font-bold text-[0.75rem]"
       }
       ${decorative ? "tracking-[0.03em] decorative" : ""}
       ${className}`}
