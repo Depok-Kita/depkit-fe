@@ -1,8 +1,17 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { ComingSoon, Navbar } from "@components";
-
+import { ComingSoon, Navbar, Button } from "@components";
+import axios from "axios";
 const Home: NextPage = () => {
+  const handle = () => {
+    axios
+      .post("/api/grand-launching", {
+        data: { name: "marcellinus" },
+      })
+      .then((response) => {
+        console.log(response);
+      });
+  };
   return (
     <div>
       <Head>
@@ -12,6 +21,9 @@ const Home: NextPage = () => {
       </Head>
 
       <ComingSoon />
+      <Button preset="primaryDark" onClick={handle}>
+        haha
+      </Button>
     </div>
   );
 };
