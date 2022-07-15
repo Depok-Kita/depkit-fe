@@ -8,7 +8,7 @@ export const SponsorSponsorship = () => {
       <div className="flex justify-center">
         <Card
           preset="light"
-          className="flex justify-center mobile:w-4/5 tablet:w-11/12 mobile:h-[350px] tablet:h-[290px] relative"
+          className="flex justify-center mobile:w-4/5 tablet:w-11/12 desktop:w-5/6 mobile:h-[350px] tablet:h-[290px] desktop:h-[370px] relative"
         >
           <Header
             preset="h3"
@@ -17,7 +17,7 @@ export const SponsorSponsorship = () => {
             Sponsor
           </Header>
           {/* ULIRAN DESKTOP */}
-          <div className="mobile:invisible table:invisible desktop:visible absolute">
+          <div className="mobile:invisible table:invisible desktop:visible absolute right-12 top-0">
             <UliranA />
           </div>
           {/* ULIRAN TABLET */}

@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="bg-powder-light justify-center items-center pt-24 pb-20">
+      <div className="bg-powder-light justify-center items-center mobile:pt-24 tablet:pt-36 desktop:pt-24 mobile:pb-20 tablet:pb-14">
         <div className="flex flex-col gap-8">
           <Header
             preset="h3"
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
 
           <SponsorSponsorship />
           <SponsorMediaPartner />
-          <div className="pt-4">
+          <div className="mobile:pt-4 tablet:pt-4 desktop:pt-6">
             <SponsorContactPerson />
           </div>
         </div>
