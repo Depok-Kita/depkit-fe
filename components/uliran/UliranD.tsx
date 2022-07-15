@@ -2,8 +2,8 @@ import React from "react";
 
 export const UliranD = () => (
   <svg
-    width="78"
-    height="234"
+    width="97"
+    height="290"
     viewBox="0 0 78 234"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

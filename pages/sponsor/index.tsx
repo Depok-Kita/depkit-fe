@@ -2,15 +2,6 @@ import React from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Body, Button, Card, ComingSoon, Header, Navbar } from "@components";
-import { ChatIcon, MailIcon } from "@heroicons/react/outline";
-import {
-  UliranA,
-  UliranB,
-  UliranC,
-  UliranD,
-  UliranE,
-  UliranF,
-} from "@components/uliran";
 import {} from "@components/uliran/UliranB";
 import { SponsorContactPerson } from "@components/sponsor/SponsorContactPerson";
 import { SponsorSponsorship } from "@components/sponsor/SponsorSponsorship";
