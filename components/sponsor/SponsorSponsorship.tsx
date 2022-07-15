@@ -1,6 +1,13 @@
 import React from "react";
 import { Body, Button, Card, ComingSoon, Header, Navbar } from "@components";
-import { UliranA, UliranC, UliranE } from "@components/uliran";
+import {
+  SponsorExampleMedium,
+  SponsorExampleSmall,
+  SponsorExampleExtraSmall,
+  UliranA,
+  UliranC,
+  UliranE,
+} from "@components/uliran";
 
 export const SponsorSponsorship = () => {
   return (
@@ -8,7 +15,7 @@ export const SponsorSponsorship = () => {
       <div className="flex justify-center">
         <Card
           preset="light"
-          className="flex justify-center mobile:w-4/5 tablet:w-11/12 desktop:w-5/6 mobile:h-[350px] tablet:h-[290px] desktop:h-[370px] relative"
+          className="flex justify-center mobile:w-4/5 tablet:w-11/12 desktop:w-5/6 mobile:h-[335px] tablet:h-[290px] desktop:h-[370px] relative"
         >
           <Header
             preset="h3"
@@ -16,6 +23,27 @@ export const SponsorSponsorship = () => {
           >
             Sponsor
           </Header>
+
+          {/* LETAKAN SPONSOR DI SINI */}
+          <div className="py-5 flex flex-col gap-3">
+            <div className="flex gap-2">
+              <SponsorExampleMedium />
+              <SponsorExampleMedium />
+            </div>
+            <div className="flex gap-2">
+              <SponsorExampleSmall />
+              <SponsorExampleSmall />
+              <SponsorExampleSmall />
+            </div>
+            <div className="flex gap-2">
+              <SponsorExampleExtraSmall />
+              <SponsorExampleExtraSmall />
+              <SponsorExampleExtraSmall />
+              <SponsorExampleExtraSmall />
+              <SponsorExampleExtraSmall />
+            </div>
+          </div>
+
           {/* ULIRAN DESKTOP */}
           <div className="mobile:invisible table:invisible desktop:visible absolute right-12 top-0">
             <UliranA />

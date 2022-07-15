@@ -7,7 +7,7 @@ import { SponsorContactPerson } from "@components/sponsor/SponsorContactPerson";
 import { SponsorSponsorship } from "@components/sponsor/SponsorSponsorship";
 import { SponsorMediaPartner } from "@components/sponsor/SponsorMediaPartner";
 
-const Home: NextPage = () => {
+const Sponsor = () => {
   return (
     <div>
       <Head>
@@ -36,4 +36,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Sponsor;
