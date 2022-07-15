@@ -26,19 +26,21 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="bg-powder-light justify-center items-center pt-24 pb-20">
-        <div className="flex flex-col gap-8 tablet:gap-10 desktop:gap-[66px]">
+        <div className="flex flex-col gap-8">
           <Header
-            preset="h4"
-            className="text-center font-black tablet:text-[38px] desktop:text-[48px]"
+            preset="h3"
+            className="text-center font-black tablet:text-[38px] desktop:text-[48px] pt-4 pb-2"
           >
             Depok Kita Partnership
           </Header>
+
           <SponsorSponsorship />
           <SponsorMediaPartner />
+          <div className="pt-4">
+            <SponsorContactPerson />
+          </div>
         </div>
       </div>
-      {/* CHANGE */}
-      <SponsorContactPerson />
     </div>
   );
 };
