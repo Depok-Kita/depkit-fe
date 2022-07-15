@@ -4,8 +4,8 @@ export const SponsorExampleMedium = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 272 92"
-    width="133"
-    height="45"
+    width="128"
+    height="43"
   >
     <path
       fill="#EA4335"

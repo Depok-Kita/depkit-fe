@@ -1,8 +1,6 @@
 import React from "react";
-import type { NextPage } from "next";
 import Head from "next/head";
-import { Body, Button, Card, ComingSoon, Header, Navbar } from "@components";
-import {} from "@components/uliran/UliranB";
+import { Header } from "@components";
 import { SponsorContactPerson } from "@components/sponsor/SponsorContactPerson";
 import { SponsorSponsorship } from "@components/sponsor/SponsorSponsorship";
 import { SponsorMediaPartner } from "@components/sponsor/SponsorMediaPartner";

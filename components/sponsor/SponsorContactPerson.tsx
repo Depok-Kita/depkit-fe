@@ -1,4 +1,4 @@
-import { Body, Button } from "@components";
+import { Body } from "@components";
 import { ChatIcon, MailIcon } from "@heroicons/react/outline";
 
 export const SponsorContactPerson = () => {
