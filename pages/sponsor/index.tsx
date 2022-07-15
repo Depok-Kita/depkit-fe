@@ -1,10 +1,20 @@
+import React from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Body, Button, Card, ComingSoon, Header, Navbar } from "@components";
 import { ChatIcon, MailIcon } from "@heroicons/react/outline";
-import { UliranA, UliranD, UliranE, UliranF } from "@components/uliran";
-import { UliranB } from "@components/uliran/UliranB";
-import { UliranC } from "@components/uliran/UliranC";
+import {
+  UliranA,
+  UliranB,
+  UliranC,
+  UliranD,
+  UliranE,
+  UliranF,
+} from "@components/uliran";
+import {} from "@components/uliran/UliranB";
+import { SponsorContactPerson } from "@components/sponsor/SponsorContactPerson";
+import { SponsorSponsorship } from "@components/sponsor/SponsorSponsorship";
+import { SponsorMediaPartner } from "@components/sponsor/SponsorMediaPartner";
 
 const Home: NextPage = () => {
   return (
@@ -19,71 +29,16 @@ const Home: NextPage = () => {
         <div className="flex flex-col gap-8 tablet:gap-10 desktop:gap-[66px]">
           <Header
             preset="h4"
-            className="text-center tablet:scale-100 tablet:text-[38px] desktop:text-[48px]"
+            className="text-center font-black tablet:text-[38px] desktop:text-[48px]"
           >
             Depok Kita Partnership
           </Header>
-          <div className="flex justify-center">
-            <Card preset="light" className="flex justify-center w-4/5">
-              <Header
-                preset="h4"
-                className="text-center tablet:scale-100 tablet:text-[24px] desktop:text-[30px]"
-              >
-                Sponsor
-              </Header>
-              <UliranA></UliranA>
-              <UliranC></UliranC>
-              <UliranE></UliranE>
-            </Card>
-          </div>
-          <div className="flex justify-center">
-            <Card preset="light" className="flex justify-center w-4/5">
-              <Header
-                preset="h4"
-                className="text-center tablet:scale-100 tablet:text-[24px] desktop:text-[30px]"
-              >
-                Media Partner
-              </Header>
-              <UliranB></UliranB>
-              <UliranD></UliranD>
-              <UliranF></UliranF>
-            </Card>
-          </div>
+          <SponsorSponsorship />
+          <SponsorMediaPartner />
         </div>
       </div>
       {/* CHANGE */}
-      <div className="bg-powder-light flex justify-center items-center pb-20">
-        <div className="flex flex-col max-w-[500px] justify-center gap-3 tablet:gap-6">
-          <Body
-            preset="p1"
-            className="text-center tablet:scale-100 tablet:text-[18px] desktop:text-[24px] max-w-[460px]"
-          >
-            for Depok Kita partnership purposes, please kindly contact:
-          </Body>
-          <div className="flex justify-center">
-            <div className="flex justify-start flex-col gap-0 tablet:gap-0 desktop:gap-[0px]">
-              <div className="flex flex-row gap-2 max-w-[460px]">
-                <ChatIcon className="desktop:w-8 desktop:h-8" />
-                <Body
-                  preset="b1"
-                  className="tablet:scale-100 tablet:text-[16px] desktop:text-[22px]"
-                >
-                  rasyid doe
-                </Body>
-              </div>
-              <div className="flex flex-row gap-2 max-w-[460px]">
-                <MailIcon className="desktop:w-8 desktop:h-8" />
-                <Body
-                  preset="b1"
-                  className="tablet:scale-100 tablet:text-[16px] desktop:text-[22px]"
-                >
-                  rasyiddoe@gmail.com
-                </Body>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <SponsorContactPerson />
     </div>
   );
 };
