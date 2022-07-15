@@ -1,0 +1,84 @@
+import React from "react";
+
+export const UliranE = () => (
+  <svg
+    width="60"
+    height="21"
+    viewBox="0 0 60 21"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      x="0.75"
+      y="20.392"
+      width="19.5"
+      height="19.5"
+      transform="rotate(-90 0.75 20.392)"
+      fill="#F2FAFE"
+    />
+    <circle
+      cx="10.5"
+      cy="10.642"
+      r="9.75"
+      transform="rotate(-90 10.5 10.642)"
+      fill="#F7D76A"
+    />
+    <rect
+      x="20.25"
+      y="20.392"
+      width="19.5"
+      height="19.5"
+      transform="rotate(-90 20.25 20.392)"
+      fill="#88BFE8"
+    />
+    <rect
+      x="25.125"
+      y="15.517"
+      width="9.75"
+      height="9.75"
+      transform="rotate(-90 25.125 15.517)"
+      fill="#F2FAFE"
+    />
+    <rect
+      width="19.5"
+      height="19.5"
+      transform="matrix(1 0 0 -1 39.75 20.3919)"
+      fill="#F2FAFE"
+    />
+    <circle r="9.75" transform="matrix(1 0 0 -1 49.5 10.642)" fill="#213456" />
+    <rect
+      width="9.75"
+      height="19.5"
+      transform="matrix(1 0 0 -1 49.5 20.392)"
+      fill="#F2FAFE"
+    />
+    <mask
+      id="mask0_2_766"
+      // style="mask-type:alpha"
+      maskUnits="userSpaceOnUse"
+      x="39"
+      y="0"
+      width="21"
+      height="21"
+    >
+      <rect
+        width="19.5"
+        height="19.5"
+        transform="matrix(1 0 0 -1 39.75 20.3919)"
+        fill="#F2FAFE"
+      />
+    </mask>
+    <g mask="url(#mask0_2_766)">
+      <circle
+        r="9.75"
+        transform="matrix(1 0 0 -1 59.25 20.392)"
+        fill="#88BFE8"
+      />
+      <circle
+        r="9.75"
+        transform="matrix(1 0 0 -1 59.25 0.89197)"
+        fill="#88BFE8"
+      />
+    </g>
+  </svg>
+);

@@ -2,6 +2,9 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { Body, Button, Card, ComingSoon, Header, Navbar } from "@components";
 import { ChatIcon, MailIcon } from "@heroicons/react/outline";
+import { UliranA, UliranD, UliranE, UliranF } from "@components/uliran";
+import { UliranB } from "@components/uliran/UliranB";
+import { UliranC } from "@components/uliran/UliranC";
 
 const Home: NextPage = () => {
   return (
@@ -28,6 +31,9 @@ const Home: NextPage = () => {
               >
                 Sponsor
               </Header>
+              <UliranA></UliranA>
+              <UliranC></UliranC>
+              <UliranE></UliranE>
             </Card>
           </div>
           <div className="flex justify-center">
@@ -38,6 +44,9 @@ const Home: NextPage = () => {
               >
                 Media Partner
               </Header>
+              <UliranB></UliranB>
+              <UliranD></UliranD>
+              <UliranF></UliranF>
             </Card>
           </div>
         </div>
