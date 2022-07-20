@@ -22,7 +22,9 @@ export const Carousel = () => {
       >
         {HOME_CAROUSEL_IMAGES.map((link) => (
           <SwiperSlide key={link}>
-            <Image src={link} height="700" width="800" />
+            <div className="relative w-full h-[clamp(17.5rem,50vw,38rem)]">
+              <Image src={link} layout="fill" objectFit="cover" />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

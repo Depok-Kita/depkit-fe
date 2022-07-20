@@ -94,7 +94,7 @@ type JournalCardProps = {
 const JournalCard = ({ journal }: JournalCardProps) => {
   return (
     <div className="bg-totalwhite p-2 rounded flex flex-col tablet:flex-row gap-2">
-      <div className="relative w-full flex-1  h-[clamp(7.5rem,20vw,15rem)] ">
+      <div className="relative w-full tablet:flex-1  h-[clamp(7.5rem,20vw,15.5rem)] ">
         <Image
           src={journal.photoUrl}
           layout="fill"
