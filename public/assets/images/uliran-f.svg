@@ -1,7 +1,4 @@
-import React from "react";
-
-export const UliranF = () => (
-  <svg
+<svg
     width="90"
     height="33"
     viewBox="0 0 60 21"
@@ -78,4 +75,3 @@ export const UliranF = () => (
       fill="#F2FAFE"
     />
   </svg>
-);

@@ -1,7 +1,4 @@
-import React from "react";
-
-export const UliranA = () => (
-  <svg
+<svg
     width="93"
     height="372"
     viewBox="0 0 78 313"
@@ -27,7 +24,7 @@ export const UliranA = () => (
     />
     <mask
       id="mask0_2_548"
-      // style="mask-type:alpha"
+      style="mask-type:alpha"
       maskUnits="userSpaceOnUse"
       x="0"
       y="156"
@@ -48,7 +45,7 @@ export const UliranA = () => (
     <rect y="234.437" width="78" height="78" fill="#88BFE8" />
     <mask
       id="mask1_2_548"
-      // style="mask-type:alpha"
+      style="mask-type:alpha"
       maskUnits="userSpaceOnUse"
       x="0"
       y="234"
@@ -62,4 +59,3 @@ export const UliranA = () => (
     </g>
     <circle cx="19.5" cy="253.937" r="19.5" fill="#F7D76A" />
   </svg>
-);

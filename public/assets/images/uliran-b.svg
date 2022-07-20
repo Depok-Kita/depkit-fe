@@ -1,7 +1,4 @@
-import React from "react";
-
-export const UliranB = () => (
-  <svg
+<svg
     width="93"
     height="372"
     viewBox="0 0 78 313"
@@ -28,4 +25,4 @@ export const UliranB = () => (
     <rect y="234.873" width="78" height="78" fill="#F2FAFE" />
     <circle cx="39" cy="273.873" r="39" fill="#213456" />
   </svg>
-);
+

@@ -1,7 +1,4 @@
-import React from "react";
-
-export const UliranE = () => (
-  <svg
+<svg
     width="90"
     height="33"
     viewBox="0 0 60 21"
@@ -54,7 +51,7 @@ export const UliranE = () => (
     />
     <mask
       id="mask0_2_766"
-      // style="mask-type:alpha"
+      style="mask-type:alpha"
       maskUnits="userSpaceOnUse"
       x="39"
       y="0"
@@ -81,4 +78,3 @@ export const UliranE = () => (
       />
     </g>
   </svg>
-);

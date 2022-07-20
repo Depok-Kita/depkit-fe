@@ -1,9 +1,9 @@
 import React from "react";
 import Head from "next/head";
 import { Header } from "@components";
-import { SponsorContactPerson } from "@components/sponsor/SponsorContactPerson";
-import { SponsorSponsorship } from "@components/sponsor/SponsorSponsorship";
-import { SponsorMediaPartner } from "@components/sponsor/SponsorMediaPartner";
+import { SponsorContactPerson } from "@components/modules/sponsor/SponsorContactPerson";
+import { SponsorSponsorship } from "@components/modules/sponsor/SponsorSponsorship";
+import { SponsorMediaPartner } from "@components/modules/sponsor/SponsorMediaPartner";
 
 const Sponsor = () => {
   return (
