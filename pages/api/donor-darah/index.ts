@@ -13,7 +13,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { data } = req.body;
 
   axios
-    .post(`${process.env.NEXT_PUBLIC_API_STRAPI}/api/grand-openings`, {
+    .post(`${process.env.NEXT_PUBLIC_API_STRAPI}/api/donor-darahs`, {
       data: data,
     })
     .then((response) => res.status(200).send(response.data))

@@ -5,8 +5,15 @@ import axios from "axios";
 const Home: NextPage = () => {
   const handle = () => {
     axios
-      .post("/api/grand-launching", {
-        data: { name: "marcellinus" },
+      .post("/api/donor-darah", {
+        data: {
+          name: "marcellinusssesslxberssssss",
+          phone: "0857781ss452ss1ss2aaadasdasdasdas3",
+          address: "Jalan Kemangsari",
+          institute: "ui",
+          line: "marcell150603",
+          age: 20,
+        },
       })
       .then((response) => {
         console.log(response);
