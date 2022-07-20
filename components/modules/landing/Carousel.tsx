@@ -2,7 +2,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 // Import Swiper styles
-import "swiper/css";
 import { HOME_CAROUSEL_IMAGES } from "@constants";
 import Image from "next/image";
 
