@@ -43,7 +43,7 @@ export const DonationCard = () => {
       <div className="desktop:h-60 tablet:h-36 mobile:h-24  bg-totalwhite  tablet:mt-8 tablet:mx-8 desktop:mb-10 tablet:mb-5 mobile:mt-2 mobile:mx-2 mobile:mb-3 flex flex-col items-center gap-2 justify-center relative rounded-[5.5px] tablet:rounded-[11.6px] desktop:rounded-2xl">
         <Skeleton
           isLoaded={kitaBisaLoading}
-          rounded="2xl"
+          rounded={width >= 1280 ? "2xl" : width >= 768 ? "11.6px" : "5.5px"}
           className="h-full flex flex-col items-center justify-center w-full"
         >
           <DonationAccent className="absolute mobile:right-5 tablet:right-20 w-auto h-full" />
