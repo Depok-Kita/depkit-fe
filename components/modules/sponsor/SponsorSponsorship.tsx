@@ -3,6 +3,8 @@ import { Card, Header } from "@components";
 import SponsorExampleMedium from "@images/sponsor-example-medium.svg";
 import SponsorExampleSmall from "@images/sponsor-example-small.svg";
 import SponsorExampleExtraSmall from "@images/sponsor-example-extra-small.svg";
+import { DUMMY_SPONSORS } from "@constants";
+import { Partnership } from "@models";
 import UliranA from "@images/uliran-a.svg";
 import UliranC from "@images/uliran-c.svg";
 import UliranE from "@images/uliran-e.svg";
@@ -24,25 +26,24 @@ export const SponsorSponsorship = () => {
 
           {/* LETAKAN SPONSOR DI SINI */}
           {/* MEDIUM , SMALL, EXTRA SMALL */}
-          {/* <div className="py-5 flex flex-col gap-3">
-            <div className="flex gap-2">
-              <SponsorExampleMedium />
-              <SponsorExampleMedium />
-            </div>
-            <div className="flex gap-2">
-              <SponsorExampleSmall />
-              <SponsorExampleSmall />
-              <SponsorExampleSmall />
-            </div>
-            <div className="flex gap-2">
-              <SponsorExampleExtraSmall />
-              <SponsorExampleExtraSmall />
-              <SponsorExampleExtraSmall />
-              <SponsorExampleExtraSmall />
-              <SponsorExampleExtraSmall />
-            </div>
-          </div> */}
-
+          <div className="py-5 flex flex-col gap-3 items-center">
+            {DUMMY_SPONSORS.map((sponsor: Partnership) => (
+              <div className="flex gap-2" key={sponsor.size}>
+                {sponsor.logos.map((Logo: any, index: number) => (
+                  <Logo
+                    key={index}
+                    className={`${
+                      sponsor.size == "medium"
+                        ? "w-48 "
+                        : sponsor.size == "small"
+                        ? "w-30"
+                        : "w-16"
+                    } h-full`}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
           {/* ULIRAN DESKTOP */}
           <div className="mobile:invisible table:invisible desktop:visible absolute right-12 top-0">
             <UliranA />

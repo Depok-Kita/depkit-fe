@@ -10,12 +10,12 @@ export const SponsorContactPerson = () => {
             preset="p1"
             className="text-center mobile:text-[20px] mobile:max-w-[220px] tablet:text-[26px] tablet:max-w-[500px]"
           >
-            for Depok Kita partnership purposes, please kindly contact:
+            Untuk Kerjasama Dengan Depok Kita Silakan Hubungi
           </Body>
         </div>
         <div className="flex justify-start mobile:pl-2 tablet:pl-20">
           {/* https//wa.me/{phone number} */}
-          <a href="https://wa.me/">
+          <a href="https://wa.me/081222261675">
             <button className="mobile:w-[250px] tablet:w-[490px] absolute border-none">
               <div className="flex gap-2 items-center">
                 <ChatIcon className="mobile:w-7" />
@@ -23,7 +23,7 @@ export const SponsorContactPerson = () => {
                   preset="b1"
                   className="mobile:text-[14px] tablet:text-[24px]"
                 >
-                  eugenius mario
+                  Mita Yesica (Sponsorship)
                 </Body>
               </div>
             </button>
@@ -32,7 +32,25 @@ export const SponsorContactPerson = () => {
         <br />
         <br />
         <div className="flex justify-start mobile:pl-2 tablet:pl-20">
-          <a href="mailto:eugeniusms@gmail.com?subject=[ Sponsor and Media Partner Depok Kita ]">
+          {/* https//wa.me/{phone number} */}
+          <a href="https://wa.me/08118460564">
+            <button className="mobile:w-[250px] tablet:w-[490px] absolute border-none">
+              <div className="flex gap-2 items-center">
+                <ChatIcon className="mobile:w-7" />
+                <Body
+                  preset="b1"
+                  className="mobile:text-[14px] tablet:text-[24px]"
+                >
+                  Zahrin Tsabita (Media Partner)
+                </Body>
+              </div>
+            </button>
+          </a>
+        </div>
+        <br />
+        <br />
+        <div className="flex justify-start mobile:pl-2 tablet:pl-20">
+          <a href="mailto:financedepokkita22@gmail.com?subject=[ Sponsor and Media Partner Depok Kita ]">
             <button
               className="mobile:w-[250px] tablet:w-[490px] absolute border-none"
               type="submit"
@@ -43,7 +61,7 @@ export const SponsorContactPerson = () => {
                   preset="b1"
                   className="mobile:text-[14px] tablet:text-[24px]"
                 >
-                  eugeniusms@gmail.com
+                  financedepokkita22@gmail.com
                 </Body>
               </div>
             </button>
