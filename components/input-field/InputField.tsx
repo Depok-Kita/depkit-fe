@@ -9,7 +9,8 @@ import {
 import { FormLabel } from "./FormLabel";
 // field contains label & input element
 type InputFieldProps = {
-  className?: string; // className of field
+  className?: string; // className of input element wrapper
+  innerClassName?: string; // className of input element
 
   type: "text" | "number" | "password" | "email"; // input type
   name?: string; // field name, ex. firstname, password
@@ -26,12 +27,24 @@ type InputFieldProps = {
 
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+
+  dark?: boolean; // use white font
+  required?: boolean;
 };
 
 export const InputField = (props: InputFieldProps) => {
   return (
     <FormControl isInvalid={props.isError} className={props.className}>
-      <FormLabel htmlFor={props.name}>{props.label}</FormLabel>
+      <FormLabel
+        className={`font-jakarta-sans ${
+          props.dark ? "text-powder-light" : "text-denim-light"
+        }`}
+      >
+        {props.label}
+        {props.label && props.required && (
+          <span className="text-danger-light">*</span>
+        )}
+      </FormLabel>
       <InputGroup>
         {props.leftIcon && (
           <InputLeftElement pointerEvents="none">
@@ -45,7 +58,8 @@ export const InputField = (props: InputFieldProps) => {
           placeholder={props.placeholder}
           onChange={props.onChange}
           isDisabled={props.isDisabled}
-          className="font-jakarta-sans hover:border-cerulean"
+          className={`font-jakarta-sans hover:border-cerulean ${props.innerClassName}`}
+          required={props.required}
         />
         {props.rightIcon && (
           <InputRightElement pointerEvents="none">

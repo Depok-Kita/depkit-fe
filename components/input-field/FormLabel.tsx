@@ -13,7 +13,7 @@ type FormLabelProps = {
 
 export const FormLabel = ({ children, ...props }: FormLabelProps) => {
   return (
-    <FormLabelTemplate className="font-jakarta-sans text-denim-dark" {...props}>
+    <FormLabelTemplate className="font-jakarta-sans" {...props}>
       {children}
     </FormLabelTemplate>
   );
