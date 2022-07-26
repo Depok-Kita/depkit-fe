@@ -14,7 +14,7 @@ const Donasi: NextPage = () => {
       <DonasiHero />
       <DonasiDescription />
       <DonasiPoster />
-      <div className="p-8 tablet:px-20 tablet:py-14 desktop:px-[380px] desktop:pt-0 bg-powder-light">
+      <div className="p-8 tablet:px-20 tablet:py-14 desktop:px-[300px] wide:px-[380px]  desktop:pt-0 bg-powder-light">
         <DonationCard />
       </div>
       <DonasiContactPerson />
