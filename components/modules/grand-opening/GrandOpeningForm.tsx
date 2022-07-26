@@ -7,10 +7,10 @@ import { ChevronRightIcon } from "@heroicons/react/outline";
 
 export const GrandOpeningForm = () => {
   return (
-    <div className="bg-denim-light p-28">
-      <form action="" method="post" className="">
-        <div className="flex gap-10 justify-center">
-          <div className="w-full space-y-[70px]">
+    <div className="bg-denim-light py-28">
+      <form action="" method="post" className="space-y-10 max-w-[70%] mx-auto">
+        <div className="grid grid-cols-8 gap-10">
+          <div className="w-full flex flex-col gap-[70px] col-span-5">
             <div>
               <Header preset="h2" className="text-powder-light leading-none">
                 Daftar
@@ -19,9 +19,9 @@ export const GrandOpeningForm = () => {
                 Grand Opening X Talkshow
               </Header>
             </div>
-            {/* <DonationCard /> */}
+            <DonationCard />
           </div>
-          <div className="space-y-10 w-full text-totalwhite">
+          <div className="flex flex-col gap-10 justify-around w-full text-totalwhite col-span-3">
             <InputField
               type="text"
               placeholder="Masukkan Nama Lengkap Anda"
@@ -85,6 +85,9 @@ export const GrandOpeningForm = () => {
             </div>
           </div>
         </Card>
+        <Button preset="primaryLight" className="mx-auto scale-125">
+          Daftar
+        </Button>
       </form>
     </div>
   );
