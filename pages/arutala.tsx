@@ -443,6 +443,7 @@ function TextFieldSection() {
   const [hasLeftIcon, setHasLeftIcon] = useState(false);
   const [hasRightIcon, setHasRightIcon] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [isRequired, setIsRequired] = useState(false);
   const errorMessage = "This is error message";
   const rightIcon = <ArrowDownIcon className="w-4 h-4" color="gray.300" />;
   const inputElement = (
@@ -461,7 +462,9 @@ function TextFieldSection() {
       }
       rightIcon={hasRightIcon ? rightIcon : undefined}
       className="px-4"
+      innerClassName="p-6"
       dark={isDark}
+      required={isRequired}
     />
   );
   const selectElement = (
@@ -473,6 +476,7 @@ function TextFieldSection() {
       rightIcon={hasRightIcon ? rightIcon : undefined}
       dark={isDark}
       className="px-4"
+      required={isRequired}
     >
       <option value="opt1">Option 1</option>
       <option value="opt2">Option 2</option>
@@ -503,6 +507,9 @@ function TextFieldSection() {
           </Checkbox>
           <Checkbox onChange={(e) => setIsDark(e.target.checked)}>
             Is Dark?
+          </Checkbox>
+          <Checkbox onChange={(e) => setIsRequired(e.target.checked)}>
+            Is Required?
           </Checkbox>
         </Stack>
       </FormControl>
