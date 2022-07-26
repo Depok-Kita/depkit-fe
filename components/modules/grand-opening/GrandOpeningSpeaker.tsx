@@ -67,6 +67,7 @@ export const GrandOpeningSpeaker = () => {
                     width={width >= 1280 ? 800 : width >= 768 ? 600 : 400}
                     height={width >= 1280 ? 800 : width >= 768 ? 600 : 400}
                     className="rounded-[18px]"
+                    alt={speaker.name}
                   />
                   <div>
                     <Header

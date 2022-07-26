@@ -4,6 +4,7 @@ import {
   GrandOpeningHero,
   GrandOpeningTema,
   GrandOpeningSpeaker,
+  GrandOpeningForm 
 } from "@components";
 
 const GrandOpening: NextPage = () => {
@@ -12,6 +13,7 @@ const GrandOpening: NextPage = () => {
       <GrandOpeningHero />
       <GrandOpeningTema />
       <GrandOpeningSpeaker />
+      <GrandOpeningForm />
     </div>
   );
 };
