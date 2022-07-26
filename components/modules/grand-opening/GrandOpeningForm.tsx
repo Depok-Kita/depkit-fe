@@ -10,41 +10,50 @@ export const GrandOpeningForm = () => {
     <div className="bg-denim-light py-28">
       <form action="" method="post" className="space-y-10 max-w-[70%] mx-auto">
         <div className="grid grid-cols-8 gap-10">
-          <div className="w-full flex flex-col gap-[70px] col-span-5">
+          <div className="w-full flex flex-col gap-[20px] col-span-5">
             <div>
               <Header preset="h2" className="text-powder-light leading-none">
                 Daftar
               </Header>
               <Header preset="h3" className="text-powder-light">
-                Grand Opening X Talkshow
+                Grand Opening <span className="text-cerulean">X</span> Talkshow
               </Header>
             </div>
             <DonationCard />
           </div>
-          <div className="flex flex-col gap-10 justify-around w-full text-totalwhite col-span-3">
+          <div className="flex flex-col gap-10 justify-end mb-8 w-full text-totalwhite col-span-3">
             <InputField
               type="text"
               placeholder="Masukkan Nama Lengkap Anda"
-              label="Nama Lengkap*"
+              label="Nama Lengkap"
               isDisabled={false}
               isError={false}
               errorMessage="errorMessage"
+              dark={true}
+              required={true}
+              innerClassName="p-8"
             />
             <InputField
               type="text"
               placeholder="Masukkan Email Anda"
-              label="Email*"
+              label="Email"
               isDisabled={false}
               isError={false}
               errorMessage="errorMessage"
+              dark={true}
+              required={true}
+              innerClassName="p-8"
             />
             <InputField
               type="text"
               placeholder="Masukkan Nomor WhatsApp Anda"
-              label="Nomor WhatsApp*"
+              label="Nomor WhatsApp"
               isDisabled={false}
               isError={false}
               errorMessage="errorMessage"
+              dark={true}
+              required={true}
+              innerClassName="p-8"
             />
             <InputField
               type="text"
@@ -53,6 +62,8 @@ export const GrandOpeningForm = () => {
               isDisabled={false}
               isError={false}
               errorMessage="errorMessage"
+              dark={true}
+              innerClassName="p-8"
             />
           </div>
         </div>
