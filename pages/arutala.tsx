@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import type { NextPage } from "next";
-import { Body, Button, Header, Card, DonationCard, Toast } from "@components";
+import {
+  Body,
+  Button,
+  Header,
+  HeaderResponsive,
+  Card,
+  DonationCard,
+  Toast,
+} from "@components";
+import { useWindowSize } from "@components";
 
 import Link from "next/link";
 import {
@@ -31,11 +40,19 @@ const Arutala: NextPage = () => {
     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   });
 
+  const windowSize = useWindowSize();
   return (
     <div className="flex flex-col gap-12 p-10 py-24 bg-powder min-h-screen">
-      <Header preset="h1" className="text-center text-denim-dark" decorative>
+      <HeaderResponsive
+        preset="h3"
+        presetTablet="h2"
+        presetDesktop="h1"
+        className="text-center text-denim-dark"
+        decorative
+        windowSize={windowSize}
+      >
         ARUTALA
-      </Header>
+      </HeaderResponsive>
       <div className="flex flex-col bg-denim-dark w-[85%] mx-auto rounded-3xl p-10 gap-8 shadow-lg shadow-[#ADD1E2]">
         <Header preset="h2" className="text-center text-powder">
           Typography

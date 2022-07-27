@@ -1,8 +1,20 @@
 import { ReactNode } from "react";
+import { useWindowSize, WindowSize } from "@components/hooks/useWindowsSize";
+import { VIEWPORTS } from "@constants";
+
+type HeaderPreset =
+  | "decorative"
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "h7";
 
 type HeaderProps = {
   className?: string;
-  preset: "decorative" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "h7";
+  preset: HeaderPreset;
   children: ReactNode;
   decorative?: boolean;
 };
@@ -36,4 +48,30 @@ export const Header = ({
       {children}
     </h1>
   );
+};
+
+interface HeaderResponsiveProps extends HeaderProps {
+  presetTablet?: HeaderPreset;
+  presetDesktop?: HeaderPreset;
+  windowSize: WindowSize;
+}
+
+/** Responsive header that changes its preset according to viewport */
+// see example in pages/arutala.tsx
+export const HeaderResponsive = ({
+  preset,
+  presetTablet,
+  presetDesktop,
+  windowSize,
+  ...props
+}: HeaderResponsiveProps) => {
+  let presetResponsive: HeaderPreset;
+  if (windowSize.width >= VIEWPORTS.DESKTOP && presetDesktop) {
+    presetResponsive = presetDesktop;
+  } else if (windowSize.width >= VIEWPORTS.TABLET && presetTablet) {
+    presetResponsive = presetTablet;
+  } else {
+    presetResponsive = preset;
+  }
+  return <Header preset={presetResponsive} {...props} />;
 };
