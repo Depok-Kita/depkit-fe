@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import type { NextPage } from "next";
 import {
   Body,
+  BodyResponsive,
   Button,
   Header,
   HeaderResponsive,
@@ -9,7 +10,7 @@ import {
   DonationCard,
   Toast,
 } from "@components";
-import { useWindowSize } from "@components";
+import { useWindowSize, WindowSize } from "@components/hooks";
 
 import Link from "next/link";
 import {
@@ -19,7 +20,7 @@ import {
   ArrowDownIcon,
 } from "@heroicons/react/outline";
 import { InputField, SelectField, FormLabel } from "@components/input-field";
-import { Checkbox, FormControl, Stack } from "@chakra-ui/react";
+import { Checkbox, Divider, FormControl, Stack } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@heroicons/react/outline";
 
 const Arutala: NextPage = () => {
@@ -449,6 +450,7 @@ const Arutala: NextPage = () => {
       <div>
         <DonationCard />
       </div>
+      <TypographyResponsiveSection windowSize={windowSize} />
     </div>
   );
 };
@@ -539,6 +541,35 @@ function TextFieldSection() {
           {selectElement}
         </div>
       </div>
+    </div>
+  );
+}
+
+function TypographyResponsiveSection({
+  windowSize,
+}: {
+  windowSize: WindowSize;
+}) {
+  return (
+    <div className="flex flex-col bg-totalwhite w-[85%] mx-auto rounded-3xl p-10 shadow-lg shadow-[#ADD1E2]">
+      <HeaderResponsive
+        windowSize={windowSize}
+        preset="h3"
+        presetTablet="h2"
+        presetDesktop="h1"
+      >
+        Typography Responsive
+      </HeaderResponsive>
+      <BodyResponsive
+        windowSize={windowSize}
+        preset="p3"
+        presetTablet="p2"
+        presetDesktop="p1"
+      >
+        Ukuran teks ini akan berganti sesuai dengan viewport. Lorem ipsum dolor
+        sit amet consectetur adipisicing elit. Doloremque iure officiis ex
+        laboriosam, eius illo? Ipsum quod obcaecati quidem maiores?
+      </BodyResponsive>
     </div>
   );
 }
