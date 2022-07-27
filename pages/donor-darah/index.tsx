@@ -7,7 +7,7 @@ import {
 
 const DonorDarahPage = () => {
   return (
-    <div>
+    <div className="pt-64">
       <Hero />
       <TujuanSection />
       <SopSection />
