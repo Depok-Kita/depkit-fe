@@ -53,6 +53,7 @@ export const ArtikelTerbaru = () => {
                       src={artikel.attributes.thumbnail}
                       width={85}
                       alt="thumbnail"
+                      className="rounded-md"
                     />
                     <div className="text-left">
                       <Body preset="p3">{artikel.attributes.published}</Body>
