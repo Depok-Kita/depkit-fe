@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import { useWindowSize, WindowSize } from "@components/hooks/useWindowsSize";
-import { VIEWPORTS } from "@constants";
+import { WindowSize } from "@components/hooks/";
+import { responsive } from "utils";
 
 type HeaderPreset =
   | "decorative"
@@ -65,13 +65,11 @@ export const HeaderResponsive = ({
   windowSize,
   ...props
 }: HeaderResponsiveProps) => {
-  let presetResponsive: HeaderPreset;
-  if (windowSize.width >= VIEWPORTS.DESKTOP && presetDesktop) {
-    presetResponsive = presetDesktop;
-  } else if (windowSize.width >= VIEWPORTS.TABLET && presetTablet) {
-    presetResponsive = presetTablet;
-  } else {
-    presetResponsive = preset;
-  }
+  const presetResponsive = responsive<HeaderPreset>(
+    windowSize,
+    preset,
+    presetTablet,
+    presetDesktop
+  );
   return <Header preset={presetResponsive} {...props} />;
 };

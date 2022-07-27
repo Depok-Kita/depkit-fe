@@ -20,8 +20,9 @@ import {
   ArrowDownIcon,
 } from "@heroicons/react/outline";
 import { InputField, SelectField, FormLabel } from "@components/input-field";
-import { Checkbox, Divider, FormControl, Stack } from "@chakra-ui/react";
+import { Checkbox, FormControl, Stack } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@heroicons/react/outline";
+import { responsive } from "@utils";
 
 const Arutala: NextPage = () => {
   const errorToast = Toast({
@@ -566,9 +567,12 @@ function TypographyResponsiveSection({
         presetTablet="p2"
         presetDesktop="p1"
       >
-        Ukuran teks ini akan berganti sesuai dengan viewport. Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Doloremque iure officiis ex
-        laboriosam, eius illo? Ipsum quod obcaecati quidem maiores?
+        {responsive<string>(
+          windowSize,
+          "This is Mobile",
+          "This is Tablet",
+          "This is Desktop"
+        )}
       </BodyResponsive>
     </div>
   );

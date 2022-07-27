@@ -1,6 +1,6 @@
-import { VIEWPORTS } from "@constants";
 import { WindowSize } from "@components/hooks";
 import { ReactNode } from "react";
+import { responsive } from "@utils";
 
 type BodyPreset = "p1" | "p2" | "p3" | "b1" | "b2" | "b3";
 
@@ -44,13 +44,11 @@ export const BodyResponsive = ({
   windowSize,
   ...props
 }: BodyResponsiveProps) => {
-  let presetResponsive: BodyPreset;
-  if (windowSize.width >= VIEWPORTS.DESKTOP && presetDesktop) {
-    presetResponsive = presetDesktop;
-  } else if (windowSize.width >= VIEWPORTS.TABLET && presetTablet) {
-    presetResponsive = presetTablet;
-  } else {
-    presetResponsive = preset;
-  }
+  const presetResponsive = responsive<BodyPreset>(
+    windowSize,
+    preset,
+    presetTablet,
+    presetDesktop
+  );
   return <Body preset={presetResponsive} {...props} />;
 };
