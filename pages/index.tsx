@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         <title>Depok Kita</title>
         <link rel="icon" href="/assets/images/depkit-logo-1.svg" />
       </Head>
-      <div className="bg-powder-light">
+      <div className="bg-powder-light pb-32">
         <Carousel />
         <DepkitProfile />
         <Journal />
