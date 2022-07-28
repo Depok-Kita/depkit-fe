@@ -520,7 +520,9 @@ function TextFieldSection() {
       </FormControl>
       <div>
         <div
-          className={"pt-4 flex flex-col " + (isDark ? "bg-denim-dark" : "")}
+          className={
+            "p-4 flex flex-col rounded " + (isDark ? "bg-denim-dark" : "")
+          }
         >
           {inputElement}
           {inputElement}

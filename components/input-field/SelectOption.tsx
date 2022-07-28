@@ -9,8 +9,7 @@ export const SelectOption = ({ dark, ...props }: SelectOptionProps) => {
     <option
       {...props}
       // className={`${dark ? "bg-denim-dark text-totalwhite" : ""} ${className}`}
-      color="black"
-      style={{ backgroundColor: "black" }}
+      style={dark ? { backgroundColor: "black", color: "white" } : {}}
     />
   );
 };
