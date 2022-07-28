@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, HTMLInputTypeAttribute } from "react";
 import type { NextPage } from "next";
 import {
   Body,
@@ -20,9 +20,10 @@ import {
   ArrowDownIcon,
 } from "@heroicons/react/outline";
 import { InputField, SelectField, FormLabel } from "@components/input-field";
-import { Checkbox, FormControl, Stack } from "@chakra-ui/react";
+import { Checkbox, FormControl, propNames, Stack } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@heroicons/react/outline";
 import { responsive } from "@utils";
+import { SelectOption, Option } from "@components/input-field";
 
 const Arutala: NextPage = () => {
   const errorToast = Toast({
@@ -466,12 +467,23 @@ function TextFieldSection() {
   const [isRequired, setIsRequired] = useState(false);
   const errorMessage = "This is error message";
   const rightIcon = <ArrowDownIcon className="w-4 h-4" color="gray.300" />;
-  const inputElement = (
+  // const inputTypeSelect = <SelectField options={[{ value: "Options1" }]} />;
+  const inputTypes: HTMLInputTypeAttribute[] = [
+    "text",
+    "number",
+    "email",
+    "password",
+    "tel",
+    "date",
+    "file",
+  ];
+  const inputElements = inputTypes.map((type) => (
     <InputField
-      type="text"
+      key={type}
+      type={type}
       //value={"value"}
       placeholder="Enter input"
-      label={hasLabel ? "Label" : ""}
+      label={hasLabel ? type : ""}
       isDisabled={isDisabled}
       isError={isError}
       errorMessage={errorMessage}
@@ -482,11 +494,11 @@ function TextFieldSection() {
       }
       rightIcon={hasRightIcon ? rightIcon : undefined}
       className="px-4"
-      innerClassName="p-6"
+      // innerClassName="p-6"
       dark={isDark}
       required={isRequired}
     />
-  );
+  ));
   const selectElement = (
     <SelectField
       label={hasLabel ? "Select Label" : ""}
@@ -497,9 +509,17 @@ function TextFieldSection() {
       dark={isDark}
       className="px-4"
       required={isRequired}
+      options={[
+        { value: "opt1", label: "Option 11" },
+        { value: "opt2", label: "Option 2" },
+      ]}
     >
-      <option value="opt1">Option 1</option>
-      <option value="opt2">Option 2</option>
+      {/* <SelectOption value="opt1" dark={isDark}>
+        Option 1
+      </SelectOption>
+      <SelectOption value="opt2" dark={isDark}>
+        Option 2
+      </SelectOption> */}
     </SelectField>
   );
   return (
@@ -535,10 +555,11 @@ function TextFieldSection() {
       </FormControl>
       <div>
         <div
-          className={"pt-4 flex flex-col " + (isDark ? "bg-denim-dark" : "")}
+          className={
+            "p-4 flex flex-col rounded " + (isDark ? "bg-denim-dark" : "")
+          }
         >
-          {inputElement}
-          {inputElement}
+          {inputElements}
           {selectElement}
         </div>
       </div>
