@@ -3,7 +3,7 @@ import { FormLabel } from "./FormLabel";
 import { SelectOption } from "./SelectOption";
 
 /**Represent option element */
-type Option = {
+export type Option = {
   value?: string | number; // <option>'s value attribute
   label?: string; // text that is displayed in <option>
 };
