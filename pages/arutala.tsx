@@ -10,8 +10,9 @@ import {
   ArrowDownIcon,
 } from "@heroicons/react/outline";
 import { InputField, SelectField, FormLabel } from "@components/input-field";
-import { Checkbox, FormControl, Stack } from "@chakra-ui/react";
+import { Checkbox, FormControl, propNames, Stack } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@heroicons/react/outline";
+import { SelectOption } from "@components/input-field/SelectOption";
 
 const Arutala: NextPage = () => {
   const errorToast = Toast({
@@ -478,8 +479,12 @@ function TextFieldSection() {
       className="px-4"
       required={isRequired}
     >
-      <option value="opt1">Option 1</option>
-      <option value="opt2">Option 2</option>
+      <SelectOption value="opt1" dark={isDark}>
+        Option 1
+      </SelectOption>
+      <SelectOption value="opt2" dark={isDark}>
+        Option 2
+      </SelectOption>
     </SelectField>
   );
   return (

@@ -1,5 +1,14 @@
 import { FormControl, FormErrorMessage, Select } from "@chakra-ui/react";
 import { FormLabel } from "./FormLabel";
+import { SelectOption } from "./SelectOption";
+
+/**Represent option element */
+type Option = {
+  value?: string | number; // <option>'s value attribute
+  label?: string; // text that is displayed in <option>
+};
+// example
+// {value: "opt1", label: "Option 1"} yield <option value="opt1">Option 1<option/>
 
 // field contains label & input element
 type SelectFieldProps = {
@@ -11,7 +20,8 @@ type SelectFieldProps = {
   placeholder?: string;
   value?: string | number; // value of <select> element
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
-  children: React.ReactNode; // option elements, ex. <option value="opt1">Option 1<option/>
+  children?: React.ReactNode; // option elements, ex. <option value="opt1">Option 1<option/>
+  options?: Option[]; // options in array of Option object, use this as an alternative to using children props
 
   isDisabled?: boolean;
   isError?: boolean;
@@ -19,7 +29,7 @@ type SelectFieldProps = {
   errorMessage?: string;
 
   rightIcon?: React.ReactElement;
-  dark?: boolean; // dark mode, note: you must set <option> background to dark manually
+  dark?: boolean; // dark mode
   required?: boolean;
 };
 
@@ -47,7 +57,12 @@ export const SelectField = (props: SelectFieldProps) => {
         value={props.value}
         required={props.required}
       >
-        {props.children}
+        {props.children ||
+          props.options?.map((option) => (
+            <SelectOption value={option.value} dark={props.dark}>
+              {option.label}
+            </SelectOption>
+          ))}
       </Select>
       {props.isError && (
         <FormErrorMessage>{props.errorMessage}</FormErrorMessage>
