@@ -59,7 +59,11 @@ export const SelectField = (props: SelectFieldProps) => {
       >
         {props.children ||
           props.options?.map((option) => (
-            <SelectOption value={option.value} dark={props.dark}>
+            <SelectOption
+              value={option.value}
+              dark={props.dark}
+              key={option.value}
+            >
               {option.label}
             </SelectOption>
           ))}

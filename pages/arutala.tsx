@@ -478,13 +478,17 @@ function TextFieldSection() {
       dark={isDark}
       className="px-4"
       required={isRequired}
+      options={[
+        { value: "opt1", label: "Option 11" },
+        { value: "opt2", label: "Option 2" },
+      ]}
     >
-      <SelectOption value="opt1" dark={isDark}>
+      {/* <SelectOption value="opt1" dark={isDark}>
         Option 1
       </SelectOption>
       <SelectOption value="opt2" dark={isDark}>
         Option 2
-      </SelectOption>
+      </SelectOption> */}
     </SelectField>
   );
   return (
