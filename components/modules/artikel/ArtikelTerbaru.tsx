@@ -2,6 +2,7 @@ import SmallBlueLine from "@images/small-blue-line.svg";
 import { Header, Body, Card } from "@components";
 import { useFetch } from "hooks/useFetch";
 import { ShareIcon } from "@heroicons/react/outline";
+import Link from "next/link";
 
 export const ArtikelTerbaru = () => {
   const { loading, error, data } = useFetch(
@@ -39,30 +40,32 @@ export const ArtikelTerbaru = () => {
           {artikelTerbaru.map((artikel: any) => (
             <div className="flex justify-center py-1">
               {/* BUTTON UNTUK MENGARAHKAN ALAMAT KE BODY ARTIKEL */}
-              <button>
-                <Card
-                  preset="light"
-                  className="mobile:w-[315px] p-4 rounded-xl relative"
-                  padding="false"
-                >
-                  <div className="flex gap-2">
-                    <Header preset="h4" className="text-powder">
-                      {artikel.number}
-                    </Header>
-                    <img
-                      src={artikel.attributes.thumbnail}
-                      width={85}
-                      alt="thumbnail"
-                      className="rounded-md"
-                    />
-                    <div className="text-left">
-                      <Body preset="p3">{artikel.attributes.published}</Body>
-                      <Body preset="b3">{artikel.attributes.title}</Body>
+              <Link href={"/artikel/" + artikel.id} key={artikel.id}>
+                <button>
+                  <Card
+                    preset="light"
+                    className="mobile:w-[315px] p-4 rounded-xl relative"
+                    padding="false"
+                  >
+                    <div className="flex gap-2">
+                      <Header preset="h4" className="text-powder">
+                        {artikel.number}
+                      </Header>
+                      <img
+                        src={artikel.attributes.thumbnail}
+                        width={85}
+                        alt="thumbnail"
+                        className="rounded-md"
+                      />
+                      <div className="text-left">
+                        <Body preset="p3">{artikel.attributes.published}</Body>
+                        <Body preset="b3">{artikel.attributes.title}</Body>
+                      </div>
+                      <ShareIcon className="mobile:w-4 absolute right-3 pt-12" />
                     </div>
-                    <ShareIcon className="mobile:w-4 absolute right-3 pt-12" />
-                  </div>
-                </Card>
-              </button>
+                  </Card>
+                </button>
+              </Link>
             </div>
           ))}
         </div>
