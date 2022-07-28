@@ -9,7 +9,7 @@ import {
 import { FormLabel } from "./FormLabel";
 // field contains label & input element
 type InputFieldProps = {
-  className?: string; // className of input element wrapper
+  className?: string; // className of field element
   innerClassName?: string; // className of input element
 
   type: "text" | "number" | "password" | "email"; // input type

@@ -25,12 +25,13 @@ type SelectFieldProps = {
 
 export const SelectField = (props: SelectFieldProps) => {
   return (
-    <FormControl isInvalid={props.isError} className={props.className}>
-      <FormLabel
-        className={`font-jakarta-sans ${
-          props.dark ? "text-powder-light" : "text-denim-light"
-        }`}
-      >
+    <FormControl
+      isInvalid={props.isError}
+      className={`${props.dark ? "text-powder-light" : "text-denim-light"} ${
+        props.className
+      }`}
+    >
+      <FormLabel>
         {props.label}
         {props.label && props.required && (
           <span className="text-danger-light">*</span>
