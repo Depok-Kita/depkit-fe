@@ -6,13 +6,14 @@ import {
   InputLeftElement,
   InputRightElement,
 } from "@chakra-ui/react";
+import { HTMLInputTypeAttribute } from "react";
 import { FormLabel } from "./FormLabel";
 // field contains label & input element
 type InputFieldProps = {
   className?: string; // className of field element
   innerClassName?: string; // className of input element
 
-  type: "text" | "number" | "password" | "email"; // input type
+  type?: HTMLInputTypeAttribute;
   name?: string; // field name, ex. firstname, password
   label?: string;
 
@@ -60,6 +61,7 @@ export const InputField = (props: InputFieldProps) => {
           onChange={props.onChange}
           isDisabled={props.isDisabled}
           className={`font-jakarta-sans hover:border-cerulean ${props.innerClassName}`}
+          style={{ colorScheme: props.dark ? "dark" : "normal" }}
           required={props.required}
         />
         {props.rightIcon && (
