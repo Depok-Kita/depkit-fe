@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -16,19 +20,50 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@api/*": ["api/*"],
-      "@components": ["components"],
-      "@components/*": ["components/*"],
-      "@constants": ["constants"],
-      "@icons/*": ["public/assets/icons/*"],
-      "@images/*": ["public/assets/images/*"],
-      "@models": ["models"],
-      "@styles/*": ["styles/*"],
-      "@pages/*": ["pages/*"],
-      "@hooks": ["components/hooks"],
-      "@hooks/*": ["components/hooks/*"]
+      "@api/*": [
+        "api/*"
+      ],
+      "@components": [
+        "components"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@constants": [
+        "constants"
+      ],
+      "@icons/*": [
+        "public/assets/icons/*"
+      ],
+      "@images/*": [
+        "public/assets/images/*"
+      ],
+      "@models": [
+        "models"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@utils": [
+        "utils"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@hooks": [
+        "components/hooks"
+      ],
+      "@hooks/*": [
+        "components/hooks/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
