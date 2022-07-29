@@ -55,8 +55,10 @@ export const ArtikelTerbaru = ({
                         height={60}
                         className="rounded-md"
                       />
-                      <div className="text-left">
-                        <Body preset="p3">{article?.published}</Body>
+                      <div className="text-left mobile:max-w-[150px]">
+                        <Body preset="p3" className="mobile:text-[9px]">
+                          {article?.published}
+                        </Body>
                         <Body preset="b3">{article?.title}</Body>
                       </div>
                       <ShareIcon className="mobile:w-4 absolute right-3 pt-12" />
