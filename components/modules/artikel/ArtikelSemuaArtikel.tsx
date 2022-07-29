@@ -8,6 +8,7 @@ import { ArtikelArtikelLainnya } from "@components";
 type ArtikelSemuaArtikelProps = {
   className?: string;
   articles?: any;
+  topics?: any;
   children?: React.ReactNode;
 };
 
@@ -15,14 +16,8 @@ export const ArtikelSemuaArtikel = ({
   children,
   className,
   articles,
+  topics,
 }: ArtikelSemuaArtikelProps) => {
-  const { loading, error, data } = useFetch("http://localhost:1337/api/topics");
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
-
-  // MENGECEK SELURUH TOPIC
-  // console.log(articles);
-
   return (
     <div className="flex justify-center bg-powder-light mobile:h-[720px]">
       <div className="flex flex-col w-full">
@@ -43,9 +38,12 @@ export const ArtikelSemuaArtikel = ({
             {/* BUTTON MENUJU TOPIC TERTENTU */}
             <div>
               <button>
-                {data.data.map((topic) => (
-                  <div className="border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-1">
-                    {topic.attributes.name}
+                {topics?.map((topic: any) => (
+                  <div
+                    className="border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-1"
+                    key={topic.id}
+                  >
+                    {topic.name}
                   </div>
                 ))}
               </button>
