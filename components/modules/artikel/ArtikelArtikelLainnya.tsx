@@ -37,22 +37,14 @@ export const ArtikelArtikelLainnya = ({
   // Menampilkan artikel lain berdasarkan total dan filter topik
   let artikelDitampilkan = articles;
 
-  // --------------------------- FILTER SEARCH ---------------------------
-  // Ketika nilai search tidak default ("") maka lakukan pemfilteran
-  const filteringSearchInput = (article: any, search: any) => {
-    // Ketika dalam judul artikel terdapat search value
-    if (article.title.toLowerCase().includes(search.toLowerCase())) {
-      return true;
-    }
-    // Saat search value tidak ada di dalam judul artikel
-    return false;
-  };
-  if (search != "") {
-    artikelDitampilkan = articles.filter((article: any) =>
-      filteringSearchInput(article, search)
-    );
+  // FILTER PRIORITAS 1
+  // --------------------------- FILTER TOTAL ---------------------------
+  // Undefined hanya ketika total tidak diinisiasikan nilainua => default (tidak dilakukan slicing)
+  if (total != undefined) {
+    artikelDitampilkan = artikelDitampilkan.slice(0, total);
   }
 
+  // FILTER PRIORITAS 2
   // --------------------------- FILTER TOPIC ---------------------------
   // Ketika nilai filter tidak default (All) maka lakukan pemfilteran
   const filteringTopic = (article: any, filter: any) => {
@@ -65,18 +57,31 @@ export const ArtikelArtikelLainnya = ({
     return false;
   };
   if (filter != "All") {
-    artikelDitampilkan = articles.filter((article: any) =>
+    artikelDitampilkan = artikelDitampilkan.filter((article: any) =>
       filteringTopic(article, filter)
     );
   }
 
-  // --------------------------- FILTER TOTAL ---------------------------
-  // Undefined hanya ketika total tidak diinisiasikan nilainua => default (tidak dilakukan slicing)
-  if (total != undefined) {
-    artikelDitampilkan = artikelDitampilkan.slice(0, total);
+  // FILTER PRIORITAS 3
+  // --------------------------- FILTER SEARCH ---------------------------
+  // Ketika nilai search tidak default ("") maka lakukan pemfilteran
+  const filteringSearchInput = (article: any, search: any) => {
+    // Ketika dalam judul artikel terdapat search value
+    if (article.title.toLowerCase().includes(search.toLowerCase())) {
+      return true;
+    }
+    // Saat search value tidak ada di dalam judul artikel
+    return false;
+  };
+  if (search != "") {
+    artikelDitampilkan = artikelDitampilkan.filter((article: any) =>
+      filteringSearchInput(article, search)
+    );
   }
 
+  console.log("Filtered by total : " + total);
   console.log("Filtered by topic : " + filter);
+  console.log("Filtered by search : " + search);
 
   if (articlesLoading) {
     return <LoadingScreen />;
