@@ -43,6 +43,15 @@ export const ArtikelSemuaArtikel = ({
           </Body>
           {/* KUMPULAN TOPIC */}
           <div className="flex flex-wrap mobile:max-w-[240px] gap-1">
+            {/* TOPIC ALL (DEFAULT) */}
+            <div
+              className="border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px]"
+              key={0}
+              onClick={changeSelectedTopicHandler}
+              id="All"
+            >
+              All
+            </div>
             {/* BUTTON MENUJU TOPIC TERTENTU */}
             {topics?.map((topic: any) => (
               <div

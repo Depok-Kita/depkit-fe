@@ -32,8 +32,6 @@ export const ArtikelArtikelLainnya = ({
 
   // Menampilkan artikel lain berdasarkan total dan filter topik
   let artikelDitampilkan = articles;
-  console.log("ARTIKEL DITAMPILKAN");
-  console.log(artikelDitampilkan);
   // Ketika nilai filter tidak default (All) maka lakukan pemfilteran
   const filteringTopic = (article: any, filter: any) => {
     for (let topic of article.topics) {
@@ -54,7 +52,7 @@ export const ArtikelArtikelLainnya = ({
     artikelDitampilkan = artikelDitampilkan.slice(0, total);
   }
 
-  console.log(filter);
+  console.log("Filtered by topic : " + filter);
 
   if (articlesLoading) {
     return <LoadingScreen />;
@@ -65,13 +63,13 @@ export const ArtikelArtikelLainnya = ({
           <div className="flex justify-center" key={article.id}>
             <Link href={"/artikel/" + article?.slug}>
               <div className="mobile:w-[315px]">
-                <div className="flex justify-between border-b border-powder py-2 relative">
+                <div className="flex justify-between border-b border-powder pb-1 pt-2 relative">
                   <div>
                     <Body preset="p3" className="mobile:text-[8px]">
                       {article?.published}
                     </Body>
                     <Body preset="b3">{article?.title}</Body>
-                    <div className="flex flex-wrap gap-1 absolute bottom-2">
+                    <div className="flex flex-wrap gap-1 absolute bottom-3">
                       {article?.topics.map((topic: any) => (
                         <div
                           className="bg-totalwhite border-totalwhite shadow-inner rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px]"
@@ -83,7 +81,7 @@ export const ArtikelArtikelLainnya = ({
                     </div>
                   </div>
                   <div>
-                    <ShareIcon className="w-9 pt-10 pl-5" />
+                    <ShareIcon className="w-4 absolute bottom-4 right-24" />
                   </div>
                   <div>
                     <Image
