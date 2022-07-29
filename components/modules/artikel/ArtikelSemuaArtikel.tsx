@@ -62,7 +62,11 @@ export const ArtikelSemuaArtikel = ({
           <div className="flex flex-wrap mobile:max-w-[240px] gap-1">
             {/* TOPIC ALL (DEFAULT) */}
             <div
-              className="border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px]"
+              className={
+                selectedTopic == "All"
+                  ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light text-[8px] font-bold px-[6px] py-[1px]"
+                  : "border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px]"
+              }
               key={0}
               onClick={changeSelectedTopicHandler}
               id="All"
@@ -72,7 +76,11 @@ export const ArtikelSemuaArtikel = ({
             {/* BUTTON MENUJU TOPIC TERTENTU */}
             {topics?.map((topic: any) => (
               <div
-                className="border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px]"
+                className={
+                  selectedTopic == topic.name
+                    ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light text-[8px] font-bold px-[6px] py-[1px]"
+                    : "border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px]"
+                }
                 key={topic.id}
                 onClick={changeSelectedTopicHandler}
                 id={topic.name}
