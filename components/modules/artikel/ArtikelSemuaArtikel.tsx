@@ -26,12 +26,12 @@ export const ArtikelSemuaArtikel = ({
 
   return (
     <div className="flex justify-center bg-powder-light mobile:h-[720px]">
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full" id="search-section">
         <div className="flex gap-2 items-center mobile:px-7 mobile:pt-4">
           <SmallBlueLine />
           <Body preset="b2">Semua Artikel</Body>
         </div>
-        <div id="search-section">
+        <div>
           <InputField
             type="text"
             placeholder="Cari Artikel"
