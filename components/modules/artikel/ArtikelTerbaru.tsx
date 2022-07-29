@@ -15,20 +15,12 @@ export const ArtikelTerbaru = ({
   className,
   articles,
 }: ArtikelTerbaruProps) => {
-  // AMBIL 3 DATA
-  const artikelTerbaru = [];
-  for (let i = 0; i < 3; i++) {
-    try {
-      articles[i].number = i + 1; // Menambahkan nomor untuk iterasi di map
-      artikelTerbaru.push(articles[i]);
-    } catch (error) {
-      // Saat data tidak ada di index tertentu maka break saja
-      break;
-    }
-  }
-
-  // MENGECEK 3 ARTIKEL TERBARU
-  // console.log(artikelTerbaru);
+  // Sorting artikel berdasarkan tanggal terbaru
+  articles.sort((a: any, b: any) =>
+    a.date < b.date ? 1 : a.date === b.date ? (a.id < b.id ? 1 : -1) : -1
+  );
+  // Mengambil 3 artikel terbaru
+  const artikelTerbaru = articles.slice(0, 3);
 
   return (
     <div className="flex justify-center bg-powder mobile:h-[360px]">
