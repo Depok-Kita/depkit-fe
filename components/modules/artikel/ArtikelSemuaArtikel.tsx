@@ -39,7 +39,7 @@ export const ArtikelSemuaArtikel = ({
           <SmallBlueLine />
           <Body preset="b2">Semua Artikel</Body>
         </div>
-        <div>
+        <div className="flex justify-end pt-5 pb-3">
           <input
             type="text"
             placeholder="Cari Artikel"
