@@ -64,7 +64,7 @@ export const ArtikelTerbaru = ({
                   </button>
                 </Link>
                 <ShareLinkToClipboard
-                  className="mobile:w-4 absolute bottom-3 right-3"
+                  className="absolute bottom-3 right-3"
                   link={article.slug}
                 />
               </Card>
