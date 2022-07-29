@@ -17,6 +17,8 @@ export const ArtikelSemuaArtikel = ({
   articles,
   topics,
 }: ArtikelSemuaArtikelProps) => {
+  // Default value total (total artikel yang ditampilkan) = 5
+  const [totalArticles, setTotalArticles] = useState(5);
   // Default value selectedTopic = All
   const [selectedTopic, setSelectedTopic] = useState("All");
   // State untuk mendapatkan nilai dari input search
@@ -30,10 +32,14 @@ export const ArtikelSemuaArtikel = ({
     setEnteredSearchInput(event.target.value);
   };
 
+  const addArtikelLainnyaHandler = () => {
+    setTotalArticles(totalArticles + 5);
+  };
+
   console.log("Entered Search Input : " + enteredSearchInput);
 
   return (
-    <div className="flex justify-center bg-powder-light mobile:h-[720px]">
+    <div className="flex justify-center bg-powder-light">
       <div className="flex flex-col w-full" id="search-section">
         <div className="flex gap-2 items-center mobile:px-7 mobile:pt-4">
           <SmallBlueLine />
@@ -78,12 +84,16 @@ export const ArtikelSemuaArtikel = ({
         </div>
         {/* KUMPULAN ARTIKEL PER 5 */}
         <ArtikelArtikelLainnya
-          total={5}
+          total={totalArticles}
           filter={selectedTopic}
           search={enteredSearchInput}
         />
-        <div className="flex justify-center pt-6">
-          <Button preset="secondaryLight" className="w-[160px]">
+        <div className="flex justify-center pt-6 pb-10">
+          <Button
+            preset="secondaryLight"
+            className="w-[160px]"
+            onClick={addArtikelLainnyaHandler}
+          >
             Artikel Lainnya
           </Button>
         </div>
