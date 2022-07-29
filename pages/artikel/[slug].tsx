@@ -50,10 +50,10 @@ const Details = (artikel: any) => {
             {/* JUDUL DAN TANGGAL RILIS ARTIKEL */}
             <div className="border-l-4 border-cerulean">
               <div className="px-3">
-                <Header preset="h5" className="font-black">
+                <Header preset="h5" className="font-black text-[18px]">
                   {article?.title}
                 </Header>
-                <Body preset="p3" className="text-[10px] font-semibold">
+                <Body preset="p3" className="text-[9px] font-semibold">
                   {"diterbitkan pada tanggal " + article?.published}
                 </Body>
               </div>
@@ -63,9 +63,9 @@ const Details = (artikel: any) => {
               <Image
                 src={article?.photoUrl}
                 alt={article?.photoAlt}
-                width={275}
+                width={270}
                 height={180}
-                className="rounded-md"
+                className="rounded-lg"
               />
             </div>
             {/* BADAN ARTIKEL */}

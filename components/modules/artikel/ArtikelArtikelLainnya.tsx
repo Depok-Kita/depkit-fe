@@ -1,10 +1,8 @@
-import { Body, LoadingScreen } from "@components";
-import { ShareIcon } from "@heroicons/react/outline";
+import { Body, LoadingScreen, ShareLinkToClipboard } from "@components";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { flatten } from "@chakra-ui/utils";
 
 type ArtikelArtikelLainnyaProps = {
   className?: string;
@@ -110,7 +108,7 @@ export const ArtikelArtikelLainnya = ({
                     </div>
                   </div>
                   <div>
-                    <ShareIcon className="w-4 absolute bottom-4 right-24" />
+                    <ShareLinkToClipboard link={article.slug} />
                   </div>
                   <div>
                     <Image
@@ -129,4 +127,4 @@ export const ArtikelArtikelLainnya = ({
       </div>
     );
   }
-};;;;;;;;;;;;;;;
+};
