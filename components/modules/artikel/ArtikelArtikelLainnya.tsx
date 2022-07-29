@@ -43,22 +43,22 @@ export const ArtikelArtikelLainnya = ({
           <div className="flex justify-center" key={article.id}>
             <Link href={"/artikel/" + article?.slug}>
               <div className="mobile:w-[315px]">
-                <div className="flex justify-between border-b border-powder py-2">
+                <div className="flex justify-between border-b border-powder py-2 relative">
                   <div>
                     <Body preset="p3" className="mobile:text-[8px]">
                       {article?.published}
                     </Body>
                     <Body preset="b3">{article?.title}</Body>
-                    {/* BUTTON MENUJU TOPIC TERTENTU */}
-                    {/* <div>
-            <button>
-              {artikel.attributes.topics.map((topic) => (
-                <div className="border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-1">
-                  {topic.attributes.name}
-                </div>
-              ))}
-            </button>
-          </div> */}
+                    <div className="flex flex-wrap gap-1 absolute bottom-2">
+                      {article?.topics.map((topic: any) => (
+                        <div
+                          className="bg-totalwhite border-totalwhite shadow-inner rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px]"
+                          key={topic.id}
+                        >
+                          {topic.name}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                   <div>
                     <ShareIcon className="w-9 pt-10 pl-5" />
