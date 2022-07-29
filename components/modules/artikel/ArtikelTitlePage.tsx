@@ -1,6 +1,7 @@
 import TransparentHalfLove from "@images/transparent-half-love.svg";
 import { Header, Body, Button } from "@components";
 import { SearchIcon } from "@heroicons/react/outline";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 export const ArtikelTitlePage = () => {
   return (
@@ -17,13 +18,22 @@ export const ArtikelTitlePage = () => {
           2022
         </Body>
         <div className="flex justify-center mobile:p-6">
-          <Button
-            preset="primaryDark"
-            leftIcon={<SearchIcon width={20} />}
-            className="mobile:max-w-[160px]"
+          <Link
+            activeClass="active"
+            to="search-section"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
           >
-            Cari Artikel
-          </Button>
+            <Button
+              preset="primaryDark"
+              leftIcon={<SearchIcon width={20} />}
+              className="mobile:max-w-[160px]"
+            >
+              Cari Artikel
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

@@ -31,11 +31,13 @@ export const ArtikelSemuaArtikel = ({
           <SmallBlueLine />
           <Body preset="b2">Semua Artikel</Body>
         </div>
-        <InputField
-          type="text"
-          placeholder="Cari Artikel"
-          leftIcon={<SearchIcon />}
-        ></InputField>
+        <div id="search-section">
+          <InputField
+            type="text"
+            placeholder="Cari Artikel"
+            leftIcon={<SearchIcon />}
+          ></InputField>
+        </div>
         {/* BAGIAN TOPIC */}
         <div className="pl-8 py-3">
           <Body preset="p3" className="pb-2">
