@@ -50,7 +50,7 @@ export const ArtikelSemuaArtikel = ({
           </div>
         </div>
         {/* KUMPULAN ARTIKEL PER 5 */}
-        <ArtikelArtikelLainnya articles={articles} />
+        <ArtikelArtikelLainnya />
         <div className="flex justify-center pt-6">
           <Button preset="secondaryLight" className="w-[160px]">
             Artikel Lainnya
