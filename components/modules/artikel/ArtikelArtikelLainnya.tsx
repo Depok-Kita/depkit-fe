@@ -13,6 +13,7 @@ export const ArtikelArtikelLainnya = () => {
   if (error) return <p>Error :(</p>;
 
   // MENGECEK SELURUH ARTIKEL
+  console.log("CEK DATA ARTIKEL LAINNYA");
   console.log(data);
 
   return (
