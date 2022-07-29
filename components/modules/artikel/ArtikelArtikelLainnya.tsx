@@ -1,6 +1,4 @@
-import SmallBlueLine from "@images/small-blue-line.svg";
-import { Header, Body, Button, InputField } from "@components";
-import { useFetch } from "hooks/useFetch";
+import { Body } from "@components";
 import { ShareIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
@@ -16,16 +14,7 @@ export const ArtikelArtikelLainnya = ({
   className,
   articles,
 }: ArtikelArtikelLainnyaProps) => {
-  // MENGECEK SELURUH ARTIKEL
-  console.log("CEK DATA ARTIKEL LAINNYA");
-  console.log(articles);
-
   return (
-    // <div>
-    //   {articles.map((article: any) => (
-    //     <div key={article.id}>{article?.title}</div>
-    //   ))}
-    // </div>
     <div className="flex flex-col">
       {articles?.map((article: any) => (
         <div className="flex justify-center" key={article.id}>

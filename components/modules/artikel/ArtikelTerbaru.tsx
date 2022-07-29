@@ -1,6 +1,5 @@
 import SmallBlueLine from "@images/small-blue-line.svg";
 import { Header, Body, Card } from "@components";
-import { useFetch } from "hooks/useFetch";
 import { ShareIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
@@ -15,10 +14,6 @@ export const ArtikelTerbaru = ({
   className,
   articles,
 }: ArtikelTerbaruProps) => {
-  // MENGECEK SELURUH ARTIKEL
-  console.log("CEK ARTIKEL DI SINI");
-  console.log(articles);
-
   // AMBIL 3 DATA
   const artikelTerbaru = [];
   for (let i = 0; i < 3; i++) {

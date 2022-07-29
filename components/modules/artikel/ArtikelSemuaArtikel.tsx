@@ -1,6 +1,5 @@
 import SmallBlueLine from "@images/small-blue-line.svg";
 import { Body, Button, InputField } from "@components";
-import { useFetch } from "hooks/useFetch";
 import { SearchIcon } from "@heroicons/react/outline";
 import { ArtikelArtikelLainnya } from "@components";
 

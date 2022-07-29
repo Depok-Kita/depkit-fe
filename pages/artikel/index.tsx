@@ -31,7 +31,7 @@ const Artikel: NextPage = () => {
     });
   }, []);
 
-  console.log("CEK INDEX TS");
+  console.log("CEK INDEX.TS");
   console.log(articles);
   console.log(topics);
 

@@ -11,8 +11,6 @@ import { useRouter } from "next/router";
 const Details = (artikel: any) => {
   const router = useRouter();
   const { slug } = router.query;
-  // CEK DATA MASUK
-  console.log(slug);
 
   const [article, setArticle] = useState<Article>();
   const [articleLoading, setArticleLoading] = useState(true);
@@ -26,9 +24,6 @@ const Details = (artikel: any) => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
-
-  console.log("ARTIKEL");
-  console.log(article);
 
   return (
     <div className="flex justify-center bg-powder-light">
