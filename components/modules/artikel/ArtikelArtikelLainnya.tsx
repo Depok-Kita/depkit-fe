@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Article } from "@models";
 
 type ArtikelArtikelLainnyaProps = {
   className?: string;
@@ -12,13 +11,12 @@ type ArtikelArtikelLainnyaProps = {
   children?: React.ReactNode;
 };
 
-// PASANG PROPS JUMLAH ARTIKEL YANG INGIN DITAMPILKAN AJA KALI YAK
 export const ArtikelArtikelLainnya = ({
   children,
   className,
   total,
 }: ArtikelArtikelLainnyaProps) => {
-  // GET : api/articles
+  // GET : api/articles FETCH DI SINI KARENA KOMPONEN DIGUNAKAN DI DUA BAGIAN
   const [articles, setArticles] = useState([]);
   const [articlesLoading, setArticlesLoading] = useState(true);
 
@@ -29,12 +27,19 @@ export const ArtikelArtikelLainnya = ({
     });
   }, []);
 
+  // Menampilkan artikel lain berdasarkan total
+  // undefined hanya ketika total tidak diinisiasikan nilainua => default (tidak dilakukan slicing)
+  let artikelDitampilkan = articles;
+  if (total != undefined) {
+    artikelDitampilkan = articles.slice(0, total);
+  }
+
   if (articlesLoading) {
     return <LoadingScreen />;
   } else {
     return (
       <div className="flex flex-col">
-        {articles?.map((article: any) => (
+        {artikelDitampilkan.map((article: any) => (
           <div className="flex justify-center" key={article.id}>
             <Link href={"/artikel/" + article?.slug}>
               <div className="mobile:w-[315px]">
