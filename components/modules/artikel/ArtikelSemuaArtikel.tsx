@@ -30,23 +30,21 @@ export const ArtikelSemuaArtikel = ({
           leftIcon={<SearchIcon />}
         ></InputField>
         {/* BAGIAN TOPIC */}
-        <div className="pl-6 py-3">
-          <Body preset="p3">Cari artikel berdasarkan topik</Body>
+        <div className="pl-8 py-3">
+          <Body preset="p3" className="pb-2">
+            Cari artikel berdasarkan topik
+          </Body>
           {/* KUMPULAN TOPIC */}
-          <div className="grid grid-cols-4 gap-1">
+          <div className="flex flex-wrap mobile:max-w-[240px] gap-1">
             {/* BUTTON MENUJU TOPIC TERTENTU */}
-            <div>
-              <button>
-                {topics?.map((topic: any) => (
-                  <div
-                    className="border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-1"
-                    key={topic.id}
-                  >
-                    {topic.name}
-                  </div>
-                ))}
-              </button>
-            </div>
+            {topics?.map((topic: any) => (
+              <div
+                className="border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px]"
+                key={topic.id}
+              >
+                {topic.name}
+              </div>
+            ))}
           </div>
         </div>
         {/* KUMPULAN ARTIKEL PER 5 */}
