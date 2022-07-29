@@ -24,6 +24,7 @@ export const ShareLinkToClipboard = ({
     navigator.clipboard.writeText(WEBSITE_URL + "/artikel/" + link);
     setIsCopied(true);
     successToast();
+    setTimeout(() => setIsCopied(false), 6000);
   };
 
   const WEBSITE_URL = `http://localhost:3000`;
