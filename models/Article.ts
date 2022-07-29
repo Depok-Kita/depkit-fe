@@ -3,7 +3,7 @@ export type Article = {
   slug: string;
   title: string;
   published: any;
-  body: string;
+  body: any;
   photoUrl: string;
   photoAlt: string;
   topics: any;
