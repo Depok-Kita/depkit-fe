@@ -81,7 +81,7 @@ const Details = (artikel: any) => {
               <Header preset="h5" className="font-black py-5">
                 Artikel Lainnya
               </Header>
-              <ArtikelArtikelLainnya filter="All" />
+              <ArtikelArtikelLainnya filter="All" search="" />
             </div>
           </div>
         </div>
