@@ -25,7 +25,7 @@ const Artikel: NextPage = () => {
       {/* NAVBAR SPACE HEIGHT GAP  */}
       <div className="bg-powder-light h-[60px]"></div>
       <ArtikelTitlePage />
-      <ArtikelTerbaru />
+      <ArtikelTerbaru articles={articles} />
       <ArtikelSemuaArtikel />
     </div>
   );
