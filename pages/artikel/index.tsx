@@ -26,7 +26,7 @@ const Artikel: NextPage = () => {
       <div className="bg-powder-light h-[60px]"></div>
       <ArtikelTitlePage />
       <ArtikelTerbaru articles={articles} />
-      <ArtikelSemuaArtikel />
+      <ArtikelSemuaArtikel articles={articles} />
     </div>
   );
 };

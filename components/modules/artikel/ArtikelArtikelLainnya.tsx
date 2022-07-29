@@ -4,30 +4,39 @@ import { useFetch } from "hooks/useFetch";
 import { ShareIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
-// PASANG PROPS JUMLAH ARTIKEL YANG INGIN DITAMPILKAN AJA KALI YAK
-export const ArtikelArtikelLainnya = () => {
-  const { loading, error, data } = useFetch(
-    "http://localhost:1337/api/articles"
-  );
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+type ArtikelArtikelLainnyaProps = {
+  className?: string;
+  articles?: any;
+  children?: React.ReactNode;
+};
 
+// PASANG PROPS JUMLAH ARTIKEL YANG INGIN DITAMPILKAN AJA KALI YAK
+export const ArtikelArtikelLainnya = ({
+  children,
+  className,
+  articles,
+}: ArtikelArtikelLainnyaProps) => {
   // MENGECEK SELURUH ARTIKEL
   console.log("CEK DATA ARTIKEL LAINNYA");
-  console.log(data);
+  console.log(articles);
 
   return (
+    // <div>
+    //   {articles.map((article: any) => (
+    //     <div key={article.id}>{article?.title}</div>
+    //   ))}
+    // </div>
     <div className="flex flex-col">
-      {data.data.map((artikel) => (
-        <div className="flex justify-center">
-          <Link href={"/artikel/" + artikel.id} key={artikel.id}>
+      {articles?.map((article: any) => (
+        <div className="flex justify-center" key={article.id}>
+          <Link href={"/artikel/" + article?.slug}>
             <div className="mobile:w-[315px]">
               <div className="flex justify-between border-b border-powder py-2">
                 <div>
                   <Body preset="p3" className="mobile:text-[8px]">
-                    {artikel.attributes.published}
+                    {article?.published}
                   </Body>
-                  <Body preset="b3">{artikel.attributes.title}</Body>
+                  <Body preset="b3">{article?.title}</Body>
                   {/* BUTTON MENUJU TOPIC TERTENTU */}
                   {/* <div>
             <button>
@@ -44,7 +53,7 @@ export const ArtikelArtikelLainnya = () => {
                 </div>
                 <div>
                   <img
-                    src={artikel.attributes.thumbnail}
+                    src={article?.photoUrl}
                     width={85}
                     alt="thumbnail"
                     className="rounded-md"

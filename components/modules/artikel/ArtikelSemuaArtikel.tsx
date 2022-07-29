@@ -4,13 +4,24 @@ import { useFetch } from "hooks/useFetch";
 import { SearchIcon } from "@heroicons/react/outline";
 import { ArtikelArtikelLainnya } from "@components";
 
-export const ArtikelSemuaArtikel = () => {
+
+type ArtikelSemuaArtikelProps = {
+  className?: string;
+  articles?: any;
+  children?: React.ReactNode;
+};
+
+export const ArtikelSemuaArtikel = ({
+  children,
+  className,
+  articles,
+}: ArtikelSemuaArtikelProps) => {
   const { loading, error, data } = useFetch("http://localhost:1337/api/topics");
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
   // MENGECEK SELURUH TOPIC
-  console.log(data);
+  // console.log(articles);
 
   return (
     <div className="flex justify-center bg-powder-light mobile:h-[720px]">
@@ -42,7 +53,7 @@ export const ArtikelSemuaArtikel = () => {
           </div>
         </div>
         {/* KUMPULAN ARTIKEL PER 5 */}
-        <ArtikelArtikelLainnya />
+        <ArtikelArtikelLainnya articles={articles} />
         <div className="flex justify-center pt-6">
           <Button preset="secondaryLight" className="w-[160px]">
             Artikel Lainnya
