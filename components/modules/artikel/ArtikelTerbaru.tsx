@@ -21,11 +21,15 @@ export const ArtikelTerbaru = ({
   );
   // Mengambil 3 artikel terbaru
   const artikelTerbaru = articles.slice(0, 3);
+  // Menambahkan angka pada setiap artikel
+  for (let i = 1; i <= 3; i++) {
+    artikelTerbaru[i - 1].number = i;
+  }
 
   return (
-    <div className="flex justify-center bg-powder mobile:h-[360px]">
+    <div className="flex justify-center bg-powder mobile:h-[375px]">
       <div className="flex flex-col gap-2 w-full">
-        <div className="flex gap-2 items-center mobile:px-7 mobile:pt-4">
+        <div className="flex gap-2 items-center mobile:px-7 mobile:pt-5">
           <SmallBlueLine />
           <Body preset="b2">Artikel Terbaru</Body>
         </div>
