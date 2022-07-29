@@ -8,7 +8,7 @@ export const ArtikelTitlePage = () => {
     <div className="flex justify-center items-center bg-powder-light mobile:h-[360px]">
       <div className="flex flex-col">
         <div className="flex justify-end">
-          <TransparentHalfLove />
+          <TransparentHalfLove className="animate-pulse" />
         </div>
         <Header preset="h3" className="mobile:px-8 mobile:pt-4">
           Artikel Depok Kita
