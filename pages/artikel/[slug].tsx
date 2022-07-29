@@ -31,6 +31,11 @@ const Details = (artikel: any) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
+  // Melakukan format tanggal
+  const dateFormat = (date: any) => {
+    return date.slice(8) + "/" + date.slice(5, 7) + "/" + date.slice(0, 4);
+  };
+
   if (articleLoading) {
     return <LoadingScreen />;
   } else {
@@ -54,7 +59,7 @@ const Details = (artikel: any) => {
                   {article?.title}
                 </Header>
                 <Body preset="p3" className="text-[9px] font-semibold">
-                  {"diterbitkan pada tanggal " + article?.published}
+                  {"diterbitkan pada tanggal " + dateFormat(article?.published)}
                 </Body>
               </div>
             </div>

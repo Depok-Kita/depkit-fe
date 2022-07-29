@@ -77,6 +77,11 @@ export const ArtikelArtikelLainnya = ({
     );
   }
 
+  // Melakukan format tanggal
+  const dateFormat = (date: any) => {
+    return date.slice(8) + "/" + date.slice(5, 7) + "/" + date.slice(0, 4);
+  };
+
   console.log("Filtered by total : " + total);
   console.log("Filtered by topic : " + filter);
   console.log("Filtered by search : " + search);
@@ -93,7 +98,7 @@ export const ArtikelArtikelLainnya = ({
                 <Link href={"/artikel/" + article?.slug}>
                   <div className="mobile:max-w-[180px]">
                     <Body preset="p3" className="mobile:text-[8px]">
-                      {article?.published}
+                      {dateFormat(article?.published)}
                     </Body>
                     <Body preset="b3" className="mobile:text-[11px]">
                       {article?.title}

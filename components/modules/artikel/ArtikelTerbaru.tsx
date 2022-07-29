@@ -25,6 +25,11 @@ export const ArtikelTerbaru = ({
     artikelTerbaru[i - 1].number = i;
   }
 
+  // Melakukan format tanggal
+  const dateFormat = (date: any) => {
+    return date.slice(8) + "/" + date.slice(5, 7) + "/" + date.slice(0, 4);
+  };
+
   return (
     <div className="flex justify-center bg-powder mobile:h-[375px]">
       <div className="flex flex-col gap-2 w-full">
@@ -56,7 +61,7 @@ export const ArtikelTerbaru = ({
                       />
                       <div className="text-left mobile:max-w-[150px]">
                         <Body preset="p3" className="mobile:text-[9px]">
-                          {article?.published}
+                          {dateFormat(article?.published)}
                         </Body>
                         <Body preset="b3">{article?.title}</Body>
                       </div>
