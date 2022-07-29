@@ -6,9 +6,6 @@ import Link from "next/link";
 
 type ArtikelTerbaruProps = {
   className?: string;
-
-  icon?: React.SVGAttributes<SVGElement>;
-  padding?: string;
   articles?: any;
   children?: React.ReactNode;
 };
@@ -38,7 +35,6 @@ export const ArtikelTerbaru = ({
   // console.log(artikelTerbaru);
 
   return (
-    // <div></div>
     <div className="flex justify-center bg-powder mobile:h-[360px]">
       <div className="flex flex-col gap-2 w-full">
         <div className="flex gap-2 items-center mobile:px-7 mobile:pt-4">
