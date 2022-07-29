@@ -88,15 +88,17 @@ export const ArtikelArtikelLainnya = ({
       <div className="flex flex-col">
         {artikelDitampilkan.map((article: any) => (
           <div className="flex justify-center" key={article.id}>
-            <Link href={"/artikel/" + article?.slug}>
-              <div className="mobile:w-[315px]">
-                <div className="flex justify-between border-b border-powder pb-1 pt-2 relative">
-                  <div>
+            <div className="mobile:w-[315px]">
+              <div className="flex justify-between border-b border-powder pb-1 pt-2 relative">
+                <Link href={"/artikel/" + article?.slug}>
+                  <div className="mobile:max-w-[180px]">
                     <Body preset="p3" className="mobile:text-[8px]">
                       {article?.published}
                     </Body>
-                    <Body preset="b3">{article?.title}</Body>
-                    <div className="flex flex-wrap gap-1 absolute bottom-3">
+                    <Body preset="b3" className="mobile:text-[11px]">
+                      {article?.title}
+                    </Body>
+                    <div className="flex flex-wrap gap-1 absolute bottom-2">
                       {article?.topics.map((topic: any) => (
                         <div
                           className="bg-totalwhite border-totalwhite shadow-inner rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px]"
@@ -107,9 +109,11 @@ export const ArtikelArtikelLainnya = ({
                       ))}
                     </div>
                   </div>
-                  <div>
-                    <ShareLinkToClipboard link={article.slug} />
-                  </div>
+                </Link>
+                <div>
+                  <ShareLinkToClipboard link={article.slug} />
+                </div>
+                <Link href={"/artikel/" + article?.slug}>
                   <div>
                     <Image
                       src={article?.photoUrl}
@@ -119,9 +123,9 @@ export const ArtikelArtikelLainnya = ({
                       className="rounded-md"
                     />
                   </div>
-                </div>
+                </Link>
               </div>
-            </Link>
+            </div>
           </div>
         ))}
       </div>

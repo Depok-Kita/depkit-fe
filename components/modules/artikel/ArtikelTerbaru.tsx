@@ -1,6 +1,5 @@
 import SmallBlueLine from "@images/small-blue-line.svg";
-import { Header, Body, Card } from "@components";
-import { ShareIcon } from "@heroicons/react/outline";
+import { Header, Body, Card, ShareLinkToClipboard } from "@components";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -36,14 +35,14 @@ export const ArtikelTerbaru = ({
         <div className="flex flex-col">
           {artikelTerbaru.map((article: any) => (
             <div className="flex justify-center py-1" key={article.id}>
-              {/* BUTTON UNTUK MENGARAHKAN ALAMAT KE BODY ARTIKEL */}
-              <Link href={"/artikel/" + article.slug}>
-                <button>
-                  <Card
-                    preset="light"
-                    className="mobile:w-[315px] p-4 rounded-xl relative"
-                    padding="false"
-                  >
+              <Card
+                preset="light"
+                className="mobile:w-[315px] p-4 rounded-xl relative"
+                padding="false"
+              >
+                <Link href={"/artikel/" + article.slug}>
+                  {/* BUTTON UNTUK MENGARAHKAN ALAMAT KE BODY ARTIKEL */}
+                  <button>
                     <div className="flex gap-2">
                       <Header preset="h4" className="text-powder">
                         {article?.number}
@@ -61,11 +60,14 @@ export const ArtikelTerbaru = ({
                         </Body>
                         <Body preset="b3">{article?.title}</Body>
                       </div>
-                      <ShareIcon className="mobile:w-4 absolute right-3 pt-12" />
                     </div>
-                  </Card>
-                </button>
-              </Link>
+                  </button>
+                </Link>
+                <ShareLinkToClipboard
+                  className="mobile:w-4 absolute bottom-3 right-3"
+                  link={article.slug}
+                />
+              </Card>
             </div>
           ))}
         </div>
