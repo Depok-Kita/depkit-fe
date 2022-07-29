@@ -4,10 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { flatten } from "@chakra-ui/utils";
 
 type ArtikelArtikelLainnyaProps = {
   className?: string;
   total?: number;
+  filter?: string; // Untuk mendapatkan artikel berdasarkan topik
   children?: React.ReactNode;
 };
 
@@ -15,6 +17,7 @@ export const ArtikelArtikelLainnya = ({
   children,
   className,
   total,
+  filter,
 }: ArtikelArtikelLainnyaProps) => {
   // GET : api/articles FETCH DI SINI KARENA KOMPONEN DIGUNAKAN DI DUA BAGIAN
   const [articles, setArticles] = useState([]);
@@ -27,12 +30,31 @@ export const ArtikelArtikelLainnya = ({
     });
   }, []);
 
-  // Menampilkan artikel lain berdasarkan total
-  // undefined hanya ketika total tidak diinisiasikan nilainua => default (tidak dilakukan slicing)
+  // Menampilkan artikel lain berdasarkan total dan filter topik
   let artikelDitampilkan = articles;
-  if (total != undefined) {
-    artikelDitampilkan = articles.slice(0, total);
+  console.log("ARTIKEL DITAMPILKAN");
+  console.log(artikelDitampilkan);
+  // Ketika nilai filter tidak default (All) maka lakukan pemfilteran
+  const filteringTopic = (article: any, filter: any) => {
+    for (let topic of article.topics) {
+      if (topic.name == filter) {
+        return true;
+      }
+    }
+    // Ketika tidak ditemukan topik dengan nama sesuai filter
+    return false;
+  };
+  if (filter != "All") {
+    artikelDitampilkan = articles.filter((article: any) =>
+      filteringTopic(article, filter)
+    );
   }
+  // Undefined hanya ketika total tidak diinisiasikan nilainua => default (tidak dilakukan slicing)
+  if (total != undefined) {
+    artikelDitampilkan = artikelDitampilkan.slice(0, total);
+  }
+
+  console.log(filter);
 
   if (articlesLoading) {
     return <LoadingScreen />;
@@ -80,4 +102,4 @@ export const ArtikelArtikelLainnya = ({
       </div>
     );
   }
-};
+};;;;;;;;

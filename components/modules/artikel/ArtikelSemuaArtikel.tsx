@@ -2,7 +2,7 @@ import SmallBlueLine from "@images/small-blue-line.svg";
 import { Body, Button, InputField } from "@components";
 import { SearchIcon } from "@heroicons/react/outline";
 import { ArtikelArtikelLainnya } from "@components";
-
+import { useState } from "react";
 
 type ArtikelSemuaArtikelProps = {
   className?: string;
@@ -17,6 +17,13 @@ export const ArtikelSemuaArtikel = ({
   articles,
   topics,
 }: ArtikelSemuaArtikelProps) => {
+  // Default value selectedTopic = All
+  const [selectedTopic, setSelectedTopic] = useState("All");
+
+  const changeSelectedTopicHandler = (event: any) => {
+    setSelectedTopic(event.target.id);
+  };
+
   return (
     <div className="flex justify-center bg-powder-light mobile:h-[720px]">
       <div className="flex flex-col w-full">
@@ -41,6 +48,8 @@ export const ArtikelSemuaArtikel = ({
               <div
                 className="border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px]"
                 key={topic.id}
+                onClick={changeSelectedTopicHandler}
+                id={topic.name}
               >
                 {topic.name}
               </div>
@@ -48,7 +57,7 @@ export const ArtikelSemuaArtikel = ({
           </div>
         </div>
         {/* KUMPULAN ARTIKEL PER 5 */}
-        <ArtikelArtikelLainnya total={5} />
+        <ArtikelArtikelLainnya total={5} filter={selectedTopic} />
         <div className="flex justify-center pt-6">
           <Button preset="secondaryLight" className="w-[160px]">
             Artikel Lainnya
