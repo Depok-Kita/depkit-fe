@@ -2,6 +2,7 @@ import SmallBlueLine from "@images/small-blue-line.svg";
 import { Header, Body, Card } from "@components";
 import { ShareIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import Image from "next/image";
 
 type ArtikelTerbaruProps = {
   className?: string;
@@ -38,9 +39,9 @@ export const ArtikelTerbaru = ({
         </div>
         <div className="flex flex-col">
           {artikelTerbaru.map((article: any) => (
-            <div className="flex justify-center py-1">
+            <div className="flex justify-center py-1" key={article.id}>
               {/* BUTTON UNTUK MENGARAHKAN ALAMAT KE BODY ARTIKEL */}
-              <Link href={"/artikel/" + article.slug} key={article.id}>
+              <Link href={"/artikel/" + article.slug}>
                 <button>
                   <Card
                     preset="light"
@@ -51,10 +52,11 @@ export const ArtikelTerbaru = ({
                       <Header preset="h4" className="text-powder">
                         {article?.number}
                       </Header>
-                      <img
+                      <Image
                         src={article?.photoUrl}
+                        alt={article?.photoAlt}
                         width={85}
-                        alt="thumbnail"
+                        height={60}
                         className="rounded-md"
                       />
                       <div className="text-left">

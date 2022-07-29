@@ -4,6 +4,7 @@ import {
   ArtikelTitlePage,
   ArtikelTerbaru,
   ArtikelSemuaArtikel,
+  LoadingScreen,
 } from "@components";
 import type { NextPage } from "next";
 import { Article, Topic } from "@models";
@@ -35,15 +36,19 @@ const Artikel: NextPage = () => {
   console.log(articles);
   console.log(topics);
 
-  return (
-    <div>
-      {/* NAVBAR SPACE HEIGHT GAP  */}
-      <div className="bg-powder-light h-[60px]"></div>
-      <ArtikelTitlePage />
-      <ArtikelTerbaru articles={articles} />
-      <ArtikelSemuaArtikel articles={articles} topics={topics} />
-    </div>
-  );
+  if (articlesLoading) {
+    return <LoadingScreen />;
+  } else {
+    return (
+      <div>
+        {/* NAVBAR SPACE HEIGHT GAP  */}
+        <div className="bg-powder-light h-[60px]"></div>
+        <ArtikelTitlePage />
+        <ArtikelTerbaru articles={articles} />
+        <ArtikelSemuaArtikel articles={articles} topics={topics} />
+      </div>
+    );
+  }
 };
 
 export default Artikel;

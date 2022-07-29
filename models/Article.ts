@@ -4,7 +4,7 @@ export type Article = {
   title: string;
   published: any;
   body: any;
-  photoUrl: string;
+  photoUrl: any;
   photoAlt: string;
   topics: any;
 };

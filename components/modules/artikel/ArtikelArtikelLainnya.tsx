@@ -1,6 +1,7 @@
 import { Body } from "@components";
 import { ShareIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import Image from "next/image";
 
 type ArtikelArtikelLainnyaProps = {
   className?: string;
@@ -41,10 +42,11 @@ export const ArtikelArtikelLainnya = ({
                   <ShareIcon className="w-9 pt-10 pl-5" />
                 </div>
                 <div>
-                  <img
+                  <Image
                     src={article?.photoUrl}
+                    alt={article?.photoAlt}
                     width={85}
-                    alt="thumbnail"
+                    height={60}
                     className="rounded-md"
                   />
                 </div>
