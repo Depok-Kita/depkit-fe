@@ -19,10 +19,18 @@ export const ArtikelSemuaArtikel = ({
 }: ArtikelSemuaArtikelProps) => {
   // Default value selectedTopic = All
   const [selectedTopic, setSelectedTopic] = useState("All");
+  // State untuk mendapatkan nilai dari input search
+  const [enteredSearchInput, setEnteredSearchInput] = useState("");
 
   const changeSelectedTopicHandler = (event: any) => {
     setSelectedTopic(event.target.id);
   };
+
+  const searchInputChangeHandler = (event: any) => {
+    setEnteredSearchInput(event.target.value);
+  };
+
+  console.log("Entered Search Input : " + enteredSearchInput);
 
   return (
     <div className="flex justify-center bg-powder-light mobile:h-[720px]">
@@ -32,11 +40,12 @@ export const ArtikelSemuaArtikel = ({
           <Body preset="b2">Semua Artikel</Body>
         </div>
         <div>
-          <InputField
+          <input
             type="text"
             placeholder="Cari Artikel"
-            leftIcon={<SearchIcon />}
-          ></InputField>
+            value={enteredSearchInput}
+            onChange={searchInputChangeHandler}
+          />
         </div>
         {/* BAGIAN TOPIC */}
         <div className="pl-8 py-3">
@@ -68,7 +77,11 @@ export const ArtikelSemuaArtikel = ({
           </div>
         </div>
         {/* KUMPULAN ARTIKEL PER 5 */}
-        <ArtikelArtikelLainnya total={5} filter={selectedTopic} />
+        <ArtikelArtikelLainnya
+          total={5}
+          filter={selectedTopic}
+          search={enteredSearchInput}
+        />
         <div className="flex justify-center pt-6">
           <Button preset="secondaryLight" className="w-[160px]">
             Artikel Lainnya

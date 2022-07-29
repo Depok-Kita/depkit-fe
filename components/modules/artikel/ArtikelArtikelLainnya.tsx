@@ -8,8 +8,10 @@ import { flatten } from "@chakra-ui/utils";
 
 type ArtikelArtikelLainnyaProps = {
   className?: string;
-  total?: number;
+  // Prioritas total > filter (topic) > search
+  total?: number; // Untuk mendapatkan artikel dengan jumlah tertentu
   filter?: string; // Untuk mendapatkan artikel berdasarkan topik
+  search?: string; // Untuk mendapatkan artikel berdasarkan search
   children?: React.ReactNode;
 };
 
@@ -18,8 +20,10 @@ export const ArtikelArtikelLainnya = ({
   className,
   total,
   filter,
+  search,
 }: ArtikelArtikelLainnyaProps) => {
-  // GET : api/articles FETCH DI SINI KARENA KOMPONEN DIGUNAKAN DI DUA BAGIAN
+  // GET : api/articles
+  // FETCH DI SINI KARENA KOMPONEN DIGUNAKAN BEBERAPA BAGIAN
   const [articles, setArticles] = useState([]);
   const [articlesLoading, setArticlesLoading] = useState(true);
 
@@ -32,6 +36,24 @@ export const ArtikelArtikelLainnya = ({
 
   // Menampilkan artikel lain berdasarkan total dan filter topik
   let artikelDitampilkan = articles;
+
+  // --------------------------- FILTER SEARCH ---------------------------
+  // Ketika nilai search tidak default ("") maka lakukan pemfilteran
+  const filteringSearchInput = (article: any, search: any) => {
+    // Ketika dalam judul artikel terdapat search value
+    if (article.title.toLowerCase().includes(search.toLowerCase())) {
+      return true;
+    }
+    // Saat search value tidak ada di dalam judul artikel
+    return false;
+  };
+  if (search != "") {
+    artikelDitampilkan = articles.filter((article: any) =>
+      filteringSearchInput(article, search)
+    );
+  }
+
+  // --------------------------- FILTER TOPIC ---------------------------
   // Ketika nilai filter tidak default (All) maka lakukan pemfilteran
   const filteringTopic = (article: any, filter: any) => {
     for (let topic of article.topics) {
@@ -47,6 +69,8 @@ export const ArtikelArtikelLainnya = ({
       filteringTopic(article, filter)
     );
   }
+
+  // --------------------------- FILTER TOTAL ---------------------------
   // Undefined hanya ketika total tidak diinisiasikan nilainua => default (tidak dilakukan slicing)
   if (total != undefined) {
     artikelDitampilkan = artikelDitampilkan.slice(0, total);
@@ -100,4 +124,4 @@ export const ArtikelArtikelLainnya = ({
       </div>
     );
   }
-};;;;;;;;
+};;;;;;;;;;;;;;;
