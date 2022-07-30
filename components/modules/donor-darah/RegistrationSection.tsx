@@ -43,6 +43,7 @@ export const RegistrationSection = () => {
             required
           />
           <InputField type="text" label="Id Line" dark />
+          <InputField type="date" label="Tanggal Donor Darah" required />
           <Button preset="primaryLight" className="mt-2 grow-0 shrink-1">
             Daftar
           </Button>
