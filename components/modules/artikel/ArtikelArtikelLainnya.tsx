@@ -95,11 +95,14 @@ export const ArtikelArtikelLainnya = ({
       <div className="flex flex-col">
         {artikelDitampilkan.map((article: any) => (
           <div className="flex justify-center" key={article.id}>
-            <div className="mobile:w-[315px] tablet:w-[600px]">
+            <div className="mobile:w-[315px] tablet:w-[600px] tablet:pb-3">
               <div className="flex justify-between border-b border-powder pb-1 pt-2 relative tablet:pb-10">
                 <Link href={"/artikel/" + article?.slug}>
                   <div className="mobile:max-w-[180px] tablet:max-w-[400px]">
-                    <Body preset="p3" className="mobile:text-[8px]">
+                    <Body
+                      preset="p3"
+                      className="mobile:text-[8px] tablet:text-[12px]"
+                    >
                       {dateFormat(article?.published)}
                     </Body>
                     <Body
@@ -111,10 +114,15 @@ export const ArtikelArtikelLainnya = ({
                         ? article?.title.slice(0, 40) + " ..."
                         : article?.title}
                     </Body>
-                    <div className="flex flex-wrap gap-1 absolute bottom-2">
+                    {width >= 768 && (
+                      <Body preset="p3">
+                        {article?.body.slice(0, 240) + " ..."}
+                      </Body>
+                    )}
+                    <div className="flex flex-wrap gap-1 absolute mobile:bottom-2 tablet:bottom-3">
                       {article?.topics.map((topic: any) => (
                         <div
-                          className="bg-totalwhite border-totalwhite shadow-inner rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px]"
+                          className="bg-totalwhite border-totalwhite shadow-inner rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px] tablet:text-[10px]"
                           key={topic.id}
                         >
                           {topic.name}
@@ -124,7 +132,12 @@ export const ArtikelArtikelLainnya = ({
                   </div>
                 </Link>
                 <div>
-                  <ShareLinkToClipboard link={article.slug} />
+                  <ShareLinkToClipboard
+                    className={
+                      width >= 768 ? "absolute bottom-3 right-0 w-6" : ""
+                    }
+                    link={article.slug}
+                  />
                 </div>
                 <Link href={"/artikel/" + article?.slug}>
                   <div>

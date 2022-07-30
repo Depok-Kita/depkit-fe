@@ -60,7 +60,7 @@ export const ArtikelTerbaru = ({
                     <div className="flex gap-2">
                       <Header
                         preset={width >= 768 ? "h2" : "h4"}
-                        className="text-powder"
+                        className="text-powder tablet:pr-2"
                       >
                         {article?.number}
                       </Header>
@@ -69,9 +69,9 @@ export const ArtikelTerbaru = ({
                         alt={article?.photoAlt}
                         width={width >= 768 ? 165 : 85}
                         height={width >= 768 ? 100 : 60}
-                        className="rounded-md"
+                        className="rounded-md tablet:rounded-xl"
                       />
-                      <div className="text-left mobile:max-w-[150px] tablet:max-w-[380px]">
+                      <div className="text-left mobile:max-w-[150px] tablet:max-w-[380px] tablet:pl-2">
                         <Body
                           preset="p3"
                           className="mobile:text-[9px] tablet:text-[11px]"
