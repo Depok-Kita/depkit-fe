@@ -24,6 +24,7 @@ import {
   SelectField,
   FormLabel,
   InputFieldFormik,
+  SelectFieldFormik,
 } from "@components/input-field";
 import { Checkbox, FormControl, propNames, Stack } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@heroicons/react/outline";
@@ -620,7 +621,7 @@ function FieldFormikTest() {
     <SectionBox>
       <Header preset="h2">Field Formik</Header>
       <Formik
-        initialValues={{ email: "", name: "", age: 0 }}
+        initialValues={{ email: "", name: "", age: 0, gender: "default" }}
         onSubmit={(values, actions) => {
           console.log(values);
           actions.setSubmitting(false);
@@ -654,6 +655,15 @@ function FieldFormikTest() {
             />
             <InputFieldFormik type="text" name="name" label="Nama" required />
             <InputFieldFormik type="number" name="age" label="Umur" required />
+            <SelectFieldFormik
+              options={[
+                { label: "Pilih gender", value: "default" },
+                { label: "Pria", value: "men" },
+                { label: "Wanita", value: "women" },
+              ]}
+              name="gender"
+              label="Gender"
+            />
             <Button
               preset="primaryDark"
               onClick={props.submitForm}
