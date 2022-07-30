@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useWindowSize } from "@hooks";
 
 type ArtikelArtikelLainnyaProps = {
   className?: string;
@@ -20,6 +21,7 @@ export const ArtikelArtikelLainnya = ({
   filter,
   search,
 }: ArtikelArtikelLainnyaProps) => {
+  const { width } = useWindowSize();
   // GET : api/articles
   // FETCH DI SINI KARENA KOMPONEN DIGUNAKAN BEBERAPA BAGIAN
   const [articles, setArticles] = useState([]);
@@ -93,15 +95,21 @@ export const ArtikelArtikelLainnya = ({
       <div className="flex flex-col">
         {artikelDitampilkan.map((article: any) => (
           <div className="flex justify-center" key={article.id}>
-            <div className="mobile:w-[315px]">
-              <div className="flex justify-between border-b border-powder pb-1 pt-2 relative">
+            <div className="mobile:w-[315px] tablet:w-[600px]">
+              <div className="flex justify-between border-b border-powder pb-1 pt-2 relative tablet:pb-10">
                 <Link href={"/artikel/" + article?.slug}>
-                  <div className="mobile:max-w-[180px]">
+                  <div className="mobile:max-w-[180px] tablet:max-w-[400px]">
                     <Body preset="p3" className="mobile:text-[8px]">
                       {dateFormat(article?.published)}
                     </Body>
-                    <Body preset="b3" className="mobile:text-[11px]">
-                      {article?.title}
+                    <Body
+                      preset={width >= 768 ? "b2" : "b3"}
+                      className="mobile:text-[11px] tablet:text-[18px]"
+                    >
+                      {/* Handle title yang terlalu panjang */}
+                      {article?.title.length >= 40
+                        ? article?.title.slice(0, 40) + " ..."
+                        : article?.title}
                     </Body>
                     <div className="flex flex-wrap gap-1 absolute bottom-2">
                       {article?.topics.map((topic: any) => (
@@ -123,9 +131,9 @@ export const ArtikelArtikelLainnya = ({
                     <Image
                       src={article?.photoUrl}
                       alt={article?.photoAlt}
-                      width={85}
-                      height={60}
-                      className="rounded-md"
+                      width={width >= 768 ? 165 : 85}
+                      height={width >= 768 ? 100 : 60}
+                      className="rounded-md tablet:rounded-xl"
                     />
                   </div>
                 </Link>

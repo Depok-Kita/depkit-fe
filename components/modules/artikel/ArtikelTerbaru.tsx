@@ -79,7 +79,10 @@ export const ArtikelTerbaru = ({
                           {dateFormat(article?.published)}
                         </Body>
                         <Body preset={width >= 768 ? "b2" : "b3"}>
-                          {article?.title}
+                          {/* Handle title yang terlalu panjang */}
+                          {article?.title.length >= 40
+                            ? article?.title.slice(0, 40) + " ..."
+                            : article?.title}
                         </Body>
                         {width >= 768 && (
                           <Body preset="p3">
