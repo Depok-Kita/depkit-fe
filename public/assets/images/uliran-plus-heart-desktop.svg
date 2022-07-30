@@ -1,0 +1,56 @@
+<svg width="328" height="397" viewBox="0 0 328 397" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M164 58.0168C164 58.0168 70.1306 -27.4832 19.806 9.44966C-23.4716 41.2108 19.806 141.378 19.806 141.378H308.194C308.194 141.378 351.472 41.2108 308.194 9.44966C257.869 -27.4832 164 58.0168 164 58.0168Z" fill="url(#paint0_radial_401_1352)"/>
+<rect x="249.429" y="84.8077" width="78" height="78" transform="rotate(-90 249.429 84.8077)" fill="#213456"/>
+<rect x="249.429" y="45.8077" width="39" height="78" transform="rotate(-90 249.429 45.8077)" fill="#88BFE8"/>
+<mask id="mask0_401_1352" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="249" y="6" width="79" height="79">
+<rect x="249.429" y="84.8077" width="78" height="78" transform="rotate(-90 249.429 84.8077)" fill="#F2FAFE"/>
+</mask>
+<g mask="url(#mask0_401_1352)">
+<circle cx="288.429" cy="84.8077" r="39" transform="rotate(-90 288.429 84.8077)" fill="#F2FAFE"/>
+<circle cx="288.429" cy="6.80774" r="39" transform="rotate(-90 288.429 6.80774)" fill="#F7D76A"/>
+</g>
+<rect x="327.429" y="162.808" width="78" height="78" transform="rotate(-180 327.429 162.808)" fill="#213456"/>
+<rect x="307.929" y="143.308" width="39" height="39" transform="rotate(-180 307.929 143.308)" fill="#F2FAFE"/>
+<rect x="327.429" y="123.808" width="39" height="39" transform="rotate(-180 327.429 123.808)" fill="#F2FAFE"/>
+<rect x="249.429" y="162.808" width="78" height="78" fill="#213456"/>
+<path d="M249.429 240.808L327.429 162.808V240.808H249.429Z" fill="#88BFE8"/>
+<rect x="249.429" y="240.808" width="78" height="78" fill="#F7D76A"/>
+<rect x="260.852" y="279.808" width="39" height="39" transform="rotate(-45 260.852 279.808)" fill="#F2FAFE"/>
+<rect x="249.429" y="318.808" width="78" height="78" fill="#F2FAFE"/>
+<circle cx="288.429" cy="357.808" r="39" fill="#88BFE8"/>
+<circle cx="288.429" cy="357.808" r="19.5" fill="#F2FAFE"/>
+<defs>
+<radialGradient id="paint0_radial_401_1352" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(179.526 59.1682) rotate(100.695) scale(83.663 168.806)">
+<stop stop-color="#CBE1EC"/>
+<stop offset="1" stop-color="#F2FAFE"/>
+</radialGradient>
+</defs>
+</svg>
+<svg width="328" height="397" viewBox="0 0 328 397" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M164 58.0168C164 58.0168 70.1306 -27.4832 19.806 9.44966C-23.4716 41.2108 19.806 141.378 19.806 141.378H308.194C308.194 141.378 351.472 41.2108 308.194 9.44966C257.869 -27.4832 164 58.0168 164 58.0168Z" fill="url(#paint0_radial_401_1352)"/>
+<rect x="249.429" y="84.8077" width="78" height="78" transform="rotate(-90 249.429 84.8077)" fill="#213456"/>
+<rect x="249.429" y="45.8077" width="39" height="78" transform="rotate(-90 249.429 45.8077)" fill="#88BFE8"/>
+<mask id="mask0_401_1352" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="249" y="6" width="79" height="79">
+<rect x="249.429" y="84.8077" width="78" height="78" transform="rotate(-90 249.429 84.8077)" fill="#F2FAFE"/>
+</mask>
+<g mask="url(#mask0_401_1352)">
+<circle cx="288.429" cy="84.8077" r="39" transform="rotate(-90 288.429 84.8077)" fill="#F2FAFE"/>
+<circle cx="288.429" cy="6.80774" r="39" transform="rotate(-90 288.429 6.80774)" fill="#F7D76A"/>
+</g>
+<rect x="327.429" y="162.808" width="78" height="78" transform="rotate(-180 327.429 162.808)" fill="#213456"/>
+<rect x="307.929" y="143.308" width="39" height="39" transform="rotate(-180 307.929 143.308)" fill="#F2FAFE"/>
+<rect x="327.429" y="123.808" width="39" height="39" transform="rotate(-180 327.429 123.808)" fill="#F2FAFE"/>
+<rect x="249.429" y="162.808" width="78" height="78" fill="#213456"/>
+<path d="M249.429 240.808L327.429 162.808V240.808H249.429Z" fill="#88BFE8"/>
+<rect x="249.429" y="240.808" width="78" height="78" fill="#F7D76A"/>
+<rect x="260.852" y="279.808" width="39" height="39" transform="rotate(-45 260.852 279.808)" fill="#F2FAFE"/>
+<rect x="249.429" y="318.808" width="78" height="78" fill="#F2FAFE"/>
+<circle cx="288.429" cy="357.808" r="39" fill="#88BFE8"/>
+<circle cx="288.429" cy="357.808" r="19.5" fill="#F2FAFE"/>
+<defs>
+<radialGradient id="paint0_radial_401_1352" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(179.526 59.1682) rotate(100.695) scale(83.663 168.806)">
+<stop stop-color="#CBE1EC"/>
+<stop offset="1" stop-color="#F2FAFE"/>
+</radialGradient>
+</defs>
+</svg>
