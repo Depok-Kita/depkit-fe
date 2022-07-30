@@ -9,7 +9,7 @@ import { useWindowSize } from "@hooks";
 export const ArtikelTitlePage = () => {
   const { width } = useWindowSize();
   return (
-    <div className="flex mobile:justify-center mobile:items-center bg-powder-light mobile:h-[360px] tablet:h-[380px] tablet:pt-10 desktop:h-[580px]">
+    <div className="flex mobile:justify-center mobile:items-center bg-powder-light mobile:h-[360px] tablet:h-[380px] tablet:pt-10 desktop:h-[600px]">
       <div className="mobile:invisible tablet:invisible desktop:visible absolute top-40 right-48">
         <UliranPlusHeartDesktop className="animate-pulse" />
       </div>
