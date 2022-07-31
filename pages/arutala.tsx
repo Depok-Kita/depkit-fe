@@ -19,11 +19,19 @@ import {
   SearchIcon,
   ArrowDownIcon,
 } from "@heroicons/react/outline";
-import { InputField, SelectField, FormLabel } from "@components/input-field";
+import {
+  InputField,
+  SelectField,
+  FormLabel,
+  InputFieldFormik,
+  SelectFieldFormik,
+} from "@components/input-field";
 import { Checkbox, FormControl, propNames, Stack } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@heroicons/react/outline";
 import { responsive } from "@utils";
 import { SelectOption, Option } from "@components/input-field";
+import { Formik } from "formik";
+import axios from "axios";
 
 const Arutala: NextPage = () => {
   const errorToast = Toast({
@@ -453,9 +461,18 @@ const Arutala: NextPage = () => {
         <DonationCard />
       </div>
       <TypographyResponsiveSection windowSize={windowSize} />
+      <FieldFormikTest />
     </div>
   );
 };
+
+function SectionBox({ children }: { children?: React.ReactNode }) {
+  return (
+    <div className="flex flex-col bg-totalwhite w-[85%] mx-auto rounded-3xl p-10 shadow-lg shadow-[#ADD1E2]">
+      {children}
+    </div>
+  );
+}
 
 function TextFieldSection() {
   const [hasLabel, setHasLabel] = useState(false);
@@ -523,7 +540,7 @@ function TextFieldSection() {
     </SelectField>
   );
   return (
-    <div className="flex flex-col bg-totalwhite w-[85%] mx-auto rounded-3xl p-10 shadow-lg shadow-[#ADD1E2]">
+    <SectionBox>
       <Header preset="h2" className="text-center text-denim-dark">
         TextField
       </Header>
@@ -563,7 +580,7 @@ function TextFieldSection() {
           {selectElement}
         </div>
       </div>
-    </div>
+    </SectionBox>
   );
 }
 
@@ -573,7 +590,7 @@ function TypographyResponsiveSection({
   windowSize: WindowSize;
 }) {
   return (
-    <div className="flex flex-col bg-totalwhite w-[85%] mx-auto rounded-3xl p-10 shadow-lg shadow-[#ADD1E2]">
+    <SectionBox>
       <HeaderResponsive
         windowSize={windowSize}
         preset="h3"
@@ -595,7 +612,69 @@ function TypographyResponsiveSection({
           "This is Desktop"
         )}
       </BodyResponsive>
-    </div>
+    </SectionBox>
+  );
+}
+
+function FieldFormikTest() {
+  return (
+    <SectionBox>
+      <Header preset="h2">Field Formik</Header>
+      <Formik
+        initialValues={{ email: "", name: "", age: 0, gender: "default" }}
+        onSubmit={(values, actions) => {
+          console.log(values);
+          actions.setSubmitting(false);
+          // REST example:
+          // axios.post("/api", { email: values.email }).then((res) => {
+          //   actions.setSubmitting(false);
+          //   console.log(res);
+          // }).catch(e => console.log(error));
+        }}
+        validate={(values) => {
+          let errors: any = {};
+          if (values.email == "") {
+            errors.email = "Email tidak boleh kosong";
+          }
+          if (values.name == "") {
+            errors.name = "Nama tidak boleh kosong";
+          }
+          if (values.age < 18) {
+            errors.age = "18+ only";
+          }
+          return errors;
+        }}
+      >
+        {(props) => (
+          <form onSubmit={props.handleSubmit}>
+            <InputFieldFormik
+              type="email"
+              name="email"
+              label="Email"
+              required
+            />
+            <InputFieldFormik type="text" name="name" label="Nama" required />
+            <InputFieldFormik type="number" name="age" label="Umur" required />
+            <SelectFieldFormik
+              options={[
+                { label: "Pilih gender", value: "default" },
+                { label: "Pria", value: "men" },
+                { label: "Wanita", value: "women" },
+              ]}
+              name="gender"
+              label="Gender"
+            />
+            <Button
+              preset="primaryDark"
+              onClick={props.submitForm}
+              disabled={props.isSubmitting}
+            >
+              Submit
+            </Button>
+          </form>
+        )}
+      </Formik>
+    </SectionBox>
   );
 }
 
