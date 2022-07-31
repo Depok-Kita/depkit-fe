@@ -114,7 +114,7 @@ const Details = (artikel: any) => {
           <div className="w-5/6">
             {/* NAVBAR SPACE */}
             <div className="flex flex-col">
-              <div className="h-[100px] tablet:h-[150px]"></div>
+              <div className="h-[125px]"></div>
               {/* TOMBOL KEMBALI */}
               <Link href="/artikel/">
                 <div className="bg-powder-light border-powder-light drop-shadow-lg rounded-3xl border-2 w-9 hover:cursor-pointer">
@@ -122,7 +122,7 @@ const Details = (artikel: any) => {
                 </div>
               </Link>
               <div className="flex">
-                <div>
+                <div className="pr-8 border-r pt-8">
                   {/* JUDUL DAN TANGGAL RILIS ARTIKEL */}
                   <div className="border-l-4 border-cerulean">
                     <div className="px-3">
@@ -146,8 +146,8 @@ const Details = (artikel: any) => {
                     <Image
                       src={article?.photoUrl}
                       alt={article?.photoAlt}
-                      width={width >= 768 ? 560 : 270}
-                      height={width >= 768 ? 340 : 180}
+                      width={width >= 1280 ? 600 : width >= 768 ? 560 : 270}
+                      height={width >= 1280 ? 370 : width >= 768 ? 340 : 180}
                       className="rounded-lg tablet:rounded-3xl"
                     />
                   </div>
@@ -155,13 +155,9 @@ const Details = (artikel: any) => {
                   <div className="flex flex-col gap-4 text-[12px] tablet:text-[16px] tablet:gap-6">
                     <ReactMarkdown>{article?.body}</ReactMarkdown>
                   </div>
-                  {/* ULIRAN */}
-                  <div className="flex justify-center pt-12">
-                    <UliranArticles className="tablet:w-[600px]" />
-                  </div>
                 </div>
                 {/* ARTIKEL LAINNYA */}
-                <div>
+                <div className="pl-5">
                   <div className="pb-14">
                     <Header preset="h5" className="font-black py-5">
                       Artikel Lainnya
@@ -174,6 +170,10 @@ const Details = (artikel: any) => {
                     />
                   </div>
                 </div>
+              </div>
+              {/* ULIRAN */}
+              <div className="flex justify-center pt-12 pb-24">
+                <UliranArticles className="tablet:w-[600px]" />
               </div>
             </div>
           </div>
