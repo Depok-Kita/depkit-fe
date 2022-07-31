@@ -40,78 +40,160 @@ export const ArtikelSemuaArtikel = ({
 
   console.log("Entered Search Input : " + enteredSearchInput);
 
-  return (
-    <div className="flex justify-center bg-powder-light">
-      <div className="flex flex-col w-full" id="search-section">
-        <div className="flex gap-2 items-center mobile:px-7 mobile:pt-4 tablet:pl-16 tablet:pt-10 tablet:pb-5">
+  // Ketika besar layar di atas 1280 maka seluruh posisi di sini akan berubah
+  if (width >= 1280) {
+    return (
+      <div className="flex flex-col bg-powder-light">
+        <div className="flex gap-2 items-center pl-24 pt-16 pb-8">
           <Body
             preset="b2"
-            className="border-l-2 border-cerulean px-2 tablet:border-l-4 tablet:text-[24px] tablet:px-4"
+            className="border-cerulean px-2 border-l-4 px-4 text-[32px]"
           >
             Semua Artikel
           </Body>
         </div>
-        <div className="flex justify-end pt-5 pb-3">
-          <input
-            type="text"
-            placeholder="Cari Artikel"
-            value={enteredSearchInput}
-            onChange={searchInputChangeHandler}
-          />
-        </div>
-        {/* BAGIAN TOPIC */}
-        <div className="pl-8 py-3 tablet:pl-20">
-          <Body preset={width >= 768 ? "p2" : "p3"} className="pb-2">
-            Cari artikel berdasarkan topik
-          </Body>
-          {/* KUMPULAN TOPIC */}
-          <div className="flex flex-wrap mobile:max-w-[240px] gap-1 tablet:max-w-[440px]">
-            {/* TOPIC ALL (DEFAULT) */}
-            <div
-              className={
-                selectedTopic == "All"
-                  ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px]"
-                  : "border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px]"
-              }
-              key={0}
-              onClick={changeSelectedTopicHandler}
-              id="All"
-            >
-              All
+        <div className="flex justify-between w-full" id="search-section">
+          <div className="pl-[110px]">
+            {/* KUMPULAN ARTIKEL PER 5 */}
+            <ArtikelArtikelLainnya
+              total={totalArticles}
+              filter={selectedTopic}
+              search={enteredSearchInput}
+            />
+            <div className="flex justify-center pt-6 pb-10 pt-10 pb-14">
+              <Button
+                preset="secondaryLight"
+                className="w-[160px]"
+                onClick={addArtikelLainnyaHandler}
+              >
+                Artikel Lainnya
+              </Button>
             </div>
-            {/* BUTTON MENUJU TOPIC TERTENTU */}
-            {topics?.map((topic: any) => (
+          </div>
+          <div className="pr-[200px]">
+            <div className="pl-3 pt-5 pb-3">
+              <input
+                type="text"
+                placeholder="Cari Artikel"
+                value={enteredSearchInput}
+                onChange={searchInputChangeHandler}
+              />
+            </div>
+            {/* BAGIAN TOPIC */}
+            <div className="py-3 pl-2">
+              <Body preset="p1" className="pb-4 text-[24px]">
+                Cari artikel berdasarkan topik
+              </Body>
+              {/* KUMPULAN TOPIC */}
+              <div className="flex flex-wrap max-w-[250px] gap-2">
+                {/* TOPIC ALL (DEFAULT) */}
+                <div
+                  className={
+                    selectedTopic == "All"
+                      ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light font-bold px-[8px] py-[2px] text-[15px]"
+                      : "border-2 border-cerulean rounded-2xl text-cerulean font-bold px-[8px] py-[2px] text-[15px]"
+                  }
+                  key={0}
+                  onClick={changeSelectedTopicHandler}
+                  id="All"
+                >
+                  All
+                </div>
+                {/* BUTTON MENUJU TOPIC TERTENTU */}
+                {topics?.map((topic: any) => (
+                  <div
+                    className={
+                      selectedTopic == topic.name
+                        ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light font-bold px-[8px] py-[2px] text-[15px]"
+                        : "border-2 border-cerulean rounded-2xl text-cerulean font-bold px-[8px] py-[2px] text-[15px]"
+                    }
+                    key={topic.id}
+                    onClick={changeSelectedTopicHandler}
+                    id={topic.name}
+                  >
+                    {topic.name}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="flex justify-center bg-powder-light">
+        <div className="flex flex-col w-full" id="search-section">
+          <div className="flex gap-2 items-center mobile:px-7 mobile:pt-4 tablet:pl-16 tablet:pt-10 tablet:pb-5">
+            <Body
+              preset="b2"
+              className="border-l-2 border-cerulean px-2 tablet:border-l-4 tablet:text-[24px] tablet:px-4"
+            >
+              Semua Artikel
+            </Body>
+          </div>
+          <div className="flex justify-end pt-5 pb-3">
+            <input
+              type="text"
+              placeholder="Cari Artikel"
+              value={enteredSearchInput}
+              onChange={searchInputChangeHandler}
+            />
+          </div>
+          {/* BAGIAN TOPIC */}
+          <div className="pl-8 py-3 tablet:pl-20">
+            <Body preset={width >= 768 ? "p2" : "p3"} className="pb-2">
+              Cari artikel berdasarkan topik
+            </Body>
+            {/* KUMPULAN TOPIC */}
+            <div className="flex flex-wrap mobile:max-w-[240px] gap-1 tablet:max-w-[440px]">
+              {/* TOPIC ALL (DEFAULT) */}
               <div
                 className={
-                  selectedTopic == topic.name
+                  selectedTopic == "All"
                     ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px]"
                     : "border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px]"
                 }
-                key={topic.id}
+                key={0}
                 onClick={changeSelectedTopicHandler}
-                id={topic.name}
+                id="All"
               >
-                {topic.name}
+                All
               </div>
-            ))}
+              {/* BUTTON MENUJU TOPIC TERTENTU */}
+              {topics?.map((topic: any) => (
+                <div
+                  className={
+                    selectedTopic == topic.name
+                      ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px]"
+                      : "border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px]"
+                  }
+                  key={topic.id}
+                  onClick={changeSelectedTopicHandler}
+                  id={topic.name}
+                >
+                  {topic.name}
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* KUMPULAN ARTIKEL PER 5 */}
+          <ArtikelArtikelLainnya
+            total={totalArticles}
+            filter={selectedTopic}
+            search={enteredSearchInput}
+          />
+          <div className="flex justify-center pt-6 pb-10 tablet:pt-10 tablet:pb-14">
+            <Button
+              preset="secondaryLight"
+              className="w-[160px]"
+              onClick={addArtikelLainnyaHandler}
+            >
+              Artikel Lainnya
+            </Button>
           </div>
         </div>
-        {/* KUMPULAN ARTIKEL PER 5 */}
-        <ArtikelArtikelLainnya
-          total={totalArticles}
-          filter={selectedTopic}
-          search={enteredSearchInput}
-        />
-        <div className="flex justify-center pt-6 pb-10 tablet:pt-10 tablet:pb-14">
-          <Button
-            preset="secondaryLight"
-            className="w-[160px]"
-            onClick={addArtikelLainnyaHandler}
-          >
-            Artikel Lainnya
-          </Button>
-        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
