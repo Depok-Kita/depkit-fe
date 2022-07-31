@@ -70,8 +70,8 @@ export const ArtikelSemuaArtikel = ({
               </Button>
             </div>
           </div>
-          <div className="pr-[200px]">
-            <div className="pl-3 pt-5 pb-3">
+          <div className="pr-[130px]">
+            <div className="pl-3 pt-5">
               <input
                 type="text"
                 placeholder="Cari Artikel"
@@ -81,11 +81,11 @@ export const ArtikelSemuaArtikel = ({
             </div>
             {/* BAGIAN TOPIC */}
             <div className="py-3 pl-2">
-              <Body preset="p1" className="pb-4 text-[24px]">
+              <Body preset="p1" className="pb-4 text-[22px]">
                 Cari artikel berdasarkan topik
               </Body>
               {/* KUMPULAN TOPIC */}
-              <div className="flex flex-wrap max-w-[250px] gap-2">
+              <div className="flex flex-wrap max-w-[280px] gap-2">
                 {/* TOPIC ALL (DEFAULT) */}
                 <div
                   className={

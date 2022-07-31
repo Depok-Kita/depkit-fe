@@ -95,10 +95,10 @@ export const ArtikelArtikelLainnya = ({
       <div className="flex flex-col">
         {artikelDitampilkan.map((article: any) => (
           <div className="flex justify-center" key={article.id}>
-            <div className="mobile:w-[315px] tablet:w-[600px] desktop:w-[750px] tablet:pb-3">
-              <div className="flex justify-between border-b border-powder pb-1 pt-2 relative tablet:pb-10 desktop:pb-14 desktop:pt-5">
+            <div className="mobile:w-[315px] tablet:w-[600px] desktop:w-[700px] tablet:pb-3">
+              <div className="flex justify-between border-b border-powder pb-1 pt-2 relative tablet:pb-10 desktop:pb-12 desktop:pt-5">
                 <Link href={"/artikel/" + article?.slug}>
-                  <div className="mobile:max-w-[180px] tablet:max-w-[400px] desktop:max-w-[535px]">
+                  <div className="mobile:max-w-[180px] tablet:max-w-[400px] desktop:max-w-[460px]">
                     <Body
                       preset="p3"
                       className="mobile:text-[8px] tablet:text-[12px] desktop:text-[15px]"
@@ -114,14 +114,12 @@ export const ArtikelArtikelLainnya = ({
                         ? article?.title.slice(0, 40) + " ..."
                         : article?.title}
                     </Body>
-                    {width >= 768 && width < 1280 && (
-                      <Body preset="p3">
+                    {width >= 768 && (
+                      <Body
+                        preset="p3"
+                        className={width >= 1280 ? "text-[15px]" : ""}
+                      >
                         {article?.body.slice(0, 240) + " ..."}
-                      </Body>
-                    )}
-                    {width >= 1280 && (
-                      <Body preset="p2">
-                        {article?.body.slice(0, 260) + " ..."}
                       </Body>
                     )}
                     <div className="flex flex-wrap gap-1 absolute mobile:bottom-2 tablet:bottom-3">
@@ -143,7 +141,7 @@ export const ArtikelArtikelLainnya = ({
                   link={article.slug}
                 />
                 <Link href={"/artikel/" + article?.slug}>
-                  <div>
+                  <div className={width >= 1280 ? "pt-6" : ""}>
                     <Image
                       src={article?.photoUrl}
                       alt={article?.photoAlt}
