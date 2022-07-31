@@ -95,34 +95,39 @@ export const ArtikelArtikelLainnya = ({
       <div className="flex flex-col">
         {artikelDitampilkan.map((article: any) => (
           <div className="flex justify-center" key={article.id}>
-            <div className="mobile:w-[315px] tablet:w-[600px] tablet:pb-3">
-              <div className="flex justify-between border-b border-powder pb-1 pt-2 relative tablet:pb-10">
+            <div className="mobile:w-[315px] tablet:w-[600px] desktop:w-[750px] tablet:pb-3">
+              <div className="flex justify-between border-b border-powder pb-1 pt-2 relative tablet:pb-10 desktop:pb-14 desktop:pt-5">
                 <Link href={"/artikel/" + article?.slug}>
-                  <div className="mobile:max-w-[180px] tablet:max-w-[400px]">
+                  <div className="mobile:max-w-[180px] tablet:max-w-[400px] desktop:max-w-[535px]">
                     <Body
                       preset="p3"
-                      className="mobile:text-[8px] tablet:text-[12px]"
+                      className="mobile:text-[8px] tablet:text-[12px] desktop:text-[15px]"
                     >
                       {dateFormat(article?.published)}
                     </Body>
                     <Body
-                      preset={width >= 768 ? "b2" : "b3"}
-                      className="mobile:text-[11px] tablet:text-[18px]"
+                      preset={width >= 1280 ? "b1" : width >= 768 ? "b2" : "b3"}
+                      className="mobile:text-[11px] tablet:text-[18px] desktop:text-[23px]"
                     >
                       {/* Handle title yang terlalu panjang */}
                       {article?.title.length >= 40
                         ? article?.title.slice(0, 40) + " ..."
                         : article?.title}
                     </Body>
-                    {width >= 768 && (
+                    {width >= 768 && width < 1280 && (
                       <Body preset="p3">
                         {article?.body.slice(0, 240) + " ..."}
+                      </Body>
+                    )}
+                    {width >= 1280 && (
+                      <Body preset="p2">
+                        {article?.body.slice(0, 260) + " ..."}
                       </Body>
                     )}
                     <div className="flex flex-wrap gap-1 absolute mobile:bottom-2 tablet:bottom-3">
                       {article?.topics.map((topic: any) => (
                         <div
-                          className="bg-totalwhite border-totalwhite shadow-inner rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px] tablet:text-[10px]"
+                          className="bg-totalwhite border-totalwhite shadow-inner rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px] tablet:text-[10px] desktop:text-[13px] desktop:px-[8px] desktop:py-[2px]"
                           key={topic.id}
                         >
                           {topic.name}
@@ -142,9 +147,9 @@ export const ArtikelArtikelLainnya = ({
                     <Image
                       src={article?.photoUrl}
                       alt={article?.photoAlt}
-                      width={width >= 768 ? 165 : 85}
-                      height={width >= 768 ? 100 : 60}
-                      className="rounded-md tablet:rounded-xl"
+                      width={width >= 1280 ? 200 : width >= 768 ? 165 : 85}
+                      height={width >= 1280 ? 130 : width >= 768 ? 100 : 60}
+                      className="rounded-md tablet:rounded-xl "
                     />
                   </div>
                 </Link>
