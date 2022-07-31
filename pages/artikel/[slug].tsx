@@ -95,7 +95,11 @@ const Details = (artikel: any) => {
               <Header preset="h5" className="font-black py-5">
                 Artikel Lainnya
               </Header>
-              <ArtikelArtikelLainnya filter="All" search="" />
+              <ArtikelArtikelLainnya
+                filter="All"
+                search=""
+                mode={width >= 768 ? "split" : "normal"}
+              />
             </div>
           </div>
         </div>

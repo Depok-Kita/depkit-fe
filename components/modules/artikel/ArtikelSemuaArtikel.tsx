@@ -59,6 +59,7 @@ export const ArtikelSemuaArtikel = ({
               total={totalArticles}
               filter={selectedTopic}
               search={enteredSearchInput}
+              mode="normal"
             />
             <div className="flex justify-center pt-6 pb-10 pt-6 pb-24">
               <Button
@@ -182,6 +183,7 @@ export const ArtikelSemuaArtikel = ({
             total={totalArticles}
             filter={selectedTopic}
             search={enteredSearchInput}
+            mode="normal"
           />
           <div className="flex justify-center mobile:pt-6 mobile:pb-10 tablet:pt-10 tablet:pb-14">
             <Button
