@@ -1,6 +1,15 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
-import { Header, DonationCard, Card, Body, Button, Toast } from "@components";
+import {
+  Header,
+  DonationCard,
+  Card,
+  Body,
+  Button,
+  Toast,
+  HeaderResponsive,
+  BodyResponsive,
+} from "@components";
 import { InputField } from "@components/input-field";
 import { Divider } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@heroicons/react/outline";
@@ -12,6 +21,7 @@ export const GrandOpeningForm = () => {
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
   const { width } = useWindowSize();
+  const windowSize = useWindowSize();
   const [isLoading, setIsLoading] = useState(false);
   const successToast = Toast({
     preset: "success",
@@ -76,48 +86,63 @@ export const GrandOpeningForm = () => {
   };
 
   return (
-    <div className="bg-denim-light py-28">
+    <div className="bg-denim-light tablet:py-28 mobile:py-10">
       <form
         encType="multipart/form-data"
-        className="space-y-10 max-w-[70%] mx-auto"
+        className="space-y-10 desktop:max-w-[70%] tablet:max-w-[90%] mobile:max-w-[80%] mx-auto"
         onSubmit={handleSubmit}
       >
-        <div className="grid grid-cols-8 gap-10">
-          <div className="w-full flex flex-col gap-[20px] col-span-5">
+        <div className="tablet:grid grid-cols-8 desktop:gap-10 mobile:flex flex-col tablet:gap-0 mobile:gap-9">
+          <div className="w-full flex flex-col gap-[20px] col-span-5 desktop:mt-0 tablet:mt-[50%] desktop:text-left mobile:text-center">
             <div>
-              <Header preset="h2" className="text-powder-light leading-none">
+              <HeaderResponsive
+                windowSize={windowSize}
+                preset="h5"
+                presetTablet="h4"
+                presetDesktop="h2"
+                className="text-powder-light leading-none"
+              >
                 Daftar
-              </Header>
-              <Header preset="h3" className="text-powder-light">
+              </HeaderResponsive>
+              <HeaderResponsive
+                preset="h5"
+                presetTablet="h4"
+                presetDesktop="h2"
+                windowSize={windowSize}
+                className="text-powder-light"
+              >
                 Grand Opening <span className="text-cerulean">X</span> Talkshow
-              </Header>
+              </HeaderResponsive>
             </div>
-            <DonationCard />
+            <div className="desktop:block mobile:hidden">
+              <DonationCard />
+            </div>
           </div>
-          <div className="flex flex-col gap-10 justify-end mb-8 w-full text-totalwhite col-span-3">
+          <div className="flex flex-col desktop:gap-10 tablet:gap-9 mobile:gap-6 justify-end mb-8 w-full text-totalwhite col-span-3">
+            {/* "harus diisi" chips */}
             <InputField
               type="text"
               name="name"
-              placeholder="Masukkan Nama Lengkap Anda"
+              placeholder="Jane Doe"
               label="Nama Lengkap"
               isDisabled={false}
               isError={false}
               errorMessage="errorMessage"
               dark={true}
               required={true}
-              innerClassName="p-8"
+              innerClassName="desktop:p-8 mobile:p-6"
             />
             <InputField
               type="text"
               name="email"
-              placeholder="Masukkan Email Anda"
+              placeholder="JaneDoe@gmail.com"
               label="Email"
               isDisabled={false}
               isError={false}
               errorMessage="errorMessage"
               dark={true}
               required={true}
-              innerClassName="p-8"
+              innerClassName="desktop:p-8 mobile:p-6"
             />
             <InputField
               type="text"
@@ -129,7 +154,7 @@ export const GrandOpeningForm = () => {
               errorMessage="errorMessage"
               dark={true}
               required={true}
-              innerClassName="p-8"
+              innerClassName="desktop:p-8 mobile:p-6"
             />
             <InputField
               type="text"
@@ -140,25 +165,40 @@ export const GrandOpeningForm = () => {
               isError={false}
               errorMessage="errorMessage"
               dark={true}
-              innerClassName="p-8"
+              innerClassName="desktop:p-8 mobile:p-6"
             />
           </div>
+        </div>
+        <div className="desktop:hidden mobile:block">
+          <DonationCard />
         </div>
         <Card preset="dark">
           <div className="flex flex-col gap-10 items-center w-full">
             <div className="flex flex-col gap-3">
-              <Header preset="h4" className="text-powder-light">
+              <HeaderResponsive
+                preset="h6"
+                presetTablet="h5"
+                presetDesktop="h4"
+                windowSize={windowSize}
+                className="text-powder-light"
+              >
                 Kirim bukti donasi
-              </Header>
+              </HeaderResponsive>
               <Divider
                 borderColor={"#88BFE8"}
                 bgColor={"#88BFE8"}
                 borderWidth={1.5}
-                width={width > 768 ? width / 1.6 : "auto"}
+                width={
+                  width >= 1280
+                    ? width / 1.6
+                    : width >= 768
+                    ? width / 1.25
+                    : "auto"
+                }
               />
               <Body
                 preset="p3"
-                className="text-powder-light text-[24px] font-light"
+                className="text-powder-light desktop:text-[24px] tablet:text-[13.3px] mobile:text-[12px] font-light"
               >
                 Pastikan file dalam bentuk png, jpg, atau jpeg.
               </Body>

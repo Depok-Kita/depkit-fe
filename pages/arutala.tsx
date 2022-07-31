@@ -1,6 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, HTMLInputTypeAttribute } from "react";
 import type { NextPage } from "next";
-import { Body, Button, Header, Card, DonationCard, Toast } from "@components";
+import {
+  Body,
+  BodyResponsive,
+  Button,
+  Header,
+  HeaderResponsive,
+  Card,
+  DonationCard,
+  Toast,
+} from "@components";
+import { useWindowSize, WindowSize } from "@components/hooks";
 
 import Link from "next/link";
 import {
@@ -10,8 +20,10 @@ import {
   ArrowDownIcon,
 } from "@heroicons/react/outline";
 import { InputField, SelectField, FormLabel } from "@components/input-field";
-import { Checkbox, FormControl, Stack } from "@chakra-ui/react";
+import { Checkbox, FormControl, propNames, Stack } from "@chakra-ui/react";
 import { ChevronUpIcon } from "@heroicons/react/outline";
+import { responsive } from "@utils";
+import { SelectOption, Option } from "@components/input-field";
 
 const Arutala: NextPage = () => {
   const errorToast = Toast({
@@ -31,11 +43,19 @@ const Arutala: NextPage = () => {
     message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   });
 
+  const windowSize = useWindowSize();
   return (
     <div className="flex flex-col gap-12 p-10 py-24 bg-powder min-h-screen">
-      <Header preset="h1" className="text-center text-denim-dark" decorative>
+      <HeaderResponsive
+        preset="h3"
+        presetTablet="h2"
+        presetDesktop="h1"
+        className="text-center text-denim-dark"
+        decorative
+        windowSize={windowSize}
+      >
         ARUTALA
-      </Header>
+      </HeaderResponsive>
       <div className="flex flex-col bg-denim-dark w-[85%] mx-auto rounded-3xl p-10 gap-8 shadow-lg shadow-[#ADD1E2]">
         <Header preset="h2" className="text-center text-powder">
           Typography
@@ -432,6 +452,7 @@ const Arutala: NextPage = () => {
       <div>
         <DonationCard />
       </div>
+      <TypographyResponsiveSection windowSize={windowSize} />
     </div>
   );
 };
@@ -446,12 +467,23 @@ function TextFieldSection() {
   const [isRequired, setIsRequired] = useState(false);
   const errorMessage = "This is error message";
   const rightIcon = <ArrowDownIcon className="w-4 h-4" color="gray.300" />;
-  const inputElement = (
+  // const inputTypeSelect = <SelectField options={[{ value: "Options1" }]} />;
+  const inputTypes: HTMLInputTypeAttribute[] = [
+    "text",
+    "number",
+    "email",
+    "password",
+    "tel",
+    "date",
+    "file",
+  ];
+  const inputElements = inputTypes.map((type) => (
     <InputField
-      type="text"
+      key={type}
+      type={type}
       //value={"value"}
       placeholder="Enter input"
-      label={hasLabel ? "Label" : ""}
+      label={hasLabel ? type : ""}
       isDisabled={isDisabled}
       isError={isError}
       errorMessage={errorMessage}
@@ -462,11 +494,11 @@ function TextFieldSection() {
       }
       rightIcon={hasRightIcon ? rightIcon : undefined}
       className="px-4"
-      innerClassName="p-6"
+      // innerClassName="p-6"
       dark={isDark}
       required={isRequired}
     />
-  );
+  ));
   const selectElement = (
     <SelectField
       label={hasLabel ? "Select Label" : ""}
@@ -477,9 +509,17 @@ function TextFieldSection() {
       dark={isDark}
       className="px-4"
       required={isRequired}
+      options={[
+        { value: "opt1", label: "Option 11" },
+        { value: "opt2", label: "Option 2" },
+      ]}
     >
-      <option value="opt1">Option 1</option>
-      <option value="opt2">Option 2</option>
+      {/* <SelectOption value="opt1" dark={isDark}>
+        Option 1
+      </SelectOption>
+      <SelectOption value="opt2" dark={isDark}>
+        Option 2
+      </SelectOption> */}
     </SelectField>
   );
   return (
@@ -515,13 +555,46 @@ function TextFieldSection() {
       </FormControl>
       <div>
         <div
-          className={"pt-4 flex flex-col " + (isDark ? "bg-denim-dark" : "")}
+          className={
+            "p-4 flex flex-col rounded " + (isDark ? "bg-denim-dark" : "")
+          }
         >
-          {inputElement}
-          {inputElement}
+          {inputElements}
           {selectElement}
         </div>
       </div>
+    </div>
+  );
+}
+
+function TypographyResponsiveSection({
+  windowSize,
+}: {
+  windowSize: WindowSize;
+}) {
+  return (
+    <div className="flex flex-col bg-totalwhite w-[85%] mx-auto rounded-3xl p-10 shadow-lg shadow-[#ADD1E2]">
+      <HeaderResponsive
+        windowSize={windowSize}
+        preset="h3"
+        presetTablet="h2"
+        presetDesktop="h1"
+      >
+        Typography Responsive
+      </HeaderResponsive>
+      <BodyResponsive
+        windowSize={windowSize}
+        preset="p3"
+        presetTablet="p2"
+        presetDesktop="p1"
+      >
+        {responsive<string>(
+          windowSize,
+          "This is Mobile",
+          "This is Tablet",
+          "This is Desktop"
+        )}
+      </BodyResponsive>
     </div>
   );
 }

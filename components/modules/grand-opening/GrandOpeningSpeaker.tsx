@@ -22,7 +22,7 @@ export const GrandOpeningSpeaker = () => {
       <div className="flex justify-center mt-6">
         <div className="desktop:w-52 tablet:w-40 mobile:w-20 bg-cerulean h-1.5"></div>
       </div>
-      <div className="relative desktop:mx-32 tablet:mx-24 mobile:mx-12">
+      <div className="relative desktop:mx-32 tablet:mx-32 mobile:mx-12">
         <Swiper
           className="catalog-carousel "
           navigation={{
@@ -39,7 +39,7 @@ export const GrandOpeningSpeaker = () => {
             },
             // when window width is >= 768px
             768: {
-              slidesPerView: 2,
+              slidesPerView: 1,
               spaceBetween: 15,
               slidesPerGroup: 2,
             },
@@ -61,7 +61,7 @@ export const GrandOpeningSpeaker = () => {
                 className="w-full"
                 padding="desktop:p-10 tablet:p-6 mobile:p-4"
               >
-                <div className="flex desktop:gap-9 mobile:gap-4">
+                <div className="flex tablet:gap-9 mobile:gap-4">
                   <Image
                     src={"/" + speaker.imageUrl}
                     width={width >= 1280 ? 800 : width >= 768 ? 600 : 400}
@@ -88,11 +88,11 @@ export const GrandOpeningSpeaker = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="button-previous absolute desktop:-left-20 tablet:-left-16 mobile:-left-10 desktop:top-[45%] tablet:top-[40%] mobile:top-[40%] z-50 flex items-center w-10 tablet:w-12 cursor-pointer  ">
+        <div className="button-previous absolute desktop:-left-20 tablet:-left-16 mobile:-left-10 desktop:top-[45%] tablet:top-[45%] mobile:top-[40%] z-50 flex items-center w-10 tablet:w-12 cursor-pointer  ">
           <ChevronLeftIcon className="w-10 h-10 fill-denim-dark" />
         </div>
 
-        <div className="button-next absolute desktop:-right-20 tablet:-right-16 mobile:-right-10 desktop:top-[45%] tablet:top-[40%] mobile:top-[40%] z-50 flex items-center w-10 tablet:w-12 cursor-pointer  ">
+        <div className="button-next absolute desktop:-right-20 tablet:-right-16 mobile:-right-10 desktop:top-[45%] tablet:top-[45%] mobile:top-[40%] z-50 flex items-center w-10 tablet:w-12 cursor-pointer  ">
           <ChevronRightIcon className="w-10 h-10 fill-denim-dark" />
         </div>
       </div>

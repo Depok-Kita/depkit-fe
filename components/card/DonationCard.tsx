@@ -157,13 +157,7 @@ export const DonationCard = () => {
                 <ChevronRightIcon className="fill-denim-light w-5 h-5 " />
               }
             >
-              <Header
-                preset={width >= 1280 ? "h5" : width >= 768 ? "h6" : "h6"}
-                className="text-denim-dark"
-              >
-                {" "}
-                Donasi Sekarang
-              </Header>
+              Donasi Sekarang
             </Button>
           </Link>
         </Skeleton>

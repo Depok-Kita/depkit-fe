@@ -6,13 +6,14 @@ import {
   InputLeftElement,
   InputRightElement,
 } from "@chakra-ui/react";
+import { HTMLInputTypeAttribute } from "react";
 import { FormLabel } from "./FormLabel";
 // field contains label & input element
 type InputFieldProps = {
-  className?: string; // className of input element wrapper
+  className?: string; // className of field element
   innerClassName?: string; // className of input element
 
-  type: "text" | "number" | "password" | "email"; // input type
+  type?: HTMLInputTypeAttribute;
   name?: string; // field name, ex. firstname, password
   label?: string;
 
@@ -34,12 +35,13 @@ type InputFieldProps = {
 
 export const InputField = (props: InputFieldProps) => {
   return (
-    <FormControl isInvalid={props.isError} className={props.className}>
-      <FormLabel
-        className={`font-jakarta-sans ${
-          props.dark ? "text-powder-light" : "text-denim-light"
-        }`}
-      >
+    <FormControl
+      isInvalid={props.isError}
+      className={`${props.dark ? "text-powder-light" : "text-denim-light"} ${
+        props.className
+      }`}
+    >
+      <FormLabel>
         {props.label}
         {props.label && props.required && (
           <span className="text-danger-light">*</span>
@@ -59,6 +61,7 @@ export const InputField = (props: InputFieldProps) => {
           onChange={props.onChange}
           isDisabled={props.isDisabled}
           className={`font-jakarta-sans hover:border-cerulean ${props.innerClassName}`}
+          style={{ colorScheme: props.dark ? "dark" : "normal" }}
           required={props.required}
         />
         {props.rightIcon && (
