@@ -98,7 +98,7 @@ export const ArtikelArtikelLainnya = ({
             <div className="mobile:w-[315px] tablet:w-[600px] desktop:w-[700px] tablet:pb-3">
               <div className="flex justify-between border-b border-powder pb-1 pt-2 relative tablet:pb-10 desktop:pb-12 desktop:pt-5">
                 <Link href={"/artikel/" + article?.slug}>
-                  <div className="mobile:max-w-[180px] tablet:max-w-[400px] desktop:max-w-[460px]">
+                  <div className="mobile:max-w-[180px] tablet:max-w-[400px] desktop:max-w-[460px] hover:cursor-pointer">
                     <Body
                       preset="p3"
                       className="mobile:text-[8px] tablet:text-[12px] desktop:text-[15px]"

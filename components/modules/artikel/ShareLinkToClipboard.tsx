@@ -31,14 +31,14 @@ export const ShareLinkToClipboard = ({
   if (!isCopied) {
     return (
       <ShareIcon
-        className={className + " w-4 absolute bottom-4"}
+        className={className + " w-4 absolute bottom-4 hover:cursor-pointer"}
         onClick={shareClickHandler}
       />
     );
   } else {
     return (
       <ClipboardCheckIcon
-        className={className + " w-5 absolute bottom-4"}
+        className={className + " w-5 absolute bottom-4 hover:cursor-pointer"}
         onClick={() => {
           navigator.clipboard.writeText(WEBSITE_URL + "/artikel/" + link);
         }}

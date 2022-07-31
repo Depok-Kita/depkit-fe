@@ -47,7 +47,7 @@ const Details = (artikel: any) => {
             <div className="h-[100px]"></div>
             {/* TOMBOL KEMBALI */}
             <Link href="/artikel/">
-              <div className="bg-powder-light border-powder-light drop-shadow-lg rounded-3xl border-2 w-9">
+              <div className="bg-powder-light border-powder-light drop-shadow-lg rounded-3xl border-2 w-9 hover:cursor-pointer">
                 <ArrowLeftIcon className="w-8 p-1" />
               </div>
             </Link>

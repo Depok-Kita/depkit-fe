@@ -90,8 +90,8 @@ export const ArtikelSemuaArtikel = ({
                 <div
                   className={
                     selectedTopic == "All"
-                      ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light font-bold px-[8px] py-[2px] text-[15px]"
-                      : "border-2 border-cerulean rounded-2xl text-cerulean font-bold px-[8px] py-[2px] text-[15px]"
+                      ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light font-bold px-[8px] py-[2px] text-[15px] hover:cursor-pointer"
+                      : "border-2 border-cerulean rounded-2xl text-cerulean font-bold px-[8px] py-[2px] text-[15px] hover:cursor-pointer"
                   }
                   key={0}
                   onClick={changeSelectedTopicHandler}
@@ -104,8 +104,8 @@ export const ArtikelSemuaArtikel = ({
                   <div
                     className={
                       selectedTopic == topic.name
-                        ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light font-bold px-[8px] py-[2px] text-[15px]"
-                        : "border-2 border-cerulean rounded-2xl text-cerulean font-bold px-[8px] py-[2px] text-[15px]"
+                        ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light font-bold px-[8px] py-[2px] text-[15px] hover:cursor-pointer"
+                        : "border-2 border-cerulean rounded-2xl text-cerulean font-bold px-[8px] py-[2px] text-[15px] hover:cursor-pointer"
                     }
                     key={topic.id}
                     onClick={changeSelectedTopicHandler}
@@ -151,8 +151,8 @@ export const ArtikelSemuaArtikel = ({
               <div
                 className={
                   selectedTopic == "All"
-                    ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px]"
-                    : "border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px]"
+                    ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px] hover:cursor-pointer"
+                    : "border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px] hover:cursor-pointer"
                 }
                 key={0}
                 onClick={changeSelectedTopicHandler}
@@ -165,8 +165,8 @@ export const ArtikelSemuaArtikel = ({
                 <div
                   className={
                     selectedTopic == topic.name
-                      ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px]"
-                      : "border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px]"
+                      ? "border-2 bg-cerulean border-cerulean rounded-2xl text-powder-light text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px] hover:cursor-pointer"
+                      : "border-2 border-cerulean rounded-2xl text-cerulean text-[8px] font-bold px-[6px] py-[1px] tablet:text-[11px] hover:cursor-pointer"
                   }
                   key={topic.id}
                   onClick={changeSelectedTopicHandler}
