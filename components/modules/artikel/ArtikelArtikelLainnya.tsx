@@ -131,14 +131,12 @@ export const ArtikelArtikelLainnya = ({
                     </div>
                   </div>
                 </Link>
-                <div>
-                  <ShareLinkToClipboard
-                    className={
-                      width >= 768 ? "absolute bottom-3 right-0 w-6" : ""
-                    }
-                    link={article.slug}
-                  />
-                </div>
+                <ShareLinkToClipboard
+                  className={
+                    width >= 768 ? "absolute bottom-3 right-0 w-6" : "right-24"
+                  }
+                  link={article.slug}
+                />
                 <Link href={"/artikel/" + article?.slug}>
                   <div>
                     <Image
