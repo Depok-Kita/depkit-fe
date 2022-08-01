@@ -2,7 +2,9 @@
 export const HeadingLine = ({ className }: { className?: string }) => {
   return (
     <div
-      className={"h-[4.5px] w-[80px] tablet:w-[220px] bg-cerulean " + className}
+      className={
+        "h-[4.5px] w-[80px] tablet:w-[220px] bg-cerulean mt-2 " + className
+      }
     ></div>
   );
 };
