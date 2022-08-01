@@ -25,6 +25,7 @@ export const RegistrationSection = () => {
     line: "",
     donationDate: "",
   };
+
   const MIN_AGE = 17;
   const REQUIRED_ERROR_MSG = "Harus diisi!";
   const validate = (values: DonorDarah) => {
@@ -53,14 +54,27 @@ export const RegistrationSection = () => {
     }
     return errors;
   };
-  const showSuccessMessage = Toast({
+
+  const successToast = Toast({
     preset: "success",
     message: "Berhasil registrasi!",
   });
-  const showErrorMessage = Toast({
+  const errorConflictToast = Toast({
     preset: "error",
-    message: "Gagal registrasi!",
+    message: "Gagal registrasi! Anda sudah pernah registrasi sebelumnya.",
   });
+  const errorToast = Toast({ preset: "error", message: "Gagal registrasi!" });
+
+  const showRegistrationResult = (responseStatusCode: number) => {
+    if (responseStatusCode == 200) {
+      return successToast();
+    }
+    if (responseStatusCode == 409) {
+      return errorConflictToast();
+    }
+    return errorToast();
+  };
+
   const handleSubmit = (
     values: DonorDarah,
     helpers: FormikHelpers<DonorDarah>
@@ -68,12 +82,12 @@ export const RegistrationSection = () => {
     axios
       .post("/api/donor-darah/register", { data: values })
       .then((res) => {
-        showSuccessMessage();
+        showRegistrationResult(res.status);
         helpers.setSubmitting(false);
       })
       .catch((error) => {
         console.log(error);
-        showErrorMessage();
+        showRegistrationResult(error.response.status);
         helpers.setSubmitting(false);
       });
   };

@@ -19,7 +19,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     .then((response) => res.status(200).send(response.data))
     .catch((e) => {
       console.log(e.response.data.error);
-      res.status(500).send(e.response.data.error);
+      res.status(e.response.status).send(e.response.data.error);
     });
 }
 
