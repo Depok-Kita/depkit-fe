@@ -1,8 +1,16 @@
-import { Header, HeadingLine, SectionBox, Body, Button } from "@components";
+import {
+  Header,
+  HeadingLine,
+  SectionBox,
+  Body,
+  Button,
+  Toast,
+} from "@components";
 import { InputField, InputFieldFormik } from "@components/input-field";
-import { Formik, Form, FormikErrors } from "formik";
+import { Formik, Form, FormikErrors, FormikHelpers } from "formik";
 import { DonorDarah } from "@models";
 import { isValidPhoneNumber } from "@utils";
+import axios from "axios";
 
 const COUNTRY_CODE = "+62";
 
@@ -13,7 +21,7 @@ export const RegistrationSection = () => {
     address: "",
     institute: "",
     email: "",
-    phone: "",
+    phone: COUNTRY_CODE,
     line: "",
     donationDate: "",
   };
@@ -45,6 +53,30 @@ export const RegistrationSection = () => {
     }
     return errors;
   };
+  const showSuccessMessage = Toast({
+    preset: "success",
+    message: "Berhasil registrasi!",
+  });
+  const showErrorMessage = Toast({
+    preset: "error",
+    message: "Gagal registrasi!",
+  });
+  const handleSubmit = (
+    values: DonorDarah,
+    helpers: FormikHelpers<DonorDarah>
+  ) => {
+    axios
+      .post("/api/donor-darah/register", { data: values })
+      .then((res) => {
+        showSuccessMessage();
+        helpers.setSubmitting(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        showErrorMessage();
+        helpers.setSubmitting(false);
+      });
+  };
   return (
     <div className="bg-denim-dark ">
       <SectionBox>
@@ -58,11 +90,7 @@ export const RegistrationSection = () => {
           <Formik
             initialValues={initalValues}
             validate={validate}
-            onSubmit={(values, props) => {
-              values.phone = COUNTRY_CODE + values.phone;
-              console.log(values);
-              props.setSubmitting(false);
-            }}
+            onSubmit={handleSubmit}
           >
             {(props) => (
               <Form className="flex flex-col gap-2 max-w-sm mx-auto">
