@@ -10,7 +10,7 @@ import { useWindowSize } from "@components";
 export const SopSection = () => {
   const windowSize = useWindowSize();
   return (
-    <SectionBox>
+    <SectionBox id="sop">
       <div className="text-center mb-8 tablet:mb-10">
         <Header
           windowSize={windowSize}
