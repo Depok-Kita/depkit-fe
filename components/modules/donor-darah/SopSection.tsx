@@ -25,7 +25,7 @@ export const SopSection = () => {
         </Body>
         <HeadingLine className="mx-auto" />
       </div>
-      <div className="text-[0.875rem] tablet:text-[1.75rem]">
+      <div className="text-[0.875rem] tablet:text-[1.5rem] font-jakarta-sans">
         <ol className="list-decimal">
           <li>
             Dalam keadaan <b>sehat</b>, tidak sedang flu/batuk/demam/pusing

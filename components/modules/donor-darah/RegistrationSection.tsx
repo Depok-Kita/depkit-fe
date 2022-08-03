@@ -1,10 +1,11 @@
 import {
-  Header,
+  HeaderResponsive as Header,
   HeadingLine,
   SectionBox,
   Body,
   Button,
   Toast,
+  useWindowSize,
 } from "@components";
 import { InputField, InputFieldFormik } from "@components/input-field";
 import { Formik, Form, FormikErrors, FormikHelpers } from "formik";
@@ -91,14 +92,20 @@ export const RegistrationSection = () => {
         helpers.setSubmitting(false);
       });
   };
+  const windowSize = useWindowSize();
   return (
     <div className="bg-denim-dark ">
       <SectionBox>
         <div className="mb-4">
-          <Header preset="h3" className="text-center text-totalwhite">
+          <Header
+            windowSize={windowSize}
+            preset="h3"
+            presetDesktop="h2"
+            className="text-center text-totalwhite"
+          >
             Form Registrasi Donor Darah
           </Header>
-          <HeadingLine className="mx-auto" />
+          <HeadingLine className="mx-auto mb-4 tablet:mb-8 desktop:mb-12" />
         </div>
         <div className="">
           <Formik
