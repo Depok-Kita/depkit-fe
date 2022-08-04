@@ -99,7 +99,7 @@ export const GrandOpeningForm = () => {
         onSubmit={handleSubmit}
       >
         <div className="tablet:grid grid-cols-8 desktop:gap-10 mobile:flex flex-col tablet:gap-0 mobile:gap-9">
-          <div className="w-full flex flex-col gap-[20px] col-span-5 desktop:mt-0 tablet:mt-[50%] desktop:text-left mobile:text-center">
+          <div className="w-full flex flex-col gap-[20px] col-span-5 justify-center desktop:text-left mobile:text-center">
             <div>
               <HeaderResponsive
                 windowSize={windowSize}
