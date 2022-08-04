@@ -9,7 +9,7 @@ import {
 import { HTMLInputTypeAttribute } from "react";
 import { FormLabel } from "./FormLabel";
 // field contains label & input element
-type InputFieldProps = {
+export type InputFieldProps = {
   className?: string; // className of field element
   innerClassName?: string; // className of input element
 
@@ -19,6 +19,7 @@ type InputFieldProps = {
 
   value?: string | number; // input value
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
 
   placeholder?: string;
   errorMessage?: string;
@@ -63,6 +64,7 @@ export const InputField = (props: InputFieldProps) => {
           className={`font-jakarta-sans hover:border-cerulean ${props.innerClassName}`}
           style={{ colorScheme: props.dark ? "dark" : "normal" }}
           required={props.required}
+          onBlur={props.onBlur}
         />
         {props.rightIcon && (
           <InputRightElement pointerEvents="none">
