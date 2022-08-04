@@ -1,7 +1,7 @@
 import { Divider } from "@chakra-ui/react";
 import { Header, Card, Body } from "@components";
 import { useWindowSize } from "@hooks";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DONASI_DESCRIPTION } from "@constants";
 import { v4 as uuid } from "uuid";
 import { ChevronDownIcon } from "@heroicons/react/outline";
@@ -9,6 +9,13 @@ import { ChevronDownIcon } from "@heroicons/react/outline";
 export const DonasiDescription = () => {
   const { width } = useWindowSize();
   const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    if (width > 768) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  }, [width]);
   return (
     <div className="space-y-[28px] desktop:space-y-[50px] p-10 tablet:p-16 desktop:px-[350px] desktop:py-28 text-center bg-denim-light">
       <div className="flex justify-center items-center flex-col gap-[14px] desktop:gap-[25px]">
