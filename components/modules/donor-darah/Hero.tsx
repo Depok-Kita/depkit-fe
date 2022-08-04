@@ -1,4 +1,3 @@
-import Image from "next/image";
 import BgMobile from "@images/donor-darah-hero-bg-mobile.svg";
 import {
   HeaderResponsive as Header,
@@ -7,6 +6,7 @@ import {
   useWindowSize,
   SectionBox,
 } from "@components";
+import { scrollToElement } from "@utils";
 
 export const Hero = () => {
   const windowSize = useWindowSize();
@@ -23,8 +23,12 @@ export const Hero = () => {
           <Body windowSize={windowSize} preset="b2" className="mt-2">
             dd/mm/yyyy - dd/mm/yyyy
           </Body>
-          <Button className="mt-4" preset="primaryDark">
-            <a href="#sop">Registrasi Pendonor</a>
+          <Button
+            className="mt-4"
+            preset="primaryDark"
+            onClick={() => scrollToElement("sop")}
+          >
+            Registrasi Pendonor
           </Button>
         </div>
       </SectionBox>
