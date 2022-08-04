@@ -1,6 +1,6 @@
 import React from "react";
 import { BUTTON_PRESETS } from "./Button.presets";
-import { Header } from "@components";
+import { Header, useWindowSize } from "@components";
 type ButtonProps = {
   className?: string;
 
@@ -37,6 +37,7 @@ export const Button = ({
   rightIcon,
   ...props
 }: ButtonProps) => {
+  const { width } = useWindowSize();
   return (
     <button
       className={`transition-all flex justify-center items-center gap-2 
@@ -52,7 +53,10 @@ export const Button = ({
       {...props}
     >
       {leftIcon ? <>{leftIcon}</> : null}
-      <Header preset="h6">{children}</Header>
+
+      <Header preset={width >= 1280 ? "h6" : width >= 768 ? "h7" : "h7"}>
+        {children}
+      </Header>
       {rightIcon ? <>{rightIcon}</> : null}
     </button>
   );

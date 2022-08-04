@@ -1,0 +1,77 @@
+<svg
+    width="90"
+    height="33"
+    viewBox="0 0 60 21"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      x="0.75"
+      y="20.392"
+      width="19.5"
+      height="19.5"
+      transform="rotate(-90 0.75 20.392)"
+      fill="#213456"
+    />
+    <path d="M20.25 20.392L0.75 0.891968H20.25V20.392Z" fill="#88BFE8" />
+    <rect
+      x="5.625"
+      y="15.517"
+      width="9.75"
+      height="9.75"
+      transform="rotate(-90 5.625 15.517)"
+      fill="#F2FAFE"
+    />
+    <rect
+      x="20.25"
+      y="20.392"
+      width="19.5"
+      height="19.5"
+      transform="rotate(-90 20.25 20.392)"
+      fill="#F2FAFE"
+    />
+    <circle
+      cx="25.125"
+      cy="15.5169"
+      r="4.875"
+      transform="rotate(-90 25.125 15.5169)"
+      fill="#F7D76A"
+    />
+    <circle
+      cx="25.125"
+      cy="5.76697"
+      r="4.875"
+      transform="rotate(-90 25.125 5.76697)"
+      fill="#88BFE8"
+    />
+    <circle
+      cx="34.875"
+      cy="5.76697"
+      r="4.875"
+      transform="rotate(-90 34.875 5.76697)"
+      fill="#F7D76A"
+    />
+    <circle
+      cx="34.875"
+      cy="15.517"
+      r="4.875"
+      transform="rotate(-90 34.875 15.517)"
+      fill="#88BFE8"
+    />
+    <rect
+      x="39.75"
+      y="20.392"
+      width="19.5"
+      height="19.5"
+      transform="rotate(-90 39.75 20.392)"
+      fill="#F7D76A"
+    />
+    <rect
+      x="49.5"
+      y="17.5363"
+      width="9.75"
+      height="9.75"
+      transform="rotate(-135 49.5 17.5363)"
+      fill="#F2FAFE"
+    />
+  </svg>

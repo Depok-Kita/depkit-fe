@@ -6,7 +6,7 @@ import type { NextPage } from "next";
 const Custom404: NextPage = () => {
   const router = useRouter();
   return (
-    <div className="bg-powder-light px-10 py-5 min-h-screen flex justify-center">
+    <div className="bg-powder-light px-10 py-5 items-center min-h-screen flex justify-center">
       <div className="px-[10%]">
         <Header preset="h3" className="hidden tablet:block">
           404 Not Found
@@ -18,7 +18,7 @@ const Custom404: NextPage = () => {
             </Header>
             <Body preset="p1">Maaf, halaman yang kamu cari tidak ada.</Body>
             <div className="desktop:hidden">
-              <Image src={Cone} className="desktop:hidden" />
+              <Image src={Cone} className="desktop:hidden" alt="Cone" />
             </div>
 
             <div className="flex justify-center desktop:justify-start">
@@ -32,7 +32,7 @@ const Custom404: NextPage = () => {
             </div>
           </div>
           <div className="hidden desktop:flex justify-end">
-            <Image src={Cone} className="" />
+            <Image src={Cone} className="" alt="Cone" />
           </div>
         </div>
       </div>

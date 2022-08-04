@@ -39,24 +39,24 @@ export const DonationCard = () => {
   const diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
 
   return (
-    <div className="w-full h-full bg-denim-dark rounded-3xl shadow-denim-light shadow-lg flex flex-col desktop:pb-10 tablet:pb-6 mobile:pb-3 ">
-      <div className="desktop:h-60 tablet:h-36 mobile:h-24  bg-totalwhite rounded-2xl tablet:mt-8 tablet:mx-8 desktop:mb-10 tablet:mb-5 mobile:mt-2 mobile:mx-2 mobile:mb-3 flex flex-col items-center gap-2 justify-center relative">
+    <div className="w-full h-full bg-denim-dark rounded-[9.5px] tablet:rounded-[20px] desktop:rounded-3xl shadow-denim-light shadow-lg flex flex-col desktop:pb-10 tablet:pb-6 mobile:pb-3 ">
+      <div className="desktop:h-60 tablet:h-36 mobile:h-24  bg-totalwhite  tablet:mt-8 tablet:mx-8 desktop:mb-10 tablet:mb-5 mobile:mt-2 mobile:mx-2 mobile:mb-3 flex flex-col items-center gap-2 justify-center relative rounded-[5.5px] tablet:rounded-[11.6px] desktop:rounded-2xl">
         <Skeleton
           isLoaded={kitaBisaLoading}
-          rounded="2xl"
+          rounded={width >= 1280 ? "2xl" : width >= 768 ? "11.6px" : "5.5px"}
           className="h-full flex flex-col items-center justify-center w-full"
         >
           <DonationAccent className="absolute mobile:right-5 tablet:right-20 w-auto h-full" />
           <Header
-            preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h5"}
-            className="text-denim-light"
+            preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h6"}
+            className="text-denim-light tablet:mx-0 mobile:mx-14 text-center"
           >
-            Donasi Ditutup
+            Donasi ditutup dalam
           </Header>
           <div className="flex tablet:gap-4 mobile:gap-1">
             <div className="flex flex-col tablet:gap-4 mobile:gap-1 items-center">
               <Header
-                preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h5"}
+                preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h6"}
                 className="text-black"
               >
                 {diffDays}
@@ -69,14 +69,14 @@ export const DonationCard = () => {
               </Body>
             </div>
             <Header
-              preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h5"}
+              preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h6"}
               className="text-black"
             >
               :
             </Header>
             <div className="flex flex-col tablet:gap-4 mobile:gap-1 items-center">
               <Header
-                preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h5"}
+                preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h6"}
                 className="text-black"
               >
                 {diffHrs}
@@ -89,7 +89,7 @@ export const DonationCard = () => {
               </Body>
             </div>
             <Header
-              preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h5"}
+              preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h6"}
               className="text-black"
             >
               :
@@ -97,7 +97,7 @@ export const DonationCard = () => {
 
             <div className="flex flex-col tablet:gap-4 mobile:gap-1 items-center">
               <Header
-                preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h5"}
+                preset={width >= 1280 ? "h3" : width >= 768 ? "h4" : "h6"}
                 className="text-black"
               >
                 {diffMins}
@@ -120,7 +120,7 @@ export const DonationCard = () => {
           rounded="full"
         >
           <Header
-            preset={width >= 1280 ? "h2" : width >= 768 ? "h3" : "h4"}
+            preset={width >= 1280 ? "h2" : width >= 768 ? "h3" : "h5"}
             className="text-totalwhite flex items-center gap-2"
           >
             {kitabisa ? rupiah(kitabisa.donation) : null}

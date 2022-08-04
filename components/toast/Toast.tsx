@@ -11,7 +11,7 @@ export type ToastProps = {
 
 export const Toast = ({ preset, message }: ToastProps) => {
   const toast = useToast({
-    position: "top",
+    position: "bottom-right",
     duration: 6000,
     render: ({ onClose }) => {
       return (
