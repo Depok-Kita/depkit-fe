@@ -53,6 +53,7 @@ module.exports = {
       mobile: "360px",
       tablet: "768px",
       desktop: "1280px",
+      wide: "1537px",
     },
     extend: {
       animation: {

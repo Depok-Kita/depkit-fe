@@ -6,17 +6,20 @@ import {
   InputLeftElement,
   InputRightElement,
 } from "@chakra-ui/react";
+import { HTMLInputTypeAttribute } from "react";
 import { FormLabel } from "./FormLabel";
 // field contains label & input element
-type InputFieldProps = {
-  className?: string; // className of field
+export type InputFieldProps = {
+  className?: string; // className of field element
+  innerClassName?: string; // className of input element
 
-  type: "text" | "number" | "password" | "email"; // input type
+  type?: HTMLInputTypeAttribute;
   name?: string; // field name, ex. firstname, password
   label?: string;
 
   value?: string | number; // input value
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
 
   placeholder?: string;
   errorMessage?: string;
@@ -26,12 +29,25 @@ type InputFieldProps = {
 
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+
+  dark?: boolean; // use white font
+  required?: boolean;
 };
 
 export const InputField = (props: InputFieldProps) => {
   return (
-    <FormControl isInvalid={props.isError} className={props.className}>
-      <FormLabel htmlFor={props.name}>{props.label}</FormLabel>
+    <FormControl
+      isInvalid={props.isError}
+      className={`${props.dark ? "text-powder-light" : "text-denim-light"} ${
+        props.className
+      }`}
+    >
+      <FormLabel>
+        {props.label}
+        {props.label && props.required && (
+          <span className="text-danger-light">*</span>
+        )}
+      </FormLabel>
       <InputGroup>
         {props.leftIcon && (
           <InputLeftElement pointerEvents="none">
@@ -45,7 +61,10 @@ export const InputField = (props: InputFieldProps) => {
           placeholder={props.placeholder}
           onChange={props.onChange}
           isDisabled={props.isDisabled}
-          className="font-jakarta-sans hover:border-cerulean"
+          className={`font-jakarta-sans hover:border-cerulean ${props.innerClassName}`}
+          style={{ colorScheme: props.dark ? "dark" : "normal" }}
+          required={props.required}
+          onBlur={props.onBlur}
         />
         {props.rightIcon && (
           <InputRightElement pointerEvents="none">
