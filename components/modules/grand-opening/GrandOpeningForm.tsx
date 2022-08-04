@@ -1,14 +1,12 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import {
-  Header,
   DonationCard,
   Card,
   Body,
   Button,
   Toast,
   HeaderResponsive,
-  BodyResponsive,
 } from "@components";
 import { InputField } from "@components/input-field";
 import { Divider } from "@chakra-ui/react";
@@ -34,6 +32,10 @@ export const GrandOpeningForm = () => {
   const imageErrorToast = Toast({
     preset: "error",
     message: "Lampiran Gambar Gagal Diunggah!",
+  });
+  const imageEmptyToast = Toast({
+    preset: "error",
+    message: "Mohon Melampirkan Bukti Donasi!",
   });
 
   const uploadToClient = (event: any) => {
@@ -61,6 +63,11 @@ export const GrandOpeningForm = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsLoading(true);
+    if (image === null) {
+      imageEmptyToast();
+      setIsLoading(false);
+      return;
+    }
     const imageId = await submitImageHandler(image);
     const data = {
       name: e.target.name.value,
@@ -69,7 +76,6 @@ export const GrandOpeningForm = () => {
       donationProve: imageId,
       phone: e.target.phone.value,
     };
-    console.log(data);
     await axios
       .post("/api/grand-opening", {
         data: data,
@@ -119,7 +125,11 @@ export const GrandOpeningForm = () => {
             </div>
           </div>
           <div className="flex flex-col desktop:gap-10 tablet:gap-9 mobile:gap-6 justify-end mb-8 w-full text-totalwhite col-span-3">
-            {/* "harus diisi" chips */}
+            <div className="bg-denim-dark mr-auto px-4 py-[10px] rounded-[12px]">
+              <Body preset="p2" className="text-danger-light">
+                * harus diisi
+              </Body>
+            </div>
             <InputField
               type="text"
               name="name"
@@ -165,6 +175,7 @@ export const GrandOpeningForm = () => {
               isError={false}
               errorMessage="errorMessage"
               dark={true}
+              required={true}
               innerClassName="desktop:p-8 mobile:p-6"
             />
           </div>
@@ -217,7 +228,6 @@ export const GrandOpeningForm = () => {
               </Button>
               <input
                 hidden
-                required
                 type="file"
                 name="donationProve"
                 id="donationProve"
