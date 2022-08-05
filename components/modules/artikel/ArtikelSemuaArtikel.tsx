@@ -3,6 +3,7 @@ import { SearchIcon } from "@heroicons/react/outline";
 import { ArtikelArtikelLainnya } from "@components";
 import { useState } from "react";
 import { useWindowSize } from "@hooks";
+import { InputField } from "@components/input-field";
 
 type ArtikelSemuaArtikelProps = {
   className?: string;
@@ -73,11 +74,13 @@ export const ArtikelSemuaArtikel = ({
           </div>
           <div className="pr-[130px]">
             <div className="pl-3 pt-5">
-              <input
+              <InputField
                 type="text"
                 placeholder="Cari Artikel"
+                leftIcon={<SearchIcon className="w-4 h-4" color="gray.300" />}
                 value={enteredSearchInput}
                 onChange={searchInputChangeHandler}
+                className="max-w-[250px]"
               />
             </div>
             {/* BAGIAN TOPIC */}
@@ -134,11 +137,13 @@ export const ArtikelSemuaArtikel = ({
             </Body>
           </div>
           <div className="flex justify-end pt-5 pb-3">
-            <input
+            <InputField
               type="text"
               placeholder="Cari Artikel"
+              leftIcon={<SearchIcon className="w-4 h-4" color="gray.300" />}
               value={enteredSearchInput}
               onChange={searchInputChangeHandler}
+              className="mobile:max-w-[240px] tablet:max-w-[280px] mobile:pr-7 tablet:pr-20"
             />
           </div>
           {/* BAGIAN TOPIC */}
