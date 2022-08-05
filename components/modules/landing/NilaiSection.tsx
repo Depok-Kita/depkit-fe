@@ -18,25 +18,26 @@ const NilaiCard = ({ title, children, Icon }: NilaiCardProps) => {
       className="min-w-[150px] max-w-[250px]"
       padding="desktop:p-10 mobile:p-4 tablet:p-6"
     >
-      {" "}
-      <Icon className="mx-auto my-2 desktop:w-24 desktop:h-24" />
-      <HeaderResponsive
-        preset="h5"
-        presetTablet="h4"
-        presetDesktop="h3"
-        windowSize={windowSize}
-      >
-        {title}
-      </HeaderResponsive>
-      <BodyResponsive
-        preset="p3"
-        presetTablet="p2"
-        presetDesktop="p2"
-        windowSize={windowSize}
-        className="desktop:text-left mobile:text-cente desktop:mt-3 mobile:mt-1"
-      >
-        {children}
-      </BodyResponsive>
+      <div>
+        <Icon className="mx-auto my-2 desktop:w-24 desktop:h-24" />
+        <HeaderResponsive
+          preset="h5"
+          presetTablet="h4"
+          presetDesktop="h3"
+          windowSize={windowSize}
+        >
+          {title}
+        </HeaderResponsive>
+        <BodyResponsive
+          preset="p3"
+          presetTablet="p2"
+          presetDesktop="p2"
+          windowSize={windowSize}
+          className="desktop:text-left mobile:text-cente desktop:mt-3 mobile:mt-1"
+        >
+          {children}
+        </BodyResponsive>
+      </div>
     </Card>
   );
 };
