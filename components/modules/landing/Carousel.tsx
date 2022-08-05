@@ -8,12 +8,11 @@ import { HeaderResponsive, BodyResponsive } from "@components/typography";
 import { Button } from "@components/button";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import { useWindowSize } from "@components/hooks";
-import LandingAccent from "@images/landing-accent.svg";
+import { ArrowDownIcon } from "@heroicons/react/outline";
 export const Carousel = () => {
   const windowSize = useWindowSize();
-
   return (
-    <div className="relative">
+    <div className="relative desktop:min-h-screen">
       <Swiper
         slidesPerView={1}
         centeredSlides={true}
@@ -28,20 +27,39 @@ export const Carousel = () => {
       >
         {HOME_CAROUSEL_IMAGES.map((link) => (
           <SwiperSlide key={link}>
-            <div className="relative w-full h-[clamp(17.5rem,50vw,38rem)]">
-              <Image src={link} layout="fill" objectFit="cover" />
+            <div className="relative w-full h-[clamp(17.5rem,50vw,38rem)] desktop:min-h-screen">
+              <Image
+                src={link}
+                layout="fill"
+                objectFit="cover"
+                alt="Gambar Acara Depok Kita"
+              />
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
-
-      <div className="absolute z-10    right-0  desktop:left-16 tablet:left-10 mobile:left-[74px] w-[80%] min-h-[50%] h-auto bg-[rgba(242,250,254,0.8)] mx-auto p-[clamp(1rem,1vw,2.5rem)] flex flex-col gap-2 tablet:w-1/2 tablet:my-auto desktop:top-[20%] desktop::bottom-[20%] tablet:top-[35%] tablet:bottom-[10%] mobile:bottom-0 tablet:right-auto  desktop:pl-12 tablet:pl-6 desktop:pt-10">
-        <LandingAccent className="h-full absolute desktop:-left-16 mobile:-left-[54px] top-0 z-50" />{" "}
+      <ArrowDownIcon
+        className="absolute text-cerulean w-[63px] h-auto mx-auto z-10 animate-bounce right-[50%] top-[90%] cursor-pointer hidden desktop:block"
+        onClick={() => {
+          const offset = document.getElementById("profile")?.offsetTop;
+          window.scrollTo({
+            top: offset === undefined ? 0 : offset - 50,
+            behavior: "smooth",
+          });
+        }}
+      />
+      <div className="absolute z-10 right-0 w-[80%] max-h-[390px] h-auto mx-auto flex flex-col gap-2 tablet:py-40 tablet:w-3/5 desktop:w-1/2 tablet:my-auto desktop:top-[20%] desktop:bottom-[20%] tablet:top-[38%] tablet:bottom-[21%] mobile:bottom-0 tablet:right-auto p-[clamp(1rem,1vw,2.5rem)] pl-14 desktop:pl-40 tablet:pl-28 tablet:pr-16 justify-center">
+        <Image
+          src="/assets/images/landing-accent-bg.png"
+          layout="fill"
+          className="z-10"
+          alt="Landing Accent"
+        />
         <HeaderResponsive
           preset="h6"
           presetTablet="h4"
           presetDesktop="h3"
-          className="  text-denim-dark"
+          className="text-denim-dark z-20"
           decorative
           windowSize={windowSize}
         >
@@ -51,12 +69,13 @@ export const Carousel = () => {
           preset="p3"
           presetTablet="p2"
           presetDesktop="p1"
+          className="text-denim-dark z-20"
           windowSize={windowSize}
         >
           Pembukaan kegiatan pengabdian masyarakat Departemen Sosial Masyarakat
           BEM UI 2022
         </BodyResponsive>
-        <div className="desktop:mt-10 mt-auto">
+        <div className="desktop:mt-10 mt-auto z-20">
           <Button
             preset="secondaryLight"
             rightIcon={<ChevronRightIcon className="w-4" />}

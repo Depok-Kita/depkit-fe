@@ -95,7 +95,7 @@ const JournalCard = ({ journal }: JournalCardProps) => {
   return (
     <Box
       bgGradient={"linear(to-b, #FFFFFF, #F2FAFE)"}
-      className="bg-totalwhite desktop:p-8 mobile:p-4 desktop:h-full mobile:h-80 tablet:h-44 flex flex-col tablet:flex-row  desktop:gap-8 mobile:gap-2 rounded-3xl"
+      className="bg-totalwhite desktop:p-8 mobile:p-4 desktop:h-full mobile:h-80 tablet:h-44 flex flex-col tablet:flex-row desktop:gap-3 mobile:gap-2 rounded-3xl"
     >
       <div className="relative w-full tablet:flex-1  ">
         <Image
@@ -103,6 +103,7 @@ const JournalCard = ({ journal }: JournalCardProps) => {
           width={width >= 1280 ? 450 : width >= 768 ? 212 : 180}
           height={width >= 1280 ? 236 : width >= 768 ? 141 : 120}
           className="rounded-2xl"
+          alt={journal.title}
         />
       </div>
       <div className="flex-1">

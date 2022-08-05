@@ -8,7 +8,7 @@ export const DepkitProfile = () => {
   const profileDescShort =
     "Kegiatan pengabdian masyarakat di bawah naungan Departemen Sosial Masyarakat BEM UI 2022 dengan kegiatan intervensi dan pesta rakyat.";
   return (
-    <div className="desktop:px-[90px] mobile:px-8 desktop:py-24 mobile:py-8 tablet:py-14 flex justify-center  desktop:gap-7 mobile:gap-4">
+    <div className="desktop:px-[90px] mobile:px-8 desktop:py-24 mobile:py-8 tablet:py-14 flex justify-center  desktop:gap-7 mobile:gap-4" id="profile">
       <DepkitLogo className="desktop:w-96 desktop:h-36 mobile:min-w-[80px] mobile:my-auto" />
       <div>
         <HeaderResponsive

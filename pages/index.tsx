@@ -11,9 +11,6 @@ import {
 } from "@components/modules/landing";
 import "swiper/css";
 
-/** Add space between content and page edge */
-const ContentBox = () => {};
-
 const Home: NextPage = () => {
   return (
     <div>
