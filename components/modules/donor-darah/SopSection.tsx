@@ -10,7 +10,7 @@ import { useWindowSize } from "@components";
 export const SopSection = () => {
   const windowSize = useWindowSize();
   return (
-    <SectionBox id="sop">
+    <SectionBox id="sop" className="w-[min(64rem,80%)]">
       <div className="text-center mb-8 tablet:mb-10">
         <Header
           windowSize={windowSize}
@@ -25,7 +25,7 @@ export const SopSection = () => {
         </Body>
         <HeadingLine className="mx-auto" />
       </div>
-      <div className="text-[0.875rem] tablet:text-[1.5rem] font-jakarta-sans">
+      <div className="text-[0.875rem] tablet:text-[1.25rem] font-jakarta-sans">
         <ol className="list-decimal">
           <li>
             Dalam keadaan <b>sehat</b>, tidak sedang flu/batuk/demam/pusing
