@@ -12,7 +12,7 @@ export const Hero = () => {
   const windowSize = useWindowSize();
   return (
     <div className="bg-powder-light">
-      <SectionBox className=" h-[40rem] pt-32  mobile:flex tablet:grid tablet:grid-cols-2 flex-col desktop:gap-0 tablet:gap-20 desktop:justify-start tablet:items-center w-full ">
+      <SectionBox className=" h-screen pt-32  mobile:flex tablet:grid tablet:grid-cols-2 flex-col desktop:gap-0 tablet:gap-20 desktop:justify-start tablet:items-center w-full ">
         <BgMobile className="scale-[80%] mobile:scale-100 tablet:scale-[150%] desktop:scale-[200%] desktop:left-32 tablet:left-16 mobile:left-0 relative " />
         <div className="px-8 py-6">
           <Header
