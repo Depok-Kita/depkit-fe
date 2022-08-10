@@ -1,0 +1,21 @@
+<svg width="78" height="390" viewBox="0 0 78 390" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="78" width="78" height="78" transform="rotate(-90 0 78)" fill="#213456"/>
+<rect y="39" width="39" height="78" transform="rotate(-90 0 39)" fill="#88BFE8"/>
+<mask id="mask0_209_1101" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="78" height="78">
+<rect y="78" width="78" height="78" transform="rotate(-90 0 78)" fill="#F2FAFE"/>
+</mask>
+<g mask="url(#mask0_209_1101)">
+<circle cx="39" cy="78" r="39" transform="rotate(-90 39 78)" fill="#F2FAFE"/>
+<circle cx="39" r="39" transform="rotate(-90 39 0)" fill="#F7D76A"/>
+</g>
+<rect x="78" y="156" width="78" height="78" transform="rotate(-180 78 156)" fill="#213456"/>
+<rect x="58.5" y="136.5" width="39" height="39" transform="rotate(-180 58.5 136.5)" fill="#F2FAFE"/>
+<rect x="78" y="117" width="39" height="39" transform="rotate(-180 78 117)" fill="#F2FAFE"/>
+<rect y="156" width="78" height="78" fill="#213456"/>
+<path d="M0 234L78 156V234H0Z" fill="#88BFE8"/>
+<rect y="234" width="78" height="78" fill="#F7D76A"/>
+<rect x="11.4229" y="273" width="39" height="39" transform="rotate(-45 11.4229 273)" fill="#F2FAFE"/>
+<rect y="312" width="78" height="78" fill="#F2FAFE"/>
+<circle cx="39" cy="351" r="39" fill="#88BFE8"/>
+<circle cx="39" cy="351" r="19.5" fill="#F2FAFE"/>
+</svg>
