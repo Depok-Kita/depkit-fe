@@ -18,3 +18,12 @@ export function responsive<Type>(
   }
   return value;
 }
+
+/** Scroll to element smoothly */
+export const scrollToElement = (elementId: string) => {
+  const offset = document.getElementById(elementId)?.offsetTop;
+  window.scrollTo({
+    top: offset === undefined ? offset : offset - 50,
+    behavior: "smooth",
+  });
+};

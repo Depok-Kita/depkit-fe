@@ -6,7 +6,7 @@ type Route = {
 export const NAV_ROUTES: Route[] = [
   { name: "Grand Launching", url: "/grandlaunching" },
   { name: "Donasi", url: "/donasi" },
-  { name: "Donor Darah", url: "/donordarah" },
+  { name: "Donor Darah", url: "/donor-darah" },
   { name: "Sponsor", url: "/sponsor" },
 ];
 
