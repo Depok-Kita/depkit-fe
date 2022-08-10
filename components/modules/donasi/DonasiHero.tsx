@@ -8,7 +8,7 @@ export const DonasiHero = () => {
   const { width } = useWindowSize();
   return (
     <div className="relative bg-powder-light p-11 tablet:p-[13px] flex flex-col justify-center items-center min-h-screen tablet:gap-14 desktop:gap-40 desktop:flex-row-reverse">
-      <HeroImg className="w-[350px] h-[350px] tablet:h-auto tablet:w-[550px] desktop:w-[600px]" />
+      <HeroImg className="w-[350px] h-[350px] tablet:h-auto tablet:w-[450px] desktop:w-[600px]" />
       <div className="space-y-7 tablet:space-y-10">
         <div className="space-y-2 tablet:space-y-3">
           <Header

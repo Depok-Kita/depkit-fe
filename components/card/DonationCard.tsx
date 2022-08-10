@@ -150,7 +150,7 @@ export const DonationCard = () => {
           rounded="full"
           className="mt-7 h-16"
         >
-          <Link href={"/donasi"}>
+          <Link href={"https://kitabisa.com/campaign/donasiuntukkampunglio"}>
             <Button
               preset="primaryLight"
               rightIcon={
