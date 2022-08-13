@@ -4,16 +4,16 @@ import SponsorExampleExtraSmall from "@images/sponsor-example-extra-small.svg";
 import { Partnership } from "@models";
 
 export const DUMMY_MEDPARS: Partnership[] = [
-  {
-    size: "medium",
-    logos: [SponsorExampleMedium, SponsorExampleMedium],
-  },
-  {
-    size: "small",
-    logos: [SponsorExampleMedium, SponsorExampleMedium],
-  },
-  {
-    size: "xsmall",
-    logos: [SponsorExampleMedium, SponsorExampleMedium],
-  },
+  // {
+  //   size: "medium",
+  //   logos: [SponsorExampleMedium, SponsorExampleMedium],
+  // },
+  // {
+  //   size: "small",
+  //   logos: [SponsorExampleMedium, SponsorExampleMedium],
+  // },
+  // {
+  //   size: "xsmall",
+  //   logos: [SponsorExampleMedium, SponsorExampleMedium],
+  // },
 ];

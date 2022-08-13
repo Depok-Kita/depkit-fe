@@ -6,3 +6,4 @@ export * from "./dummy-sponsors";
 export * from "./dummy-medpar";
 export * from "./speaker-grand-opening";
 export * from "./viewports";
+export * from "./home-carousel-images";
