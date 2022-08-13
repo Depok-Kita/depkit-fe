@@ -53,6 +53,9 @@ export const RegistrationSection = () => {
     if (!values.donationDate) {
       errors.donationDate = REQUIRED_ERROR_MSG;
     }
+    if (!values.line) {
+      errors.line = REQUIRED_ERROR_MSG;
+    }
     return errors;
   };
 
@@ -166,6 +169,7 @@ export const RegistrationSection = () => {
                   type="text"
                   label="Id Line"
                   dark
+                  required
                 />
                 <InputFieldFormik
                   name="donationDate"
