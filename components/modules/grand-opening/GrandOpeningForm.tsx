@@ -241,6 +241,7 @@ export const GrandOpeningForm = () => {
                     className="text-powder-light"
                   >
                     Kirim bukti donasi
+                    <span className="text-danger-light">*</span>
                   </HeaderResponsive>
                   <Divider
                     borderColor={"#88BFE8"}
@@ -265,14 +266,20 @@ export const GrandOpeningForm = () => {
                   <Button
                     type="button"
                     preset="secondaryDark"
-                    className="w-full"
+                    className="w-full "
+                    border={image === null ? "border-[#E53E3E] border-2" : undefined}
                     rightIcon={<ChevronRightIcon className="w-5" />}
                     onClick={() => {
                       donationProveUpload.current.click();
                     }}
-                  >
+                    >
                     {!!createObjectURL ? "Ubah Foto" : "Pilih Foto"}
                   </Button>
+                  {Object.keys(props.touched).length !== 0 && image === null && (
+                    <Body preset="p3" className="text-[#E53E3E] mt-3 font-light text-[14px]">
+                      {REQUIRED_ERROR_MSG}
+                    </Body>
+                  )}
                   <input
                     hidden
                     type="file"
