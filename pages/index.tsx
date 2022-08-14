@@ -21,7 +21,7 @@ const Home: NextPage = () => {
       <div className="bg-powder-light desktop:pb-32 tablet:pb-13 mobile:pb-8">
         <Carousel />
         <DepkitProfile />
-        <Journal />
+        {/* <Journal /> */}
         <div className=" py-8 text-center space-y-8">
           <div className="px-[10%] desktop:pb-24 tablet:pb-13 mobile:pb-8">
             <SectionTitle>Donasi</SectionTitle>
