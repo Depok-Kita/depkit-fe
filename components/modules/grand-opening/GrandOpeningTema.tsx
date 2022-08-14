@@ -2,7 +2,7 @@ import { Header, Body, useWindowSize } from "@components";
 export const GrandOpeningTema = () => {
   const { width } = useWindowSize();
   return (
-    <div className="destop:py-16 tablet:py-10 mobile:py-6 w-full flex items-center justify-center  bg-denim-dark">
+    <div className="destop:py-16 tablet:py-10 mobile:py-6 px-5 w-full flex items-center justify-center  bg-denim-dark">
       <div>
         <Body
           preset={width >= 1280 ? "p1" : width >= 768 ? "p2" : "p3"}

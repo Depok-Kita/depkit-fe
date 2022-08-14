@@ -1,21 +1,22 @@
-import React, { useRef, useState } from "react";
-import axios from "axios";
+import { Divider } from "@chakra-ui/react";
 import {
-  DonationCard,
-  Card,
   Body,
   Button,
-  Toast,
+  Card,
+  DonationCard,
   HeaderResponsive,
+  HeadingLine,
+  Toast,
 } from "@components";
-import { InputFieldFormik } from "@components/input-field";
-import { Divider } from "@chakra-ui/react";
-import { Formik, Form, FormikErrors, FormikHelpers } from "formik";
+import { InputFieldFormik, SelectFieldFormik } from "@components/input-field";
 import { ChevronRightIcon } from "@heroicons/react/outline";
 import { useWindowSize } from "@hooks";
-import Image from "next/image";
 import { GrandOpening } from "@models";
 import { isValidPhoneNumber } from "@utils";
+import axios from "axios";
+import { Form, Formik, FormikErrors, FormikHelpers } from "formik";
+import Image from "next/image";
+import React, { useRef, useState } from "react";
 
 const COUNTRY_CODE = "+62";
 
@@ -23,7 +24,6 @@ export const GrandOpeningForm = () => {
   const donationProveUpload = useRef<any>(null);
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
-  const { width } = useWindowSize();
   const windowSize = useWindowSize();
   const successToast = Toast({
     preset: "success",
@@ -51,7 +51,35 @@ export const GrandOpeningForm = () => {
     email: "",
     line: "",
     phone: COUNTRY_CODE,
+    institution: "",
+    faculty: "",
+    transferFrom: "",
   };
+  const TRANSFER_OPTIONS = [
+    { label: "BCA", value: "BCA" },
+    { label: "BRI", value: "BRI" },
+    { label: "Gopay", value: "Gopay" },
+  ];
+  // const FACULTY_OPTIONS = [
+  //   { label: "Kedokteran", value: "Kedokteran" },
+  //   { label: "Kedokteran Gigi", value: "Kedokteran Gigi" },
+  //   { label: "Ilmu Keperawatan", value: "Ilmu Keperawatan" },
+  //   { label: "Farmasi", value: "Farmasi" },
+  //   {
+  //     label: "Matematika dan Ilmu Pengetahuan Alam",
+  //     value: "Matematika dan Ilmu Pengetahuan Alam",
+  //   },
+  //   { label: "Teknik", value: "Teknik" },
+  //   { label: "Psikologi", value: "Psikologi" },
+  //   { label: "Hukum", value: "Hukum" },
+  //   { label: "Ekonomi dan Bisnis", value: "Ekonomi dan Bisnis" },
+  //   { label: "Ilmu Pengetahuan Budaya", value: "Ilmu Pengetahuan Budaya" },
+  //   { label: "Ilmu Komputer", value: "Ilmu Komputer" },
+  //   { label: "Ilmu Administrasi", value: "Ilmu Administrasi" },
+  //   { label: "Ilmu Sosial dan Politik", value: "Ilmu Sosial dan Politik" },
+  //   { label: "Kesehatan Masyarakat", value: "Kesehatan Masyarakat" },
+  //   { label: "Program Pendidikan Vokasi", value: "Program Pendidikan Vokasi" },
+  // ];
 
   const REQUIRED_ERROR_MSG = "Harus diisi!";
   const validate = (values: GrandOpening) => {
@@ -66,6 +94,15 @@ export const GrandOpeningForm = () => {
       errors.phone = REQUIRED_ERROR_MSG;
     } else if (!isValidPhoneNumber(values.phone)) {
       errors.phone = "Nomor telepon tidak valid. Gunakan format +628XXXXXXXX";
+    }
+    if (!values.institution) {
+      errors.institution = REQUIRED_ERROR_MSG;
+    }
+    if (!values.faculty) {
+      errors.faculty = REQUIRED_ERROR_MSG;
+    }
+    if (!values.transferFrom) {
+      errors.transferFrom = REQUIRED_ERROR_MSG;
     }
     if (!values.line) {
       errors.line = REQUIRED_ERROR_MSG;
@@ -147,12 +184,9 @@ export const GrandOpeningForm = () => {
         validate={validate}
         onSubmit={handleSubmit}
       >
-        {(props) => (
-          <Form
-            // encType="multipart/form-data"
-            className="space-y-10 desktop:max-w-[70%] tablet:max-w-[90%] mobile:max-w-[80%] mx-auto"
-          >
-            <div className="tablet:grid grid-cols-8 desktop:gap-10 mobile:flex flex-col tablet:gap-0 mobile:gap-9">
+        {(props: any) => (
+          <Form className="space-y-10 desktop:max-w-[40%] tablet:max-w-[50%] mobile:max-w-[80%] mx-auto">
+            <div className="flex flex-col gap-6 tablet:gap-5">
               <div className="w-full flex flex-col gap-[20px] col-span-5 justify-center desktop:text-left mobile:text-center">
                 <div>
                   <HeaderResponsive
@@ -175,11 +209,11 @@ export const GrandOpeningForm = () => {
                     Talkshow
                   </HeaderResponsive>
                 </div>
-                <div className="desktop:block mobile:hidden">
+                {/* <div className="desktop:block mobile:hidden">
                   <DonationCard />
-                </div>
+                </div> */}
               </div>
-              <div className="flex flex-col desktop:gap-10 tablet:gap-9 mobile:gap-6 justify-end mb-8 w-full text-totalwhite col-span-3">
+              <div className="flex flex-col gap-6 justify-end mb-8 w-full text-totalwhite col-span-3">
                 <div className="bg-denim-dark mr-auto px-4 py-[10px] rounded-[12px]">
                   <Body preset="p2" className="text-danger-light">
                     * harus diisi
@@ -193,7 +227,7 @@ export const GrandOpeningForm = () => {
                   isDisabled={false}
                   dark={true}
                   required={true}
-                  innerClassName="desktop:p-8 mobile:p-6"
+                  // innerClassName="desktop:p-8 mobile:p-6"
                 />
                 <InputFieldFormik
                   type="text"
@@ -203,7 +237,7 @@ export const GrandOpeningForm = () => {
                   isDisabled={false}
                   dark={true}
                   required={true}
-                  innerClassName="desktop:p-8 mobile:p-6"
+                  // innerClassName="desktop:p-8 mobile:p-6"
                 />
                 <InputFieldFormik
                   type="text"
@@ -213,7 +247,27 @@ export const GrandOpeningForm = () => {
                   isDisabled={false}
                   dark={true}
                   required={true}
-                  innerClassName="desktop:p-8 mobile:p-6"
+                  // innerClassName="desktop:p-8 mobile:p-6"
+                />
+                <InputFieldFormik
+                  type="text"
+                  name="institution"
+                  placeholder="Masukkan Asal Instansi Anda"
+                  label="Asal Instansi"
+                  isDisabled={false}
+                  dark={true}
+                  required={true}
+                  // innerClassName="desktop:p-8 mobile:p-6"
+                />
+                <InputFieldFormik
+                  type="text"
+                  name="faculty"
+                  placeholder="Masukkan Fakultas Anda"
+                  label="Fakultas"
+                  isDisabled={false}
+                  dark={true}
+                  required={true}
+                  // innerClassName="desktop:p-8 mobile:p-6"
                 />
                 <InputFieldFormik
                   type="text"
@@ -223,13 +277,13 @@ export const GrandOpeningForm = () => {
                   isDisabled={false}
                   dark={true}
                   required={true}
-                  innerClassName="desktop:p-8 mobile:p-6"
+                  // innerClassName="desktop:p-8 mobile:p-6"
                 />
               </div>
             </div>
-            <div className="desktop:hidden mobile:block">
+            {/* <div className="desktop:hidden mobile:block">
               <DonationCard />
-            </div>
+            </div> */}
             <Card preset="dark">
               <div className="flex flex-col gap-10 items-center w-full">
                 <div className="flex flex-col gap-3">
@@ -243,52 +297,74 @@ export const GrandOpeningForm = () => {
                     Kirim bukti donasi
                     <span className="text-danger-light">*</span>
                   </HeaderResponsive>
-                  <Divider
-                    borderColor={"#88BFE8"}
-                    bgColor={"#88BFE8"}
-                    borderWidth={1.5}
-                    width={
-                      width >= 1280
-                        ? width / 1.6
-                        : width >= 768
-                        ? width / 1.25
-                        : "auto"
-                    }
-                  />
+                  <div
+                    className={"h-[4.5px] w-full bg-cerulean mt-2 mx-auto"}
+                  ></div>
                   <Body
                     preset="p3"
-                    className="text-powder-light desktop:text-[24px] tablet:text-[13.3px] mobile:text-[12px] font-light"
+                    className="text-powder-light desktop:text-[20px] tablet:text-[13.3px] mobile:text-[12px] font-light"
                   >
-                    Pastikan file dalam bentuk png, jpg, atau jpeg.
+                    Haii, pembayaran ini bersifat donasi yaa, berapapun yang
+                    kamu berikan akan sangat bermanfaat ! hasil donasi kamu akan
+                    disalurkan kepada masyarakat Kampung Lio, Depok yang
+                    membutuhkan. Yuk berdonasii!
+                    <br />
+                    <br />
+                    <b>
+                      BCA : 8720701881 a.n Nazwa Mauritsa Ayu
+                      <br />
+                      BRI : 086401030932530 a.n Dhafiyah Utah
+                      <br />
+                      Gopay : 085695371868 a.n Nazwa Mauritsa
+                    </b>
                   </Body>
+                  <SelectFieldFormik
+                    name="transferFrom"
+                    label="Transfer melalui"
+                    options={TRANSFER_OPTIONS}
+                    placeholder="Pilih"
+                    required={true}
+                    dark={true}
+                    className="mt-4"
+                  />
                 </div>
                 <div className="mr-auto">
-                  <Button
-                    type="button"
-                    preset="secondaryDark"
-                    className="w-full "
-                    border={Object.keys(props.touched).length !== 0 && image === null ? "border-[#E53E3E] border-2" : undefined}
-                    rightIcon={<ChevronRightIcon className="w-5" />}
-                    onClick={() => {
-                      donationProveUpload.current.click();
-                    }}
+                  <div>
+                    <Button
+                      type="button"
+                      preset="secondaryDark"
+                      className="w-max"
+                      border={
+                        Object.keys(props.touched).length !== 0 &&
+                        image === null
+                          ? "border-[#E53E3E] border-2"
+                          : undefined
+                      }
+                      rightIcon={<ChevronRightIcon className="w-5" />}
+                      onClick={() => {
+                        donationProveUpload.current.click();
+                      }}
                     >
-                    {!!createObjectURL ? "Ubah Foto" : "Pilih Foto"}
-                  </Button>
-                  {Object.keys(props.touched).length !== 0 && image === null && (
-                    <Body preset="p3" className="text-[#E53E3E] mt-3 font-light text-[14px]">
-                      {REQUIRED_ERROR_MSG}
-                    </Body>
-                  )}
-                  <input
-                    hidden
-                    type="file"
-                    name="donationProve"
-                    id="donationProve"
-                    accept="image/*"
-                    ref={donationProveUpload}
-                    onChange={uploadToClient}
-                  />
+                      {!!createObjectURL ? "Ubah Foto" : "Pilih Foto"}
+                    </Button>
+                    {Object.keys(props.touched).length !== 0 && image === null && (
+                      <Body
+                        preset="p3"
+                        className="text-[#E53E3E] mt-3 font-light text-[14px]"
+                      >
+                        {REQUIRED_ERROR_MSG}
+                      </Body>
+                    )}
+                    <input
+                      hidden
+                      type="file"
+                      name="donationProve"
+                      id="donationProve"
+                      accept="image/*"
+                      ref={donationProveUpload}
+                      onChange={uploadToClient}
+                    />
+                  </div>
                 </div>
                 {createObjectURL && (
                   <div className="w-[50%]">
