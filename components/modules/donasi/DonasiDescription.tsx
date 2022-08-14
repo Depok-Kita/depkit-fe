@@ -17,7 +17,7 @@ export const DonasiDescription = () => {
     }
   }, [width]);
   return (
-    <div className="space-y-[28px] desktop:space-y-[50px] p-10 tablet:p-16 desktop:px-[350px] desktop:py-28 text-center bg-denim-light">
+    <div className="space-y-[28px] desktop:space-y-[50px] p-10 tablet:p-16 desktop:px-40 wide:px-[350px] desktop:py-28 text-center bg-denim-light">
       <div className="flex justify-center items-center flex-col gap-[14px] desktop:gap-[25px]">
         <Header
           preset={width >= 1280 ? "h2" : width >= 768 ? "h3" : "h4"}
@@ -41,7 +41,7 @@ export const DonasiDescription = () => {
         )}
       </div>
       {isOpen && (
-        <div className="flex flex-col tablet:flex-row gap-[34px] desktop:gap-12 desktop:min-h-[368px]">
+        <div className="flex flex-col tablet:flex-row gap-[34px] desktop:gap-12  desktop:min-h-[368px]">
           {DONASI_DESCRIPTION.map(({ title, description }) => (
             <Card
               preset="light"
