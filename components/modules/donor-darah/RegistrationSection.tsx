@@ -170,6 +170,7 @@ export const RegistrationSection = () => {
                   label="Id Line"
                   dark
                   required
+
                 />
                 <InputFieldFormik
                   name="donationDate"
