@@ -41,7 +41,7 @@ export const GrandOpeningSpeaker = () => {
             768: {
               slidesPerView: 1,
               spaceBetween: 15,
-              slidesPerGroup: 2,
+              slidesPerGroup: 1,
             },
             // when window width is >= 1280px
             1280: {
@@ -62,14 +62,18 @@ export const GrandOpeningSpeaker = () => {
                 padding="desktop:p-10 tablet:p-6 mobile:p-4"
               >
                 <div className="flex tablet:gap-9 mobile:gap-4">
-                  <Image
-                    src={"/" + speaker.imageUrl}
-                    width={width >= 1280 ? 800 : width >= 768 ? 600 : 400}
-                    height={width >= 1280 ? 800 : width >= 768 ? 600 : 400}
-                    className="rounded-[18px]"
-                    alt={speaker.name}
-                  />
                   <div>
+                    <Image
+                      src={"/" + speaker.imageUrl}
+                      width={width >= 1280 ? 500 : width >= 768 ? 600 : 150}
+                      height={width >= 1280 ? 500 : width >= 768 ? 600 : 150}
+                      className="rounded-[18px]"
+                      layout="intrinsic"
+                      objectFit="cover"
+                      alt={speaker.name}
+                    />
+                  </div>
+                  <div className="w-full">
                     <Header
                       preset={width >= 1280 ? "h4" : width >= 768 ? "h5" : "h6"}
                       className="text-denim-dark"
@@ -78,7 +82,7 @@ export const GrandOpeningSpeaker = () => {
                     </Header>
                     <Body
                       preset={width >= 1280 ? "p2" : "p3"}
-                      className="text-denim-light desktop:mt-4 tablet:mt-2 mobile:mt-1 "
+                      className="text-denim-light desktop:mt-4 tablet:mt-2 mobile:mt-1"
                     >
                       {speaker.description}
                     </Body>

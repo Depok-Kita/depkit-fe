@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Header, Button, useWindowSize } from "@components";
+import { Header, Button, useWindowSize, Body } from "@components";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 export const GrandOpeningHero = () => {
   const { width } = useWindowSize();
@@ -21,12 +21,18 @@ export const GrandOpeningHero = () => {
           >
             Grand Opening <span className="text-cerulean">X</span> Talkshow
           </Header>
-          <div className="flex justify-center mt-6 desktop:mt-12">
+          <Body preset="b2" className="text-denim-dark text-center">
+            🗓 Sabtu, 20 Agustus 2022<br />
+            🕰 09.00 - selesai<br />
+            📍Zoom Meeting
+          </Body>
+          <div className="flex justify-center mt-6 desktop:mt-4">
             <Button
               preset="primaryDark"
               rightIcon={<ChevronRightIcon className="w-5 h-5 fill-powder" />}
               onClick={() => {
-                const offset = document.getElementById("grand-opening-form")?.offsetTop;
+                const offset =
+                  document.getElementById("grand-opening-form")?.offsetTop;
                 window.scrollTo({
                   top: offset === undefined ? 0 : offset + 10,
                   behavior: "smooth",

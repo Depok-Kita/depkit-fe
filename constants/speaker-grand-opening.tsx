@@ -2,40 +2,22 @@ import { Speaker } from "@models";
 
 export const SPEAKER_GRANDOPENING: Speaker[] = [
   {
-    name: "Marcellinus Elbert",
+    name: "Nala Amirah",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat risus eu mi egestas, non rutrum ",
-    imageUrl: "../public/assets/images/profile-dummy.jpg",
+      "Founder of Green Welfare Indonesia",
+    imageUrl: "../public/assets/images/grand-opening-speakers/nala.jpg",
   },
   {
-    name: "Naufal Weis",
+    name: "Fadli Robbi",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat risus eu mi egestas, non rutrum",
-    imageUrl: "../public/assets/images/profile-dummy.jpg",
+      "CEO Zerolim.id",
+    imageUrl: "../public/assets/images/grand-opening-speakers/fadli.jpg",
   },
   {
-    name: "Edu",
+    name: "Sifa Fauzia, SKM., MKM.",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat risus eu mi egestas, non rutrum",
-    imageUrl: "../public/assets/images/profile-dummy.jpg",
-  },
-  {
-    name: "Joan",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat risus eu mi egestas, non rutrum",
-    imageUrl: "../public/assets/images/profile-dummy.jpg",
-  },
-  {
-    name: "Mario",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat risus eu mi egestas, non rutrum",
-    imageUrl: "../public/assets/images/profile-dummy.jpg",
-  },
-  {
-    name: "Ruben",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat risus eu mi egestas, non rutrum",
-    imageUrl: "../public/assets/images/profile-dummy.jpg",
+      "Peneliti di Pusat Kajian Kesehatan Lingkungan dan Industri (PKKLI) FKM UI",
+    imageUrl: "../public/assets/images/grand-opening-speakers/sifa.jpg",
   },
 ];
 
