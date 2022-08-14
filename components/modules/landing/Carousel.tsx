@@ -13,7 +13,7 @@ export const Carousel = () => {
   const windowSize = useWindowSize();
   return (
     <div className="relative desktop:min-h-screen bg-denim-dark">
-      {/* <Swiper
+      <Swiper
         slidesPerView={1}
         centeredSlides={true}
         loop={true}
@@ -37,7 +37,7 @@ export const Carousel = () => {
             </div>
           </SwiperSlide>
         ))}
-      </Swiper> */}
+      </Swiper>
       <ArrowDownIcon
         className="absolute text-cerulean w-[63px] h-auto mx-auto z-10 animate-bounce right-[50%] top-[90%] cursor-pointer hidden desktop:block"
         onClick={() => {
