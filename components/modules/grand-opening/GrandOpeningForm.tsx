@@ -267,7 +267,7 @@ export const GrandOpeningForm = () => {
                     type="button"
                     preset="secondaryDark"
                     className="w-full "
-                    border={image === null ? "border-[#E53E3E] border-2" : undefined}
+                    border={Object.keys(props.touched).length !== 0 && image === null ? "border-[#E53E3E] border-2" : undefined}
                     rightIcon={<ChevronRightIcon className="w-5" />}
                     onClick={() => {
                       donationProveUpload.current.click();
