@@ -1,24 +1,24 @@
-import Image from "next/image";
-import { Header, Button, useWindowSize, Body } from "@components";
+import { Body, Button, Header, useWindowSize } from "@components";
 import { ChevronRightIcon } from "@heroicons/react/solid";
+import Image from "next/image";
 export const GrandOpeningHero = () => {
   const { width } = useWindowSize();
   const heroBackground =
-    width >= 768
+    width > 900
       ? "/assets/images/grand-opening-hero.png"
-      : "/assets/images/grand-opening-hero-tablet.png";
+      : width > 500
+      ? "/assets/images/grand-opening-hero-tablet.svg"
+      : "/assets/images/grand-opening-hero-mobile.svg";
   return (
     <div className="min-h-screen">
       <div className="absolute min-h-screen w-full flex items-center justify-center  bg-powder-light">
         <Image
           src={heroBackground}
           layout="fill"
-          objectFit={width >= 1280 ? "contain" : "cover"}
-          className="z-0 scale-75 tablet:scale-100"
+          objectFit="contain"
+          className="z-0 scale-75 tablet:scale-75 desktop:scale-100"
           alt="Landing Accent"
         />
-        {/* <div className="absolute w-full h-full desktop:mt-32 desktop:-ml-20">
-        </div> */}
         <div className="bg-totalwhite mx-5 p-[20px] rounded-[20px] desktop:p-[50px] desktop:rounded-[32px] z-10 opacity-90">
           <Header
             preset={
