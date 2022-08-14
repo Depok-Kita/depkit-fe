@@ -133,7 +133,7 @@ export const GrandOpeningForm = () => {
     formData.append("files", image);
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_STRAPI}api/upload/`,
+        `${process.env.NEXT_PUBLIC_API_STRAPI}/api/upload/`,
         formData
       );
       return response.data[0].id;

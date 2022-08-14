@@ -4,7 +4,7 @@ import {
   GrandOpeningHero,
   GrandOpeningTema,
   GrandOpeningSpeaker,
-  GrandOpeningForm 
+  GrandOpeningForm,
 } from "@components";
 
 const GrandOpening: NextPage = () => {
