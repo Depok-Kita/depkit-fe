@@ -1,13 +1,4 @@
-import { Divider } from "@chakra-ui/react";
-import {
-  Body,
-  Button,
-  Card,
-  DonationCard,
-  HeaderResponsive,
-  HeadingLine,
-  Toast,
-} from "@components";
+import { Body, Button, Card, HeaderResponsive, Toast } from "@components";
 import { InputFieldFormik, SelectFieldFormik } from "@components/input-field";
 import { ChevronRightIcon } from "@heroicons/react/outline";
 import { useWindowSize } from "@hooks";
@@ -52,7 +43,9 @@ export const GrandOpeningForm = () => {
     line: "",
     phone: COUNTRY_CODE,
     institution: "",
+    otherInstitution: "",
     faculty: "",
+    otherFaculty: "",
     transferFrom: "",
   };
   const TRANSFER_OPTIONS = [
@@ -60,26 +53,27 @@ export const GrandOpeningForm = () => {
     { label: "BRI", value: "BRI" },
     { label: "Gopay", value: "Gopay" },
   ];
-  // const FACULTY_OPTIONS = [
-  //   { label: "Kedokteran", value: "Kedokteran" },
-  //   { label: "Kedokteran Gigi", value: "Kedokteran Gigi" },
-  //   { label: "Ilmu Keperawatan", value: "Ilmu Keperawatan" },
-  //   { label: "Farmasi", value: "Farmasi" },
-  //   {
-  //     label: "Matematika dan Ilmu Pengetahuan Alam",
-  //     value: "Matematika dan Ilmu Pengetahuan Alam",
-  //   },
-  //   { label: "Teknik", value: "Teknik" },
-  //   { label: "Psikologi", value: "Psikologi" },
-  //   { label: "Hukum", value: "Hukum" },
-  //   { label: "Ekonomi dan Bisnis", value: "Ekonomi dan Bisnis" },
-  //   { label: "Ilmu Pengetahuan Budaya", value: "Ilmu Pengetahuan Budaya" },
-  //   { label: "Ilmu Komputer", value: "Ilmu Komputer" },
-  //   { label: "Ilmu Administrasi", value: "Ilmu Administrasi" },
-  //   { label: "Ilmu Sosial dan Politik", value: "Ilmu Sosial dan Politik" },
-  //   { label: "Kesehatan Masyarakat", value: "Kesehatan Masyarakat" },
-  //   { label: "Program Pendidikan Vokasi", value: "Program Pendidikan Vokasi" },
-  // ];
+  const FACULTY_OPTIONS = [
+    { label: "Kedokteran", value: "Kedokteran" },
+    { label: "Kedokteran Gigi", value: "Kedokteran Gigi" },
+    { label: "Ilmu Keperawatan", value: "Ilmu Keperawatan" },
+    { label: "Farmasi", value: "Farmasi" },
+    {
+      label: "Matematika dan Ilmu Pengetahuan Alam",
+      value: "Matematika dan Ilmu Pengetahuan Alam",
+    },
+    { label: "Teknik", value: "Teknik" },
+    { label: "Psikologi", value: "Psikologi" },
+    { label: "Hukum", value: "Hukum" },
+    { label: "Ekonomi dan Bisnis", value: "Ekonomi dan Bisnis" },
+    { label: "Ilmu Pengetahuan Budaya", value: "Ilmu Pengetahuan Budaya" },
+    { label: "Ilmu Komputer", value: "Ilmu Komputer" },
+    { label: "Ilmu Administrasi", value: "Ilmu Administrasi" },
+    { label: "Ilmu Sosial dan Politik", value: "Ilmu Sosial dan Politik" },
+    { label: "Kesehatan Masyarakat", value: "Kesehatan Masyarakat" },
+    { label: "Program Pendidikan Vokasi", value: "Program Pendidikan Vokasi" },
+    { label: "Other...", value: "Other..." },
+  ];
 
   const REQUIRED_ERROR_MSG = "Harus diisi!";
   const validate = (values: GrandOpening) => {
@@ -98,8 +92,14 @@ export const GrandOpeningForm = () => {
     if (!values.institution) {
       errors.institution = REQUIRED_ERROR_MSG;
     }
+    if (values.institution === "Other..." && !values.otherInstitution) {
+      errors.otherInstitution = REQUIRED_ERROR_MSG;
+    }
     if (!values.faculty) {
       errors.faculty = REQUIRED_ERROR_MSG;
+    }
+    if (values.faculty === "Other..." && !values.otherFaculty) {
+      errors.otherFaculty = REQUIRED_ERROR_MSG;
     }
     if (!values.transferFrom) {
       errors.transferFrom = REQUIRED_ERROR_MSG;
@@ -153,12 +153,23 @@ export const GrandOpeningForm = () => {
       return;
     }
     const imageId = await submitImageHandler(image);
-    if (imageId === null) {
+    if (imageId === undefined) {
       helpers.setSubmitting(false);
+      console.log("imageId is undefined");
       return;
     }
     const data = {
-      ...values,
+      name: values.name,
+      email: values.email,
+      phone: values.phone,
+      institution:
+        values.institution === "Other..."
+          ? values.otherInstitution
+          : values.institution,
+      faculty:
+        values.faculty === "Other..." ? values.otherFaculty : values.faculty,
+      transferFrom: values.transferFrom,
+      line: values.line,
       donationProve: imageId,
     };
     await axios
@@ -166,6 +177,9 @@ export const GrandOpeningForm = () => {
         data: data,
       })
       .then((response) => {
+        helpers.resetForm();
+        setImage(null);
+        setCreateObjectURL(null);
         showRegistrationResult(response.status);
       })
       .catch((err) => {
@@ -227,7 +241,6 @@ export const GrandOpeningForm = () => {
                   isDisabled={false}
                   dark={true}
                   required={true}
-                  // innerClassName="desktop:p-8 mobile:p-6"
                 />
                 <InputFieldFormik
                   type="text"
@@ -237,7 +250,6 @@ export const GrandOpeningForm = () => {
                   isDisabled={false}
                   dark={true}
                   required={true}
-                  // innerClassName="desktop:p-8 mobile:p-6"
                 />
                 <InputFieldFormik
                   type="text"
@@ -247,28 +259,55 @@ export const GrandOpeningForm = () => {
                   isDisabled={false}
                   dark={true}
                   required={true}
-                  // innerClassName="desktop:p-8 mobile:p-6"
                 />
-                <InputFieldFormik
-                  type="text"
-                  name="institution"
-                  placeholder="Masukkan Asal Instansi Anda"
-                  label="Asal Instansi"
-                  isDisabled={false}
-                  dark={true}
-                  required={true}
-                  // innerClassName="desktop:p-8 mobile:p-6"
-                />
-                <InputFieldFormik
-                  type="text"
-                  name="faculty"
-                  placeholder="Masukkan Fakultas Anda"
-                  label="Fakultas"
-                  isDisabled={false}
-                  dark={true}
-                  required={true}
-                  // innerClassName="desktop:p-8 mobile:p-6"
-                />
+                <div>
+                  <SelectFieldFormik
+                    name="institution"
+                    placeholder="Pilih Asal Instansi Anda"
+                    options={[
+                      {
+                        label: "Universitas Indonesia",
+                        value: "Universitas Indonesia",
+                      },
+                      { label: "Other...", value: "Other..." },
+                    ]}
+                    label="Asal Instansi"
+                    isDisabled={false}
+                    dark={true}
+                    required={true}
+                  />
+                  {props.values.institution === "Other..." && (
+                    <InputFieldFormik
+                      type="text"
+                      name="otherInstitution"
+                      placeholder="Masukkan Fakultas Anda"
+                      isDisabled={false}
+                      dark={true}
+                      required={props.values.institution === "Other..."}
+                    />
+                  )}
+                </div>
+                <div>
+                  <SelectFieldFormik
+                    name="faculty"
+                    placeholder="Pilih Fakultas Anda"
+                    label="Fakultas"
+                    options={FACULTY_OPTIONS}
+                    isDisabled={false}
+                    dark={true}
+                    required={true}
+                  />
+                  {props.values.faculty === "Other..." && (
+                    <InputFieldFormik
+                      type="text"
+                      name="otherFaculty"
+                      placeholder="Masukkan Fakultas Anda"
+                      isDisabled={false}
+                      dark={true}
+                      required={props.values.faculty === "Other..."}
+                    />
+                  )}
+                </div>
                 <InputFieldFormik
                   type="text"
                   name="line"
@@ -277,7 +316,6 @@ export const GrandOpeningForm = () => {
                   isDisabled={false}
                   dark={true}
                   required={true}
-                  // innerClassName="desktop:p-8 mobile:p-6"
                 />
               </div>
             </div>

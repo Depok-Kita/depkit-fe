@@ -6,3 +6,4 @@ export * from "./sponsors";
 export * from "./medpars";
 export * from "./viewports";
 export * from "./home-carousel-images";
+export * from "./speaker-grand-opening";

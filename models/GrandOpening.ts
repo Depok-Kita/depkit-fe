@@ -5,6 +5,8 @@ export type GrandOpening = {
   donationProve?: number;
   phone: string;
   institution: string;
+  otherInstitution?: string;
   faculty: string;
+  otherFaculty?: string;
   transferFrom: string;
 };
