@@ -35,7 +35,7 @@ export const Hero = () => {
             Depok Kita
           </Header>
           <Body windowSize={windowSize} preset="b2" className="mt-2">
-            dd/mm/yyyy - dd/mm/yyyy
+            5 November 20222
           </Body>
           <Button
             className="mt-4"
