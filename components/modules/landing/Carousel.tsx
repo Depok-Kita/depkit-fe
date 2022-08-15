@@ -34,6 +34,8 @@ export const Carousel = () => {
                 layout="fill"
                 objectFit="cover"
                 alt="Gambar Acara Depok Kita"
+                priority={true}
+                loading="eager"
               />
             </div>
           </SwiperSlide>

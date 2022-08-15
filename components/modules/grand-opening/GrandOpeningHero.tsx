@@ -1,5 +1,9 @@
 import { Body, Button, Header, HeadingLine, useWindowSize } from "@components";
-import { CalendarIcon, ClockIcon, LocationMarkerIcon } from "@heroicons/react/outline";
+import {
+  CalendarIcon,
+  ClockIcon,
+  LocationMarkerIcon,
+} from "@heroicons/react/outline";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 export const GrandOpeningHero = () => {
@@ -19,6 +23,8 @@ export const GrandOpeningHero = () => {
           objectFit="contain"
           className="z-0 scale-75 tablet:scale-75 desktop:scale-100"
           alt="Landing Accent"
+          priority={true}
+          loading="eager"
         />
         <div className="bg-totalwhite mx-5 p-[20px] rounded-[20px] desktop:p-[50px] desktop:rounded-[32px] z-10 opacity-90 flex flex-col items-center">
           <Header
