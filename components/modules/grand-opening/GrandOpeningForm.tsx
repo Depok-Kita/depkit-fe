@@ -1,4 +1,11 @@
-import { Body, Button, Card, HeaderResponsive, Toast } from "@components";
+import {
+  Body,
+  Button,
+  Card,
+  HeaderResponsive,
+  Toast,
+  BodyResponsive,
+} from "@components";
 import { InputFieldFormik, SelectFieldFormik } from "@components/input-field";
 import { ChevronRightIcon } from "@heroicons/react/outline";
 import { useWindowSize } from "@hooks";
@@ -8,7 +15,17 @@ import axios from "axios";
 import { Form, Formik, FormikErrors, FormikHelpers } from "formik";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
-
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
+import Link from "next/link";
 const COUNTRY_CODE = "+62";
 
 export const GrandOpeningForm = () => {
@@ -16,6 +33,7 @@ export const GrandOpeningForm = () => {
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
   const windowSize = useWindowSize();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const successToast = Toast({
     preset: "success",
     message: "Anda berhasil mendaftar!",
@@ -112,6 +130,7 @@ export const GrandOpeningForm = () => {
 
   const showRegistrationResult = (responseStatusCode: number) => {
     if (responseStatusCode == 200) {
+      onOpen();
       return successToast();
     }
     if (responseStatusCode == 500) {
@@ -243,7 +262,7 @@ export const GrandOpeningForm = () => {
                   required={true}
                 />
                 <InputFieldFormik
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="JaneDoe@gmail.com"
                   label="Email"
@@ -280,7 +299,7 @@ export const GrandOpeningForm = () => {
                     <InputFieldFormik
                       type="text"
                       name="otherInstitution"
-                      placeholder="Masukkan Fakultas Anda"
+                      placeholder="Masukkan Institusi Anda"
                       isDisabled={false}
                       dark={true}
                       required={props.values.institution === "Other..."}
@@ -427,6 +446,45 @@ export const GrandOpeningForm = () => {
             >
               {props.isSubmitting ? "Sedang Mendaftar..." : "Daftar"}
             </Button>
+            <Modal
+              isOpen={isOpen}
+              onClose={onClose}
+              size="lg"
+              closeOnOverlayClick={false}
+            >
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>
+                  <HeaderResponsive
+                    windowSize={windowSize}
+                    preset="h5"
+                    presetTablet="h5"
+                    presetDesktop="h4"
+                  >
+                    Halo, Sobat DepKit !
+                  </HeaderResponsive>
+                </ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  <HeaderResponsive
+                    windowSize={windowSize}
+                    preset="h7"
+                    presetTablet="h6"
+                    presetDesktop="h5"
+                  >
+                    Terima kasih ya sudah berpartisipasi dalam Talkshow Charity
+                    Depok Kita UI 2022!<br></br>
+                    <br></br> Setelah ini, untuk koordinasi lebih lanjut kamu
+                    bisa bergabung di link berikut{" "}
+                    <p className="text-cerulean">
+                      <Link href="https://chat.whatsapp.com/LJ7Ni22qz5S9KXdBcfVpEm">
+                        https://chat.whatsapp.com/LJ7Ni22qz5S9KXdBcfVpEm
+                      </Link>
+                    </p>
+                  </HeaderResponsive>
+                </ModalBody>
+              </ModalContent>
+            </Modal>
           </Form>
         )}
       </Formik>
