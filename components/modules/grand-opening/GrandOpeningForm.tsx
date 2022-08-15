@@ -1,11 +1,5 @@
-import {
-  Body,
-  Button,
-  Card,
-  HeaderResponsive,
-  Toast,
-  BodyResponsive,
-} from "@components";
+import { Body, Button, Card, HeaderResponsive, Toast } from "@components";
+
 import { InputFieldFormik, SelectFieldFormik } from "@components/input-field";
 import { ChevronRightIcon } from "@heroicons/react/outline";
 import { useWindowSize } from "@hooks";
@@ -20,7 +14,6 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   useDisclosure,

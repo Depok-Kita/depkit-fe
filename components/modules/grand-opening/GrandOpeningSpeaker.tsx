@@ -9,6 +9,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import { SPEAKER_GRANDOPENING } from "@constants";
 import { Speaker } from "@models";
 import Image from "next/image";
+
 export const GrandOpeningSpeaker = () => {
   const { width } = useWindowSize();
   return (
@@ -64,7 +65,7 @@ export const GrandOpeningSpeaker = () => {
                 <div className="flex tablet:gap-9 mobile:gap-4">
                   <div>
                     <Image
-                      src={"/" + speaker.imageUrl}
+                      src={speaker.imageUrl}
                       width={width >= 1280 ? 500 : width >= 768 ? 600 : 150}
                       height={width >= 1280 ? 500 : width >= 768 ? 600 : 150}
                       className="rounded-[18px]"
