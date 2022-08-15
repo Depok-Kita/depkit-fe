@@ -1,9 +1,9 @@
-import "../styles/styles.css";
+import { ChakraProvider } from "@chakra-ui/react";
+import { Footer, Navbar } from "@components";
 import theme from "@styles/theme";
 import type { AppProps } from "next/app";
-import { ChakraProvider } from "@chakra-ui/react";
-import { Navbar, Footer } from "@components";
 import Head from "next/head";
+import "../styles/styles.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -21,29 +21,23 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://metatags.io/" />
+        <meta property="og:url" content="https://www.depokkita.com" />
         <meta property="og:title" content="Depok Kita 2022" />
         <meta
           property="og:description"
           content="Kegiatan pengabdian masyarakat di bawah naungan Departemen Sosial Masyarakat BEM UI 2022 dengan kegiatan intervensi Pendidikan Kreatif dan Kesehatan Lingkungan serta dimeriahkan dengan pesta rakyat dalam rangkaian Social Event."
         />
-        <meta
-          property="og:image"
-          content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
-        />
+        <meta property="og:image" content="/assets/images/meta.png" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://metatags.io/" />
+        <meta property="twitter:url" content="https://www.depokkita.com" />
         <meta property="twitter:title" content="Depok Kita 2022" />
         <meta
           property="twitter:description"
           content="Kegiatan pengabdian masyarakat di bawah naungan Departemen Sosial Masyarakat BEM UI 2022 dengan kegiatan intervensi Pendidikan Kreatif dan Kesehatan Lingkungan serta dimeriahkan dengan pesta rakyat dalam rangkaian Social Event."
         />
-        <meta
-          property="twitter:image"
-          content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
-        />
+        <meta property="twitter:image" content="/assets/images/meta.png" />
       </Head>
       <Component {...pageProps} />
       <Footer />
