@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import { DonationCard, Header } from "@components";
 import {
   Carousel,
@@ -14,10 +13,6 @@ import "swiper/css";
 const Home: NextPage = () => {
   return (
     <div>
-      <Head>
-        <title>Depok Kita</title>
-        <link rel="icon" href="/assets/images/depkit-logo-1.svg" />
-      </Head>
       <div className="bg-powder-light desktop:pb-32 tablet:pb-13 mobile:pb-8">
         <Carousel />
         <DepkitProfile />
