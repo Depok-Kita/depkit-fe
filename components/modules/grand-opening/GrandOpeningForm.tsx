@@ -442,8 +442,10 @@ export const GrandOpeningForm = () => {
             <Modal
               isOpen={isOpen}
               onClose={onClose}
-              size="lg"
+              size={windowSize.width > 768 ? "lg" : "xs"}
               closeOnOverlayClick={false}
+              motionPreset='slideInBottom'
+              isCentered
             >
               <ModalOverlay />
               <ModalContent>
@@ -459,22 +461,24 @@ export const GrandOpeningForm = () => {
                 </ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
-                  <HeaderResponsive
-                    windowSize={windowSize}
-                    preset="h7"
-                    presetTablet="h6"
-                    presetDesktop="h5"
-                  >
-                    Terima kasih ya sudah berpartisipasi dalam Talkshow Charity
-                    Depok Kita UI 2022!<br></br>
-                    <br></br> Setelah ini, untuk koordinasi lebih lanjut kamu
-                    bisa bergabung di link berikut{" "}
-                    <p className="text-cerulean">
-                      <Link href="https://chat.whatsapp.com/LJ7Ni22qz5S9KXdBcfVpEm">
-                        https://chat.whatsapp.com/LJ7Ni22qz5S9KXdBcfVpEm
-                      </Link>
-                    </p>
-                  </HeaderResponsive>
+                  <div className="pb-5">
+                    <HeaderResponsive
+                      windowSize={windowSize}
+                      preset="h7"
+                      presetTablet="h6"
+                      presetDesktop="h5"
+                    >
+                      Terima kasih ya sudah berpartisipasi dalam Talkshow
+                      Charity Depok Kita UI 2022!<br></br>
+                      <br></br> Setelah ini, untuk koordinasi lebih lanjut kamu
+                      bisa bergabung di link berikut{" "}
+                      <p className="text-cerulean">
+                        <Link href="https://chat.whatsapp.com/LJ7Ni22qz5S9KXdBcfVpEm">
+                          https://chat.whatsapp.com/LJ7Ni22qz5S9KXdBcfVpEm
+                        </Link>
+                      </p>
+                    </HeaderResponsive>
+                  </div>
                 </ModalBody>
               </ModalContent>
             </Modal>
