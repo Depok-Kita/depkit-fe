@@ -15,6 +15,7 @@ export const SPEAKER_GRANDOPENING: Speaker[] = [
     name: "Sifa Fauzia, SKM., MKM.",
     description:
       "Peneliti di Pusat Kajian Kesehatan Lingkungan dan Industri (PKKLI) FKM UI",
+
     imageUrl: "/assets/images/grand-opening-speakers/sifa.jpg",
   },
 ];

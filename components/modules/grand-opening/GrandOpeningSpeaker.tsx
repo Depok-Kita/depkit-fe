@@ -12,7 +12,6 @@ import Image from "next/image";
 
 export const GrandOpeningSpeaker = () => {
   const { width } = useWindowSize();
-  console.log(SPEAKER_GRANDOPENING[0].imageUrl);
   return (
     <div className="bg-powder-light h-full w-full desktop:py-24 tablet:py-12 mobile:py-7">
       <Header
