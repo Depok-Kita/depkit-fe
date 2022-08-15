@@ -9,11 +9,12 @@ import { Button } from "@components/button";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import { useWindowSize } from "@components/hooks";
 import { ArrowDownIcon } from "@heroicons/react/outline";
+import Link from "next/link";
 export const Carousel = () => {
   const windowSize = useWindowSize();
   return (
     <div className="relative desktop:min-h-screen bg-denim-dark">
-      {/* <Swiper
+      <Swiper
         slidesPerView={1}
         centeredSlides={true}
         loop={true}
@@ -37,7 +38,7 @@ export const Carousel = () => {
             </div>
           </SwiperSlide>
         ))}
-      </Swiper> */}
+      </Swiper>
       <ArrowDownIcon
         className="absolute text-cerulean w-[63px] h-auto mx-auto z-10 animate-bounce right-[50%] top-[90%] cursor-pointer hidden desktop:block"
         onClick={() => {
@@ -63,7 +64,7 @@ export const Carousel = () => {
           decorative
           windowSize={windowSize}
         >
-          Grand Launching <br></br>Depok Kita UI 2022
+          Grand Opening <br></br>Depok Kita UI 2022
         </HeaderResponsive>
         <BodyResponsive
           preset="p3"
@@ -76,13 +77,17 @@ export const Carousel = () => {
           BEM UI 2022
         </BodyResponsive>
         <div className="desktop:mt-10 mt-auto z-20">
-          <Button
-            preset="secondaryLight"
-            rightIcon={<ChevronRightIcon className="w-4" />}
-            className="grow-0"
-          >
-            Grand Opening
-          </Button>
+          <Link href="/grand-opening">
+            <a>
+              <Button
+                preset="secondaryLight"
+                rightIcon={<ChevronRightIcon className="w-4" />}
+                className="grow-0"
+              >
+                Grand Opening
+              </Button>
+            </a>
+          </Link>
         </div>
       </div>
     </div>

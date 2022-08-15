@@ -30,14 +30,15 @@ export const TujuanSection = () => {
         </div>
         <Card preset="light">
           <div>
-            <Header windowSize={windowSize} preset="h6" presetTablet="h5">
-              Lorem ipsum dolor sit amet
-            </Header>
             <Body windowSize={windowSize} preset="p3" presetTablet="p2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              consequat risus eu mi egestas, non rutrum mauris laoreet. Ut eget
-              dignissim metus, non vehicula dolor. Praesent at magna vel velit
-              accums
+              Sejatinya, menyumbahkan sebagian darah untuk disalurkan kepada
+              yang membutuhkan akan menjadi sesuatu hal yang berarti dalam
+              kehidupan sosial bermasyarakat. Pada tahun ini, Depok Kita 2022
+              bekerja sama dengan UTD PMI Kota Depok untuk melaksanakan kegiatan
+              donor darah yang bertujuan dalam membuka akses pelayanan donor
+              darah di Kampung Lio Depok, sehingga akan semakin banyak
+              masyarakat yang peduli akan pentingnya melakukan donor darah bagi
+              kesehatan diri sendiri dan bagi kehidupan mereka yang membutuhkan
             </Body>
           </div>
         </Card>
