@@ -20,7 +20,7 @@ const Sponsor = () => {
           </Header>
 
           <SponsorSponsorship />
-          {/* <SponsorMediaPartner /> */}
+          <SponsorMediaPartner />
           <div className="mobile:pt-4 tablet:pt-4 desktop:pt-6">
             <SponsorContactPerson />
           </div>

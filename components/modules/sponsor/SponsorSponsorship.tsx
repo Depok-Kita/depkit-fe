@@ -27,7 +27,7 @@ export const SponsorSponsorship = () => {
           {/* MEDIUM , SMALL, EXTRA SMALL */}
           <div className="py-5 flex flex-col gap-3 items-center">
             {SPONSORS.map((sponsor: Partnership) => (
-              <div className="flex gap-2" key={sponsor.size}>
+              <div className="flex flex-wrap gap-2" key={sponsor.size}>
                 {sponsor.logos.map((Logo: any, index: number) => (
                   <Logo
                     key={index}
@@ -35,7 +35,7 @@ export const SponsorSponsorship = () => {
                       sponsor.size == "large"
                         ? "w-48 "
                         : sponsor.size == "medium"
-                        ? "w-30"
+                        ? "w-28"
                         : "w-16"
                     } h-full`}
                   />
