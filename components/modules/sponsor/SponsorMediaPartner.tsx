@@ -28,7 +28,10 @@ export const SponsorMediaPartner = () => {
           {/* MEDIUM , SMALL, EXTRA SMALL */}
           <div className="py-5 flex flex-col gap-3 items-center">
             {MEDPARS.map((medpar: Partnership) => (
-              <div className="flex flex-wrap gap-2 ml-28" key={medpar.size}>
+              <div
+                className="flex flex-wrap items-center gap-2 ml-28"
+                key={medpar.size}
+              >
                 {medpar.logos.map((Logo: any, index: number) => (
                   <Logo
                     key={index}
