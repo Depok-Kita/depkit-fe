@@ -29,7 +29,7 @@ export const SponsorMediaPartner = () => {
           <div className="py-5 flex flex-col gap-3 items-center">
             {MEDPARS.map((medpar: Partnership) => (
               <div
-                className="flex flex-wrap items-center gap-2 ml-28"
+                className="flex flex-wrap items-center gap-2 tablet:ml-28 "
                 key={medpar.size}
               >
                 {medpar.logos.map((Logo: any, index: number) => (
@@ -39,7 +39,7 @@ export const SponsorMediaPartner = () => {
                       medpar.size == "large"
                         ? "w-48 "
                         : medpar.size == "medium"
-                        ? "w-24"
+                        ? "desktop:w-40 tablet:w-20 mobile:w-12"
                         : "w-16"
                     } h-full`}
                   />

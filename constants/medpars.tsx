@@ -4,6 +4,7 @@ import LogoEventKampus from "@images/logo_event_kampus.svg";
 import LogoMediaEvent from "@images/logo_media_event.svg";
 import LogoEventJournal from "@images/logo_event_journal.svg";
 import LogoEventHID from "@images/logo_event_hid.svg";
+import LogoMaddingEvent from "@images/logo_madding_event.svg";
 
 import { Partnership } from "@models";
 
@@ -17,6 +18,7 @@ export const MEDPARS: Partnership[] = [
       LogoEventKampus,
       LogoMediaEvent,
       LogoWebinarNasional,
+      LogoMaddingEvent,
     ],
   },
 ];
