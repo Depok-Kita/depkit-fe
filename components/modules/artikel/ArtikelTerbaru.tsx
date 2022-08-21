@@ -20,11 +20,20 @@ export const ArtikelTerbaru = ({
   articles.sort((a: any, b: any) =>
     a.date < b.date ? 1 : a.date === b.date ? (a.id < b.id ? 1 : -1) : -1
   );
+
+  // Mengambil data jumlah artikel yang ada (jika dibawah 3 maka ambil sesuai jumlah artikel yang ada)
+  const jumlahArtikel = articles.length;
+  let jumlahFilterArtikelTerbaru = 3;
+  if (jumlahArtikel < 3) {
+    jumlahFilterArtikelTerbaru = jumlahArtikel;
+  }
+
   // Mengambil 3 artikel terbaru
-  const artikelTerbaru = articles.slice(0, 3);
+  const artikelTerbaru = articles.slice(0, jumlahFilterArtikelTerbaru);
+
   // Menambahkan angka pada setiap artikel
-  for (let i = 1; i <= 3; i++) {
-    artikelTerbaru[i - 1].number = i;
+  for (let i = 1; i <= jumlahFilterArtikelTerbaru; i++) {
+    artikelTerbaru[i - 1].nomor = i;
   }
 
   // Melakukan format tanggal
@@ -64,7 +73,7 @@ export const ArtikelTerbaru = ({
                         }
                         className="text-powder tablet:pr-2 desktop:text-[90px]"
                       >
-                        {article?.number}
+                        {article?.nomor}
                       </Header>
                       <Image
                         src={article?.photoUrl}
