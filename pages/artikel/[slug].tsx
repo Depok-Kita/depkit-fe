@@ -85,8 +85,10 @@ const Details = (artikel: any) => {
                 />
               </div>
               {/* BADAN ARTIKEL */}
-              <div className="flex flex-col gap-4 text-[12px] tablet:text-[16px] tablet:gap-6">
-                <ReactMarkdown>{article?.body}</ReactMarkdown>
+              <div className="max-w-80">
+                <div className="flex flex-col gap-4 text-[12px] tablet:text-[16px] tablet:gap-6">
+                  <ReactMarkdown>{article?.body}</ReactMarkdown>
+                </div>
               </div>
               {/* ULIRAN */}
               <div className="flex justify-center pt-12">
@@ -152,8 +154,10 @@ const Details = (artikel: any) => {
                     />
                   </div>
                   {/* BADAN ARTIKEL */}
-                  <div className="flex flex-col gap-4 text-[12px] tablet:text-[16px] tablet:gap-6">
-                    <ReactMarkdown>{article?.body}</ReactMarkdown>
+                  <div className="max-w-[800px]">
+                    <div className="flex flex-col gap-4 text-[12px] tablet:text-[16px] tablet:gap-6">
+                      <ReactMarkdown>{article?.body}</ReactMarkdown>
+                    </div>
                   </div>
                 </div>
                 {/* ARTIKEL LAINNYA */}
