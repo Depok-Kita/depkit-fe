@@ -32,10 +32,6 @@ const Artikel: NextPage = () => {
     });
   }, []);
 
-  console.log("CEK INDEX.TS");
-  console.log(articles);
-  console.log(topics);
-
   if (articlesLoading || topicsLoading) {
     return <LoadingScreen />;
   } else {
