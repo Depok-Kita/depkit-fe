@@ -6,7 +6,7 @@ import { XIcon } from "@heroicons/react/outline";
 
 export type ToastProps = {
   preset: "error" | "warning" | "success" | "info";
-  message: React.ReactNode;
+  message: React.ReactNode | string;
 };
 
 export const Toast = ({ preset, message }: ToastProps) => {

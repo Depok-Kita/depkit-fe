@@ -15,7 +15,7 @@ export const MenuLinks = ({ isOpen }: any) => {
         direction={["column", "column", "row", "row"]}
         pt={[4, 4, 0, 0]}
         mr={[0, 0, 0, 8]}
-        className="gap-0 tablet:gap-8 desktop:gap-[85px] w-full"
+        className="gap-0 tablet:gap-0 desktop:gap-[20px] w-full"
       >
         {NAV_ROUTES.map(({ name, url }) => {
           return (

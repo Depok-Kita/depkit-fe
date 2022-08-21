@@ -5,6 +5,12 @@ module.exports = withReactSvg({
     domains: ["localhost", "api.depokkita.com"],
   },
   include: path.resolve(__dirname, "public/assets"),
+  images: {
+    domains: ["api.depokkita.com", "localhost"],
+  },
+  experimental: {
+    esmExternals: false,
+  },
   webpack(config, options) {
     return config;
   },

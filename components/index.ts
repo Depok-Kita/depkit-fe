@@ -7,3 +7,5 @@ export * from "./hooks";
 export * from "./toast";
 export * from "./card";
 export * from "./modules";
+export * from "./modules";
+export * from "./section";

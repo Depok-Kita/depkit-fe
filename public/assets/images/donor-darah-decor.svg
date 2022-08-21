@@ -1,0 +1,31 @@
+<svg width="390" height="78" viewBox="0 0 390 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="78" height="78" transform="matrix(1 0 0 -1 0 78.0001)" fill="#F2FAFE"/>
+<circle r="39" transform="matrix(1 0 0 -1 39 39.0001)" fill="#213456"/>
+<rect width="39" height="78" transform="matrix(1 0 0 -1 39 78.0001)" fill="#F2FAFE"/>
+<mask id="mask0_476_726" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="78" height="78">
+<rect width="78" height="78" transform="matrix(1 0 0 -1 0 78.0001)" fill="#F2FAFE"/>
+</mask>
+<g mask="url(#mask0_476_726)">
+<circle r="39" transform="matrix(1 0 0 -1 78 78.0001)" fill="#88BFE8"/>
+<circle r="39" transform="matrix(1 0 0 -1 78 6.10352e-05)" fill="#88BFE8"/>
+</g>
+<rect x="78" width="78" height="78" fill="#88BFE8"/>
+<rect x="97.5" y="19.5" width="39" height="39" fill="#F2FAFE"/>
+<rect width="78" height="78" transform="matrix(-1 0 0 1 234 0)" fill="#88BFE8"/>
+<mask id="mask1_476_726" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="156" y="0" width="78" height="78">
+<rect width="78" height="78" transform="matrix(-1 0 0 1 234 0)" fill="#F2FAFE"/>
+</mask>
+<g mask="url(#mask1_476_726)">
+<circle r="78" transform="matrix(-1 0 0 1 234 0)" fill="#F2FAFE"/>
+</g>
+<circle r="19.5" transform="matrix(-1 0 0 1 214.5 19.5)" fill="#F7D76A"/>
+<rect x="234" width="78" height="78" fill="#F2FAFE"/>
+<circle cx="273" cy="39" r="39" fill="#F7D76A"/>
+<rect x="273" width="39" height="39" fill="#F2FAFE"/>
+<circle cx="273.159" cy="39" r="19.5" fill="#F2FAFE"/>
+<rect x="312" width="78" height="78" fill="#F2FAFE"/>
+<circle cx="331.5" cy="19.5" r="19.5" fill="#F7D76A"/>
+<circle cx="370.5" cy="19.5" r="19.5" fill="#88BFE8"/>
+<circle cx="370.5" cy="58.5" r="19.5" fill="#F7D76A"/>
+<circle cx="331.5" cy="58.5" r="19.5" fill="#88BFE8"/>
+</svg>
