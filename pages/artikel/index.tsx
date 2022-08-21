@@ -36,7 +36,7 @@ const Artikel: NextPage = () => {
   console.log(articles);
   console.log(topics);
 
-  if (articlesLoading) {
+  if (articlesLoading || topicsLoading) {
     return <LoadingScreen />;
   } else {
     return (

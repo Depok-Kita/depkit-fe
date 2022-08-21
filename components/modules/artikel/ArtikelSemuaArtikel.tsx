@@ -47,7 +47,7 @@ export const ArtikelSemuaArtikel = ({
         <div className="flex gap-2 items-center pl-24 pt-16 pb-8">
           <Body
             preset="b2"
-            className="border-cerulean px-2 border-l-4 px-4 text-[32px]"
+            className="border-cerulean px-2 border-l-4 text-[32px]"
           >
             Semua Artikel
           </Body>
@@ -62,7 +62,7 @@ export const ArtikelSemuaArtikel = ({
               mode="normal"
               bodyPage={false}
             />
-            <div className="flex justify-center pt-6 pb-10 pt-6 pb-24">
+            <div className="flex justify-center pb-10 pt-6 pb-24">
               <Button
                 preset="secondaryLight"
                 className="h-[60px] w-[180px]"
