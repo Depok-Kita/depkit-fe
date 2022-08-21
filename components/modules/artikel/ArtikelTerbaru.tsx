@@ -42,9 +42,9 @@ export const ArtikelTerbaru = ({
   };
 
   return (
-    <div className="flex justify-center bg-powder mobile:h-[375px] tablet:h-[660px] desktop:h-[1100px]">
+    <div className="flex justify-center bg-powder mobile:py-4 tablet:py-14">
       <div className="flex flex-col gap-2 w-full">
-        <div className="flex gap-2 items-center mobile:px-7 mobile:pt-5 tablet:pl-16 tablet:pt-10 tablet:pb-5 desktop:pl-28 desktop:pt-28 desktop:pb-8">
+        <div className="flex gap-2 items-center mobile:px-7 tablet:pl-16 tablet:pb-5 desktop:pl-28 desktop:pb-8">
           <Body
             preset="b2"
             className="border-l-2 border-cerulean px-2 tablet:border-l-4 tablet:text-[24px] tablet:px-4 desktop:text-[32px]"
