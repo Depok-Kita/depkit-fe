@@ -105,7 +105,7 @@ export const ArtikelTerbaru = ({
                           </Body>
                         ) : width >= 768 ? (
                           <Body preset="p3">
-                            {article?.body.slice(0, 180) + " ..."}
+                            {article?.body.slice(0, 100) + " ..."}
                           </Body>
                         ) : (
                           <></>
