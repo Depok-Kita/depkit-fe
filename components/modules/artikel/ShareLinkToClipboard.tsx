@@ -27,7 +27,7 @@ export const ShareLinkToClipboard = ({
     setTimeout(() => setIsCopied(false), 6000);
   };
 
-  const WEBSITE_URL = `http://localhost:3000`;
+  const WEBSITE_URL = `https://depokkita.com`;
   if (!isCopied) {
     return (
       <ShareIcon
