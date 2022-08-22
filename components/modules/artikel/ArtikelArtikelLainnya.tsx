@@ -99,11 +99,6 @@ export const ArtikelArtikelLainnya = ({
     return date.slice(8) + "/" + date.slice(5, 7) + "/" + date.slice(0, 4);
   };
 
-  console.log("Filtered by total : " + total);
-  console.log("Filtered by topic : " + filter);
-  console.log("Filtered by search : " + search);
-
-  console.log(page);
   if (mode == "normal") {
     return (
       <div className="flex flex-col">
