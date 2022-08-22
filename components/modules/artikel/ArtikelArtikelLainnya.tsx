@@ -4,7 +4,7 @@ import Image from "next/image";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useWindowSize } from "@hooks";
-
+import { Skeleton, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
 type ArtikelArtikelLainnyaProps = {
   className?: string;
   // Prioritas total > filter (topic) > search
@@ -101,14 +101,17 @@ export const ArtikelArtikelLainnya = ({
   console.log("Filtered by topic : " + filter);
   console.log("Filtered by search : " + search);
 
-  if (articlesLoading) {
-    return <LoadingScreen />;
-  } else {
-    if (mode == "normal") {
-      return (
-        <div className="flex flex-col">
-          {artikelDitampilkan.map((article: any) => (
-            <div className="flex justify-center" key={article.id}>
+  if (mode == "normal") {
+    return (
+      <div className="flex flex-col">
+        {artikelDitampilkan.map((article: any) => (
+          <Skeleton
+            isLoaded={!articlesLoading}
+            rounded="lg"
+            mb={2}
+            key={article.id}
+          >
+            <div className="flex justify-center">
               <div
                 className={
                   bodyPage
@@ -214,61 +217,61 @@ export const ArtikelArtikelLainnya = ({
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      );
-    } else {
-      // Saat mode split
-      return (
-        <div className="grid grid-cols-2 gap-x-6">
-          {artikelDitampilkan.map((article: any) => (
-            <div className="flex justify-center" key={article.id}>
-              <div className="w-[600px] pb-3">
-                <div className="flex justify-between border-b border-powder pb-1 pt-2 relative">
-                  <Link href={"/artikel/" + article?.slug}>
-                    <div className="mobile:max-w-[180px] tablet:max-w-[400px] desktop:max-w-[460px] hover:cursor-pointer">
-                      <Body preset="p3" className="text-[8.5px]">
-                        {dateFormat(article?.published)}
-                      </Body>
-                      <Body preset="b3" className="text-[13px]">
-                        {/* Handle title yang terlalu panjang */}
-                        {article?.title.length >= 40
-                          ? article?.title.slice(0, 30) + " ..."
-                          : article?.title}
-                      </Body>
-                      <div className="flex flex-wrap gap-1 absolute bottom-2">
-                        {article?.topics.map((topic: any) => (
-                          <div
-                            className="bg-totalwhite border-totalwhite shadow-inner rounded-2xl text-cerulean font-bold px-[6px] py-[1px] text-[7px]"
-                            key={topic.id}
-                          >
-                            {topic.name}
-                          </div>
-                        ))}
-                      </div>
+          </Skeleton>
+        ))}
+      </div>
+    );
+  } else {
+    // Saat mode split
+    return (
+      <div className="grid grid-cols-2 gap-x-6">
+        {artikelDitampilkan.map((article: any) => (
+          <div className="flex justify-center" key={article.id}>
+            <div className="w-[600px] pb-3">
+              <div className="flex justify-between border-b border-powder pb-1 pt-2 relative">
+                <Link href={"/artikel/" + article?.slug}>
+                  <div className="mobile:max-w-[180px] tablet:max-w-[400px] desktop:max-w-[460px] hover:cursor-pointer">
+                    <Body preset="p3" className="text-[8.5px]">
+                      {dateFormat(article?.published)}
+                    </Body>
+                    <Body preset="b3" className="text-[13px]">
+                      {/* Handle title yang terlalu panjang */}
+                      {article?.title.length >= 40
+                        ? article?.title.slice(0, 30) + " ..."
+                        : article?.title}
+                    </Body>
+                    <div className="flex flex-wrap gap-1 absolute bottom-2">
+                      {article?.topics.map((topic: any) => (
+                        <div
+                          className="bg-totalwhite border-totalwhite shadow-inner rounded-2xl text-cerulean font-bold px-[6px] py-[1px] text-[7px]"
+                          key={topic.id}
+                        >
+                          {topic.name}
+                        </div>
+                      ))}
                     </div>
-                  </Link>
-                  <ShareLinkToClipboard
-                    className="absolute bottom-[10px] right-[95px] w-4"
-                    link={article.slug}
-                  />
-                  <Link href={"/artikel/" + article?.slug}>
-                    <div>
-                      <Image
-                        src={article?.photoUrl}
-                        alt={article?.photoAlt}
-                        width={85}
-                        height={60}
-                        className="rounded-md"
-                      />
-                    </div>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
+                <ShareLinkToClipboard
+                  className="absolute bottom-[10px] right-[95px] w-4"
+                  link={article.slug}
+                />
+                <Link href={"/artikel/" + article?.slug}>
+                  <div>
+                    <Image
+                      src={article?.photoUrl}
+                      alt={article?.photoAlt}
+                      width={85}
+                      height={60}
+                      className="rounded-md"
+                    />
+                  </div>
+                </Link>
               </div>
             </div>
-          ))}
-        </div>
-      );
-    }
+          </div>
+        ))}
+      </div>
+    );
   }
 };
