@@ -6,4 +6,7 @@ module.exports = withReactSvg({
   webpack(config, options) {
     return config;
   },
+  images: {
+    domains: ['localhost']
+  }
 });

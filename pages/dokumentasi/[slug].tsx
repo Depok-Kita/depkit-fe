@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { Dokumentasi } from "@models";
@@ -11,8 +11,10 @@ import {
   SectionBox,
   useWindowSize,
   Button,
+  LoadingScreen,
 } from "@components";
 import { responsive } from "@utils";
+import axios from "axios";
 
 import "swiper/css";
 
@@ -37,18 +39,19 @@ const ButtonNext = ({ onClick }: NavButtonProps) => {
   );
 };
 
-const DokumView = (/*dokum: Dokumentasi*/) => {
+const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
   const windowSize = useWindowSize();
   const [swiperController, setSwiperController] = useState<SwiperController>();
+
   return (
     <div className="">
       <SectionBox className="w-[min(64rem,80%)]">
         <div className="border-l-8 border-cerulean pl-4">
           <Header windowSize={windowSize} preset="h2">
-            Lorem Ipsum Dolor sit amet, consectetur adipiscing elit
+            {dokum.title}
           </Header>
           <Body windowSize={windowSize} preset="b1">
-            Week 8 - mm/yyyy
+            {dokum.date}
           </Body>
         </div>
         <div className="flex flex-row mt-8">
@@ -66,25 +69,17 @@ const DokumView = (/*dokum: Dokumentasi*/) => {
             modules={[Navigation, Pagination, Controller]}
             //className="grow-0"
           >
-            <SwiperSlide className="">
-              <div className="relative w-[300px] h-[200px]">
-                <Image
-                  src="/assets/images/dokum-page-sample.png"
-                  layout="fill"
-                  alt="Gambar Dokumentasi"
-                />
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide className="">
-              <div className="relative w-[300px] h-[200px]">
-                <Image
-                  src="/assets/images/dokum-page-sample.png"
-                  layout="fill"
-                  alt="Gambar Dokumentasi"
-                />
-              </div>
-            </SwiperSlide>
+            {dokum.photoUrls.map((photoUrl) => (
+              <SwiperSlide className="" key={photoUrl}>
+                <div className="relative w-[300px] h-[200px]">
+                  <Image
+                    src={photoUrl}
+                    layout="fill"
+                    alt="Gambar Dokumentasi"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
           </Swiper>
           <ButtonNext onClick={() => swiperController?.slideNext()} />
         </div>
@@ -98,10 +93,20 @@ const DokumView = (/*dokum: Dokumentasi*/) => {
 
 const DokumPage = () => {
   const router = useRouter();
-  const { dokumId } = router.query;
+  const { slug } = router.query;
+  console.log(slug);
+  const [dokum, setDokum] = useState<Dokumentasi>();
+  const [isLoading, setLoading] = useState<boolean>(true);
+  useEffect(() => {
+    axios.get("/api/dokumentasi?slug=" + slug).then((response) => {
+      setDokum(response.data);
+      setLoading(false);
+    });
+  }, [slug]);
+  if (isLoading) return <LoadingScreen />;
   return (
     <div className="pt-32 bg-powder-light">
-      <DokumView />
+      {dokum && <DokumView dokum={dokum} />}
     </div>
   );
 };

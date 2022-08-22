@@ -3,31 +3,35 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
 import { Dokumentasi } from "@models";
 
-export default function handler(_: NextApiRequest, res: NextApiResponse) {
+const parseDokumentasi = (dokumentasiRaw: any): Dokumentasi =>
+  ({
+    slug: dokumentasiRaw.attributes.slug,
+    title: dokumentasiRaw.attributes.title,
+    date: dokumentasiRaw.attributes.date,
+    photoUrls: dokumentasiRaw.attributes.photos.data.map(
+      (photo: any) => process.env.NEXT_PUBLIC_API_STRAPI + photo.attributes.url
+    ),
+    videoUrls: dokumentasiRaw.attributes.videos.data.map(
+      (video: any) => process.env.NEXT_PUBLIC_API_STRAPI + video.attributes.url
+    ),
+  } as Dokumentasi);
+
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
   axios
     .get(
-      `${process.env.NEXT_PUBLIC_API_STRAPI}/api/dokumentasis?populate=photos,videos`
+      `${process.env.NEXT_PUBLIC_API_STRAPI}/api/dokumentasis/${
+        req.query.slug ?? ""
+      }?populate=photos,videos`
     )
     .then((response) => {
       try {
-        res.status(200).json(
-          response.data.data.map(
-            (dokumentasi: any) =>
-              ({
-                slug: dokumentasi.attributes.slug,
-                title: dokumentasi.attributes.title,
-                date: dokumentasi.attributes.date,
-                photoUrls: dokumentasi.attributes.photos.data.map(
-                  (photo: any) =>
-                    process.env.NEXT_PUBLIC_API_STRAPI + photo.attributes.url
-                ),
-                videoUrls: dokumentasi.attributes.videos.data.map(
-                  (video: any) =>
-                    process.env.NEXT_PUBLIC_API_STRAPI + video.attributes.url
-                ),
-              } as Dokumentasi)
-          )
-        );
+        let parsedData;
+        if (req.query.slug) {
+          parsedData = parseDokumentasi(response.data.data);
+        } else {
+          parsedData = response.data.data.map(parseDokumentasi);
+        }
+        res.status(200).json(parsedData);
       } catch (e) {
         console.log(e);
       }
