@@ -35,13 +35,7 @@ export const SponsorMediaPartner = () => {
                 {medpar.logos.map((Logo: any, index: number) => (
                   <Logo
                     key={index}
-                    className={`${
-                      medpar.size == "large"
-                        ? "w-48 "
-                        : medpar.size == "medium"
-                        ? "desktop:w-40 tablet:w-20 mobile:w-12"
-                        : "w-16"
-                    } h-full`}
+                    className="desktop:w-28 tablet:w-20 mobile:w-12 h-full"
                   />
                 ))}
               </div>
