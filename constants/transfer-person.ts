@@ -7,17 +7,17 @@ type TransferPerson = {
 export const TRANSFER_PERSON: TransferPerson[] = [
   {
     bank: "BCA",
-    number: "6760473527",
-    name: "Wanya Raina Meaza",
+    number: "8720701881",
+    name: "Nazwa Mauritsa Ayu",
   },
   {
-    bank: "MANDIRI",
-    number: "1290012092322",
-    name: "Mita Yesica Octavia",
+    bank: "BRI",
+    number: "086401030932530",
+    name: "Dhafiyah Utah",
   },
   {
-    bank: "GOPAY/OVO",
-    number: "081222261675",
-    name: "Mita Yesica",
+    bank: "GOPAY",
+    number: "085695371868",
+    name: "Nazwa Mauritsa",
   },
 ];

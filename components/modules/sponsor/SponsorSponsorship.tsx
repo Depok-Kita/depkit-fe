@@ -33,10 +33,10 @@ export const SponsorSponsorship = () => {
                     key={index}
                     className={`${
                       sponsor.size == "large"
-                        ? "w-48 "
+                        ? "desktop:w-48 tablet:w-36 mobile:w-28"
                         : sponsor.size == "medium"
-                        ? "w-30"
-                        : "w-16"
+                        ? "desktop:w-28 tablet:w-16 mobile:w-14"
+                        : "desktop:w-16 tablet:w-12 mobile:w-10"
                     } h-full`}
                   />
                 ))}

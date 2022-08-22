@@ -435,7 +435,7 @@ export const GrandOpeningForm = () => {
               type="submit"
               preset="primaryLight"
               className="mx-auto scale-125"
-              disabled={props.isSubmitting}
+              disabled
             >
               {props.isSubmitting ? "Sedang Mendaftar..." : "Daftar"}
             </Button>
@@ -444,7 +444,7 @@ export const GrandOpeningForm = () => {
               onClose={onClose}
               size={windowSize.width > 768 ? "lg" : "xs"}
               closeOnOverlayClick={false}
-              motionPreset='slideInBottom'
+              motionPreset="slideInBottom"
               isCentered
             >
               <ModalOverlay />
