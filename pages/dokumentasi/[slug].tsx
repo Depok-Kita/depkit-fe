@@ -3,7 +3,14 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { Dokumentasi } from "@models";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Controller, Navigation, Pagination, Autoplay } from "swiper";
+import {
+  Controller,
+  Navigation,
+  Pagination,
+  Autoplay,
+  Thumbs,
+  FreeMode,
+} from "swiper";
 import { Swiper as SwiperController } from "swiper/types";
 import {
   HeaderResponsive as Header,
@@ -17,6 +24,9 @@ import { responsive } from "@utils";
 import axios from "axios";
 
 import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 type NavButtonProps = {
@@ -39,10 +49,50 @@ const ButtonNext = ({ onClick }: NavButtonProps) => {
   );
 };
 
+const DokumBottomSlider = ({
+  dokum,
+  selectedDokumIndex,
+  selectPreview,
+  onSwiper,
+}: {
+  dokum: Dokumentasi;
+  selectedDokumIndex: number;
+  selectPreview: (index: number) => void;
+  onSwiper: (swiper: SwiperController) => void;
+}) => {
+  return (
+    <div className="bg-denim-dark p-5  rounded">
+      <Swiper
+        spaceBetween={10}
+        slidesPerView="auto"
+        freeMode
+        onSwiper={onSwiper}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="h-[175px]"
+      >
+        {dokum.photoUrls.map((imageUrl: string, index: number) => (
+          <SwiperSlide
+            key={index}
+            className="relative flex-shrink h-fit max-w-[30%]"
+          >
+            <Image
+              src={imageUrl}
+              layout="fill"
+              alt="item image"
+              objectFit="contain"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+};
+
 const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
   const windowSize = useWindowSize();
-  const [swiperController, setSwiperController] = useState<SwiperController>();
-
+  const [mainSwiper, setMainSwiper] = useState<SwiperController>();
+  const [thumbSwiper, setThumbSwiper] = useState<SwiperController>();
+  const [selectedDokumIndex, selectPreview] = useState<number>(0);
   return (
     <div className="">
       <SectionBox className="w-[min(64rem,80%)]">
@@ -55,7 +105,7 @@ const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
           </Body>
         </div>
         <div className="flex flex-row mt-8">
-          <ButtonPrev onClick={() => swiperController?.slidePrev()} />
+          <ButtonPrev onClick={() => mainSwiper?.slidePrev()} />
           <Swiper
             slidesPerView={1}
             spaceBetween={50}
@@ -65,9 +115,9 @@ const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
             //delay: 2500,
             //disableOnInteraction: true,
             //}}
-            onSwiper={(swiper) => setSwiperController(swiper)}
-            modules={[Navigation, Pagination, Controller]}
-            //className="grow-0"
+            onSwiper={setMainSwiper}
+            modules={[Navigation, Thumbs, Controller]}
+            thumbs={{ swiper: thumbSwiper }}
           >
             {dokum.photoUrls.map((photoUrl) => (
               <SwiperSlide className="" key={photoUrl}>
@@ -80,12 +130,27 @@ const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
                 </div>
               </SwiperSlide>
             ))}
+            {dokum.videoUrls.map((videoUrl) => (
+              <SwiperSlide className="" key={videoUrl}>
+                <iframe
+                  src={videoUrl}
+                  className="relative w-[300px] h-[200px]"
+                  allowFullScreen
+                ></iframe>
+              </SwiperSlide>
+            ))}
           </Swiper>
-          <ButtonNext onClick={() => swiperController?.slideNext()} />
+          <ButtonNext onClick={() => mainSwiper?.slideNext()} />
         </div>
         <Button preset="primaryLight" className="ml-auto">
           Simpan Dokumentasi
         </Button>
+        <DokumBottomSlider
+          dokum={dokum}
+          selectedDokumIndex={selectedDokumIndex}
+          selectPreview={selectPreview}
+          onSwiper={setThumbSwiper}
+        />
       </SectionBox>
     </div>
   );
