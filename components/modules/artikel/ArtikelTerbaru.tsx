@@ -117,19 +117,11 @@ export const ArtikelTerbaru = ({
                 <ShareLinkToClipboard
                   className={
                     width >= 768
-                      ? "absolute bottom-3 right-20 desktop:bottom-[21px] desktop:right-[100px]"
+                      ? "absolute bottom-3 right-20 desktop:bottom-[21px] desktop:right-10"
                       : "absolute bottom-3 right-3"
                   }
                   link={article.slug}
                 />
-                {width >= 768 && (
-                  <Body
-                    preset="p3"
-                    className="absolute bottom-4 right-6 desktop:text-[18px]"
-                  >
-                    Bagikan
-                  </Body>
-                )}
               </Card>
             </div>
           ))}

@@ -14,6 +14,7 @@ type ArtikelArtikelLainnyaProps = {
   mode?: string; // Untuk menyetel mode splitting by 2 atau engga
   bodyPage?: boolean; // Untuk mendapatkan posisi peletakan artikel lainnya ada di mana (bodyPage vs mainPage)
   children?: React.ReactNode;
+  page?: string;
 };
 
 export const ArtikelArtikelLainnya = ({
@@ -24,6 +25,7 @@ export const ArtikelArtikelLainnya = ({
   search,
   mode,
   bodyPage,
+  page,
 }: ArtikelArtikelLainnyaProps) => {
   const { width } = useWindowSize();
   // GET : api/articles
@@ -101,12 +103,14 @@ export const ArtikelArtikelLainnya = ({
   console.log("Filtered by topic : " + filter);
   console.log("Filtered by search : " + search);
 
+  console.log(page);
   if (mode == "normal") {
     return (
       <div className="flex flex-col">
         {artikelDitampilkan.map((article: any) => (
           <Skeleton
             isLoaded={!articlesLoading}
+            className={`${page === article.slug ? "hidden" : ""}`}
             rounded="lg"
             mb={2}
             key={article.id}
@@ -226,50 +230,57 @@ export const ArtikelArtikelLainnya = ({
     return (
       <div className="grid grid-cols-2 gap-x-6">
         {artikelDitampilkan.map((article: any) => (
-          <div className="flex justify-center" key={article.id}>
-            <div className="w-[600px] pb-3">
-              <div className="flex justify-between border-b border-powder pb-1 pt-2 relative">
-                <Link href={"/artikel/" + article?.slug}>
-                  <div className="mobile:max-w-[180px] tablet:max-w-[400px] desktop:max-w-[460px] hover:cursor-pointer">
-                    <Body preset="p3" className="text-[8.5px]">
-                      {dateFormat(article?.published)}
-                    </Body>
-                    <Body preset="b3" className="text-[13px]">
-                      {/* Handle title yang terlalu panjang */}
-                      {article?.title.length >= 40
-                        ? article?.title.slice(0, 30) + " ..."
-                        : article?.title}
-                    </Body>
-                    <div className="flex flex-wrap gap-1 absolute bottom-2">
-                      {article?.topics.map((topic: any) => (
-                        <div
-                          className="bg-totalwhite border-totalwhite shadow-inner rounded-2xl text-cerulean font-bold px-[6px] py-[1px] text-[7px]"
-                          key={topic.id}
-                        >
-                          {topic.name}
-                        </div>
-                      ))}
+          <Skeleton
+            isLoaded={!articlesLoading}
+            className={`${page === article.slug ? "hidden" : ""}`}
+            rounded="lg"
+            key={article.id}
+          >
+            <div className="flex justify-center" key={article.id}>
+              <div className="w-[600px] pb-3">
+                <div className="flex justify-between border-b border-powder pb-1 pt-2 relative">
+                  <Link href={"/artikel/" + article?.slug}>
+                    <div className="mobile:max-w-[180px] tablet:max-w-[400px] desktop:max-w-[460px] hover:cursor-pointer">
+                      <Body preset="p3" className="text-[8.5px]">
+                        {dateFormat(article?.published)}
+                      </Body>
+                      <Body preset="b3" className="text-[13px]">
+                        {/* Handle title yang terlalu panjang */}
+                        {article?.title.length >= 40
+                          ? article?.title.slice(0, 30) + " ..."
+                          : article?.title}
+                      </Body>
+                      <div className="flex flex-wrap gap-1 absolute bottom-2">
+                        {article?.topics.map((topic: any) => (
+                          <div
+                            className="bg-totalwhite border-totalwhite shadow-inner rounded-2xl text-cerulean font-bold px-[6px] py-[1px] text-[7px]"
+                            key={topic.id}
+                          >
+                            {topic.name}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </Link>
-                <ShareLinkToClipboard
-                  className="absolute bottom-[10px] right-[95px] w-4"
-                  link={article.slug}
-                />
-                <Link href={"/artikel/" + article?.slug}>
-                  <div>
-                    <Image
-                      src={article?.photoUrl}
-                      alt={article?.photoAlt}
-                      width={85}
-                      height={60}
-                      className="rounded-md"
-                    />
-                  </div>
-                </Link>
+                  </Link>
+                  <ShareLinkToClipboard
+                    className="absolute bottom-[10px] right-[95px] w-4"
+                    link={article.slug}
+                  />
+                  <Link href={"/artikel/" + article?.slug}>
+                    <div>
+                      <Image
+                        src={article?.photoUrl}
+                        alt={article?.photoAlt}
+                        width={85}
+                        height={60}
+                        className="rounded-md"
+                      />
+                    </div>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
+          </Skeleton>
         ))}
       </div>
     );

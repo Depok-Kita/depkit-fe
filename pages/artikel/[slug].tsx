@@ -103,6 +103,7 @@ const Details = (artikel: any) => {
                   filter="All"
                   search=""
                   mode={width >= 768 && width < 1280 ? "split" : "normal"}
+                  page={article?.slug}
                 />
               </div>
             </div>
@@ -171,6 +172,7 @@ const Details = (artikel: any) => {
                       search=""
                       mode={width >= 768 && width < 1280 ? "split" : "normal"}
                       bodyPage={true}
+                      page={article?.slug}
                     />
                   </div>
                 </div>
