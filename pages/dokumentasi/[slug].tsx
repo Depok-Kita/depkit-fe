@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
@@ -58,7 +58,7 @@ const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
       <SectionBox className="w-[min(64rem,80%)]">
         <Link href="/dokumentasi">
           <div className="rounded-full w-10 desktop:w-12 bg-[#F2FAFE]  inline-block drop-shadow-2xl">
-            <ChevronLeftIcon className="text-denim-light" />
+            <ChevronLeftIcon className="text-denim-light cursor-pointer" />
           </div>
         </Link>
         <div className="border-l-8 border-cerulean pl-4 mt-4">
@@ -91,7 +91,7 @@ const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
                     src={photoUrl}
                     layout="fill"
                     alt="Gambar Dokumentasi"
-                    objectFit="contain"
+                    objectFit="cover"
                     className="rounded-lg"
                   />
                 </div>
@@ -164,13 +164,34 @@ const DokumBottomSlider = ({
   //setActiveIndex: (index: number) => void;
   activeIndex: number;
 }) => {
+  const navPrefRef = useRef(null);
+  const navNextRef = useRef(null);
+  const navPrefEl = (
+    <ChevronLeftIcon
+      ref={navPrefRef}
+      id="thumb-nav-prev"
+      className="w-8  absolute bg-powder opacity-50 inset-y-0 left-3 z-10 rounded-full text-denim-light cursor-pointer my-auto"
+    />
+  );
+  const navNextEl = (
+    <ChevronRightIcon
+      ref={navPrefRef}
+      id="thumb-nav-next"
+      className="w-8  absolute bg-powder opacity-50 inset-y-0 right-3 z-10 rounded-full text-denim-light cursor-pointer my-auto"
+    />
+  );
   return (
-    <div className="bg-denim-dark p-5 my-6 rounded hidden tablet:block justify-between h-[100px] desktop:h-[150px] ">
+    <div className="bg-denim-dark px-12 py-5 my-6 rounded-lg hidden tablet:block justify-between h-[100px] desktop:h-[150px] relative">
+      {navPrefEl}
+      {navNextEl}
       <Swiper
-        spaceBetween={10}
+        spaceBetween={15}
         slidesPerView="auto"
         freeMode
-        navigation
+        navigation={{
+          prevEl: "#thumb-nav-prev",
+          nextEl: "#thumb-nav-next",
+        }}
         onSwiper={onSwiper}
         modules={[FreeMode, Navigation, Thumbs]}
         className="h-full swiper-bottom-nav"
@@ -178,7 +199,7 @@ const DokumBottomSlider = ({
         {dokum.photoUrls.map((imageUrl: string, index: number) => (
           <SwiperSlide
             key={index}
-            className={`relative flex-shrink h-fit max-w-[25%] ${
+            className={`relative flex-shrink h-fit max-w-[18%]  cursor-pointer  ${
               activeIndex == index ? "opacity-100" : "opacity-50"
             }`}
           >
@@ -187,6 +208,7 @@ const DokumBottomSlider = ({
               layout="fill"
               alt="item image"
               objectFit="cover"
+              className="rounded transform transition duration-500 hover:scale-150"
             />
           </SwiperSlide>
         ))}
