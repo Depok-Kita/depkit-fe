@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Link from "next/link";
 import { Dokumentasi } from "@models";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Controller, Navigation, Thumbs, FreeMode } from "swiper";
@@ -51,7 +52,12 @@ const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
   return (
     <div className="">
       <SectionBox className="w-[min(64rem,80%)]">
-        <div className="border-l-8 border-cerulean pl-4">
+        <Link href="/dokumentasi">
+          <div className="rounded-full w-10 desktop:w-12 bg-[#F2FAFE]  inline-block drop-shadow-2xl">
+            <ChevronLeftIcon className="text-denim-light" />
+          </div>
+        </Link>
+        <div className="border-l-8 border-cerulean pl-4 mt-4">
           <Header windowSize={windowSize} preset="h2">
             {dokum.title}
           </Header>
