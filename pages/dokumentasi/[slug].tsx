@@ -14,6 +14,7 @@ import {
   Button,
   LoadingScreen,
 } from "@components";
+import { downloadFile } from "@utils";
 import axios from "axios";
 
 import "swiper/css";
@@ -53,6 +54,13 @@ const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
   const [mainSwiper, setMainSwiper] = useState<SwiperController>();
   const [thumbSwiper, setThumbSwiper] = useState<SwiperController>();
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const getActiveMedia = () => {
+    return dokum.photoUrls[activeIndex];
+  };
+  const saveDokum = () => {
+    const mediaUrl = getActiveMedia();
+    downloadFile(mediaUrl);
+  };
   return (
     <div className="">
       <SectionBox className="w-[min(64rem,80%)]">
@@ -113,6 +121,7 @@ const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
           preset="secondaryLight"
           leftIcon={<DownloadIcon className="w-5" />}
           className="ml-auto mt-4"
+          onClick={saveDokum}
         >
           Simpan Dokumentasi
         </Button>
