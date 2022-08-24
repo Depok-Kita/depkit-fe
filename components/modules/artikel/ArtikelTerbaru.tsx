@@ -81,6 +81,7 @@ export const ArtikelTerbaru = ({
                         width={width >= 1280 ? 240 : width >= 768 ? 165 : 85}
                         height={width >= 1280 ? 170 : width >= 768 ? 100 : 60}
                         className="rounded-md tablet:rounded-xl desktop:rounded-2xl"
+                        objectFit="cover"
                       />
                       <div className="text-left mobile:max-w-[150px] tablet:max-w-[380px] tablet:pl-2 desktop:max-w-[680px]">
                         <Body

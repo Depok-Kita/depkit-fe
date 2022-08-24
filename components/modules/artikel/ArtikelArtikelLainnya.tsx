@@ -210,6 +210,7 @@ export const ArtikelArtikelLainnya = ({
                             : 60
                         }
                         className="rounded-md tablet:rounded-xl "
+                        objectFit="cover"
                       />
                     </div>
                   </Link>
@@ -269,6 +270,7 @@ export const ArtikelArtikelLainnya = ({
                         width={85}
                         height={60}
                         className="rounded-md"
+                        objectFit="cover"
                       />
                     </div>
                   </Link>
