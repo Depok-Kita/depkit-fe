@@ -21,7 +21,11 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  DownloadIcon,
+} from "@heroicons/react/solid";
 
 const DokumPage = () => {
   const router = useRouter();
@@ -88,6 +92,7 @@ const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
                     layout="fill"
                     alt="Gambar Dokumentasi"
                     objectFit="contain"
+                    className="rounded-lg"
                   />
                 </div>
               </SwiperSlide>
@@ -104,7 +109,11 @@ const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
           </Swiper>
           <ButtonNext onClick={() => mainSwiper?.slideNext()} />
         </div>
-        <Button preset="primaryLight" className="ml-auto mt-2">
+        <Button
+          preset="secondaryLight"
+          leftIcon={<DownloadIcon className="w-5" />}
+          className="ml-auto mt-4"
+        >
           Simpan Dokumentasi
         </Button>
         <DokumBottomSlider
@@ -169,7 +178,7 @@ const DokumBottomSlider = ({
         {dokum.photoUrls.map((imageUrl: string, index: number) => (
           <SwiperSlide
             key={index}
-            className={`relative flex-shrink h-fit max-w-[30%] ${
+            className={`relative flex-shrink h-fit max-w-[25%] ${
               activeIndex == index ? "opacity-100" : "opacity-50"
             }`}
           >
@@ -177,7 +186,7 @@ const DokumBottomSlider = ({
               src={imageUrl}
               layout="fill"
               alt="item image"
-              objectFit="contain"
+              objectFit="cover"
             />
           </SwiperSlide>
         ))}
