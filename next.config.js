@@ -1,12 +1,7 @@
 const withReactSvg = require("next-react-svg");
 const path = require("path");
 
-const ContentSecurityPolicy = `
-  frame-ancestors ${process.env.NEXT_PUBLIC_API_STRAPI} http://localhost:1337;
-`
-
-// replace csp new line with space
-const parseCsp = (csp) => csp.replace(/\s{2,}/g, ' ').trim()
+const apiUrl = new URL(process.env.NEXT_PUBLIC_API_STRAPI)
 
 module.exports = withReactSvg({
   include: path.resolve(__dirname, "public/assets"),
@@ -14,7 +9,7 @@ module.exports = withReactSvg({
     return config;
   },
   images: {
-    domains: ['localhost']
+    domains: [apiUrl.host, "localhost", "api.depokkita.com"]
   },
   async headers() {
     return [
@@ -23,7 +18,7 @@ module.exports = withReactSvg({
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: `frame-ancestors localhost:*;`
+            value: `frame-ancestors 'self' https://api.depokkita.com;`
           },
         ],
       },

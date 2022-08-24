@@ -27,6 +27,7 @@ import {
   ChevronRightIcon,
   DownloadIcon,
 } from "@heroicons/react/solid";
+import { PlayIcon } from "@heroicons/react/outline";
 
 const DokumPage = () => {
   const router = useRouter();
@@ -105,11 +106,15 @@ const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
                 </div>
               </SwiperSlide>
             ))}
-            {dokum.videoUrls.map((videoUrl) => (
-              <SwiperSlide className="" key={videoUrl}>
+            {dokum.videoUrls.map((videoUrl, index) => (
+              <SwiperSlide
+                className=""
+                key={videoUrl}
+                onClick={() => setActiveIndex(convertVideoIndex(index, dokum))}
+              >
                 <iframe
                   src={videoUrl}
-                  className="relative w-[300px] h-[200px]"
+                  className=" w-full h-[280px] tablet:h-[500px] rounded-lg"
                   allowFullScreen
                 ></iframe>
               </SwiperSlide>
@@ -221,7 +226,28 @@ const DokumBottomSlider = ({
             />
           </SwiperSlide>
         ))}
+        {dokum.videoUrls.map((videoUrl: string, index: number) => (
+          <SwiperSlide
+            key={convertVideoIndex(index, dokum)}
+            className={`relative flex-shrink h-fit max-w-[18%]  cursor-pointer  ${
+              activeIndex == convertVideoIndex(index, dokum)
+                ? "opacity-100"
+                : "opacity-50"
+            }`}
+          >
+            <div className="overflow-hidden h-full bg-black relative">
+              <video className="w-full h-full transform transition duration-500 hover:scale-150">
+                <source src={videoUrl} type="video/mp4" />
+              </video>
+              <PlayIcon className="absolute text-cerulean w-10 inset-0 mx-auto my-auto z-10" />
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
+};
+
+const convertVideoIndex = (index: number, dokum: Dokumentasi) => {
+  return index + dokum.photoUrls.length;
 };
