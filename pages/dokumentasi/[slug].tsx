@@ -36,7 +36,7 @@ const DokumPage = () => {
   const [isLoading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     axios.get("/api/dokumentasi?slug=" + slug).then((response) => {
-      setDokum(response.data);
+      setDokum(response.data[0]);
       setLoading(false);
     });
   }, [slug]);
