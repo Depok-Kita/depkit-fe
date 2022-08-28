@@ -18,9 +18,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
           title: article.attributes.title,
           published: article.attributes.published,
           body: article.attributes.body,
-          photoUrl:
-            process.env.NEXT_PUBLIC_API_STRAPI +
-            article.attributes.photo.data.attributes.url,
+          photoUrl: article.attributes.photo.data.attributes.url,
           photoAlt: article.attributes.photo.data.attributes.name,
           topics: article.attributes.topics.data.map(
             (topic: any) =>
