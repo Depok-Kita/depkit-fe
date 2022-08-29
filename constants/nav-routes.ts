@@ -9,6 +9,7 @@ export const NAV_ROUTES: Route[] = [
   { name: "Donor Darah", url: "/donor-darah" },
   { name: "Sponsor", url: "/sponsor" },
   { name: "Dokumentasi", url: "/dokumentasi" },
+  { name: "Artikel", url: "/artikel" },
 ];
 
 export default NAV_ROUTES;
