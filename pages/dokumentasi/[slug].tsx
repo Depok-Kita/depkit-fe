@@ -13,6 +13,7 @@ import {
   useWindowSize,
   Button,
   LoadingScreen,
+  DokumentasiCard,
 } from "@components";
 import { downloadFile } from "@utils";
 import axios from "axios";
@@ -33,25 +34,39 @@ const DokumPage = () => {
   const router = useRouter();
   const { slug } = router.query;
   const [dokum, setDokum] = useState<Dokumentasi>();
+  const [dokumLainnya, setDokumLainnya] = useState<Dokumentasi[]>();
   const [isLoading, setLoading] = useState<boolean>(true);
+  const [isDokumLainnyaLoading, setIsDokumLainnyaLoading] =
+    useState<boolean>(true);
   useEffect(() => {
     axios.get("/api/dokumentasi?slug=" + slug).then((response) => {
       setDokum(response.data[0]);
       setLoading(false);
     });
+    axios.get("/api/dokumentasi").then((response) => {
+      setDokumLainnya(response.data);
+      setIsDokumLainnyaLoading(false);
+    });
   }, [slug]);
-  if (isLoading) return <LoadingScreen />;
+  if (isLoading || isDokumLainnyaLoading) return <LoadingScreen />;
   return (
     <div className="mobile:pt-24 tablet:pt-36 desktop:pt-20 bg-powder-light">
-      {dokum && <DokumView dokum={dokum} />}
+      {dokum && <DokumView dokum={dokum} dokumLainnya={dokumLainnya} />}
     </div>
   );
 };
 
 export default DokumPage;
 
-const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
+const DokumView = ({
+  dokum,
+  dokumLainnya,
+}: {
+  dokum: Dokumentasi;
+  dokumLainnya?: Dokumentasi[];
+}) => {
   const windowSize = useWindowSize();
+  const { width } = useWindowSize();
   const [mainSwiper, setMainSwiper] = useState<SwiperController>();
   const [thumbSwiper, setThumbSwiper] = useState<SwiperController>();
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -71,10 +86,20 @@ const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
           </div>
         </Link>
         <div className="border-l-8 border-cerulean pl-4 mt-4">
-          <Header windowSize={windowSize} preset="h2">
+          <Header
+            windowSize={windowSize}
+            preset="h4"
+            presetDesktop="h2"
+            presetTablet="h3"
+          >
             {dokum.title}
           </Header>
-          <Body windowSize={windowSize} preset="b1">
+          <Body
+            windowSize={windowSize}
+            preset="b3"
+            presetDesktop="b1"
+            presetTablet="b2"
+          >
             {dokum.date}
           </Body>
         </div>
@@ -135,7 +160,33 @@ const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
           onSwiper={setThumbSwiper}
           activeIndex={activeIndex}
         />
-      </SectionBox>
+      </SectionBox>{" "}
+      <div className="h-full bg-powder desktop:px-52 tablet:px-20 mobile:px-10 desktop:pt-[50px] tablet:pt-7 mobile:pt-4 desktop:pb-36 tablet:pb-28 mobile:pb-20">
+        <Header
+          windowSize={windowSize}
+          preset="h5"
+          presetDesktop="h3"
+          presetTablet="h4"
+        >
+          Dokumentasi Lainnya
+        </Header>
+        <div className="desktop:mt-6 tablet:mt-4 mobile:mt-2 tablet:grid desktop:grid-cols-4 tablet:grid-cols-3 gap-3">
+          {dokumLainnya?.map((dok: Dokumentasi, index: number) => (
+            <div
+              className={`${
+                dok.slug === dokum.slug ||
+                index > (width >= 1280 ? 4 : width >= 768 ? 3 : 2)
+                  ? "hidden"
+                  : ""
+              }
+                
+              tablet:mt-0 mobile:mt-4`}
+            >
+              <DokumentasiCard dokumentasi={dok} index={index} />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
