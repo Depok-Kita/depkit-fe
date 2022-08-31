@@ -179,8 +179,10 @@ const DokumView = ({
                   ? "hidden"
                   : ""
               }
+    
                 
               tablet:mt-0 mobile:mt-4`}
+              key={index}
             >
               <DokumentasiCard dokumentasi={dok} index={index} />
             </div>

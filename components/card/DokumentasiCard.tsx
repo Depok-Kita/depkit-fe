@@ -4,9 +4,10 @@ import {
   BodyResponsive,
   HeaderResponsive,
   useWindowSize,
+  ShareLinkToClipboard,
 } from "@components";
 import { Dokumentasi } from "@models";
-import { PhotographIcon, PlayIcon, ShareIcon } from "@heroicons/react/outline";
+import { PhotographIcon, PlayIcon } from "@heroicons/react/outline";
 
 type DokumentasiCardProps = {
   dokumentasi: Dokumentasi;
@@ -28,18 +29,19 @@ export const DokumentasiCard = ({
   };
 
   return (
-    <Link href={`/dokumentasi/${dokumentasi.slug}`} key={index}>
-      <a>
-        <Card
-          preset="light"
-          className={`w-full ${className} desktop:h-[380px] tablet:h-[280px] mobile:h-[250px] desktop:p-4 tablet:p-[14px] mobile:p-4 relative cursor-pointer`}
-        >
-          <div
-            className="desktop:h-36 tablet:h-[40%] mobile:h-[55%] w-[90%] bg-cover bg-center opacity-80 absolute desktop:left-[15px] tablet:left-[11px] rounded-[9px]  "
-            style={{
-              backgroundImage: `url(${dokumentasi.photoUrls[0]})`,
-            }}
-          />
+    <Card
+      preset="light"
+      className={`w-full ${className} desktop:h-[380px] tablet:h-[280px] mobile:h-[250px] desktop:p-4 tablet:p-[14px] mobile:p-4 relative`}
+      key={index}
+    >
+      <div
+        className="desktop:h-36 tablet:h-[40%] mobile:h-[55%] w-[90%] bg-cover bg-center opacity-80 absolute desktop:left-[15px] tablet:left-[11px] rounded-[9px]  "
+        style={{
+          backgroundImage: `url(${dokumentasi.photoUrls[0]})`,
+        }}
+      />
+      <Link href={`/dokumentasi/${dokumentasi.slug}`}>
+        <a>
           <div className="desktop:pt-40 tablet:pt-32 mobile:pt-40">
             <BodyResponsive
               windowSize={windowSize}
@@ -59,47 +61,42 @@ export const DokumentasiCard = ({
             >
               {truncate(dokumentasi.title)}
             </HeaderResponsive>
-          </div>
-          <div className="mt-3 flex w-[85%] absolute justify-between bottom-4">
-            <div className="flex items-center desktop:gap-2 tablet:gap-0.5 mobile:gap-2">
-              <BodyResponsive
-                windowSize={windowSize}
-                preset="p3"
-                presetTablet="p2"
-                presetDesktop="p2"
-                className="text-cerulean  font-bold "
-              >
-                {dokumentasi.photoUrls.length}
-              </BodyResponsive>
-              <PhotographIcon className="w-5 h-5 stroke-cerulean" />
-            </div>
-            <div className="flex items-center desktop:gap-2 tablet:gap-0.5 mobile:gap-2">
-              <BodyResponsive
-                windowSize={windowSize}
-                preset="p3"
-                presetTablet="p2"
-                presetDesktop="p2"
-                className="text-cerulean  font-bold "
-              >
-                {dokumentasi.videoUrls.length}
-              </BodyResponsive>
-              <PlayIcon className="w-5 h-5 stroke-cerulean" />
-            </div>
-            <div className="flex items-center desktop:gap-2 tablet:gap-0.5 mobile:gap-2">
-              <ShareIcon className="w-5 h-5 stroke-denim-dark" />
-              <BodyResponsive
-                windowSize={windowSize}
-                preset="p3"
-                presetTablet="p2"
-                presetDesktop="p2"
-                className="text-denim-dark  font-bold "
-              >
-                Bagikan
-              </BodyResponsive>
-            </div>
-          </div>
-        </Card>
-      </a>
-    </Link>
+          </div>{" "}
+        </a>
+      </Link>
+      <div className="mt-3 flex w-[85%] absolute justify-between bottom-4">
+        <div className="flex items-center desktop:gap-2 tablet:gap-0.5 mobile:gap-2">
+          <BodyResponsive
+            windowSize={windowSize}
+            preset="p3"
+            presetTablet="p2"
+            presetDesktop="p2"
+            className="text-cerulean  font-bold "
+          >
+            {dokumentasi.photoUrls.length}
+          </BodyResponsive>
+          <PhotographIcon className="w-5 h-5 stroke-cerulean" />
+        </div>
+        <div className="flex items-center desktop:gap-2 tablet:gap-0.5 mobile:gap-2">
+          <BodyResponsive
+            windowSize={windowSize}
+            preset="p3"
+            presetTablet="p2"
+            presetDesktop="p2"
+            className="text-cerulean  font-bold "
+          >
+            {dokumentasi.videoUrls.length}
+          </BodyResponsive>
+          <PlayIcon className="w-5 h-5 stroke-cerulean" />
+        </div>
+        <div className="flex items-center desktop:gap-2 tablet:gap-0.5 mobile:gap-2">
+          {/* <ShareIcon className="w-5 h-5 stroke-denim-dark" /> */}
+          <ShareLinkToClipboard
+            className="right-0 top-1"
+            link={dokumentasi.slug}
+          />
+        </div>
+      </div>
+    </Card>
   );
 };

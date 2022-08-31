@@ -45,7 +45,9 @@ export const DokumentasiList = ({ dokumentasi }: DokumentasiListProps) => {
       </div>
       <div className="desktop:mt-12 tablet:mt-7 mobile:mt-4 grid desktop:grid-cols-4 tablet:grid-cols-3 mobile:grid-cols-1 desktop:gap-6 tablet:gap-4 mobile:gap-4">
         {dokumentasiSliced?.map((dok: Dokumentasi, index: number) => (
-          <DokumentasiCard dokumentasi={dok} index={index} />
+          <div key={index}>
+            <DokumentasiCard dokumentasi={dok} index={index} />
+          </div>
         ))}
       </div>
       <div className="flex justify-center tablet:mt-8 mobile:mt-4">

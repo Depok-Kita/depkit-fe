@@ -4,7 +4,7 @@ import { Toast } from "@components/toast";
 
 type ShareLinkToClipboardProps = {
   className?: string;
-  link?: any;
+  link: string;
   children?: React.ReactNode;
 };
 
