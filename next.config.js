@@ -6,7 +6,7 @@ module.exports = withReactSvg({
   },
   include: path.resolve(__dirname, "public/assets"),
   images: {
-    domains: ["api.depokkita.com", "localhost"],
+    domains: ["api.depokkita.com", "localhost", "res.cloudinary.com"],
   },
   experimental: {
     esmExternals: false,
