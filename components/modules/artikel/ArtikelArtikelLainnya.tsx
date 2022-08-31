@@ -5,6 +5,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useWindowSize } from "@hooks";
 import { Skeleton, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
+const removeMd = require("remove-markdown");
+
 type ArtikelArtikelLainnyaProps = {
   className?: string;
   // Prioritas total > filter (topic) > search
@@ -99,10 +101,20 @@ export const ArtikelArtikelLainnya = ({
     return date.slice(8) + "/" + date.slice(5, 7) + "/" + date.slice(0, 4);
   };
 
+  // https://npm.io/package/remove-markdown
+  // https://www.npmjs.com/package/remove-markdown
+  const articlesClear = artikelDitampilkan.map((article: any) => {
+    return {
+      ...article,
+      title: removeMd(article.title),
+      body: removeMd(article.body),
+    };
+  });
+
   if (mode == "normal") {
     return (
       <div className="flex flex-col">
-        {artikelDitampilkan.map((article: any) => (
+        {articlesClear.map((article: any) => (
           <Skeleton
             isLoaded={!articlesLoading}
             className={`${page === article.slug ? "hidden" : ""}`}
@@ -225,7 +237,7 @@ export const ArtikelArtikelLainnya = ({
     // Saat mode split
     return (
       <div className="grid grid-cols-2 gap-x-6">
-        {artikelDitampilkan.map((article: any) => (
+        {articlesClear.map((article: any) => (
           <Skeleton
             isLoaded={!articlesLoading}
             className={`${page === article.slug ? "hidden" : ""}`}
