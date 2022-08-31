@@ -1,0 +1,21 @@
+<svg width="48" height="235" viewBox="0 0 48 235" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.756836" y="47.3543" width="46.8" height="46.8" transform="rotate(-90 0.756836 47.3543)" fill="#213456"/>
+<rect x="0.756836" y="23.9543" width="23.4" height="46.8" transform="rotate(-90 0.756836 23.9543)" fill="#88BFE8"/>
+<mask id="mask0_404_1354" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
+<rect x="0.756836" y="47.3543" width="46.8" height="46.8" transform="rotate(-90 0.756836 47.3543)" fill="#F2FAFE"/>
+</mask>
+<g mask="url(#mask0_404_1354)">
+<circle cx="24.1568" cy="47.3543" r="23.4" transform="rotate(-90 24.1568 47.3543)" fill="#F2FAFE"/>
+<circle cx="24.1568" cy="0.554323" r="23.4" transform="rotate(-90 24.1568 0.554323)" fill="#F7D76A"/>
+</g>
+<rect x="47.5571" y="94.1543" width="46.8" height="46.8" transform="rotate(-180 47.5571 94.1543)" fill="#213456"/>
+<rect x="35.8569" y="82.4543" width="23.4" height="23.4" transform="rotate(-180 35.8569 82.4543)" fill="#F2FAFE"/>
+<rect x="47.5571" y="70.7543" width="23.4" height="23.4" transform="rotate(-180 47.5571 70.7543)" fill="#F2FAFE"/>
+<rect x="0.756836" y="94.1543" width="46.8" height="46.8" fill="#213456"/>
+<path d="M0.756836 140.954L47.5568 94.1543V140.954H0.756836Z" fill="#88BFE8"/>
+<rect x="0.756836" y="140.954" width="46.8" height="46.8" fill="#F7D76A"/>
+<rect x="7.61084" y="164.354" width="23.4" height="23.4" transform="rotate(-45 7.61084 164.354)" fill="#F2FAFE"/>
+<rect x="0.756836" y="187.754" width="46.8" height="46.8" fill="#F2FAFE"/>
+<circle cx="24.1568" cy="211.154" r="23.4" fill="#88BFE8"/>
+<circle cx="24.157" cy="211.154" r="11.7" fill="#F2FAFE"/>
+</svg>
