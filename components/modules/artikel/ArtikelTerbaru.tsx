@@ -95,6 +95,37 @@ export const ArtikelTerbaru = ({
     };
   });
 
+  // Membersihkan teks dari format dan nama suatu format seperti .jpg dst
+  const removedFileFormat = [".jpg", ".png", ".jpeg"];
+  const removeFormatFile = (body: string) => {
+    // Menyusun body baru
+    let bodyBaru = "";
+    for (let kata of body.split(" ")) {
+      let adaFormat = false;
+      for (let formt of removedFileFormat) {
+        if (kata.includes(formt)) {
+          adaFormat = true;
+          break;
+        }
+      }
+      // Kalau ditemukan format dalam kata tersebut maka dicontinue
+      if (adaFormat) {
+        continue;
+      } else {
+        // Kalau gaada ditambahkan ke bodyBaru
+        bodyBaru += kata + " ";
+      }
+    }
+    return bodyBaru;
+  };
+
+  const articlesFormatClear = articlesClear.map((article: any) => {
+    return {
+      ...article,
+      body: removeFormatFile(article.body),
+    };
+  });
+
   return (
     <div className="flex justify-center bg-powder mobile:py-4 tablet:py-14">
       <div className="flex flex-col gap-2 w-full">
@@ -107,7 +138,7 @@ export const ArtikelTerbaru = ({
           </Body>
         </div>
         <div className="flex flex-col">
-          {articlesClear.map((article: any) => (
+          {articlesFormatClear.map((article: any) => (
             <div
               className="flex justify-center py-1 tablet:py-[6px] desktop:py-[10px]"
               key={article.id}

@@ -111,10 +111,41 @@ export const ArtikelArtikelLainnya = ({
     };
   });
 
+  // Membersihkan teks dari format dan nama suatu format seperti .jpg dst
+  const removedFileFormat = [".jpg", ".png", ".jpeg"];
+  const removeFormatFile = (body: string) => {
+    // Menyusun body baru
+    let bodyBaru = "";
+    for (let kata of body.split(" ")) {
+      let adaFormat = false;
+      for (let formt of removedFileFormat) {
+        if (kata.includes(formt)) {
+          adaFormat = true;
+          break;
+        }
+      }
+      // Kalau ditemukan format dalam kata tersebut maka dicontinue
+      if (adaFormat) {
+        continue;
+      } else {
+        // Kalau gaada ditambahkan ke bodyBaru
+        bodyBaru += kata + " ";
+      }
+    }
+    return bodyBaru;
+  };
+
+  const articlesFormatClear = articlesClear.map((article: any) => {
+    return {
+      ...article,
+      body: removeFormatFile(article.body),
+    };
+  });
+
   if (mode == "normal") {
     return (
       <div className="flex flex-col">
-        {articlesClear.map((article: any) => (
+        {articlesFormatClear.map((article: any) => (
           <Skeleton
             isLoaded={!articlesLoading}
             className={`${page === article.slug ? "hidden" : ""}`}
@@ -237,7 +268,7 @@ export const ArtikelArtikelLainnya = ({
     // Saat mode split
     return (
       <div className="grid grid-cols-2 gap-x-6">
-        {articlesClear.map((article: any) => (
+        {articlesFormatClear.map((article: any) => (
           <Skeleton
             isLoaded={!articlesLoading}
             className={`${page === article.slug ? "hidden" : ""}`}
