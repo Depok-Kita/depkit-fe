@@ -62,7 +62,7 @@ export const ArtikelSemuaArtikel = ({
               mode="normal"
               bodyPage={false}
             />
-            <div className="flex justify-center pb-10 pt-6 pb-24">
+            <div className="flex justify-center pb-10 pt-6">
               <Button
                 preset="secondaryLight"
                 className="h-[60px] w-[180px]"

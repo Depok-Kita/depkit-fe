@@ -82,6 +82,7 @@ const Details = (artikel: any) => {
                   width={width >= 768 ? 560 : 270}
                   height={width >= 768 ? 340 : 180}
                   className="rounded-lg tablet:rounded-3xl"
+                  objectFit="cover"
                 />
               </div>
               {/* BADAN ARTIKEL */}
@@ -152,6 +153,7 @@ const Details = (artikel: any) => {
                       width={width >= 1280 ? 600 : width >= 768 ? 560 : 270}
                       height={width >= 1280 ? 370 : width >= 768 ? 340 : 180}
                       className="rounded-lg tablet:rounded-3xl"
+                      objectFit="cover"
                     />
                   </div>
                   {/* BADAN ARTIKEL */}
