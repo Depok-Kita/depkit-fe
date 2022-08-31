@@ -3,6 +3,8 @@ import { Header, Body, Card, ShareLinkToClipboard } from "@components";
 import Link from "next/link";
 import Image from "next/image";
 import { useWindowSize } from "@hooks";
+import ReactMarkdown from "react-markdown";
+const removeMd = require("remove-markdown");
 
 type ArtikelTerbaruProps = {
   className?: string;
@@ -41,6 +43,58 @@ export const ArtikelTerbaru = ({
     return date.slice(8) + "/" + date.slice(5, 7) + "/" + date.slice(0, 4);
   };
 
+  // SOLUSI 1 : Rumit
+  // Method untuk reverse string
+  // function reverseString(str: string) {
+  //   let result = "";
+  //   let i = str.length - 1;
+
+  //   while (i >= 0) {
+  //     result += str[i];
+  //     i--;
+  //   }
+  //   return result;
+  // }
+  // Markdown checker (untuk satu character yang tidak ada pasangannya)
+  // Kalau tidak ada maka gunakan "none"
+  // Iterasi karakter yang sudah dibalik (dapatkan code check markdown terakhir)
+  // let lastMarkdown = "";
+  // const checkLastMarkdown = (body: string) => {
+  //   for (let ch of reverseString(body)) {
+  //     if (ch === "_" || ch === "*" || ch === "<u>" || ch === "</u>") {
+  //       // masalahnya char ini juga cuma mengambil satu char aja
+  //       lastMarkdown = ch;
+  //       break;
+  //     }
+  //   }
+  //   lastMarkdown = "none";
+  // };
+  // // Mendapatkan karakter markdown kedua dari belakang
+  // let secondLastMarkdown = "";
+  // const checkSecondLastMarkdown = (body: string) => {
+  //   for (let ch of reverseString(body)) {
+  //     if (ch === "_" || ch === "*" || ch === "<u>" || ch === "</u>") {
+  //       secondLastMarkdown = ch;
+  //       break;
+  //     }
+  //   }
+  //   secondLastMarkdown = "none";
+  // };
+  // const lastSingleMarkdown = new Array();
+  // for (let article of articles) {
+  // }
+
+  // SOLUSI 2 : Remove Markdown Char
+  // https://npm.io/package/remove-markdown
+  // https://www.npmjs.com/package/remove-markdown
+  const articlesClear = artikelTerbaru.map((article: any) => {
+    return {
+      ...article,
+      title: removeMd(article.title),
+      body: removeMd(article.body),
+    };
+  });
+
   return (
     <div className="flex justify-center bg-powder mobile:py-4 tablet:py-14">
       <div className="flex flex-col gap-2 w-full">
@@ -53,7 +107,7 @@ export const ArtikelTerbaru = ({
           </Body>
         </div>
         <div className="flex flex-col">
-          {artikelTerbaru.map((article: any) => (
+          {articlesClear.map((article: any) => (
             <div
               className="flex justify-center py-1 tablet:py-[6px] desktop:py-[10px]"
               key={article.id}
@@ -81,6 +135,7 @@ export const ArtikelTerbaru = ({
                         width={width >= 1280 ? 240 : width >= 768 ? 165 : 85}
                         height={width >= 1280 ? 170 : width >= 768 ? 100 : 60}
                         className="rounded-md tablet:rounded-xl desktop:rounded-2xl"
+                        objectFit="cover"
                       />
                       <div className="text-left mobile:max-w-[150px] tablet:max-w-[380px] tablet:pl-2 desktop:max-w-[680px]">
                         <Body
@@ -95,9 +150,11 @@ export const ArtikelTerbaru = ({
                           }
                         >
                           {/* Handle title yang terlalu panjang */}
-                          {article?.title.length >= 40
-                            ? article?.title.slice(0, 40) + " ..."
-                            : article?.title}
+                          <ReactMarkdown>
+                            {article?.title.length >= 40
+                              ? article?.title.slice(0, 40) + " ..."
+                              : article?.title}
+                          </ReactMarkdown>
                         </Body>
                         {width >= 1280 ? (
                           <Body preset="p2" className="text-[14px]">
