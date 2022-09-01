@@ -5,6 +5,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useWindowSize } from "@hooks";
 import { Skeleton, SkeletonCircle, SkeletonText } from "@chakra-ui/react";
+const removeMd = require("remove-markdown");
+
 type ArtikelArtikelLainnyaProps = {
   className?: string;
   // Prioritas total > filter (topic) > search
@@ -99,10 +101,51 @@ export const ArtikelArtikelLainnya = ({
     return date.slice(8) + "/" + date.slice(5, 7) + "/" + date.slice(0, 4);
   };
 
+  // https://npm.io/package/remove-markdown
+  // https://www.npmjs.com/package/remove-markdown
+  const articlesClear = artikelDitampilkan.map((article: any) => {
+    return {
+      ...article,
+      title: removeMd(article.title),
+      body: removeMd(article.body),
+    };
+  });
+
+  // Membersihkan teks dari format dan nama suatu format seperti .jpg dst
+  const removedFileFormat = [".jpg", ".png", ".jpeg"];
+  const removeFormatFile = (body: string) => {
+    // Menyusun body baru
+    let bodyBaru = "";
+    for (let kata of body.split(" ")) {
+      let adaFormat = false;
+      for (let formt of removedFileFormat) {
+        if (kata.includes(formt)) {
+          adaFormat = true;
+          break;
+        }
+      }
+      // Kalau ditemukan format dalam kata tersebut maka dicontinue
+      if (adaFormat) {
+        continue;
+      } else {
+        // Kalau gaada ditambahkan ke bodyBaru
+        bodyBaru += kata + " ";
+      }
+    }
+    return bodyBaru;
+  };
+
+  const articlesFormatClear = articlesClear.map((article: any) => {
+    return {
+      ...article,
+      body: removeFormatFile(article.body),
+    };
+  });
+
   if (mode == "normal") {
     return (
       <div className="flex flex-col">
-        {artikelDitampilkan.map((article: any) => (
+        {articlesFormatClear.map((article: any) => (
           <Skeleton
             isLoaded={!articlesLoading}
             className={`${page === article.slug ? "hidden" : ""}`}
@@ -210,6 +253,7 @@ export const ArtikelArtikelLainnya = ({
                             : 60
                         }
                         className="rounded-md tablet:rounded-xl "
+                        objectFit="cover"
                       />
                     </div>
                   </Link>
@@ -224,7 +268,7 @@ export const ArtikelArtikelLainnya = ({
     // Saat mode split
     return (
       <div className="grid grid-cols-2 gap-x-6">
-        {artikelDitampilkan.map((article: any) => (
+        {articlesFormatClear.map((article: any) => (
           <Skeleton
             isLoaded={!articlesLoading}
             className={`${page === article.slug ? "hidden" : ""}`}
@@ -269,6 +313,7 @@ export const ArtikelArtikelLainnya = ({
                         width={85}
                         height={60}
                         className="rounded-md"
+                        objectFit="cover"
                       />
                     </div>
                   </Link>
