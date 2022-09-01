@@ -29,6 +29,7 @@ import {
   DownloadIcon,
 } from "@heroicons/react/solid";
 import { PlayIcon } from "@heroicons/react/outline";
+import UliranArticles from "@images/uliran-articles.svg";
 
 const DokumPage = () => {
   const router = useRouter();
@@ -163,6 +164,9 @@ const DokumView = ({
           onSwiper={setThumbSwiper}
           activeIndex={activeIndex}
         />
+        <div className="flex justify-center py-4">
+          <UliranArticles className="tabldfdfdfet:w-[600px]" />
+        </div>
       </SectionBox>{" "}
       <div className="h-full bg-powder desktop:px-52 tablet:px-20 mobile:px-10 desktop:pt-[50px] tablet:pt-7 mobile:pt-4 desktop:pb-36 tablet:pb-28 mobile:pb-20">
         <Header
