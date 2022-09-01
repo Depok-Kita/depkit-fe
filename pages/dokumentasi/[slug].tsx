@@ -52,22 +52,18 @@ const DokumPage = () => {
   if (isLoading || isDokumLainnyaLoading) return <LoadingScreen />;
   return (
     <div className="mobile:pt-24 tablet:pt-36 desktop:pt-20 bg-powder-light">
-      {dokum && <DokumView dokum={dokum} dokumLainnya={dokumLainnya} />}
+      {dokum && <DokumView dokum={dokum} />}
+      {dokum && dokumLainnya && (
+        <OtherDokumSection dokum={dokum} dokumLainnya={dokumLainnya} />
+      )}
     </div>
   );
 };
 
 export default DokumPage;
 
-const DokumView = ({
-  dokum,
-  dokumLainnya,
-}: {
-  dokum: Dokumentasi;
-  dokumLainnya?: Dokumentasi[];
-}) => {
+const DokumView = ({ dokum }: { dokum: Dokumentasi }) => {
   const windowSize = useWindowSize();
-  const { width } = useWindowSize();
   const [mainSwiper, setMainSwiper] = useState<SwiperController>();
   const [thumbSwiper, setThumbSwiper] = useState<SwiperController>();
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -83,7 +79,7 @@ const DokumView = ({
   };
   return (
     <div className="">
-      <SectionBox className="w-[min(64rem,80%)]">
+      <SectionBox className="w-[min(64rem,80%)] desktop:pt-10">
         <Link href="/dokumentasi">
           <div className="rounded-full w-10 desktop:w-12 bg-[#F2FAFE]  inline-block drop-shadow-2xl">
             <ChevronLeftIcon className="text-denim-light cursor-pointer" />
@@ -168,7 +164,22 @@ const DokumView = ({
           <UliranArticles className="tabldfdfdfet:w-[600px]" />
         </div>
       </SectionBox>{" "}
-      <div className="h-full bg-powder desktop:px-52 tablet:px-20 mobile:px-10 desktop:pt-[50px] tablet:pt-7 mobile:pt-4 desktop:pb-36 tablet:pb-28 mobile:pb-20">
+    </div>
+  );
+};
+
+const OtherDokumSection = ({
+  dokum, // current viewed dokum
+  dokumLainnya,
+}: {
+  dokum: Dokumentasi;
+  dokumLainnya: Dokumentasi[];
+}) => {
+  const { width } = useWindowSize();
+  const windowSize = useWindowSize();
+  return (
+    <div className="mx-auto w-[min(64rem,80%)]">
+      <div className="h-full bg-powder desktop:px-52 tablet:px-20 mobile:px-10 desktop:pt-[50px] tablet:pt-7 mobile:pt-4 desktop:pb-36 tablet:pb-28 mobile:pb-20 ">
         <Header
           windowSize={windowSize}
           preset="h5"
@@ -186,9 +197,9 @@ const DokumView = ({
                   ? "hidden"
                   : ""
               }
-    
-                
-              tablet:mt-0 mobile:mt-4`}
+
+          
+        tablet:mt-0 mobile:mt-4`}
               key={index}
             >
               <DokumentasiCard dokumentasi={dok} index={index} />
