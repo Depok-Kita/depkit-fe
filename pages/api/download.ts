@@ -1,21 +1,25 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
+import { getFileName } from "@utils";
 
 /**
  * download file from strapi in /uploads
  * Use this if you can't directly download from strapi
  * params:
- * - fileName (string): strapi filename, ex: "my-file.png"
+ * - fileUrl: file url, eg. http://server.com/file/filename.png
  */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const fileName = <string>req.query.fileName;
-  res.setHeader("content-disposition", "attachment; filename=" + fileName);
+  const fileUrl = <string>req.query.fileUrl;
+  res.setHeader(
+    "content-disposition",
+    "attachment; filename=" + getFileName(fileUrl)
+  );
 
   axios
-    .get(`${process.env.NEXT_PUBLIC_API_STRAPI}/uploads/${fileName}`, {
+    .get(`${fileUrl}`, {
       responseType: "stream",
     })
     .then(function (response) {
