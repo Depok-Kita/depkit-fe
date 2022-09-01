@@ -71,6 +71,9 @@ const DokumView = ({
   const [thumbSwiper, setThumbSwiper] = useState<SwiperController>();
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const getActiveMedia = () => {
+    if (activeIndex >= dokum.photoUrls.length) {
+      return dokum.videoUrls[activeIndex - dokum.photoUrls.length];
+    }
     return dokum.photoUrls[activeIndex];
   };
   const saveDokum = () => {
