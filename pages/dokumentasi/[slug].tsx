@@ -178,7 +178,7 @@ const OtherDokumSection = ({
   const { width } = useWindowSize();
   const windowSize = useWindowSize();
   return (
-    <div className="mx-auto w-[min(64rem,80%)]">
+    <div className="mx-auto ">
       <div className="h-full bg-powder desktop:px-52 tablet:px-20 mobile:px-10 desktop:pt-[50px] tablet:pt-7 mobile:pt-4 desktop:pb-36 tablet:pb-28 mobile:pb-20 ">
         <Header
           windowSize={windowSize}
