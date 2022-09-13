@@ -227,7 +227,7 @@ export const ArtikelArtikelLainnya = ({
                           : "absolute bottom-3 right-0 w-6"
                         : "right-24"
                     }
-                    link={article.slug}
+                    link={"article/" + article.slug}
                   />
                   <Link href={"/artikel/" + article?.slug}>
                     <div className={width >= 1280 && !bodyPage ? "pt-6" : ""}>

@@ -93,7 +93,7 @@ export const DokumentasiCard = ({
           {/* <ShareIcon className="w-5 h-5 stroke-denim-dark" /> */}
           <ShareLinkToClipboard
             className="right-0 top-1"
-            link={dokumentasi.slug}
+            link={"dokumentasi/" + dokumentasi.slug}
           />
         </div>
       </div>

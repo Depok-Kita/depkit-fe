@@ -40,7 +40,7 @@ export const ShareLinkToClipboard = ({
       <ClipboardCheckIcon
         className={className + " w-5 absolute bottom-4 hover:cursor-pointer"}
         onClick={() => {
-          navigator.clipboard.writeText(WEBSITE_URL + "/artikel/" + link);
+          navigator.clipboard.writeText(WEBSITE_URL + "/" + link);
         }}
       />
     );
