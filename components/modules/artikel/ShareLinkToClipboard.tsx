@@ -21,7 +21,7 @@ export const ShareLinkToClipboard = ({
   });
 
   const shareClickHandler = () => {
-    navigator.clipboard.writeText(WEBSITE_URL + "/artikel/" + link);
+    navigator.clipboard.writeText(WEBSITE_URL + "/" + link);
     setIsCopied(true);
     successToast();
     setTimeout(() => setIsCopied(false), 6000);
