@@ -34,14 +34,14 @@ export const DokumentasiCard = ({
       className={`w-full ${className} desktop:h-[380px] tablet:h-[280px] mobile:h-[250px] desktop:p-4 tablet:p-[14px] mobile:p-4 relative`}
       key={index}
     >
-      <div
-        className="desktop:h-36 tablet:h-[40%] mobile:h-[55%] w-[90%] bg-cover bg-center opacity-80 absolute desktop:left-[15px] tablet:left-[11px] rounded-[9px]  "
-        style={{
-          backgroundImage: `url(${dokumentasi.photoUrls[0]})`,
-        }}
-      />
       <Link href={`/dokumentasi/${dokumentasi.slug}`}>
         <a>
+          <div
+            className="desktop:h-36 tablet:h-[40%] mobile:h-[55%] w-[90%] bg-cover bg-center opacity-80 absolute desktop:left-[15px] tablet:left-[11px] rounded-[9px]  "
+            style={{
+              backgroundImage: `url(${dokumentasi.photoUrls[0]})`,
+            }}
+          />
           <div className="desktop:pt-40 tablet:pt-32 mobile:pt-40">
             <BodyResponsive
               windowSize={windowSize}
