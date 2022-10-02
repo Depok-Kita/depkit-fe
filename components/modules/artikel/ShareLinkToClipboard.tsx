@@ -4,7 +4,7 @@ import { Toast } from "@components/toast";
 
 type ShareLinkToClipboardProps = {
   className?: string;
-  link?: any;
+  link: string;
   children?: React.ReactNode;
 };
 
@@ -21,7 +21,7 @@ export const ShareLinkToClipboard = ({
   });
 
   const shareClickHandler = () => {
-    navigator.clipboard.writeText(WEBSITE_URL + "/artikel/" + link);
+    navigator.clipboard.writeText(WEBSITE_URL + "/" + link);
     setIsCopied(true);
     successToast();
     setTimeout(() => setIsCopied(false), 6000);
@@ -40,7 +40,7 @@ export const ShareLinkToClipboard = ({
       <ClipboardCheckIcon
         className={className + " w-5 absolute bottom-4 hover:cursor-pointer"}
         onClick={() => {
-          navigator.clipboard.writeText(WEBSITE_URL + "/artikel/" + link);
+          navigator.clipboard.writeText(WEBSITE_URL + "/" + link);
         }}
       />
     );
