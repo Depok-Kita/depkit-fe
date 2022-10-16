@@ -33,7 +33,7 @@ export const SponsorContactPerson = () => {
         <br />
         <div className="flex justify-start mobile:pl-2 tablet:pl-20">
           {/* https//wa.me/{phone number} */}
-          <a href="https://wa.me/08118460564">
+          <a href="https://wa.me/082211534953">
             <button className="mobile:w-[250px] tablet:w-[490px] absolute border-none">
               <div className="flex gap-2 items-center">
                 <ChatIcon className="mobile:w-7" />
@@ -41,7 +41,7 @@ export const SponsorContactPerson = () => {
                   preset="b1"
                   className="mobile:text-[14px] tablet:text-[24px]"
                 >
-                  Zahrin Tsabita (Media Partner)
+                  Rianti Gina Violeta (Media Partner)
                 </Body>
               </div>
             </button>
