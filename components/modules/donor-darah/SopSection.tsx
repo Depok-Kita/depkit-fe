@@ -67,8 +67,8 @@ export const SopSection = () => {
             <b>minimal 60 hari</b>
           </li>
           <li>
-            <b>Bersedia hadir</b> di lokasi donor darah, yaitu Masjid
-            Baiturrahman Kp Lio, Depok
+            <b>Bersedia hadir</b> PMI Depok dengan akomodasi transport dari
+            panitia Depok Kita
           </li>
         </ol>
       </div>
